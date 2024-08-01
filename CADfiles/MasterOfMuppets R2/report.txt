@@ -1,0 +1,61 @@
+Info: Processing symbol 'C1:Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm'.
+Info: Processing symbol 'C2:Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm'.
+Info: Processing symbol 'C3:Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm'.
+Info: Processing symbol 'C4:Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm'.
+Info: Processing symbol 'C5:Capacitor_THT:C_Disc_D5.0mm_W2.5mm_P5.00mm'.
+Info: Processing symbol 'DAC0:Package_SO:MSOP-10_3x3mm_P0.5mm'.
+Info: Processing symbol 'DAC1:Package_SO:MSOP-10_3x3mm_P0.5mm'.
+Info: Processing symbol 'Eurorack1:Connector_IDC:IDC-Header_2x08_P2.54mm_Vertical'.
+Info: Processing symbol 'OpAmp0:Package_DIP:DIP-14_W7.62mm_Socket'.
+Info: Processing symbol 'OpAmp1:Package_DIP:DIP-14_W7.62mm_Socket'.
+Info: Processing symbol 'OUT_CV_0:ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S'.
+Info: Processing symbol 'R25:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'OUT_CV_1:ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S'.
+Info: Processing symbol 'R26:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'OUT_CV_2:ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S'.
+Info: Processing symbol 'R27:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'OUT_CV_3:ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S'.
+Info: Processing symbol 'R28:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'OUT_CV_4:ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S'.
+Info: Processing symbol 'R29:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'OUT_CV_5:ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S'.
+Info: Processing symbol 'R30:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'OUT_CV_6:ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S'.
+Info: Processing symbol 'T4_1:teensy.pretty-master:Teensy41'.
+Info: Processing symbol 'OUT_CV_7:ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S'.
+Info: Processing symbol 'V_REG1:Package_TO_SOT_SMD:SOT-223-3_TabPin2'.
+Info: Processing symbol 'R1:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R2:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R3:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R4:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R5:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R6:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R7:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R8:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R9:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R10:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R11:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R12:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R13:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R14:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R15:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R16:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R17:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R18:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R19:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R20:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R21:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R22:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R23:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Info: Processing symbol 'R24:Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P5.08mm_Horizontal'.
+Error: Cannot add OUT_CV_0 (footprint 'ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S' not found).
+Error: Cannot add OUT_CV_1 (footprint 'ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S' not found).
+Error: Cannot add OUT_CV_2 (footprint 'ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S' not found).
+Error: Cannot add OUT_CV_3 (footprint 'ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S' not found).
+Error: Cannot add OUT_CV_4 (footprint 'ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S' not found).
+Error: Cannot add OUT_CV_5 (footprint 'ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S' not found).
+Error: Cannot add OUT_CV_6 (footprint 'ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S' not found).
+Error: Cannot add OUT_CV_7 (footprint 'ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S' not found).
+
+
+Info: Total warnings: 0, errors: 8.

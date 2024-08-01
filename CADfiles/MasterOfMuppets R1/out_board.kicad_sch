@@ -1,0 +1,797 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "8a121613-6206-4a8f-bc64-a4d75a1a91ef")
+	(paper "A4")
+	(title_block
+		(title "MasterOfMuppets")
+		(rev "0.0.0")
+		(company "y3i12")
+	)
+	(lib_symbols
+		(symbol "ACJM-MV35-2S:ACJM-MV35-2S"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at -5.08 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left bottom)
+				)
+			)
+			(property "Value" "ACJM-MV35-2S"
+				(at -5.08 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "PARTREV" "2"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "SNAPEDA_PN" "ACJM-MV35-2S"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "STANDARD" "Manufacturer Recommendations"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MAXIMUM_PACKAGE_HEIGHT" "28.0mm"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(property "MANUFACTURER" "Amphenol Sine Systems"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+					(hide yes)
+				)
+			)
+			(symbol "ACJM-MV35-2S_0_0"
+				(polyline
+					(pts
+						(xy -5.715 -0.635) (xy -5.08 -0.635)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.715 3.81) (xy -5.715 -0.635)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.08 -2.54) (xy -5.08 -0.635)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.08 -0.635) (xy -4.445 -0.635)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -4.445 -0.635) (xy -4.445 3.81)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -4.445 3.81) (xy -5.715 3.81)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 0.635) (xy -2.54 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 0) (xy -1.905 0.635)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 2.54) (xy 1.27 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 -2.54) (xy -5.08 -2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 1.27 2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at 7.62 -2.54 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 2.54 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "power:GNDREF"
+			(power)
+			(pin_numbers hide)
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "GNDREF"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "GNDREF_0_1"
+				(polyline
+					(pts
+						(xy -0.635 -1.905) (xy 0.635 -1.905)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.127 -2.54) (xy 0.127 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.27) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.27) (xy -1.27 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "GNDREF_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 73.66 120.65) (xy 71.12 120.65)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0950ba9e-7ae2-4e6e-bb4b-a9a8f665c00f")
+	)
+	(wire
+		(pts
+			(xy 71.12 120.65) (xy 71.12 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b0a149eb-dcc2-4c2a-b70e-566fbf781e4f")
+	)
+	(hierarchical_label "CV_[1..12]"
+		(shape input)
+		(at 73.66 118.11 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "3d887d3a-0f67-4834-807f-aa0b3393ed62")
+	)
+	(symbol
+		(lib_id "ACJM-MV35-2S:ACJM-MV35-2S")
+		(at 81.28 118.11 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1cff2362-6314-47ef-a806-fddc108e177f")
+		(property "Reference" "OUT_CV7"
+			(at 81.5975 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "ACJM-MV35-2S"
+			(at 81.5975 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "PCM_4ms_Jack:ACJM-MV35-2S_Mono_Vert_Switch"
+			(at 81.28 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 81.28 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 81.28 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "PARTREV" "2"
+			(at 81.28 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "SNAPEDA_PN" "ACJM-MV35-2S"
+			(at 81.28 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "STANDARD" "Manufacturer Recommendations"
+			(at 81.28 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MAXIMUM_PACKAGE_HEIGHT" "28.0mm"
+			(at 81.28 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "MANUFACTURER" "Amphenol Sine Systems"
+			(at 81.28 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify bottom)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" ""
+			(at 81.28 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Part Number" ""
+			(at 81.28 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Specifications" ""
+			(at 81.28 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "d5d96026-fe7f-4efb-b04a-ffeecc4c4a9b")
+		)
+		(pin "3"
+			(uuid "0942ec48-b42e-41d0-832b-76f881605f91")
+		)
+		(pin "1"
+			(uuid "2fff98c8-1af6-4da5-835d-85363f9643b9")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/36af3a73-cfb6-4636-bb57-be4bb7b89f09"
+					(reference "OUT_CV7")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/fd9ac3d0-2bcc-44f7-bcd2-0c9d95060714"
+					(reference "OUT_CV5")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/7360befe-3826-4d10-802c-8246e9a9734d"
+					(reference "OUT_CV6")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/c861857b-3772-4ca9-9413-8c177b06aa70"
+					(reference "OUT_CV8")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/ba3ec192-1fd8-4a14-aa6e-081fba87e0ef"
+					(reference "OUT_CV2")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/510de3e6-6603-4e39-950a-06a989c582e1"
+					(reference "OUT_CV1")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/393e1fde-6ba8-42a2-bf6b-b109aeb83e09"
+					(reference "OUT_CV4")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/cd31279c-222b-4662-be0f-052037f00edd"
+					(reference "OUT_CV3")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/9f72af4d-d525-4df9-8c53-55d21f56ffcf"
+					(reference "OUT_CV10")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/0837d1e8-7c7b-4406-8494-17fb59d5c21b"
+					(reference "OUT_CV9")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/b9f30ca6-5edd-48d4-8e87-7d04cdaedfba"
+					(reference "OUT_CV11")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/a01e1cee-f659-4177-8d90-4d50a13243ba"
+					(reference "OUT_CV12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDREF")
+		(at 71.12 123.19 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "35c2d572-3e77-475e-86d5-b9d9984b7fc9")
+		(property "Reference" "#PWR027"
+			(at 71.12 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 71.12 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 71.12 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 71.12 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+			(at 71.12 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1409414f-0633-4382-ae57-5b8a0a52b1bf")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/36af3a73-cfb6-4636-bb57-be4bb7b89f09"
+					(reference "#PWR027")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/fd9ac3d0-2bcc-44f7-bcd2-0c9d95060714"
+					(reference "#PWR044")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/7360befe-3826-4d10-802c-8246e9a9734d"
+					(reference "#PWR045")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/c861857b-3772-4ca9-9413-8c177b06aa70"
+					(reference "#PWR046")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/ba3ec192-1fd8-4a14-aa6e-081fba87e0ef"
+					(reference "#PWR047")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/510de3e6-6603-4e39-950a-06a989c582e1"
+					(reference "#PWR048")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/393e1fde-6ba8-42a2-bf6b-b109aeb83e09"
+					(reference "#PWR049")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/cd31279c-222b-4662-be0f-052037f00edd"
+					(reference "#PWR050")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/9f72af4d-d525-4df9-8c53-55d21f56ffcf"
+					(reference "#PWR051")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/0837d1e8-7c7b-4406-8494-17fb59d5c21b"
+					(reference "#PWR052")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/b9f30ca6-5edd-48d4-8e87-7d04cdaedfba"
+					(reference "#PWR053")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/a01e1cee-f659-4177-8d90-4d50a13243ba"
+					(reference "#PWR054")
+					(unit 1)
+				)
+			)
+		)
+	)
+)

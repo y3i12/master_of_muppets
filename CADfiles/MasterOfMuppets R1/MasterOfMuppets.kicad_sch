@@ -1,0 +1,1745 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "01709e3c-d295-4eba-a9f6-77b38e73bd4a")
+	(paper "A4")
+	(title_block
+		(title "MasterOfMuppets")
+		(date "localtime();")
+		(rev "0.0.0")
+		(company "y3i12")
+	)
+	(lib_symbols)
+	(wire
+		(pts
+			(xy 127 99.06) (xy 162.56 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "02ac4edb-8a9e-42f9-aa9b-f5600163d983")
+	)
+	(wire
+		(pts
+			(xy 25.4 111.76) (xy 25.4 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0d39066c-ee8b-4a70-acca-862d5977181d")
+	)
+	(wire
+		(pts
+			(xy 66.04 49.53) (xy 90.17 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0f6a2e9a-c8d7-433d-8a44-8acd54d18734")
+	)
+	(wire
+		(pts
+			(xy 33.02 106.68) (xy 33.02 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "193e3741-99d4-4a50-bc35-e1a4942f500a")
+	)
+	(wire
+		(pts
+			(xy 127 46.99) (xy 140.97 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a099976-cf50-4ec7-b5f1-3ac04d8e299b")
+	)
+	(wire
+		(pts
+			(xy 127 104.14) (xy 154.94 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a957fbc-5e04-4701-a6fa-17ea811f50a7")
+	)
+	(wire
+		(pts
+			(xy 127 54.61) (xy 140.97 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "20467503-66e9-45a8-b2ba-f0e11bc18b60")
+	)
+	(wire
+		(pts
+			(xy 55.88 49.53) (xy 55.88 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "23dd6729-0455-4a77-b9e0-d853040783d3")
+	)
+	(wire
+		(pts
+			(xy 35.56 104.14) (xy 35.56 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "299d9b41-2260-4c5f-9b8a-98246ed3886c")
+	)
+	(wire
+		(pts
+			(xy 135.89 106.68) (xy 135.89 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2a5c6fe8-1b32-41a8-9f68-8716b7ab5ce3")
+	)
+	(wire
+		(pts
+			(xy 90.17 101.6) (xy 38.1 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2d63168e-9aee-4333-82d7-a3247e61245d")
+	)
+	(wire
+		(pts
+			(xy 22.86 49.53) (xy 22.86 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32f15452-25d8-4671-af42-2bcc6479e4fa")
+	)
+	(wire
+		(pts
+			(xy 140.97 46.99) (xy 140.97 22.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3428a408-4a36-4a6e-b987-d07ad129b202")
+	)
+	(wire
+		(pts
+			(xy 90.17 106.68) (xy 33.02 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "36a42d72-2af4-4bc6-bef5-af0f88004d75")
+	)
+	(wire
+		(pts
+			(xy 53.34 49.53) (xy 53.34 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "39c3ee06-52fb-471c-a4f2-e57ae0a1b80a")
+	)
+	(wire
+		(pts
+			(xy 20.32 111.76) (xy 20.32 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3ee4aad5-b003-4798-ab1d-38080745266d")
+	)
+	(wire
+		(pts
+			(xy 78.74 116.84) (xy 78.74 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3f39fcef-b89c-42a2-ad03-8d46ef637138")
+	)
+	(wire
+		(pts
+			(xy 66.04 55.88) (xy 66.04 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "40a9361a-e0cb-4fc0-b5a3-a581551693c3")
+	)
+	(wire
+		(pts
+			(xy 63.5 46.99) (xy 90.17 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "49b21310-7ae4-40c4-b66d-636849ee4f55")
+	)
+	(wire
+		(pts
+			(xy 90.17 104.14) (xy 35.56 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4ed01faa-2f17-4582-93c7-1ed08625208e")
+	)
+	(wire
+		(pts
+			(xy 140.97 22.86) (xy 162.56 22.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4f7bd361-1e9d-4600-8e95-f66cec923620")
+	)
+	(wire
+		(pts
+			(xy 140.97 54.61) (xy 140.97 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "50ea048b-71c5-44ab-8798-075ac34e426c")
+	)
+	(wire
+		(pts
+			(xy 53.34 55.88) (xy 66.04 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "526129d7-c59a-4818-ae1e-57082852b536")
+	)
+	(wire
+		(pts
+			(xy 50.8 49.53) (xy 50.8 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a60a003-3094-43b7-90b4-1d25beb26d0d")
+	)
+	(wire
+		(pts
+			(xy 55.88 53.34) (xy 63.5 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "64a673dd-031b-43b2-8a97-48380fc34dfe")
+	)
+	(wire
+		(pts
+			(xy 127 49.53) (xy 143.51 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7137844f-7b15-47b2-a85b-f3017d42daec")
+	)
+	(wire
+		(pts
+			(xy 20.32 49.53) (xy 20.32 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7370b211-c105-4869-8528-2ede4056a13e")
+	)
+	(wire
+		(pts
+			(xy 154.94 104.14) (xy 154.94 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "77195790-a8da-44c8-9e86-7d73c810cac0")
+	)
+	(wire
+		(pts
+			(xy 22.86 119.38) (xy 59.69 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7a4f4419-cf3b-4b55-81b6-943e9f7b4097")
+	)
+	(wire
+		(pts
+			(xy 40.64 121.92) (xy 40.64 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7f08a70b-4541-42fd-b1ab-cd3c30fd5a8e")
+	)
+	(wire
+		(pts
+			(xy 59.69 119.38) (xy 59.69 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8100407a-1880-4a39-a361-f87e30e92c41")
+	)
+	(wire
+		(pts
+			(xy 40.64 99.06) (xy 40.64 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "86120931-8512-4015-87f1-7d3318df589f")
+	)
+	(wire
+		(pts
+			(xy 90.17 99.06) (xy 40.64 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8b3baaad-5ade-410c-957d-612add6ba5fe")
+	)
+	(wire
+		(pts
+			(xy 143.51 41.91) (xy 162.56 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8caf4ba1-b507-4a20-b593-fdab3ac867e8")
+	)
+	(wire
+		(pts
+			(xy 21.59 124.46) (xy 21.59 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8cef50e7-1d21-4a0c-ad59-591e8c4b57ad")
+	)
+	(wire
+		(pts
+			(xy 17.78 111.76) (xy 17.78 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8e34581e-f4ab-4929-ae63-77835f9db992")
+	)
+	(wire
+		(pts
+			(xy 22.86 111.76) (xy 22.86 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "93d0aa1c-1644-4acb-8e73-4e476f11eb84")
+	)
+	(wire
+		(pts
+			(xy 143.51 60.96) (xy 162.56 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9625bdc9-e8be-4ae0-bf3c-4f2e9f264e99")
+	)
+	(wire
+		(pts
+			(xy 71.12 54.61) (xy 90.17 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9664b2ae-c61f-4cfa-912f-51c53d361e62")
+	)
+	(wire
+		(pts
+			(xy 68.58 58.42) (xy 68.58 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9a9cd9d0-069d-4085-ad10-82552be5912d")
+	)
+	(wire
+		(pts
+			(xy 143.51 49.53) (xy 143.51 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9c10007f-3ee1-4de2-87ac-4bafac426f98")
+	)
+	(wire
+		(pts
+			(xy 143.51 52.07) (xy 143.51 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9c18ee29-8df6-48e3-82ef-c4428b37ad28")
+	)
+	(wire
+		(pts
+			(xy 127 52.07) (xy 143.51 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9d56fb23-e755-4676-b807-ec6020b84110")
+	)
+	(wire
+		(pts
+			(xy 50.8 58.42) (xy 68.58 58.42)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a47e02ef-8f2c-4b1c-998f-aadd6e7e0a33")
+	)
+	(wire
+		(pts
+			(xy 17.78 49.53) (xy 17.78 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a49803f1-7b92-48bb-b9f0-9efbbc9b9bd8")
+	)
+	(wire
+		(pts
+			(xy 71.12 60.96) (xy 71.12 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a4f8e482-aab0-4cf6-9d0e-454fadb7308e")
+	)
+	(wire
+		(pts
+			(xy 68.58 52.07) (xy 90.17 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a796a848-caa8-445f-90ad-fbe470dfeb90")
+	)
+	(wire
+		(pts
+			(xy 17.78 124.46) (xy 21.59 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a8aaffe1-53f1-45ff-958f-d0364757c4e4")
+	)
+	(wire
+		(pts
+			(xy 127 106.68) (xy 135.89 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a94d757b-b82c-4b9a-a129-b6206daa6846")
+	)
+	(wire
+		(pts
+			(xy 48.26 60.96) (xy 71.12 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "adc2c629-ba5f-4faf-9ad0-fcac939b13f9")
+	)
+	(wire
+		(pts
+			(xy 160.02 118.11) (xy 162.56 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "afaecd52-61c3-4092-b8b2-85da2b8e410c")
+	)
+	(wire
+		(pts
+			(xy 38.1 101.6) (xy 38.1 49.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b82e681b-d5b4-427c-8c1c-9cd6b707ab41")
+	)
+	(wire
+		(pts
+			(xy 20.32 121.92) (xy 40.64 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "be00a4eb-1f79-42f1-aac1-002939441464")
+	)
+	(wire
+		(pts
+			(xy 48.26 49.53) (xy 48.26 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c1772bc4-dad3-4043-abb6-20084c769916")
+	)
+	(wire
+		(pts
+			(xy 25.4 49.53) (xy 25.4 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c262b541-7fd1-44a2-85d5-d473041a3e50")
+	)
+	(wire
+		(pts
+			(xy 25.4 116.84) (xy 78.74 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c5398513-15b8-4edb-97e7-865ca8392fee")
+	)
+	(wire
+		(pts
+			(xy 127 101.6) (xy 160.02 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d00ce7e8-95fb-4132-b57a-0b4054819425")
+	)
+	(wire
+		(pts
+			(xy 160.02 101.6) (xy 160.02 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ddb68426-7edf-4551-80f1-fde72f803842")
+	)
+	(wire
+		(pts
+			(xy 140.97 80.01) (xy 162.56 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ebeb7ed7-5d45-4745-afde-7ae9740737ce")
+	)
+	(wire
+		(pts
+			(xy 63.5 53.34) (xy 63.5 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ee9619d3-97e0-43aa-b25e-55d2126c25f1")
+	)
+	(sheet
+		(at 162.56 54.61)
+		(size 38.1 12.7)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "0837d1e8-7c7b-4406-8494-17fb59d5c21b")
+		(property "Sheetname" "OUT_BOARD9"
+			(at 162.56 53.8984 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "out_board.kicad_sch"
+			(at 162.56 67.8946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CV_[1..12]" input
+			(at 162.56 60.96 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "ee3df290-3bd0-4e25-a466-0ee53c1ddc6a")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "15")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 90.17 44.45)
+		(size 36.83 12.7)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "29fb0b14-0262-4403-a2e8-21356c9efd47")
+		(property "Sheetname" "BOODOO_BOARD2"
+			(at 90.17 43.7384 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "boodoo_board.kicad_sch"
+			(at 90.17 57.7346 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CV_1" input
+			(at 127 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "0b4d0634-21be-4b28-8177-24759379ee46")
+		)
+		(pin "CV_4" input
+			(at 127 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "50a70cd0-b799-4b5c-8eff-706ddb5760d1")
+		)
+		(pin "CV_3" input
+			(at 127 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "16065955-3679-4196-b114-55067ffcba30")
+		)
+		(pin "CV_2" input
+			(at 127 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "88c4ddbf-d539-4a83-b17d-3ac537e6b0fa")
+		)
+		(pin "~{LDAC}" input
+			(at 90.17 49.53 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "3ecf85ad-404e-4c15-a408-147b62466d85")
+		)
+		(pin "SDA" input
+			(at 90.17 52.07 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "9eb39d24-6f37-4566-b64a-3be86b787485")
+		)
+		(pin "RDY_~{BSY}" input
+			(at 90.17 46.99 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "1a5c6ff8-a257-46ca-a389-5efd0bfb15f6")
+		)
+		(pin "SCL" input
+			(at 90.17 54.61 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "6c57f9f8-9afb-4bdc-8ac9-0b7fa9dec003")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 15.24 127)
+		(size 12.7 38.1)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "36af3a73-cfb6-4636-bb57-be4bb7b89f09")
+		(property "Sheetname" "OUT_BOARD"
+			(at 14.5284 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "out_board.kicad_sch"
+			(at 28.5246 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CV_[1..12]" input
+			(at 21.59 127 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "cd0f67b9-ad33-4419-b635-2632aae711d2")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 162.56 111.76)
+		(size 38.1 12.7)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "393e1fde-6ba8-42a2-bf6b-b109aeb83e09")
+		(property "Sheetname" "OUT_BOARD6"
+			(at 162.56 111.0484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "out_board.kicad_sch"
+			(at 162.56 125.0446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CV_[1..12]" input
+			(at 162.56 118.11 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "f524cf58-bddd-4746-b0d2-8b3097c65e1e")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "12")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 148.59 127)
+		(size 12.7 38.1)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "510de3e6-6603-4e39-950a-06a989c582e1")
+		(property "Sheetname" "OUT_BOARD5"
+			(at 147.8784 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "out_board.kicad_sch"
+			(at 161.8746 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CV_[1..12]" input
+			(at 154.94 127 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "7df1a3f0-2391-4768-a25f-fdef3b5931f8")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "11")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 90.17 96.52)
+		(size 36.83 12.7)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "5e8e99da-91a8-42d3-9874-13fc89de7535")
+		(property "Sheetname" "BOODOO_BOARD1"
+			(at 90.17 95.8084 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "boodoo_board.kicad_sch"
+			(at 90.17 109.8046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CV_1" input
+			(at 127 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "7c60126e-653e-496b-8599-92b952bf59cc")
+		)
+		(pin "CV_4" input
+			(at 127 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "5f7c48f7-4bf4-43de-a340-e0c879ea9841")
+		)
+		(pin "CV_3" input
+			(at 127 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "c81390be-6332-4ac4-bba4-f2f4895e311d")
+		)
+		(pin "CV_2" input
+			(at 127 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "8f02f555-f427-4b31-b502-6c6c58e4b28e")
+		)
+		(pin "~{LDAC}" input
+			(at 90.17 101.6 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "8235d7b2-7869-4e22-a089-bb0aff6345f3")
+		)
+		(pin "SDA" input
+			(at 90.17 104.14 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "50023d18-6566-4bd6-a869-f23cde2b9910")
+		)
+		(pin "RDY_~{BSY}" input
+			(at 90.17 99.06 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "95785496-ebfb-4a96-a79a-a43806649eda")
+		)
+		(pin "SCL" input
+			(at 90.17 106.68 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "d13f4980-2f18-4523-8d00-a61f61a39b65")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 15.24 74.93)
+		(size 12.7 36.83)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "60709206-8158-4f80-9acc-4f76df38190b")
+		(property "Sheetname" "BOODOO_BOARD"
+			(at 14.5284 111.76 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "boodoo_board.kicad_sch"
+			(at 28.5246 111.76 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CV_1" input
+			(at 17.78 111.76 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "748a56c1-b199-4739-8220-7ea1f79a5837")
+		)
+		(pin "CV_4" input
+			(at 25.4 111.76 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "4ce07b9d-770a-4c43-9abf-5e36514f7425")
+		)
+		(pin "CV_3" input
+			(at 22.86 111.76 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "5cdcb902-ceba-417b-abb2-1fd7f895b5ea")
+		)
+		(pin "CV_2" input
+			(at 20.32 111.76 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "75b86d38-59ac-43a1-b0be-90c6cbdc04e3")
+		)
+		(pin "~{LDAC}" input
+			(at 22.86 74.93 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "71391916-4a19-4ef3-b067-251a52f5289f")
+		)
+		(pin "SDA" input
+			(at 20.32 74.93 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "32847b4f-80d3-470b-b72e-6a69df62d334")
+		)
+		(pin "RDY_~{BSY}" input
+			(at 25.4 74.93 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "273c6ab4-db7f-40f6-84bc-3e52cb1365c1")
+		)
+		(pin "SCL" input
+			(at 17.78 74.93 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "472f2968-6fb2-463a-916a-4814d65926a2")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 53.34 127)
+		(size 12.7 38.1)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "7360befe-3826-4d10-802c-8246e9a9734d")
+		(property "Sheetname" "OUT_BOARD2"
+			(at 52.6284 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "out_board.kicad_sch"
+			(at 66.6246 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CV_[1..12]" input
+			(at 59.69 127 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "a6814dd2-d29b-4537-82dc-45a0b1db7b1e")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "8")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 15.24 13.97)
+		(size 43.18 35.56)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "9146edb4-d9ec-4eb9-99ec-c7182bcc31c9")
+		(property "Sheetname" "MAMA_BOARD"
+			(at 14.5284 49.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mama_board.kicad_sch"
+			(at 59.0046 49.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "SDA0" input
+			(at 20.32 49.53 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "2edba29d-a625-4a92-a662-73c00d6fe87f")
+		)
+		(pin "SDA1" input
+			(at 35.56 49.53 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "8dd225ff-6b2e-477d-88db-eea856b0ba94")
+		)
+		(pin "SCL1" input
+			(at 33.02 49.53 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "640330f6-c32e-46f0-a6ec-c506b5767d10")
+		)
+		(pin "SCL0" input
+			(at 17.78 49.53 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "2b70f906-5e25-462c-83be-f19b55c2776c")
+		)
+		(pin "~{LDAC}2" input
+			(at 53.34 49.53 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "8053c741-d082-4526-a3b2-6215339346ec")
+		)
+		(pin "RDY_~{BSY}0" input
+			(at 25.4 49.53 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "32105094-a55e-4718-896d-31f283020798")
+		)
+		(pin "RDY_~{BSY}1" input
+			(at 40.64 49.53 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "3c3c786f-4e4d-4804-b43e-0d850eb36a6a")
+		)
+		(pin "RDY_~{BSY}2" input
+			(at 55.88 49.53 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "dbf1e864-643d-44ce-b85e-ee7e6b8ea519")
+		)
+		(pin "~{LDAC}1" input
+			(at 38.1 49.53 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "afa1158c-9798-45ed-be2e-4f6dd0436af8")
+		)
+		(pin "SCL2" input
+			(at 48.26 49.53 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "bb89c15d-7b0c-4d3d-9270-e038c629c371")
+		)
+		(pin "SDA2" input
+			(at 50.8 49.53 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "664eece3-fe1c-435f-8dfd-da4730b42874")
+		)
+		(pin "~{LDAC}0" input
+			(at 22.86 49.53 270)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "01170bf3-59c4-440b-a483-629607bf510e")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "1")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 162.56 73.66)
+		(size 38.1 12.7)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "9f72af4d-d525-4df9-8c53-55d21f56ffcf")
+		(property "Sheetname" "OUT_BOARD8"
+			(at 162.56 72.9484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "out_board.kicad_sch"
+			(at 162.56 86.9446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CV_[1..12]" input
+			(at 162.56 80.01 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "15d943fc-ef00-4430-be28-5cbcd9f9f490")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "14")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 162.56 16.51)
+		(size 38.1 12.7)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "a01e1cee-f659-4177-8d90-4d50a13243ba")
+		(property "Sheetname" "OUT_BOARD11"
+			(at 162.56 15.7984 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "out_board.kicad_sch"
+			(at 162.56 29.7946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CV_[1..12]" input
+			(at 162.56 22.86 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "9aaa8cb2-c4bb-4be2-b631-bb81e9ac4361")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "17")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 162.56 35.56)
+		(size 38.1 12.7)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "b9f30ca6-5edd-48d4-8e87-7d04cdaedfba")
+		(property "Sheetname" "OUT_BOARD10"
+			(at 162.56 34.8484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "out_board.kicad_sch"
+			(at 162.56 48.8446 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CV_[1..12]" input
+			(at 162.56 41.91 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "bacebde6-214a-4c94-a610-768b5f9b537f")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "16")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 129.54 127)
+		(size 12.7 38.1)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "ba3ec192-1fd8-4a14-aa6e-081fba87e0ef")
+		(property "Sheetname" "OUT_BOARD4"
+			(at 128.8284 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "out_board.kicad_sch"
+			(at 142.8246 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CV_[1..12]" input
+			(at 135.89 127 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "2b9485b4-f0cd-40bc-8a8c-59e2118ba8c6")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "10")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 72.39 127)
+		(size 12.7 38.1)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "c861857b-3772-4ca9-9413-8c177b06aa70")
+		(property "Sheetname" "OUT_BOARD3"
+			(at 71.6784 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "out_board.kicad_sch"
+			(at 85.6746 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CV_[1..12]" input
+			(at 78.74 127 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "5a9df44c-93b6-4f15-a37a-139de31ee523")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "9")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 162.56 92.71)
+		(size 38.1 12.7)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "cd31279c-222b-4662-be0f-052037f00edd")
+		(property "Sheetname" "OUT_BOARD7"
+			(at 162.56 91.9984 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "out_board.kicad_sch"
+			(at 162.56 105.9946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CV_[1..12]" input
+			(at 162.56 99.06 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "916332f8-0a5f-46f0-b83e-08460dbb112c")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "13")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 0 176.53)
+		(size 45.72 29.21)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "d99276d9-0772-4f67-a689-483e2c3f3142")
+		(property "Sheetname" "FACE_PLATE"
+			(at 0 175.8184 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "FacePlate.kicad_sch"
+			(at 0 206.3246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 34.29 127)
+		(size 12.7 38.1)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "fd9ac3d0-2bcc-44f7-bcd2-0c9d95060714")
+		(property "Sheetname" "OUT_BOARD1"
+			(at 33.5784 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "out_board.kicad_sch"
+			(at 47.5746 165.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "CV_[1..12]" input
+			(at 40.64 127 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "dcd1b732-675c-4544-9544-53bf0af2b510")
+		)
+		(instances
+			(project "MasterOfMuppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+					(page "7")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "0")
+		)
+	)
+)
