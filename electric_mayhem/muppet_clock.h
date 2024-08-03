@@ -14,7 +14,6 @@ public:
     static void wait(      uint32_t millis );
     static void tiny_wait( uint32_t micros );
 
-    static uint32_t lap( void );
     static uint32_t tick( void );
 protected:
     
@@ -28,9 +27,4 @@ protected:
     static uint32_t          tick_time;
     static uint32_t          last_tick_time;
     static uint32_t          last_tick_delta;
-
-    // lap time is in micros
-    static uint32_t          lap_time;
-    static uint32_t          last_lap_time;
-    static uint32_t          last_lap_delta;
 };
