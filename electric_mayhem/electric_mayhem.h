@@ -27,7 +27,18 @@ public:
     void well_done( uint8_t dac_index );
 
 protected:
-    dac_driver_t muppets[ dr_teeth::k_dac_count ];
+
+    // global time and update time are in millis
+    static uint32_t          global_time = 0;      // incremental time
+    static float             global_time_f = 0.0f; // incremental time
+
+    // loop time is in micros
+    static uint32_t          loop_time                  = 0;
+    static uint32_t          last_loop_time             = 0;
+    static uint32_t          last_loop_delta            = 0;
+    static uint16_t          global_time_accummulator   = 0;
+
+    dac_driver_t muppets[dr_teeth::k_dac_count];
 
     inline bool vaid_dac(      uint8_t dac_index     ) { return dac_index     < dr_teeth::k_dac_count;        }
     inline bool valid_channel( uint8_t channel_index ) { return channel_index < dr_teeth::k_channels_per_dac; }
@@ -92,3 +103,5 @@ template < class dac_driver_t >
 void electric_mayhem< dac_driver_t >::well_done( uint8_t dac_index ) {
     muppets[ dac_index ].disable( );
 }
+
+
