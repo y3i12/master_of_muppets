@@ -30,7 +30,7 @@
 funcgen gen;
 
 Adafruit_MCP4728  mcp[ dr_teeth::k_dac_count ] = { };
-uint8_t           ldac_ports[  ]               = { 4, 6, 8 };
+uint8_t           ldac_ports[  ]               = { 4, 8, 6 };
 TwoWire*          Wires[ 3 ]                   = { &Wire1, &Wire2, &Wire };
 
 // global time and update time are in millis
@@ -135,10 +135,7 @@ void test_lfo( void ) {
 
 
 void update( void ) {
-
   for ( uint8_t dac_index = 0; dac_index < dr_teeth::k_dac_count; ++dac_index ) {
-    
-    
       digitalWrite( ldac_ports[ dac_index ], HIGH );
 
        mcp[ dac_index ].fastWrite( value_buffer[ dac_index * dr_teeth::k_channels_per_dac + 0 ],

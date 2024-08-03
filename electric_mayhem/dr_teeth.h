@@ -4,7 +4,7 @@
 #include "messages.h"
 
 struct dr_teeth {
-  static const uint8_t k_dac_count        = 1;
+  static const uint8_t k_dac_count        = 3;
   static const uint8_t k_channels_per_dac = 4;
   static const uint8_t k_total_channels   = k_dac_count * k_channels_per_dac;
   static const uint8_t k_buffer_size      = sizeof( message_attribute_address_value_t ) * ( k_total_channels - 1 ) + sizeof(message_set_dac_value_t);
