@@ -26,10 +26,8 @@ void setup( void ) {
 
     the_muppets.initialize( initialization_structs );
 
-    gen.setFrequency( 50 );
+    gen.setFrequency( 100 );
     gen.setAmplitude( 32 * 1024 - 1);
-    
-    muppet_clock::tick();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -74,16 +72,15 @@ void serial_read( void ) {
 ////////////////////////////////////////////////////////////////////////////////
 
 void loop( void ) {
-    muppet_clock::tick();
-
-    // Receives data from usb serial into the buffer, using slip decoding
-
+    while( 1 ) {
 #ifdef TEST_LFO
-    test_lfo();
+        test_lfo();
 #else
-    serial_read();
+        serial_read();
 #endif
-    
-  dr_teeth::go_muppets( the_muppets );
+        
+        muppet_clock::tiny_wait( 1 );
+        dr_teeth::go_muppets( the_muppets );
+    }
 }
 
