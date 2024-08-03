@@ -1,5 +1,6 @@
 #pragma once
 
+#include <Arduino.h>
 #include <Wire.h>
 
 #include "adafruit_mcp_4728_driver.h"
@@ -36,13 +37,18 @@ void adafruit_mcp_4728_driver::disable( void ) {
 }
 
 void adafruit_mcp_4728_driver::set_channel_value( uint8_t channel_index, value_t value ) {
+    value = dac_value_rescale( value );
     mcp.setChannelValue( static_cast< MCP4728_channel_t >( channel_index ), value );
 }
 
 void adafruit_mcp_4728_driver::set_all_channels_same_value( value_t value_for_all_channels ) {
+    value_for_all_channels = dac_value_rescale( value_for_all_channels );
     mcp.fastWrite( value_for_all_channels, value_for_all_channels, value_for_all_channels, value_for_all_channels );
 }
 
 void adafruit_mcp_4728_driver::set_values( value_t values[ dr_teeth::k_channels_per_dac ] ) {
-    mcp.fastWrite( values[ 0 ], values[ 1 ], values[ 2 ], values[ 3 ] );
+    mcp.fastWrite( dac_value_rescale( values[ 0 ] ), 
+                   dac_value_rescale( values[ 1 ] ), 
+                   dac_value_rescale( values[ 2 ] ), 
+                   dac_value_rescale( values[ 3 ] ) );
 }

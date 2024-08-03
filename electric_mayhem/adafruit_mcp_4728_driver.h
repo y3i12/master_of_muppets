@@ -10,6 +10,7 @@ class TwoWire;
 class adafruit_mcp_4728_driver {
 public:
     const static uint32_t k_wire_clock = 1400000L;
+    const static uint16_t k_max_val    = 4095;
 
     typedef uint16_t value_t;
 
@@ -33,4 +34,6 @@ protected:
     TwoWire*            wire;
     uint8_t             ldac_port;
     Adafruit_MCP4728    mcp;
+
+    inline value_t dac_value_rescale( value_t value ) { return static_cast< value_t >( static_cast< uint32_t >( value ) * k_max_val / dr_teeth::k_max_value ); }
 };

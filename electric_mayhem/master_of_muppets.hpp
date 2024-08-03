@@ -5,8 +5,9 @@
 #include "dr_teeth.h"
 #include "electric_mayhem.h"
 
-uint8_t                     dr_teeth::buffer[ dr_teeth::k_buffer_size ] = { 0 };
-uint8_t                     dr_teeth::buffer_pos                        = 0;
+uint8_t                     dr_teeth::buffer[ dr_teeth::k_buffer_size ]             = { 0 };
+uint8_t                     dr_teeth::buffer_pos                                    = 0;
+uint16_t                    dr_teeth::value_buffer[ dr_teeth::k_total_channels ]    = { 0 };
 
 //uint32_t                    dr_teeth::last_led_time                     = 0;
 //bool                        dr_teeth::led_status                        = false;
