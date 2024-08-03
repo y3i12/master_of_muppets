@@ -9,7 +9,7 @@ class TwoWire;
 
 class adafruit_mcp_4728_driver {
 public:
-    const static uint32_t k_wire_clock = 1400000L;
+    const static uint32_t k_wire_clock = 3400000L;
     const static uint16_t k_max_val    = 4095;
 
     typedef uint16_t value_t;
