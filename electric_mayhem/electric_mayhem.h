@@ -5,8 +5,8 @@
 template < typename dac_driver_t > 
 class electric_mayhem {
 public:
-    typedef typename dac_driver_t::value_t       value_t;
-    typedef typename dac_driver_t::init_struct_t initialization_struct_t;
+    typedef typename dac_driver_t::value_t                  value_t;
+    typedef typename dac_driver_t::initialization_struct_t  initialization_struct_t;
 
     electric_mayhem( void ) { };
 
@@ -27,17 +27,6 @@ public:
     void well_done( uint8_t dac_index );
 
 protected:
-
-    // global time and update time are in millis
-    static uint32_t          global_time = 0;      // incremental time
-    static float             global_time_f = 0.0f; // incremental time
-
-    // loop time is in micros
-    static uint32_t          loop_time                  = 0;
-    static uint32_t          last_loop_time             = 0;
-    static uint32_t          last_loop_delta            = 0;
-    static uint16_t          global_time_accummulator   = 0;
-
     dac_driver_t muppets[dr_teeth::k_dac_count];
 
     inline bool vaid_dac(      uint8_t dac_index     ) { return dac_index     < dr_teeth::k_dac_count;        }

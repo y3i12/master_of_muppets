@@ -5,15 +5,18 @@
 
 #include "dr_teeth.h"
 
-class Wire;
+class TwoWire;
 
 class adafruit_mcp_4728_driver {
 public:
+    const static uint32_t k_wire_clock = 1400000L;
+
     typedef uint16_t value_t;
+
     struct initialization_struct_t {
-        initialization_struct_t( Wire* the_wire, uint8_t the_ldac_port ) : wire( the_wire ), ldac_port( the_ldac_port ) { }
+        initialization_struct_t( TwoWire* the_wire, uint8_t the_ldac_port ) : wire( the_wire ), ldac_port( the_ldac_port ) { }
         
-        Wire*   wire;
+        TwoWire*   wire;
         uint8_t ldac_port;
     };
 
@@ -27,7 +30,7 @@ public:
     void set_values( value_t values[ dr_teeth::k_channels_per_dac ] );
 
 protected:
-    Wire*               wire;
+    TwoWire*            wire;
     uint8_t             ldac_port;
     Adafruit_MCP4728    mcp;
 };

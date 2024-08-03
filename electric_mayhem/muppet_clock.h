@@ -6,18 +6,17 @@ class muppet_clock {
 public:
     muppet_clock( void ) {};
 
-    // gets the global time - there is a specialization for float type, returning global_time_f
     template< typename T >
     static T what_time_is_it( void ) {
-        return static_cast< time_t >( global_time );
+        return static_cast< T >( global_time_f );
     };
 
-    static void wait(      uint32_t millis ) { delay( millis );             tick( ); }
-    static void tiny_wait( uint32_t micros ) { delayMicroseconds( micros ); tick( ); }
+    static void wait(      uint32_t millis );
+    static void tiny_wait( uint32_t micros );
 
     static uint32_t lap( void );
-protected:
     static uint32_t tick( void );
+protected:
     
 
     // global time is the incremental time in millis

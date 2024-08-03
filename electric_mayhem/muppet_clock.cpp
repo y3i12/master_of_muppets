@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Arduino.h"
 #include "muppet_clock.h"
 
 uint32_t muppet_clock::global_time              = 0;
@@ -13,12 +14,17 @@ uint32_t muppet_clock::lap_time                 = 0;
 uint32_t muppet_clock::last_lap_time            = 0;
 uint32_t muppet_clock::last_lap_delta           = 0;
 
-template < float >
-float muppet_clock::what_time_is_it( void ) {
-    return global_time_f;
+void muppet_clock::wait( uint32_t millis ) {
+    delay( millis );
+    tick( );
 }
 
-void muppet_clock::lap( void ) {
+void muppet_clock::tiny_wait( uint32_t micros ) {
+    delayMicroseconds( micros );
+    tick( );
+ }
+
+uint32_t muppet_clock::lap( void ) {
     lap_time        = tick( );
     last_lap_delta  = lap_time - last_lap_time;
     last_lap_time   = lap_time;

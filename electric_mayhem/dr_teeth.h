@@ -44,18 +44,18 @@ __define_static_message_instance_member__( message_set_dac_value_t );
 */
 
 
-void statusLED( bool in_status ) {
-    if ( !led_status && in_status && ( global_time - last_led_time > 100 ) ) { last_led_time = global_time; led_status = true;  digitalWrite( STATUS_LED_PIN, HIGH ); } else if ( led_status && !in_status && ( global_time - last_led_time > 50 ) ) { last_led_time = global_time; led_status = false; digitalWrite( STATUS_LED_PIN, LOW ); }
-}
-
-void blink( uint8_t num = 5, int time = 250 ) {
-    for ( uint8_t i = 0; i < num; ++i ) {
-        digitalWrite( STATUS_LED_PIN, HIGH ); delay( time );
-        digitalWrite( STATUS_LED_PIN, LOW ); delay( time );
-    }
-}
-
-void ublink( void ) {
-    statusLED( true );
-    statusLED( false );
-}
+//void statusLED( bool in_status ) {
+//    if ( !led_status && in_status && ( global_time - last_led_time > 100 ) ) { last_led_time = global_time; led_status = true;  digitalWrite( STATUS_LED_PIN, HIGH ); } else if ( led_status && !in_status && ( global_time - last_led_time > 50 ) ) { last_led_time = global_time; led_status = false; digitalWrite( STATUS_LED_PIN, LOW ); }
+//}
+//
+//void blink( uint8_t num = 5, int time = 250 ) {
+//    for ( uint8_t i = 0; i < num; ++i ) {
+//        digitalWrite( STATUS_LED_PIN, HIGH ); delay( time );
+//        digitalWrite( STATUS_LED_PIN, LOW ); delay( time );
+//    }
+//}
+//
+//void ublink( void ) {
+//    statusLED( true );
+//    statusLED( false );
+//}
