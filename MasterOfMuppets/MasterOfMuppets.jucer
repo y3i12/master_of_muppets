@@ -32,7 +32,15 @@
       </GROUP>
       <GROUP id="{F0C594F8-8C6E-680C-96FE-0646E519BA20}" name="dr_teeth">
         <FILE id="PdeUaq" name="dr_teeth.h" compile="0" resource="0" file="../electric_mayhem/dr_teeth.h"/>
-        <FILE id="bY5XA4" name="dr_teeth.hpp" compile="0" resource="0" file="../electric_mayhem/dr_teeth.hpp"/>
+        <FILE id="YY2RY0" name="electric_mayhem.h" compile="0" resource="0"
+              file="../electric_mayhem/electric_mayhem.h"/>
+        <FILE id="viXY0H" name="function_generator.cpp" compile="1" resource="0"
+              file="../electric_mayhem/function_generator.cpp"/>
+        <FILE id="lJZxq0" name="function_generator.h" compile="0" resource="0"
+              file="../electric_mayhem/function_generator.h"/>
+        <FILE id="qivqmE" name="master_of_muppets.hpp" compile="0" resource="0"
+              file="../electric_mayhem/master_of_muppets.hpp"/>
+        <FILE id="GnaFmK" name="messages.h" compile="0" resource="0" file="../electric_mayhem/messages.h"/>
       </GROUP>
       <FILE id="CdTC2d" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>

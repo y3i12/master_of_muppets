@@ -12,7 +12,7 @@
 #include <limits>
 #include <sstream>
 
-#include "dr_teeth.hpp"
+#include "master_of_muppets.hpp"
 
 uint8_t MasterOfMuppetsAudioProcessor::cv_state_t::_channel = 0;
 
