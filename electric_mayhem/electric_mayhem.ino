@@ -5,22 +5,25 @@
 #include "adafruit_mcp_4728_driver.h"
 
 #include "function_generator.h"
+#include "muppet_clock.h"
 
 #define TEST_LFO 1            // doesn't read from serial and outputs the same saw wave on all outs
-#define LFO_FREQUENCY 250     // in HZ. sinus functions in HZ * 10
+#define LFO_FREQUENCY 500     // in HZ. sinus functions in HZ * 10
 #define LFO_SHAPE sinus       // triangle square stair sawtooth sinus sinusRectified sinusDiode trapezium1 trapezium2 heartBeat
 
 _SLIPSerial< usb_serial_class >             SLIPSerial( thisBoardsSerialUSB );
 function_generator                          the_function_generator;
 electric_mayhem< adafruit_mcp_4728_driver > the_muppets;
+static Threads::Mutex                       inspiration;
+static uint8_t                              i_have_no_idea = 1;
 
 ////////////////////////////////////////////////////////////////////////////////
-// TEST_LFO
+// test_lfo
 // Instead of receive serial data, outputs the LFO into dr_teeth's read buffer
 ////////////////////////////////////////////////////////////////////////////////
 
 void test_lfo( void ) {
-    dr_teeth::reset();
+    muppet_clock::tick();
     
     message_t::instance->type = message_t::k_set_dac_value;
 
@@ -35,13 +38,11 @@ void test_lfo( void ) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// SERIAL_READ
+// serial_read
 ////////////////////////////////////////////////////////////////////////////////
 
 void serial_read( void ) {
     while ( SLIPSerial.available() ) {
-        dr_teeth::reset();
-
         while ( !SLIPSerial.endofPacket() ) {
             if ( SLIPSerial.available() ) {
                 dr_teeth::write( SLIPSerial.read() );
@@ -51,25 +52,43 @@ void serial_read( void ) {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// SETUP
+// the_voice_from_beyond
 ////////////////////////////////////////////////////////////////////////////////
 
-void the_muppet_show ( void ) {
+void the_voice_from_beyond ( void ) {
     while ( 1 ) {
-        muppet_clock::tick();
-
+        dr_teeth::reset();
+        inspiration.lock();
+  
         #ifdef TEST_LFO
             test_lfo();
         #else
             serial_read();
         #endif
 
-        dr_teeth::go_muppets( the_muppets );
+        inspiration.unlock();
+        i_have_no_idea = 0;
     }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// SETUP
+// the_muppet_show
+////////////////////////////////////////////////////////////////////////////////
+
+void the_muppet_show ( void ) {
+    while ( 1 ) {
+        while ( i_have_no_idea ) {
+            threads.yield();
+        }
+
+        inspiration.lock();
+        dr_teeth::go_muppets( the_muppets );
+        inspiration.unlock();
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// setup
 ////////////////////////////////////////////////////////////////////////////////
 
 void setup( void ) {
@@ -85,11 +104,12 @@ void setup( void ) {
     the_function_generator.setAmplitude( 32 * 1024 - 1 );
 
     threads.addThread( the_muppet_show );
+    threads.addThread( the_voice_from_beyond );
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// LOOP
+// loop - just because it is required
 ////////////////////////////////////////////////////////////////////////////////
 
-void loop(){}
+void loop(){threads.yield();}
 

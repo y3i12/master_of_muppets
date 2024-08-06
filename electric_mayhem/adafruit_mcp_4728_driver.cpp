@@ -4,7 +4,6 @@
 #include "TeensyThreads.h"
 
 #include "adafruit_mcp_4728_driver.h"
-#include "muppet_clock.h"
 
 void adafruit_mcp_4728_driver::initialize( const initialization_struct_t& initialization_struct ) {
     ldac_port   = initialization_struct.ldac_port;
