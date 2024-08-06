@@ -29,7 +29,7 @@ void function_generator::setPeriod(float period)
   _freq1 = 1 / period;
   _freq2 = 2 * _freq1;
   _freq4 = 4 * _freq1;
-  _freq0 = TWO_PI * _freq1;
+  _freq0 = (float)TWO_PI * _freq1;
 }
 
 
@@ -41,7 +41,7 @@ float function_generator::getPeriod()
 
 void function_generator::setFrequency(float freq)
 {
-  setPeriod(1.0 / freq);
+  setPeriod(1.0f / freq);
 }
 
 
@@ -91,13 +91,13 @@ void function_generator::setDutyCycle(float dutyCycle)
   //  negative dutyCycle? => 1-dc? or abs()?
   if (dutyCycle < 0)        _dutyCycle = 0.0;
   else if (dutyCycle > 100) _dutyCycle = 1.0;
-  else                      _dutyCycle = dutyCycle * 0.01;
+  else                      _dutyCycle = dutyCycle * 0.01f;
 }
 
 
 float function_generator::getDutyCycle()
 {
-  return _dutyCycle * 100.0;
+  return _dutyCycle * 100.0f;
 }
 
 
@@ -133,16 +133,16 @@ float function_generator::sawtooth(float t, uint8_t mode)
   t += _phase;
   if (t >= 0.0)
   {
-    t = fmod(t, _period);
+    t = (float)fmod(t, _period);
     if (mode == 1) t = _period - t;
-    rv = _amplitude * (-1.0 + t *_freq2);
+    rv = _amplitude * (-1.0f + t *_freq2);
   }
   else
   {
     t = -t;
-    t = fmod(t, _period);
+    t = (float)fmod(t, _period);
     if (mode == 1) t = _period - t;
-    rv = _amplitude * ( 1.0 - t * _freq2);
+    rv = _amplitude * ( 1.0f - t * _freq2);
   }
   rv += _yShift;
   return rv;
@@ -157,16 +157,16 @@ float function_generator::triangle(float t)
   {
     t = -t;
   }
-  t = fmod(t, _period);
+  t = (float)fmod(t, _period);
   if (t < (_period * _dutyCycle))
   {
-    rv = _amplitude * (-1.0 + t * _freq2 / _dutyCycle);
+    rv = _amplitude * (-1.0f + t * _freq2 / _dutyCycle);
   }
   else
   {
     //  mirror math
     t = _period - t;
-    rv = _amplitude * (-1.0 + t * _freq2 /(1 - _dutyCycle));
+    rv = _amplitude * (-1.0f + t * _freq2 /(1 - _dutyCycle));
   }
   rv += _yShift;
   return rv;
@@ -179,14 +179,14 @@ float function_generator::square(float t)
   t += _phase;
   if (t >= 0)
   {
-    t = fmod(t, _period);
+    t = (float)fmod(t, _period);
     if (t < (_period * _dutyCycle)) rv = _amplitude;
     else rv = -_amplitude;
   }
   else
   {
     t = -t;
-    t = fmod(t, _period);
+    t = (float)fmod(t, _period);
     if (t < (_period * _dutyCycle)) rv = -_amplitude;
     else rv = _amplitude;
   }
@@ -199,7 +199,7 @@ float function_generator::sinus(float t)
 {
   float rv;
   t += _phase;
-  rv = _amplitude * sin(t * _freq0);
+  rv = _amplitude * (float)sin(t * _freq0);
   rv += _yShift;
   return rv;
 }
@@ -210,22 +210,22 @@ float function_generator::stair(float t, uint16_t steps, uint8_t mode)
   t += _phase;
   if (t >= 0)
   {
-    t = fmod(t, _period);
+    t = (float)fmod(t, _period);
     if (mode == 1) t = _period - t;
-    int level = steps * t / _period;
-    return _yShift + _amplitude * (-1.0 + 2.0 * level / (steps - 1));
+    int level = static_cast< int >(steps * t / _period);
+    return _yShift + _amplitude * (-1.0f + 2.0f * level / (steps - 1));
   }
   t = -t;
-  t = fmod(t, _period);
+  t = (float)fmod(t, _period);
   if (mode == 1) t = _period - t;
-  int level = steps * t / _period;
-  return _yShift + _amplitude * (1.0 - 2.0 * level / (steps - 1));
+  int level = static_cast<int>(steps * t / _period);
+  return _yShift + _amplitude * (1.0f - 2.0f * level / (steps - 1));
 }
 
 
 float function_generator::random()
 {
-  float rv = _yShift + _amplitude * _random() * 0.2328306436E-9;  //  div 0xFFFFFFFF
+  float rv = _yShift + _amplitude * _random() * 0.2328306436E-9f;  //  div 0xFFFFFFFF
   return rv;
 }
 
@@ -234,7 +234,7 @@ float function_generator::random()
 float function_generator::random_DC()
 {
   static float rv = 0;
-  float next = _yShift + _amplitude * _random() * 0.2328306436E-9;  //  div 0xFFFFFFFF
+  float next = _yShift + _amplitude * _random() * 0.2328306436E-9f;  //  div 0xFFFFFFFF
   rv += (next - rv) * _dutyCycle;
   return rv;
 }
@@ -268,7 +268,7 @@ float function_generator::sinusRectified(float t)
 
   float rv;
   t += _phase;
-  rv = _amplitude * sin(t * _freq0);
+  rv = _amplitude * (float)sin(t * _freq0);
   if (rv < 0) rv = -rv;
   rv += _yShift;
   return rv;
@@ -282,7 +282,7 @@ float function_generator::trapezium1(float t)
   {
     t = -t;
   }
-  t = fmod(t, _period);
+  t = (float)fmod(t, _period);
 
   if (t < _period * 0.5 * _dutyCycle)  //  rising part
   {
@@ -310,7 +310,7 @@ float function_generator::trapezium2(float t)
   {
     t = -t;
   }
-  t = fmod(t, _period);
+  t = (float)fmod(t, _period);
 
   if (t < _period * 0.25)  //  rising part
   {
@@ -322,7 +322,7 @@ float function_generator::trapezium2(float t)
   }
   else if (t < _period * (0.5 + 0.5 * _dutyCycle))  //  falling part
   {
-    return _yShift + _amplitude - 2 * _amplitude * ((t - _period * (0.25 + 0.5 * _dutyCycle)) * 4 / _period);
+    return _yShift + _amplitude - 2 * _amplitude * ((t - _period * (0.25f + 0.5f * _dutyCycle)) * 4 / _period);
   }
   else   //  low part
   {
@@ -378,9 +378,9 @@ float function_generator::heartBeat(float t)
     0,0,0,0,
   };
   //  use duty cycle to determine zero level duration.
-  int pts = map(_dutyCycle * 100, 0, 100, 31, 15);
+  int pts = map((long)_dutyCycle * 100, 0, 100, 31, 15);
   
-  return freeWave(t, out, pts);
+  return freeWave(t, out, (int16_t) pts);
 }
 
 
@@ -416,16 +416,16 @@ float function_generator::freeWave(float t, int16_t * arr, int16_t size)
 {
   t += _phase;
   //  normalize t to 0.0 - 1.0
-  t = fmod(t, _period);
+  t = (float)fmod(t, _period);
   t *= _freq1;
 
   //  search interval, as arr is based upon N equidistant points,
   //  we can easily calculate the points for direct access
   float factor = t * size;
-  int idx = factor;        //  truncate to get index of output array.
+  int idx = (int)factor;        //  truncate to get index of output array.
   factor = factor - idx;   //  remainder is interpolate factor.
   //  interpolate.
-  return _yShift + _amplitude * 1e-4 * (arr[idx] + factor * (arr[idx+1] - arr[idx]));
+  return _yShift + _amplitude * 1e-4f * (arr[idx] + factor * (arr[idx+1] - arr[idx]));
 }
 
 
@@ -550,32 +550,32 @@ float fgstr(float t, float period = 1.0, uint16_t steps = 8)
 //  FULL floatS ONES
 //
 //  SAWTOOTH
-float fgsaw(float t, float period = 1.0, float amplitude = 1.0, float phase = 0.0, float yShift = 0.0)
+float fgsaw(float t, float period = 1.0f, float amplitude = 1.0f, float phase = 0.0f, float yShift = 0.0f)
 {
   t += phase;
   if (t >= 0)
   {
-    if (t >= period) t = fmod(t, period);
-    return yShift + amplitude * (-1.0 + 2 * t / period);
+    if (t >= period) t = (float)fmod(t, period);
+    return yShift + amplitude * (-1.0f + 2 * t / period);
   }
   t = -t;
-  if (t >= period) t = fmod(t, period);
-  return yShift + amplitude * ( 1.0 - 2 * t / period);
+  if (t >= period) t = (float)fmod(t, period);
+  return yShift + amplitude * ( 1.0f - 2 * t / period);
 }
 
 
 //  TRIANGLE
-float fgtri(float t, float period = 1.0, float amplitude = 1.0, float phase = 0.0, float yShift = 0.0, float dutyCycle = 0.50)
+float fgtri(float t, float period = 1.0f, float amplitude = 1.0f, float phase = 0.0f, float yShift = 0.0f, float dutyCycle = 0.50f)
 {
   t += phase;
   if (t < 0) t = -t;
-  if (t >= period) t = fmod(t, period);
+  if (t >= period) t = (float)fmod(t, period);
   // 50 % dutyCycle = faster
   // if (t * 2 < period) return yShift + amplitude * (-1.0 + 4 * t / period);
-  // return yShift + amplitude * (3.0 - 4 * t / period);
-  if (t < dutyCycle * period) return yShift + amplitude * (-1.0 + 2 * t / (dutyCycle * period));
-  // return yShift + amplitude * (-1.0 + 2 / (1 - dutyCycle) - 2 * t / ((1 - dutyCycle) * period));
-  return yShift + amplitude * (-1.0 + 2 / (1 - dutyCycle) * ( 1 - t / period));
+  // return yShift + amplitude * (3.0f - 4 * t / period);
+  if (t < dutyCycle * period) return yShift + amplitude * (-1.0f + 2 * t / (dutyCycle * period));
+  // return yShift + amplitude * (-1.0f + 2 / (1 - dutyCycle) - 2 * t / ((1 - dutyCycle) * period));
+  return yShift + amplitude * (-1.0f + 2 / (1 - dutyCycle) * ( 1 - t / period));
 }
 
 
@@ -585,12 +585,12 @@ float fgsqr(float t, float period = 1.0, float amplitude = 1.0, float phase = 0.
   t += phase;
   if (t >= 0)
   {
-    if (t >= period) t = fmod(t, period);
+    if (t >= period) t = (float)fmod(t, period);
     if (t < dutyCycle * period) return yShift + amplitude;
     return yShift - amplitude;
   }
   t = -t;
-  if (t >= period) t = fmod(t, period);
+  if (t >= period) t = (float)fmod(t, period);
   if (t < dutyCycle * period) return yShift - amplitude;
   return yShift + amplitude;
 }
@@ -600,7 +600,7 @@ float fgsqr(float t, float period = 1.0, float amplitude = 1.0, float phase = 0.
 float fgsin(float t, float period = 1.0, float amplitude = 1.0, float phase = 0.0, float yShift = 0.0)
 {
   t += phase;
-  float rv = yShift + amplitude * sin(TWO_PI * t / period);
+  float rv = yShift + amplitude * (float)sin(TWO_PI * t / period);
   return rv;
 }
 
@@ -611,14 +611,14 @@ float fgstr(float t, float period = 1.0, float amplitude = 1.0, float phase = 0.
   t += phase;
   if (t >= 0)
   {
-    if (t >= period) t = fmod(t, period);
-    int level = steps * t / period;
-    return yShift + amplitude * (-1.0 + 2.0 * level / (steps - 1));
+    if (t >= period) t = (float)fmod(t, period);
+    int level = static_cast< int >( steps * t / period );
+    return yShift + amplitude * (-1.0f + 2.0f * level / (steps - 1));
   }
   t = -t;
-  if (t >= period) t = fmod(t, period);
-  int level = steps * t / period;
-  return yShift + amplitude * (1.0 - 2.0 * level / (steps - 1));
+  if (t >= period) t = (float)fmod(t, period);
+  int level = static_cast<int>( steps * t / period );
+  return yShift + amplitude * (1.0f - 2.0f * level / (steps - 1));
 }
 
 

@@ -3489,9 +3489,6 @@
     <ClInclude Include="..\..\..\electric_mayhem\dr_teeth.h">
       <Filter>MasterOfMuppets\Source\dr_teeth</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\electric_mayhem\electric_mayhem.h">
-      <Filter>MasterOfMuppets\Source\dr_teeth</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\electric_mayhem\function_generator.h">
       <Filter>MasterOfMuppets\Source\dr_teeth</Filter>
     </ClInclude>

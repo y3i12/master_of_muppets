@@ -2,6 +2,7 @@
 #include <Wire.h>
 
 #include "master_of_muppets.hpp"
+#include "electric_mayhem.h"
 #include "adafruit_mcp_4728_driver.h"
 
 #include "function_generator.h"

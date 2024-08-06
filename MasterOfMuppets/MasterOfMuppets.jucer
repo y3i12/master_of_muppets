@@ -32,8 +32,6 @@
       </GROUP>
       <GROUP id="{F0C594F8-8C6E-680C-96FE-0646E519BA20}" name="dr_teeth">
         <FILE id="PdeUaq" name="dr_teeth.h" compile="0" resource="0" file="../electric_mayhem/dr_teeth.h"/>
-        <FILE id="YY2RY0" name="electric_mayhem.h" compile="0" resource="0"
-              file="../electric_mayhem/electric_mayhem.h"/>
         <FILE id="viXY0H" name="function_generator.cpp" compile="1" resource="0"
               file="../electric_mayhem/function_generator.cpp"/>
         <FILE id="lJZxq0" name="function_generator.h" compile="0" resource="0"
@@ -65,7 +63,7 @@
   </MODULES>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>
-    <VS2022 targetFolder="Builds/VisualStudio2022" extraDefs="LIBSERIALPORT_MSBUILD"
+    <VS2022 targetFolder="Builds/VisualStudio2022" extraDefs="LIBSERIALPORT_MSBUILD&#10;_USE_MATH_DEFINES"
             externalLibraries="SetupAPI.lib">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="master_of_muppets"/>

@@ -3,7 +3,6 @@
 #include <cstdint>
 
 #include "messages.h"
-#include "TeensyThreads.h"
 
 struct dr_teeth {
     static const uint8_t  k_dac_count                   = 3;
