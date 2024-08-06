@@ -2,7 +2,6 @@
 
 #include "dr_teeth.h"
 #include "TeensyThreads.h"
-const int LED = 13;
 
 template < typename dac_driver_t > 
 class electric_mayhem {
