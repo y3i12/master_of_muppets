@@ -2,6 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio Version 17
 
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MasterOfMuppets - Standalone Plugin", "MasterOfMuppets_StandalonePlugin.vcxproj", "{9B8CB018-9871-05B2-5D6B-09B790496FB7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{201F3FB6-8CE7-637F-02C6-AE159BD5F7E9} = {201F3FB6-8CE7-637F-02C6-AE159BD5F7E9}
+	EndProjectSection
+EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MasterOfMuppets - VST3", "MasterOfMuppets_VST3.vcxproj", "{EEA62CF2-B21C-1CA4-71CD-59B333186087}"
 	ProjectSection(ProjectDependencies) = postProject
 		{201F3FB6-8CE7-637F-02C6-AE159BD5F7E9} = {201F3FB6-8CE7-637F-02C6-AE159BD5F7E9}
@@ -22,6 +27,10 @@ Global
 		{EEA62CF2-B21C-1CA4-71CD-59B333186087}.Debug|x64.Build.0 = Debug|x64
 		{EEA62CF2-B21C-1CA4-71CD-59B333186087}.Release|x64.ActiveCfg = Release|x64
 		{EEA62CF2-B21C-1CA4-71CD-59B333186087}.Release|x64.Build.0 = Release|x64
+		{9B8CB018-9871-05B2-5D6B-09B790496FB7}.Debug|x64.ActiveCfg = Debug|x64
+		{9B8CB018-9871-05B2-5D6B-09B790496FB7}.Debug|x64.Build.0 = Debug|x64
+		{9B8CB018-9871-05B2-5D6B-09B790496FB7}.Release|x64.ActiveCfg = Release|x64
+		{9B8CB018-9871-05B2-5D6B-09B790496FB7}.Release|x64.Build.0 = Release|x64
 		{201F3FB6-8CE7-637F-02C6-AE159BD5F7E9}.Debug|x64.ActiveCfg = Debug|x64
 		{201F3FB6-8CE7-637F-02C6-AE159BD5F7E9}.Debug|x64.Build.0 = Debug|x64
 		{201F3FB6-8CE7-637F-02C6-AE159BD5F7E9}.Release|x64.ActiveCfg = Release|x64

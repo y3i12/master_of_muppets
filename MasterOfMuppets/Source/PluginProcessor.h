@@ -11,9 +11,11 @@
 #include <JuceHeader.h>
 #include <vector>
 #include <cmath>
+#include <thread>
 
 #include "serial_port_libsp.h"
 #include "dr_teeth.h"
+#include "function_generator.h"
 
 typedef slip_encoded_serial_port_libsp serial_type_t;
 
@@ -59,32 +61,34 @@ public:
     //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+
 private:
     struct cv_state_t {
-        static uint8_t _channel;
-        uint8_t channel;
-        double accumulated_cv;
-        double sample_counter;
-        double last_transmitted_value;
-        juce::AudioParameterFloat* param_cv;
+        static uint8_t                      _channel;
+        uint8_t                             channel;
+        double                              cv_value;
+        juce::AudioParameterFloat*          param_cv;
 
         cv_state_t( juce::AudioParameterFloat* _param_cv ) :
             channel( _channel++ ),
             param_cv( _param_cv ),
-            accumulated_cv( 0.0 ),
-            sample_counter( 0.0 ),
-            last_transmitted_value( std::nan("0") ) {
-        }
+            cv_value( 0.0 ) { }
 
-        void tick( float samples ) { accumulated_cv += param_cv->get() * samples; sample_counter += samples; }
-        void reset() { accumulated_cv = sample_counter = 0.0; }
+        void updaate_value( void ) { cv_value = param_cv->get( ); }
     };
+
+    static void sender( MasterOfMuppetsAudioProcessor* mop );
 private:
-    serial_type_t           serial;
+    serial_type_t               serial;
+    function_generator          the_function_generator;
     juce::AudioParameterChoice* serial_list;
 
-    std::vector<cv_state_t>  cv_states;
-    std::vector<cv_state_t*> cv_to_send;
+    std::vector<cv_state_t>     cv_states;
+
+    std::thread                 send_thread;
+    std::mutex                  send_mutex;
+    bool                        should_send;
+    bool                        sender_active;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MasterOfMuppetsAudioProcessor)

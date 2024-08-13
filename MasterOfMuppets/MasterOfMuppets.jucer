@@ -3,10 +3,10 @@
 <JUCERPROJECT id="iAcK9m" name="MasterOfMuppets" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
               projectLineFeed="&#10;" companyName="y3i12" companyCopyright="y3i12"
-              pluginFormats="buildVST3" pluginManufacturerCode="Y313" pluginCode="Mopy"
-              pluginName="master_of_muppets" pluginDesc="master_of_muppets orchestrates dr_teeth and the electric_mayhem"
+              pluginFormats="buildStandalone,buildVST3" pluginManufacturerCode="Y313"
+              pluginCode="Mopy" pluginName="master_of_muppets" pluginDesc="master_of_muppets orchestrates dr_teeth and the electric_mayhem"
               pluginAUMainType="'aufx'" pluginVST3Category="Tools" pluginVSTCategory="kPlugCategUnknown"
-              headerPath="..\..\..\electric_mayhem">
+              headerPath="..\..\..\electric_mayhem" cppLanguageStandard="latest">
   <MAINGROUP id="YV4sjw" name="MasterOfMuppets">
     <GROUP id="{18D4A9AF-69F3-BA9A-FF98-66B55D816666}" name="Source">
       <GROUP id="{7C37AA09-4D5F-D1B6-3E36-6ADF9DFC75A7}" name="serial">

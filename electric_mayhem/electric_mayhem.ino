@@ -8,7 +8,7 @@
 #include "function_generator.h"
 #include "muppet_clock.h"
 
-#define TEST_LFO 1            // doesn't read from serial and outputs the same saw wave on all outs
+//#define TEST_LFO 1            // doesn't read from serial and outputs the same saw wave on all outs
 #define LFO_FREQUENCY 500     // in HZ. sinus functions in HZ * 10
 #define LFO_SHAPE sinus       // triangle square stair sawtooth sinus sinusRectified sinusDiode trapezium1 trapezium2 heartBeat
 

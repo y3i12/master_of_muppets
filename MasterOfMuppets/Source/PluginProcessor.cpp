@@ -11,8 +11,14 @@
 #include <algorithm>
 #include <limits>
 #include <sstream>
+#include <chrono>
 
 #include "master_of_muppets.hpp"
+
+
+//#define TEST_LFO 1            // doesn't read from serial and outputs the same saw wave on all outs
+#define LFO_FREQUENCY 30      // in HZ. sinus functions in HZ * 10
+#define LFO_SHAPE square    // triangle square stair sawtooth sinus sinusRectified sinusDiode trapezium1 trapezium2 heartBeat
 
 uint8_t MasterOfMuppetsAudioProcessor::cv_state_t::_channel = 0;
 
@@ -29,12 +35,17 @@ MasterOfMuppetsAudioProcessor::MasterOfMuppetsAudioProcessor( )
     )
 #endif
 {
+    the_function_generator.setFrequency( LFO_FREQUENCY );
+    the_function_generator.setAmplitude( 0.5f );
+    sender_active = true;
+    should_send = false;
+
     std::stringstream ss;
     for ( int i = 0; i < dr_teeth::k_total_channels; ++i ) {
         ss.str("");
         ss.clear();
         ss << "cv_" << i;
-        auto param = new juce::AudioParameterFloat( { ss.str(), 1}, ss.str( ), 0.0f, 100.0f, 0.0f );
+        auto param = new juce::AudioParameterFloat( { ss.str(), 1}, ss.str( ), 0.0f, 1.0f, 0.0f );
         cv_states.push_back(cv_state_t( param ));
         addParameter( param );
     }
@@ -63,12 +74,113 @@ MasterOfMuppetsAudioProcessor::MasterOfMuppetsAudioProcessor( )
             // TODO: y3i12- exception
         }
     }
-
-    cv_to_send.reserve( dr_teeth::k_total_channels );
+    send_thread = std::thread( sender, this );
 }
 
 MasterOfMuppetsAudioProcessor::~MasterOfMuppetsAudioProcessor( ) {
+    sender_active = false;
+    send_thread.join();
 }
+
+void MasterOfMuppetsAudioProcessor::sender( MasterOfMuppetsAudioProcessor* mop ) {
+    bool&                       sender_active(  mop->sender_active  );
+    bool&                       should_send(    mop->should_send    );
+    std::mutex&                 send_mutex(     mop->send_mutex     );
+    std::vector< cv_state_t >&  cv_states(      mop->cv_states      );
+    serial_type_t&              serial(         mop->serial         );
+
+    while ( 1 ) {
+        while ( sender_active && !should_send ) {
+            std::this_thread::yield();
+        }
+
+         if ( !sender_active ) return;
+
+        message_set_dac_value_t::instance->message.type = message_t::k_set_dac_value;
+        message_set_dac_value_t::instance->count        = 0;
+
+        message_attribute_address_value_t* av           = &message_set_dac_value_t::instance->first_address_value;
+
+        send_mutex.lock( );
+        std::for_each(
+            cv_states.begin( ),
+            cv_states.end( ),
+            [&]( cv_state_t& n ) {
+                if ( n.cv_value >= 0 ) {
+                    av->address = n.channel;
+                    av->value = static_cast<uint16_t>( std::numeric_limits< uint16_t >::max( ) * n.cv_value );
+                    ++message_set_dac_value_t::instance->count;
+                    ++av;
+                    n.cv_value = -1.0;
+                }
+            }
+        );
+        send_mutex.unlock( );
+
+        if ( message_set_dac_value_t::instance->count ) {
+            serial.begin_packet( );
+            serial.write( reinterpret_cast<uint8_t*>( message_set_dac_value_t::instance ), ( sizeof( message_set_dac_value_t ) + sizeof( message_attribute_address_value_t ) * ( message_set_dac_value_t::instance->count - 1 ) ) );
+            serial.end_packet( );
+        }
+
+        should_send = false;
+    }
+}
+
+void MasterOfMuppetsAudioProcessor::processBlock( juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages ) {
+    juce::ScopedNoDenormals noDenormals;
+    auto totalNumInputChannels  = getTotalNumInputChannels( );
+    auto totalNumOutputChannels = getTotalNumOutputChannels( );
+
+    for ( auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i ) {
+        buffer.clear( i, 0, buffer.getNumSamples( ) );
+    }
+
+    
+    send_mutex.lock( );
+    std::for_each(
+        cv_states.begin( ),
+        cv_states.end( ),
+        [&]( cv_state_t& n ) {
+            #ifdef TEST_LFO
+                n.cv_value = the_function_generator.LFO_SHAPE( static_cast< float >( juce::Time::getMillisecondCounterHiRes( ) * 10000 ) ) + 0.5f;
+            #else
+                n.updaate_value( );
+            #endif
+            should_send = true;
+        }
+    );
+    send_mutex.unlock( );
+ }
+
+//==============================================================================
+bool MasterOfMuppetsAudioProcessor::hasEditor( ) const {
+    return true; // (change this to false if you choose to not supply an editor)
+}
+
+juce::AudioProcessorEditor* MasterOfMuppetsAudioProcessor::createEditor( ) {
+    return new juce::GenericAudioProcessorEditor( *this );
+    //return new MasterOfMuppetsAudioProcessorEditor( *this );
+}
+
+//==============================================================================
+void MasterOfMuppetsAudioProcessor::getStateInformation( juce::MemoryBlock& destData ) {
+    // You should use this method to store your parameters in the memory block.
+    // You could do that either as raw data, or use the XML or ValueTree classes
+    // as intermediaries to make it easy to save and load complex data.
+}
+
+void MasterOfMuppetsAudioProcessor::setStateInformation( const void* data, int sizeInBytes ) {
+    // You should use this method to restore your parameters from this memory block,
+    // whose contents will have been created by the getStateInformation() call.
+}
+
+//==============================================================================
+// This creates new instances of the plugin..
+juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter( ) {
+    return new MasterOfMuppetsAudioProcessor( );
+}
+
 
 //==============================================================================
 const juce::String MasterOfMuppetsAudioProcessor::getName( ) const {
@@ -124,11 +236,13 @@ void MasterOfMuppetsAudioProcessor::changeProgramName( int index, const juce::St
 
 //==============================================================================
 void MasterOfMuppetsAudioProcessor::prepareToPlay( double sampleRate, int samplesPerBlock ) {
+    // y3i12- TODO:
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
 }
 
 void MasterOfMuppetsAudioProcessor::releaseResources( ) {
+    // y3i12- TODO:
     // When playback stops, you can use this as an opportunity to free up any
     // spare memory, etc.
 }
@@ -157,102 +271,3 @@ bool MasterOfMuppetsAudioProcessor::isBusesLayoutSupported( const BusesLayout& l
 #endif
 }
 #endif
-
-void MasterOfMuppetsAudioProcessor::processBlock( juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages ) {
-    juce::ScopedNoDenormals noDenormals;
-    auto totalNumInputChannels  = getTotalNumInputChannels( );
-    auto totalNumOutputChannels = getTotalNumOutputChannels( );
-
-    // In case we have more outputs than inputs, this code clears any output
-    // channels that didn't contain input data, (because these aren't
-    // guaranteed to be empty - they may contain garbage).
-    // This is here to avoid people getting screaming feedback
-    // when they first compile a plugin, but obviously you don't need to keep
-    // this code if your algorithm always overwrites all the output channels.
-    for ( auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i )
-        buffer.clear( i, 0, buffer.getNumSamples( ) );
-
-    // This is the place where you'd normally do the guts of your plugin's
-    // audio processing...
-    // Make sure to reset the state if your inner loop is processing
-    // the samples and the outer loop is handling the channels.
-    // Alternatively, you can process the samples with the channels
-    // interleaved by keeping the same state.
-    // for ( int channel = 0; channel < totalNumInputChannels; ++channel ) {
-    //     auto* channelData = buffer.getWritePointer( channel );
-
-    //     // ..do something to the data...
-    // }
-
-
-    int samples           = buffer.getNumSamples( );
-    double sample_rate    = getSampleRate();
-    cv_to_send.clear();
-
-    std::for_each(
-        cv_states.begin(),
-        cv_states.end(),
-        [&]( cv_state_t& n ) {
-            n.tick( samples );
-            if ( n.sample_counter > sample_rate / 1000 * 2.5 ) { // Current HW doesn't update faster than 2.5ms
-                double value = n.accumulated_cv / 100.0 / n.sample_counter;
-                n.accumulated_cv = n.sample_counter = 0;
-                if ( n.last_transmitted_value != value ) {
-                    n.last_transmitted_value = value;
-                    cv_to_send.push_back( &n );
-                }
-            }
-        }
-    );
-
-    if ( !cv_to_send.empty() ) {
-        cv_state_t* cv_state = cv_to_send.front( );
-
-        message_set_dac_value_t::instance->message.type = message_t::k_set_dac_value;
-        message_set_dac_value_t::instance->count        = static_cast<uint8_t>( cv_to_send.size() );
-
-        message_attribute_address_value_t* av = &message_set_dac_value_t::instance->first_address_value;
-
-        std::for_each(
-            cv_to_send.begin( ),
-            cv_to_send.end( ),
-            [&]( cv_state_t* cvs ) {
-                av->address = cvs->channel;
-                av->value   = static_cast< uint16_t >( std::numeric_limits< uint16_t >::max() * cvs->last_transmitted_value );
-                ++av;
-            }
-        );
-
-        serial.begin_packet( );
-        serial.write( reinterpret_cast< uint8_t* >( message_set_dac_value_t::instance ), ( sizeof( message_set_dac_value_t ) + sizeof( message_attribute_address_value_t ) * ( message_set_dac_value_t::instance->count - 1 ) ) );
-        serial.end_packet();
-    }
-}
-
-//==============================================================================
-bool MasterOfMuppetsAudioProcessor::hasEditor( ) const {
-    return true; // (change this to false if you choose to not supply an editor)
-}
-
-juce::AudioProcessorEditor* MasterOfMuppetsAudioProcessor::createEditor( ) {
-    return new juce::GenericAudioProcessorEditor( *this );
-    //return new MasterOfMuppetsAudioProcessorEditor( *this );
-}
-
-//==============================================================================
-void MasterOfMuppetsAudioProcessor::getStateInformation( juce::MemoryBlock& destData ) {
-    // You should use this method to store your parameters in the memory block.
-    // You could do that either as raw data, or use the XML or ValueTree classes
-    // as intermediaries to make it easy to save and load complex data.
-}
-
-void MasterOfMuppetsAudioProcessor::setStateInformation( const void* data, int sizeInBytes ) {
-    // You should use this method to restore your parameters from this memory block,
-    // whose contents will have been created by the getStateInformation() call.
-}
-
-//==============================================================================
-// This creates new instances of the plugin..
-juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter( ) {
-    return new MasterOfMuppetsAudioProcessor( );
-}

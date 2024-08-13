@@ -74,7 +74,7 @@
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
       <AdditionalIncludeDirectories>D:\Workspace\Code\VST\JUCE\modules\juce_audio_processors\format_types\VST3_SDK;D:\Workspace\Code\VST\VST_SDK;..\..\JuceLibraryCode;D:\Workspace\Code\VST\JUCE\modules;..\..\..\electric_mayhem;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -118,7 +118,7 @@
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
       <AdditionalIncludeDirectories>D:\Workspace\Code\VST\JUCE\modules\juce_audio_processors\format_types\VST3_SDK;D:\Workspace\Code\VST\VST_SDK;..\..\JuceLibraryCode;D:\Workspace\Code\VST\JUCE\modules;..\..\..\electric_mayhem;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
