@@ -12,6 +12,7 @@
 #include <vector>
 #include <cmath>
 #include <thread>
+#include <atomic>
 
 #include "serial_port_libsp.h"
 #include "serial_port_w32.h"
@@ -69,12 +70,14 @@ private:
         static uint8_t                      _channel;
         uint8_t                             channel;
         double                              cv_value;
+        double                              previous_cv_value;
         juce::AudioParameterFloat*          param_cv;
 
         cv_state_t( juce::AudioParameterFloat* _param_cv ) :
             channel( _channel++ ),
             param_cv( _param_cv ),
-            cv_value( 0.0 ) { }
+            cv_value( 0.0 ),
+            previous_cv_value( -1.0 ) {}
 
         void update_value( void ) { cv_value = param_cv->get( ); }
         void set_value( double the_value ) { *param_cv = static_cast< float >( cv_value = the_value ); }
@@ -90,8 +93,8 @@ private:
 
     std::thread                 send_thread;
     std::mutex                  send_mutex;
-    bool                        should_send;
-    bool                        sender_active;
+    std::atomic_bool            should_send;
+    std::atomic_bool            sender_active;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MasterOfMuppetsAudioProcessor)

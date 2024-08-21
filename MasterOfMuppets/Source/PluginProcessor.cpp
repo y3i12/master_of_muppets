@@ -16,8 +16,9 @@
 #include "master_of_muppets.hpp"
 
 
-#define LFO_FREQUENCY 20    // comment to disable lfo
-#define LFO_SHAPE triangle // triangle square stair sawtooth sinus sinusRectified sinusDiode trapezium1 trapezium2 heartBeat
+// #define LFO_FREQUENCY 50     // comment to disable lfo
+// #define SINGLE_LFO_CHANNEL 2 // for single channel testing - comment for all channels
+#define LFO_SHAPE sawtooth      // triangle square stair sawtooth sinus sinusRectified sinusDiode trapezium1 trapezium2 heartBeat
 
 #ifdef max
 #undef max
@@ -91,8 +92,8 @@ MasterOfMuppetsAudioProcessor::~MasterOfMuppetsAudioProcessor( ) {
 }
 
 void MasterOfMuppetsAudioProcessor::sender( MasterOfMuppetsAudioProcessor* mop ) {
-    bool&                       sender_active(  mop->sender_active  );
-    bool&                       should_send(    mop->should_send    );
+    std::atomic_bool&           sender_active(  mop->sender_active  );
+    std::atomic_bool&           should_send(    mop->should_send    );
     std::mutex&                 send_mutex(     mop->send_mutex     );
     std::vector< cv_state_t >&  cv_states(      mop->cv_states      );
     serial_type_t&              serial(         mop->serial         );
@@ -101,15 +102,17 @@ void MasterOfMuppetsAudioProcessor::sender( MasterOfMuppetsAudioProcessor* mop )
         while ( sender_active && !should_send ) {
             std::this_thread::yield();
         }
+        
+        if ( !sender_active ) return;
 
-         if ( !sender_active ) return;
+        send_mutex.lock( );
 
+        
         message_set_dac_value_t::instance->message.type = message_t::k_set_dac_value;
         message_set_dac_value_t::instance->count        = 0;
 
         message_attribute_address_value_t* av           = &message_set_dac_value_t::instance->first_address_value;
 
-        send_mutex.lock( );
         std::for_each(
             cv_states.begin( ),
             cv_states.end( ),
@@ -142,20 +145,38 @@ void MasterOfMuppetsAudioProcessor::processBlock( juce::AudioBuffer<float>& buff
         buffer.clear( i, 0, buffer.getNumSamples( ) );
     }
 
-    
+    while ( should_send ) {
+        std::this_thread::yield( );
+    }
+    uint8_t updates = 0;
+
     send_mutex.lock( );
+
+    #if defined( LFO_FREQUENCY ) && defined( SINGLE_LFO_CHANNEL )
+    cv_states[ SINGLE_LFO_CHANNEL ].set_value( the_function_generator.LFO_SHAPE( static_cast<float>( juce::Time::getMillisecondCounterHiRes( ) * 10000 ) ) + 0.5f );
+    #endif
+
     std::for_each(
         cv_states.begin( ),
         cv_states.end( ),
         [&]( cv_state_t& n ) {
-            #ifdef LFO_FREQUENCY
+            #if defined( LFO_FREQUENCY ) && !defined( SINGLE_LFO_CHANNEL )
                 n.set_value( the_function_generator.LFO_SHAPE( static_cast< float >( juce::Time::getMillisecondCounterHiRes( ) * 10000 ) ) + 0.5f );
-            #else
+            #elif !defined( LFO_FREQUENCY ) 
                 n.update_value( );
             #endif
-            should_send = true;
+            if ( n.previous_cv_value != n.cv_value ) {
+                ++updates;
+                n.previous_cv_value = n.cv_value;
+            } else {
+                --updates;
+                n.cv_value = -1.0;
+            }
         }
     );
+
+    should_send = !!updates;
+
     send_mutex.unlock( );
  }
 
