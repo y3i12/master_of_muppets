@@ -11,14 +11,14 @@ template <typename serial_driver>
 class serial_port {
 public:
 
-    serial_port( ) {}
-    ~serial_port( ) { driver.close( ); }
+    serial_port( void ) {}
+    ~serial_port( void ) { driver.close( ); }
 
     bool open_port( const std::string& port_name, size_t timeout = 0 ) {
         return driver.open_port( port_name, static_cast<int>( timeout ) );
     };
 
-    bool close( ) {
+    bool close( void ) {
         return driver.close( );
     }
 
@@ -43,6 +43,10 @@ public:
     template <typename T>
     size_t available( void ) {
         return driver.available( );
+    }
+
+    void flush( void ) {
+        driver.flush( );
     }
 
     static std::list<serial_device> get_devices( ) {

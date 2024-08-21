@@ -11,11 +11,16 @@
 #include <JuceHeader.h>
 #include <vector>
 #include <cmath>
+#include <thread>
+#include <atomic>
 
 #include "serial_port_libsp.h"
+#include "serial_port_w32.h"
 #include "dr_teeth.h"
+#include "function_generator.h"
 
 typedef slip_encoded_serial_port_libsp serial_type_t;
+// typedef slip_encoded_serial_port_w32 serial_type_t;
 
 //==============================================================================
 /**
@@ -59,32 +64,37 @@ public:
     //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+
 private:
     struct cv_state_t {
-        static uint8_t _channel;
-        uint8_t channel;
-        double accumulated_cv;
-        double sample_counter;
-        double last_transmitted_value;
-        juce::AudioParameterFloat* param_cv;
+        static uint8_t                      _channel;
+        uint8_t                             channel;
+        double                              cv_value;
+        double                              previous_cv_value;
+        juce::AudioParameterFloat*          param_cv;
 
         cv_state_t( juce::AudioParameterFloat* _param_cv ) :
             channel( _channel++ ),
             param_cv( _param_cv ),
-            accumulated_cv( 0.0 ),
-            sample_counter( 0.0 ),
-            last_transmitted_value( std::nan("0") ) {
-        }
+            cv_value( 0.0 ),
+            previous_cv_value( -1.0 ) {}
 
-        void tick( float samples ) { accumulated_cv += param_cv->get() * samples; sample_counter += samples; }
-        void reset() { accumulated_cv = sample_counter = 0.0; }
+        void update_value( void ) { cv_value = param_cv->get( ); }
+        void set_value( double the_value ) { *param_cv = static_cast< float >( cv_value = the_value ); }
     };
+
+    static void sender( MasterOfMuppetsAudioProcessor* mop );
 private:
-    serial_type_t           serial;
+    serial_type_t               serial;
+    function_generator          the_function_generator;
     juce::AudioParameterChoice* serial_list;
 
-    std::vector<cv_state_t>  cv_states;
-    std::vector<cv_state_t*> cv_to_send;
+    std::vector<cv_state_t>     cv_states;
+
+    std::thread                 send_thread;
+    std::mutex                  send_mutex;
+    std::atomic_bool            should_send;
+    std::atomic_bool            sender_active;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MasterOfMuppetsAudioProcessor)

@@ -3,10 +3,10 @@
 <JUCERPROJECT id="iAcK9m" name="MasterOfMuppets" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1"
               projectLineFeed="&#10;" companyName="y3i12" companyCopyright="y3i12"
-              pluginFormats="buildVST3" pluginManufacturerCode="Y313" pluginCode="Mopy"
-              pluginName="master_of_muppets" pluginDesc="master_of_muppets orchestrates dr_teeth and the electric_mayhem"
+              pluginFormats="buildStandalone,buildVST3" pluginManufacturerCode="Y313"
+              pluginCode="Mopy" pluginName="master_of_muppets" pluginDesc="master_of_muppets orchestrates dr_teeth and the electric_mayhem"
               pluginAUMainType="'aufx'" pluginVST3Category="Tools" pluginVSTCategory="kPlugCategUnknown"
-              headerPath="..\..\..\electric_mayhem">
+              headerPath="..\..\..\electric_mayhem" cppLanguageStandard="latest">
   <MAINGROUP id="YV4sjw" name="MasterOfMuppets">
     <GROUP id="{18D4A9AF-69F3-BA9A-FF98-66B55D816666}" name="Source">
       <GROUP id="{7C37AA09-4D5F-D1B6-3E36-6ADF9DFC75A7}" name="serial">
@@ -32,7 +32,13 @@
       </GROUP>
       <GROUP id="{F0C594F8-8C6E-680C-96FE-0646E519BA20}" name="dr_teeth">
         <FILE id="PdeUaq" name="dr_teeth.h" compile="0" resource="0" file="../electric_mayhem/dr_teeth.h"/>
-        <FILE id="bY5XA4" name="dr_teeth.hpp" compile="0" resource="0" file="../electric_mayhem/dr_teeth.hpp"/>
+        <FILE id="viXY0H" name="function_generator.cpp" compile="1" resource="0"
+              file="../electric_mayhem/function_generator.cpp"/>
+        <FILE id="lJZxq0" name="function_generator.h" compile="0" resource="0"
+              file="../electric_mayhem/function_generator.h"/>
+        <FILE id="qivqmE" name="master_of_muppets.hpp" compile="0" resource="0"
+              file="../electric_mayhem/master_of_muppets.hpp"/>
+        <FILE id="GnaFmK" name="messages.h" compile="0" resource="0" file="../electric_mayhem/messages.h"/>
       </GROUP>
       <FILE id="CdTC2d" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
@@ -57,7 +63,7 @@
   </MODULES>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>
-    <VS2022 targetFolder="Builds/VisualStudio2022" extraDefs="LIBSERIALPORT_MSBUILD"
+    <VS2022 targetFolder="Builds/VisualStudio2022" extraDefs="LIBSERIALPORT_MSBUILD&#10;_USE_MATH_DEFINES"
             externalLibraries="SetupAPI.lib">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="master_of_muppets"/>

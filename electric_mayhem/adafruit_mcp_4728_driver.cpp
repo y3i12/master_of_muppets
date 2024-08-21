@@ -1,10 +1,9 @@
-#pragma once
-
 #include <Arduino.h>
 #include <Wire.h>
 
+#include "TeensyThreads.h"
+
 #include "adafruit_mcp_4728_driver.h"
-#include "muppet_clock.h"
 
 void adafruit_mcp_4728_driver::initialize( const initialization_struct_t& initialization_struct ) {
     ldac_port   = initialization_struct.ldac_port;
@@ -17,8 +16,7 @@ void adafruit_mcp_4728_driver::initialize( const initialization_struct_t& initia
 
     uint16_t retry = 0;
     while ( retry++ < 100 && !mcp.begin( MCP4728_I2CADDR_DEFAULT, initialization_struct.wire ) ) {
-        muppet_clock::wait( 10 );
-        dr_teeth::muppet_is_doing_stuff( );
+        threads.delay( 10 );
     }
 
     if ( retry < 100 ) {
