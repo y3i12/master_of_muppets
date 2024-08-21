@@ -102,7 +102,7 @@ void electric_mayhem< dac_driver_t >::initialize( const initialization_struct_t 
 
 template < class dac_driver_t >
 bool electric_mayhem< dac_driver_t >::attention_please( uint8_t muppet_index ) {
-    return muppet_lock[ muppet_index ].try_lock( );
+    return muppet_lock[ muppet_index ].lock( );
 }
 
 template < class dac_driver_t >

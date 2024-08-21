@@ -16,9 +16,12 @@
 #include "master_of_muppets.hpp"
 
 
-//#define TEST_LFO 1            // doesn't read from serial and outputs the same saw wave on all outs
-#define LFO_FREQUENCY 30      // in HZ. sinus functions in HZ * 10
-#define LFO_SHAPE square    // triangle square stair sawtooth sinus sinusRectified sinusDiode trapezium1 trapezium2 heartBeat
+#define LFO_FREQUENCY 20    // comment to disable lfo
+#define LFO_SHAPE triangle // triangle square stair sawtooth sinus sinusRectified sinusDiode trapezium1 trapezium2 heartBeat
+
+#ifdef max
+#undef max
+#endif
 
 uint8_t MasterOfMuppetsAudioProcessor::cv_state_t::_channel = 0;
 
@@ -35,8 +38,11 @@ MasterOfMuppetsAudioProcessor::MasterOfMuppetsAudioProcessor( )
     )
 #endif
 {
-    the_function_generator.setFrequency( LFO_FREQUENCY );
-    the_function_generator.setAmplitude( 0.5f );
+    #ifdef LFO_FREQUENCY
+        the_function_generator.setFrequency( LFO_FREQUENCY );
+        the_function_generator.setAmplitude( 0.5f );
+    #endif
+
     sender_active = true;
     should_send = false;
 
@@ -56,7 +62,9 @@ MasterOfMuppetsAudioProcessor::MasterOfMuppetsAudioProcessor( )
     vec_ports = serial_type_t::get_devices( );
 
     for ( auto itr = vec_ports.begin( ); itr != vec_ports.end( ); ++itr ) {
-        ports.add(itr->first);
+        if ( strstr( itr->second.c_str(), "USB" ) ) {
+            ports.add(itr->first);
+        }
     }
 
     // TODO: y3i12- device selection
@@ -118,9 +126,7 @@ void MasterOfMuppetsAudioProcessor::sender( MasterOfMuppetsAudioProcessor* mop )
         send_mutex.unlock( );
 
         if ( message_set_dac_value_t::instance->count ) {
-            serial.begin_packet( );
-            serial.write( reinterpret_cast<uint8_t*>( message_set_dac_value_t::instance ), ( sizeof( message_set_dac_value_t ) + sizeof( message_attribute_address_value_t ) * ( message_set_dac_value_t::instance->count - 1 ) ) );
-            serial.end_packet( );
+            serial.send_packet( reinterpret_cast< uint8_t* >( message_set_dac_value_t::instance ), reinterpret_cast< size_t >( av ) - reinterpret_cast< size_t >( message_set_dac_value_t::instance  ) );
         }
 
         should_send = false;
@@ -142,10 +148,10 @@ void MasterOfMuppetsAudioProcessor::processBlock( juce::AudioBuffer<float>& buff
         cv_states.begin( ),
         cv_states.end( ),
         [&]( cv_state_t& n ) {
-            #ifdef TEST_LFO
-                n.cv_value = the_function_generator.LFO_SHAPE( static_cast< float >( juce::Time::getMillisecondCounterHiRes( ) * 10000 ) ) + 0.5f;
+            #ifdef LFO_FREQUENCY
+                n.set_value( the_function_generator.LFO_SHAPE( static_cast< float >( juce::Time::getMillisecondCounterHiRes( ) * 10000 ) ) + 0.5f );
             #else
-                n.updaate_value( );
+                n.update_value( );
             #endif
             should_send = true;
         }

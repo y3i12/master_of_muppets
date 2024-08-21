@@ -14,10 +14,12 @@
 #include <thread>
 
 #include "serial_port_libsp.h"
+#include "serial_port_w32.h"
 #include "dr_teeth.h"
 #include "function_generator.h"
 
 typedef slip_encoded_serial_port_libsp serial_type_t;
+// typedef slip_encoded_serial_port_w32 serial_type_t;
 
 //==============================================================================
 /**
@@ -74,7 +76,8 @@ private:
             param_cv( _param_cv ),
             cv_value( 0.0 ) { }
 
-        void updaate_value( void ) { cv_value = param_cv->get( ); }
+        void update_value( void ) { cv_value = param_cv->get( ); }
+        void set_value( double the_value ) { *param_cv = static_cast< float >( cv_value = the_value ); }
     };
 
     static void sender( MasterOfMuppetsAudioProcessor* mop );

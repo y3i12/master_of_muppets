@@ -3,14 +3,14 @@
 #include <sstream>
 #include <iostream>
 
-serial_w32_driver::serial_w32_driver( )
+serial_w32_driver::serial_w32_driver( void )
     : com( NULL )
     , dcb( { 0 } )
     , timeouts( { 0 } ) {
 }
 
 
-serial_w32_driver::~serial_w32_driver( ) {
+serial_w32_driver::~serial_w32_driver( void ) {
     this->close( );
 }
 
@@ -77,7 +77,10 @@ int32_t serial_w32_driver::read( uint8_t* buffer, size_t len ) {
     return nBytesRead;
 }
 
-bool serial_w32_driver::close( ) {
+void serial_w32_driver::flush( void ) {
+}
+
+bool serial_w32_driver::close( void ) {
     if ( com ) {
         CloseHandle( com );
         com = NULL;

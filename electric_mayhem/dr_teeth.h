@@ -9,7 +9,7 @@ struct dr_teeth {
     static const uint8_t  k_channels_per_dac            = 4;
     static const uint8_t  k_total_channels              = k_dac_count * k_channels_per_dac;
 
-    static const uint8_t  k_buffer_size                 = sizeof( message_attribute_address_value_t ) * ( k_total_channels - 1 ) + sizeof( message_set_dac_value_t );
+    static const uint8_t  k_buffer_size                 = 255; // sizeof( message_attribute_address_value_t ) * ( k_total_channels - 1 ) + sizeof( message_set_dac_value_t );
     static const uint16_t k_max_value                   = 64 * 1024 - 1;
     
     static const int      k_thread_slice_micros         = 10;
@@ -20,7 +20,7 @@ struct dr_teeth {
     static uint16_t value_buffer[ k_total_channels ];
 
     static void     reset( void )        { buffer_pos = 0; message_t::instance->type = message_t::k_undefined; }
-    static uint8_t  write( uint8_t val ) { return buffer[ buffer_pos++ ] = val; }
+    static uint8_t  write( uint8_t val ) { if ( buffer_pos == k_buffer_size ) return 255; return buffer[ buffer_pos++ ] = val; }
   
     template< typename T >
     static void     go_muppets( T& muppets ) {
@@ -28,10 +28,9 @@ struct dr_teeth {
 
             message_attribute_address_value_t* message_address_value( &message_set_dac_value_t::instance->first_address_value );
 
-            for ( uint8_t i = 0; i < message_set_dac_value_t::instance->count; ++i ) {
-                message_attribute_address_value_t& addr_value_struct = message_address_value[ i ];
+            for ( uint8_t channel = 0; channel < message_set_dac_value_t::instance->count; ++channel ) {
+                message_attribute_address_value_t& addr_value_struct = message_address_value[ channel ];
                 uint8_t muppet_index = addr_value_struct.address / dr_teeth::k_channels_per_dac;
-
                 if ( value_buffer[ addr_value_struct.address ] != addr_value_struct.value && muppets.attention_please( muppet_index ) ) {
                     value_buffer[ addr_value_struct.address ] = addr_value_struct.value;
 

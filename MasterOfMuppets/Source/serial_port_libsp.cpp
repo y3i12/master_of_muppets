@@ -3,12 +3,12 @@
 #include <iostream>
 #include <sstream>
 
-serial_libsp_driver::serial_libsp_driver( )
+serial_libsp_driver::serial_libsp_driver( void )
     : port( 0 ) {
 }
 
 
-serial_libsp_driver::~serial_libsp_driver( ) {
+serial_libsp_driver::~serial_libsp_driver( void ) {
     this->close( );
 }
 
@@ -32,20 +32,21 @@ bool serial_libsp_driver::open_port( const std::string& port_name, int timeout )
 }
 
 int32_t serial_libsp_driver::write( const uint8_t* buffer, size_t len ) {
-    if (!port) return -1;
+    if ( !port ) return -1;
 
     return sp_blocking_write( port, buffer, len, 0 );
-    // return sp_nonblocking_write( port, buffer, len );
+    //return sp_nonblocking_write( port, buffer, len );
 }
 
 
 int32_t serial_libsp_driver::read( uint8_t* buffer, size_t len ) {
     if ( !port ) return -1;
+
     return sp_blocking_read( port, buffer, len, 0 );
-    // return sp_nonblocking_read( port, buffer, len );
+    //return sp_nonblocking_read( port, buffer, len );
 }
 
-bool serial_libsp_driver::close( ) {
+bool serial_libsp_driver::close( void ) {
     if ( !port ) { return false; }
 
     if ( port && sp_close( port ) != SP_OK ) {
@@ -59,8 +60,15 @@ bool serial_libsp_driver::close( ) {
     return true;
 }
 
+void serial_libsp_driver::flush( void ) {
+    if ( !port ) return;
+
+    sp_flush( port, SP_BUF_OUTPUT );
+}
+
 size_t serial_libsp_driver::available( void ) {
     if ( !port ) return 0;
+
     return sp_input_waiting( port );
 }
 
