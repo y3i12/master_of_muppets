@@ -111,6 +111,7 @@ void ublink( bool make_it_on = false ) {
 // Instead of receive serial data, outputs the LFO into dr_teeth's read buffer
 ////////////////////////////////////////////////////////////////////////////////
 
+#if defined( LFO_FREQUENCY )
 void test_lfo( void ) {
     #ifdef DEBUG_LED
         ublink(true);
@@ -131,6 +132,7 @@ void test_lfo( void ) {
         ublink();
     #endif
 }
+#endif
 
 ////////////////////////////////////////////////////////////////////////////////
 // midi_read
@@ -209,7 +211,7 @@ void setup( void ) {
     #endif
 
     usbMIDI.setHandlePitchChange( setChannelValue );
-
+    threads.setSliceMicros( 10 );
     threads.addThread( the_muppet_show );
     threads.addThread( the_voice_from_beyond );
 }

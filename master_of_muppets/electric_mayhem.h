@@ -96,8 +96,7 @@ void electric_mayhem< dac_driver_t >::initialize( const initialization_struct_t 
         put_muppet_to_work( muppet_index );
     }
 
-    int party_pooper_id = threads.addThread( party_pooper, this );
-    threads.setTimeSlice( party_pooper_id, 1 );
+    threads.addThread( party_pooper, this );
 }
 
 template < class dac_driver_t >
