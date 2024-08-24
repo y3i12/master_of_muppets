@@ -2,41 +2,42 @@
 
 #include <cstdint>
 
-#include "messages.h"
-
 struct dr_teeth {
     static const uint8_t  k_dac_count                   = 3;
     static const uint8_t  k_channels_per_dac            = 4;
     static const uint8_t  k_total_channels              = k_dac_count * k_channels_per_dac;
 
-    static const uint8_t  k_buffer_size                 = 255; // sizeof( message_attribute_address_value_t ) * ( k_total_channels - 1 ) + sizeof( message_set_dac_value_t );
     static const uint16_t k_max_value                   = 64 * 1024 - 1;
     
     static const int      k_thread_slice_micros         = 10;
     static const int      k_force_refresh_every_millis  = 100;
 
-    static uint8_t  buffer[ k_buffer_size ];
-    static uint8_t  buffer_pos;
-    static uint16_t value_buffer[ k_total_channels ];
-
-    static void     reset( void )        { buffer_pos = 0; message_t::instance->type = message_t::k_undefined; }
-    static uint8_t  write( uint8_t val ) { if ( buffer_pos == k_buffer_size ) return 255; return buffer[ buffer_pos++ ] = val; }
+    static uint16_t input_buffer[ k_total_channels ];
+    static uint16_t output_buffer[ k_total_channels ];
   
     template< typename T >
     static void     go_muppets( T& muppets ) {
-        if ( message_t::k_set_dac_value == message_t::instance->type ) {
+        for ( uint8_t muppet_index = 0; muppet_index < k_dac_count; ++muppet_index ) {
+            if ( muppets.attention_please( muppet_index ) ) {
+                uint8_t starting_channel = muppet_index * dr_teeth::k_channels_per_dac;
 
-            message_attribute_address_value_t* message_address_value( &message_set_dac_value_t::instance->first_address_value );
+                memcpy( &output_buffer[ starting_channel ], &input_buffer[ starting_channel ], sizeof( uint16_t ) * dr_teeth::k_channels_per_dac );
 
-            for ( uint8_t channel = 0; channel < message_set_dac_value_t::instance->count; ++channel ) {
-                message_attribute_address_value_t& addr_value_struct = message_address_value[ channel ];
-                uint8_t muppet_index = addr_value_struct.address / dr_teeth::k_channels_per_dac;
-                if ( value_buffer[ addr_value_struct.address ] != addr_value_struct.value && muppets.attention_please( muppet_index ) ) {
-                    value_buffer[ addr_value_struct.address ] = addr_value_struct.value;
+                // Serial.print( "dac - " );
+                // Serial.print( muppet_index, DEC );
+                // Serial.print( "; channel_start - " );
+                // Serial.print( starting_channel, DEC );
+                // Serial.print( ";" );
+                // for ( uint8_t i = 0; i < k_channels_per_dac; ++i ){
+                //   Serial.print( " C[" );
+                //   Serial.print( starting_channel + i, DEC );
+                //   Serial.print( "] = " );
+                //   Serial.print( output_buffer[ starting_channel + i ], DEC );
+                // }
+                // Serial.println();
 
-                    muppets.throw_muppet_in_the_mud( muppet_index );
-                    muppets.thanks( muppet_index );
-                }
+                muppets.throw_muppet_in_the_mud( muppet_index );
+                muppets.thanks( muppet_index );
             }
         }
     };

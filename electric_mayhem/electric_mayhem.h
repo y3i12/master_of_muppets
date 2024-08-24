@@ -24,18 +24,18 @@ public:
 
 protected:
     struct orientation_guide {
-        orientation_guide( void ) : muppet( 0 ), lock( 0 ), dirty( 0 ), value_buffer( 0 ) {}
+        orientation_guide( void ) : muppet( 0 ), lock( 0 ), dirty( 0 ), output_buffer( 0 ) {}
         orientation_guide( dac_driver_t& the_muppet, Threads::Mutex& the_lock, uint8_t& the_dirty_flag, uint16_t* the_buffer ) :
             muppet( &the_muppet ),
             lock( &the_lock ),
             dirty( &the_dirty_flag ),
-            value_buffer( the_buffer )
+            output_buffer( the_buffer )
         {}
 
         dac_driver_t*    muppet;
         Threads::Mutex*  lock;
         uint8_t*         dirty;
-        uint16_t*        value_buffer;
+        uint16_t*        output_buffer;
     };
 
 
@@ -55,14 +55,14 @@ protected:
         dac_driver_t&    me               = *muppet_orientation_guide.muppet;
         Threads::Mutex&  my_lock          = *muppet_orientation_guide.lock;
         uint8_t&         am_i_dirty       = *muppet_orientation_guide.dirty;
-        uint16_t*        my_value_buffer  =  muppet_orientation_guide.value_buffer;
+        uint16_t*        my_output_buffer  =  muppet_orientation_guide.output_buffer;
 
         uint16_t         my_personal_buffer_copy[ dr_teeth::k_channels_per_dac ];
         
         while ( 1 ) {
             if ( am_i_dirty ) {
                 my_lock.lock( );
-                memcpy( my_personal_buffer_copy, my_value_buffer, sizeof( uint16_t ) * dr_teeth::k_channels_per_dac );
+                memcpy( my_personal_buffer_copy, my_output_buffer, sizeof( uint16_t ) * dr_teeth::k_channels_per_dac );
                 am_i_dirty = 0; 
                 my_lock.unlock( );
 
@@ -133,7 +133,7 @@ void electric_mayhem< dac_driver_t >::put_muppet_to_work( uint8_t muppet_index )
         muppets[ muppet_index ], 
         muppet_lock[ muppet_index ], 
         is_muppet_dirty[ muppet_index ],
-        dr_teeth::value_buffer + muppet_index * dr_teeth::k_dac_count 
+        dr_teeth::output_buffer + muppet_index * dr_teeth::k_dac_count 
     );
 
     threads.addThread( muppet_worker, &muppet_orientation_guides[ muppet_index ] );
