@@ -7,9 +7,9 @@
 #include "function_generator.h"
 #include "muppet_clock.h"
 
-#define LFO_FREQUENCY 1         // in HZ. sinus functions in HZ * 10 - comment this line to disable lfo testing
-#define LFO_SHAPE     triangle  // triangle square stair sawtooth sinus sinusRectified sinusDiode trapezium1 trapezium2 heartBeat
-#define LFO_CHANNEL   10
+//#define LFO_FREQUENCY 1         // in HZ. sinus functions in HZ * 10 - comment this line to disable lfo testing
+//#define LFO_SHAPE     triangle  // triangle square stair sawtooth sinus sinusRectified sinusDiode trapezium1 trapezium2 heartBeat
+//#define LFO_CHANNEL   10
 
 //#define DEBUG_LED       13        // port to analogWrite the value of DEBUG_CHANNEL as intensity (lfo or serial) - comment this line to disable blinking
 //#define DEBUG_LED_BLINK           // makes the led blink
