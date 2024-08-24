@@ -5,3 +5,5 @@
 /MasterOfMuppets/Builds/VisualStudio2022/.vs
 /MasterOfMuppets/Builds/VisualStudio2022/x64
 /CADfiles/MasterOfMuppets/MasterOfMuppets-backups
+CADfiles/MasterOfMuppets/fp-info-cache
+*.lck
