@@ -6,6 +6,8 @@
 template < typename dac_driver_t > 
 class electric_mayhem {
 public:
+    static const uint8_t k_channels_per_dac = dac_driver_t::k_channels;
+    
     typedef typename dac_driver_t::value_t                  value_t;
     typedef typename dac_driver_t::initialization_struct_t  initialization_struct_t;
 
@@ -45,7 +47,7 @@ protected:
     uint8_t           is_muppet_dirty[ dr_teeth::k_dac_count ];
 
     inline bool vaid_dac(      uint8_t muppet_index     ) { return muppet_index     < dr_teeth::k_dac_count;        }
-    inline bool valid_channel( uint8_t channel_index ) { return channel_index < dr_teeth::k_channels_per_dac; }
+    inline bool valid_channel( uint8_t channel_index ) { return channel_index < k_channels_per_dac; }
 
     
 
@@ -57,12 +59,12 @@ protected:
         uint8_t&         am_i_dirty       = *muppet_orientation_guide.dirty;
         uint16_t*        my_output_buffer  =  muppet_orientation_guide.output_buffer;
 
-        uint16_t         my_personal_buffer_copy[ dr_teeth::k_channels_per_dac ];
+        uint16_t         my_personal_buffer_copy[ k_channels_per_dac ];
         
         while ( 1 ) {
             if ( am_i_dirty ) {
                 my_lock.lock( );
-                memcpy( my_personal_buffer_copy, my_output_buffer, sizeof( uint16_t ) * dr_teeth::k_channels_per_dac );
+                memcpy( my_personal_buffer_copy, my_output_buffer, sizeof( uint16_t ) * k_channels_per_dac );
                 am_i_dirty = 0; 
                 my_lock.unlock( );
 
@@ -132,7 +134,7 @@ void electric_mayhem< dac_driver_t >::put_muppet_to_work( uint8_t muppet_index )
         muppets[ muppet_index ], 
         muppet_lock[ muppet_index ], 
         is_muppet_dirty[ muppet_index ],
-        dr_teeth::output_buffer + muppet_index * dr_teeth::k_dac_count 
+        dr_teeth::output_buffer + muppet_index * k_channels_per_dac 
     );
 
     threads.addThread( muppet_worker, &muppet_orientation_guides[ muppet_index ] );

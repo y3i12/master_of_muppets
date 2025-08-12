@@ -1,5 +1,5 @@
 
-/CADfiles/MasterOfMuppets R1/MasterOfMuppets-backups
+MasterOfMuppets-backups
 /CADfiles/MasterOfMuppets R2/MasterOfMuppets-backups
 /DataSheets
 /MasterOfMuppets/Builds/VisualStudio2022/.vs
@@ -7,3 +7,6 @@
 /CADfiles/MasterOfMuppets/MasterOfMuppets-backups
 CADfiles/MasterOfMuppets/fp-info-cache
 *.lck
+.pio
+.vscode
+.claude
