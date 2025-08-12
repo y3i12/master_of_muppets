@@ -11,12 +11,14 @@ namespace drivers {
 
 class adafruit_mcp_4728 {
 public:
-    const static uint32_t k_wire_clock = 3400000L;
+    const static uint32_t k_wire_clock = 400000L;
     const static uint16_t k_max_val    = 4095;
     const static uint8_t  k_channels   = 4;
 
     typedef uint16_t value_t;
 
+    adafruit_mcp_4728( void ) : wire( 0 ), ldac_port( 0 ) { }
+    
     struct initialization_struct_t {
         initialization_struct_t( TwoWire* the_wire, uint8_t the_ldac_port ) : wire( the_wire ), ldac_port( the_ldac_port ) { }
         

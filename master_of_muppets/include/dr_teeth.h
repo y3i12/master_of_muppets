@@ -24,19 +24,6 @@ struct dr_teeth {
 
                 memcpy( &output_buffer[ starting_channel ], &input_buffer[ starting_channel ], sizeof( uint16_t ) * T::k_channels_per_dac );
 
-                // Serial.print( "dac - " );
-                // Serial.print( muppet_index, DEC );
-                // Serial.print( "; channel_start - " );
-                // Serial.print( starting_channel, DEC );
-                // Serial.print( ";" );
-                // for ( uint8_t i = 0; i < k_channels_per_dac; ++i ){
-                //   Serial.print( " C[" );
-                //   Serial.print( starting_channel + i, DEC );
-                //   Serial.print( "] = " );
-                //   Serial.print( output_buffer[ starting_channel + i ], DEC );
-                // }
-                // Serial.println();
-
                 muppets.throw_muppet_in_the_mud( muppet_index );
                 muppets.thanks( muppet_index );
             }

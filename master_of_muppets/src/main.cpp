@@ -6,20 +6,24 @@
 
 #include "drivers/rob_tillaart_ad_5993r.h"
 #include "drivers/adafruit_mcp_4728.h"
-#include "mikrobus.h"
 
 #include "function_generator.h"
 #include "muppet_clock.h"
 
-//#define LFO_FREQUENCY 1         // in HZ. sinus functions in HZ * 10 - comment this line to disable lfo testing
-//#define LFO_SHAPE     triangle  // triangle square stair sawtooth sinus sinusRectified sinusDiode trapezium1 trapezium2 heartBeat
-//#define LFO_CHANNEL   10
-
-//#define DEBUG_LED       13        // port to analogWrite the value of DEBUG_CHANNEL as intensity (lfo or serial) - comment this line to disable blinking
-//#define DEBUG_LED_BLINK           // makes the led blink
-//#define DEBUG_CHANNEL   2         // which channel should go to the DEBUG_LED - comment this line to disable intensity showing
 
 #define MASTER_OF_MUPPETS_AD5993R
+// #define DENTAL_CHECK
+
+#ifdef DENTAL_CHECK
+#define LFO_FREQUENCY   30          // in HZ. sinus functions in HZ * 10 - comment this line to disable lfo testing
+#define LFO_SHAPE       triangle    // triangle square stair sawtooth sinus sinusRectified sinusDiode trapezium1 trapezium2 heartBeat
+//#define LFO_CHANNEL   10            // restricts the LFO to one channel
+
+#define DEBUG_LED       LED_BUILTIN // port to analogWrite the value of DEBUG_CHANNEL as intensity (lfo or serial) - comment this line to disable blinking
+#define DEBUG_LED_BLINK             // makes the led blink
+#define DEBUG_CHANNEL   1           // which channel should go to the DEBUG_LED - comment this line to disable intensity showing
+#endif
+
 
 function_generator                          the_function_generator;
 
@@ -117,6 +121,7 @@ void test_lfo( void ) {
 // midi_read
 ////////////////////////////////////////////////////////////////////////////////
 
+// callback for pitch change
 void setChannelValue( uint8_t channel_index, int pitch ) {
     #ifdef DEBUG_LED
         ublink(true);
@@ -175,9 +180,13 @@ void the_muppet_show ( void ) {
 ////////////////////////////////////////////////////////////////////////////////
 
 void setup( void ) {
+    
+  while ( !Serial );
+  Serial.begin( 115200 );
+
   dac_driver_t::initialization_struct_t initialization_structs[ dr_teeth::k_dac_count ] = {
-        dac_driver_t::initialization_struct_t( &Wire1, 4 ),
-        dac_driver_t::initialization_struct_t( &Wire2, 8 ),
+        dac_driver_t::initialization_struct_t( &Wire2 ),
+        dac_driver_t::initialization_struct_t( &Wire1 ),
     };
 
     the_muppets.initialize( initialization_structs );
@@ -197,6 +206,6 @@ void setup( void ) {
 // loop - just because it is required
 ////////////////////////////////////////////////////////////////////////////////
 
-void loop(){threads.yield();}
+void loop( void ) { threads.yield( ); }
 
 // waka waka waka ...
