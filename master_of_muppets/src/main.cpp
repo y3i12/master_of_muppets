@@ -4,8 +4,6 @@
 #include "master_of_muppets.hpp"
 #include "electric_mayhem.h"
 
-#include "drivers/rob_tillaart_ad_5993r.h"
-#include "drivers/adafruit_mcp_4728.h"
 
 #include "function_generator.h"
 #include "muppet_clock.h"
@@ -14,29 +12,43 @@
 #define MASTER_OF_MUPPETS_AD5993R
 // #define DENTAL_CHECK
 
+
+
+
+
 #ifdef DENTAL_CHECK
-#define LFO_FREQUENCY   30          // in HZ. sinus functions in HZ * 10 - comment this line to disable lfo testing
-#define LFO_SHAPE       triangle    // triangle square stair sawtooth sinus sinusRectified sinusDiode trapezium1 trapezium2 heartBeat
-//#define LFO_CHANNEL   10            // restricts the LFO to one channel
-
-#define DEBUG_LED       LED_BUILTIN // port to analogWrite the value of DEBUG_CHANNEL as intensity (lfo or serial) - comment this line to disable blinking
-#define DEBUG_LED_BLINK             // makes the led blink
-#define DEBUG_CHANNEL   1           // which channel should go to the DEBUG_LED - comment this line to disable intensity showing
-#endif
-
 
 function_generator                          the_function_generator;
 
+#define LFO_FREQUENCY   1000        // in HZ. sinus functions in HZ * 10 - comment this line to disable lfo testing
+#define LFO_SHAPE       sinus       // triangle square stair sawtooth sinus sinusRectified sinusDiode trapezium1 trapezium2 heartBeat
+// #define LFO_CHANNEL     0        // restricts the LFO to one channel - coment this line to send the LFO to all chanells
+
+#define DEBUG_LED       LED_BUILTIN // port to analogWrite the value of DEBUG_CHANNEL as intensity (lfo or serial) - comment this line to disable blinking
+#define DEBUG_LED_BLINK             // makes the led blink
+#define DEBUG_CHANNEL   0           // which channel should go to the DEBUG_LED - comment this line to disable intensity showing
+#endif
+
+
+
+
+
+
 #ifdef MASTER_OF_MUPPETS_AD5993R
+#include "drivers/rob_tillaart_ad_5993r.h"
 using dac_driver_t = drivers::rob_tillaart_ad_5993r;
 #endif
 
 #ifdef MASTER_OF_MUPPETS_MCP4728
+#include "drivers/adafruit_mcp_4728.h"
 using dac_driver_t = drivers::adafruit_mcp_4728;
 #endif
 
+
+
+
 electric_mayhem< dac_driver_t >    the_muppets;
-static Threads::Mutex                       inspiration;
+static Threads::Mutex              inspiration;
 
 // Direct channel indexing without remapping
 // Channels are used directly as: DAC0[0,1,2,3], DAC1[4,5,6,7], DAC2[8,9,10,11]
@@ -180,10 +192,6 @@ void the_muppet_show ( void ) {
 ////////////////////////////////////////////////////////////////////////////////
 
 void setup( void ) {
-    
-  while ( !Serial );
-  Serial.begin( 115200 );
-
   dac_driver_t::initialization_struct_t initialization_structs[ dr_teeth::k_dac_count ] = {
         dac_driver_t::initialization_struct_t( &Wire2 ),
         dac_driver_t::initialization_struct_t( &Wire1 ),
