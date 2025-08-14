@@ -267,6 +267,7 @@
       "mfg": "",
       "mpn": ""
     },
+    "layer_pairs": [],
     "layer_presets": [],
     "viewports": []
   },
@@ -461,10 +462,15 @@
       "duplicate_sheet_names": "error",
       "endpoint_off_grid": "warning",
       "extra_units": "error",
+      "footprint_filter": "ignore",
+      "footprint_link_issues": "warning",
+      "four_way_junction": "ignore",
       "global_label_dangling": "warning",
       "hier_label_mismatch": "error",
       "label_dangling": "error",
+      "label_multiple_wires": "warning",
       "lib_symbol_issues": "warning",
+      "lib_symbol_mismatch": "warning",
       "missing_bidi_pin": "warning",
       "missing_input_pin": "warning",
       "missing_power_pin": "error",
@@ -477,9 +483,14 @@
       "pin_not_driven": "error",
       "pin_to_pin": "error",
       "power_pin_not_driven": "error",
+      "same_local_global_label": "warning",
+      "similar_label_and_power": "warning",
       "similar_labels": "warning",
+      "similar_power": "warning",
       "simulation_model_issue": "ignore",
+      "single_global_label": "ignore",
       "unannotated": "error",
+      "unconnected_wire_endpoint": "warning",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
       "wire_dangling": "error"
@@ -491,7 +502,7 @@
   },
   "meta": {
     "filename": "MasterOfMuppets.kicad_pro",
-    "version": 1
+    "version": 3
   },
   "net_settings": {
     "classes": [
@@ -506,6 +517,7 @@
         "microvia_drill": 0.1,
         "name": "Default",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2,
         "via_diameter": 0.6,
@@ -514,7 +526,7 @@
       }
     ],
     "meta": {
-      "version": 3
+      "version": 4
     },
     "net_colors": null,
     "netclass_assignments": null,
@@ -650,6 +662,7 @@
       ],
       "filter_string": "",
       "group_symbols": true,
+      "include_excluded_from_bom": false,
       "name": "",
       "sort_asc": true,
       "sort_field": "Reference"
@@ -682,8 +695,17 @@
       "version": 1
     },
     "net_format_name": "",
+    "ngspice": {
+      "fix_include_paths": true,
+      "meta": {
+        "version": 0
+      },
+      "model_mode": 4,
+      "workbook_filename": ""
+    },
     "page_layout_descr_file": "",
     "plot_directory": "",
+    "space_save_all_events": true,
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
     "spice_model_current_sheet_as_root": true,
@@ -700,71 +722,103 @@
     ],
     [
       "9146edb4-d9ec-4eb9-99ec-c7182bcc31c9",
-      "MAMA_BOARD"
+      "TEENSY_MODULE"
     ],
     [
       "60709206-8158-4f80-9acc-4f76df38190b",
-      "BOODOO_BOARD"
+      "DAC_MODULE"
     ],
     [
-      "36af3a73-cfb6-4636-bb57-be4bb7b89f09",
-      "OUT_BOARD"
+      "415bd524-e348-40cf-853f-c7af6379b92b",
+      "AMP_MODULE1"
     ],
     [
-      "5e8e99da-91a8-42d3-9874-13fc89de7535",
-      "BOODOO_BOARD1"
+      "02ed2e6d-b4fd-4f27-b067-e65a1933feb0",
+      "AMP_MODULE"
     ],
     [
-      "d99276d9-0772-4f67-a689-483e2c3f3142",
-      "FACE_PLATE"
+      "2605ff3f-ff92-4fa9-a945-25b3be4a890c",
+      "DAC_MODULE1"
     ],
     [
-      "29fb0b14-0262-4403-a2e8-21356c9efd47",
-      "BOODOO_BOARD2"
+      "02ed2e6d-b4fd-4f27-b067-e65a1933feb0",
+      "AMP_MODULE"
     ],
     [
-      "fd9ac3d0-2bcc-44f7-bcd2-0c9d95060714",
-      "OUT_BOARD1"
+      "415bd524-e348-40cf-853f-c7af6379b92b",
+      "AMP_MODULE1"
     ],
     [
-      "7360befe-3826-4d10-802c-8246e9a9734d",
-      "OUT_BOARD2"
+      "1ebaab9f-3adf-4ab6-b6c9-964263e520cd",
+      "UNRIPPLE_MODULE1"
     ],
     [
-      "c861857b-3772-4ca9-9413-8c177b06aa70",
-      "OUT_BOARD3"
+      "9b55f2e7-8956-440a-8522-8732ca051d63",
+      "UNRIPPLE_MODULE"
     ],
     [
-      "ba3ec192-1fd8-4a14-aa6e-081fba87e0ef",
-      "OUT_BOARD4"
+      "1ebaab9f-3adf-4ab6-b6c9-964263e520cd",
+      "UNRIPPLE_MODULE1"
     ],
     [
-      "510de3e6-6603-4e39-950a-06a989c582e1",
-      "OUT_BOARD5"
+      "677b72c2-bf5a-4c5d-aefa-30b62731dc07",
+      "UNRIPPLE_MODULE2"
     ],
     [
-      "393e1fde-6ba8-42a2-bf6b-b109aeb83e09",
-      "OUT_BOARD6"
+      "677b72c2-bf5a-4c5d-aefa-30b62731dc07",
+      "UNRIPPLE_MODULE2"
     ],
     [
-      "cd31279c-222b-4662-be0f-052037f00edd",
-      "OUT_BOARD7"
+      "c23ed8e9-fd80-4ab9-a446-b909f916776c",
+      "UNRIPPLE_MODULE3"
     ],
     [
-      "9f72af4d-d525-4df9-8c53-55d21f56ffcf",
-      "OUT_BOARD8"
+      "c23ed8e9-fd80-4ab9-a446-b909f916776c",
+      "UNRIPPLE_MODULE3"
     ],
     [
-      "0837d1e8-7c7b-4406-8494-17fb59d5c21b",
-      "OUT_BOARD9"
+      "eef141d8-f350-40f2-990d-9c18dcf6372d",
+      "UNRIPPLE_MODULE1"
     ],
     [
-      "b9f30ca6-5edd-48d4-8e87-7d04cdaedfba",
-      "OUT_BOARD10"
+      "eef141d8-f350-40f2-990d-9c18dcf6372d",
+      "UNRIPPLE_MODULE1"
     ],
     [
-      "a01e1cee-f659-4177-8d90-4d50a13243ba",
-      "OUT_BOARD11"
+      "eef141d8-f350-40f2-990d-9c18dcf6372d",
+      "UNRIPPLE_MODULE1"
+    ],
+    [
+      "eef141d8-f350-40f2-990d-9c18dcf6372d",
+      "UNRIPPLE_MODULE1"
+    ],
+    [
+      "45d11efb-a1cc-46e8-9e3b-dcea3e8724d6",
+      "UNRIPPLE_MODULE2"
+    ],
+    [
+      "45d11efb-a1cc-46e8-9e3b-dcea3e8724d6",
+      "UNRIPPLE_MODULE2"
+    ],
+    [
+      "45d11efb-a1cc-46e8-9e3b-dcea3e8724d6",
+      "UNRIPPLE_MODULE2"
+    ],
+    [
+      "45d11efb-a1cc-46e8-9e3b-dcea3e8724d6",
+      "UNRIPPLE_MODULE2"
+    ],
+    [
+      "e69f2e4f-b554-4083-9f69-ae83ad0071c6",
+      "JACK_SHEET1"
+    ],
+    [
+      "e6c67076-e350-448f-bd1d-4e535db93c1a",
+      "JACK_SHEET"
+    ],
+    [
+      "9b55f2e7-8956-440a-8522-8732ca051d63",
+      "UNRIPPLE_MODULE"
     ]
   ],
   "text_variables": {}
