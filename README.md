@@ -23,6 +23,9 @@ The internally referenced DAC output ranges from 0V to 5V and is subsequently pa
  - Adafruit's [MCP4728](https://github.com/adafruit/Adafruit_MCP4728) and [BusIO](https://github.com/adafruit/Adafruit_BusIO)
  - The Muppets
 
+All dependencies are incorporated in the project - for hackability... and trouble updating them.
+
+
 ## Code Disclaimer
  - The code was done in a way that it would be fun to read, knowing that it won't make it more maintainable. It references The Muppets, Dr. Teeth and The Electric Mayhem.
  - Expect puns.
@@ -36,12 +39,15 @@ The internally referenced DAC output ranges from 0V to 5V and is subsequently pa
  - On Windows it is currently limited by the update frequency of the USB stack which is about 1KHz;
    - An alternative would be ethernet, *probably it is a terrible idea*.
 
+
 ## Current Status
   - Starting to review schematics;
   - PCB is pending;
   - Firmware works, for 16 channels. Still need to benchmark.
 
+
 ## To explore in the future
+  - Some sort of documentation;
   - Expand Master of Muppets to also send data back to the host:
     - Read 0..10V, downscale to 0-5V into the same terminal that is amplified to the output using another set of OpAmps;
     - Make use of AD5593R ADC to read through the same ports;
@@ -52,6 +58,7 @@ The internally referenced DAC output ranges from 0V to 5V and is subsequently pa
   - Physical modular assembly with flat cables or pin headers, using modules divided hierarchically like (but not exactly) in the schematics;
   - Enhance the firmware, having something like Droid Master 18 (which is awesome), but a bit more flexible, maybe with a small uploadable bytecode, but mostly for mapping - check for embedded scripting languages;
   - MIDI over Ethernet instead of USB, maybe with a crossover cable? It wouldn't be as plug and play. Maybe MIDI2;
+
 
 ## What didn't work
   - A VST converting MIDI to serial over USB, using the same threaded design.
