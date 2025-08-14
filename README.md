@@ -1,12 +1,13 @@
-# Master Of Muppets **Hard mode WIP.... or WIPPING HARD!!**
+# Master Of Muppets 
+## In hard mode work in progress.... or *WIPPING HARD!!*
 *Expect this repo to be under Buddhist impermanence: "transient, evanescent, inconstant". Currently under heavy development, everything can change at any moment.*
 
 `USB MIDI to 16xCV interface, outputs 0-10v on the CV out according to the pitch bend sent on the respective MIDI channel.`
 
 Similar to [Befaco MIDI Thing V2](https://www.befaco.org/midi-thing-v2/), [Der Mann mit der Maschine Droid Master 18](https://shop.dermannmitdermaschine.de/products/master18), [Expert Sleepers FH-2](https://www.expert-sleepers.co.uk/fh2.html), et al.
-But open source...
-And aiming to be done the DIY way (cheap)...
-Done by a noob in electronics, but old time C++ addict...
+ - But open source...
+ - And aiming to be done the DIY way (cheap and hacky)...
+ - Done by a hobbyis producer, noob in electronics and old timer C++ addict...
 
 The difference is that this fellow is not using [MAX11300](https://www.analog.com/media/en/technical-documentation/data-sheets/max11300.pdf), although it could support it. More details below.
 
@@ -14,7 +15,7 @@ At the moment Master Of Muppets only translates MIDI pitch messages from 0..65k 
 
 The internally referenced DAC output ranges from 0V to 5V and is subsequently passed through a low pass filter and then amplified by 2 with OpAmps [TL074](https://www.ti.com/lit/ds/symlink/tl074-ep.pdf).
 
-[This commit](https://github.com/y3i12/master_of_muppets/tree/7ddc9a420bcb24df1c32ecc6d5a23dffa7c8f9c1) has the prototype of it, running with 12 channesl using the [MCP4728](https://ww1.microchip.com/downloads/en/devicedoc/22187e.pdf).
+[This commit](https://github.com/y3i12/master_of_muppets/tree/7ddc9a420bcb24df1c32ecc6d5a23dffa7c8f9c1) has the prototype of it, running with 12 channesl using the [MCP4728](https://ww1.microchip.com/downloads/en/devicedoc/22187e.pdf). Not recommendable as the OpAmps need to be replaced by [LT1014](https://www.ti.com/lit/ds/symlink/lt1014d.pdf) (beatiful and expensive) due to a design flaw.... everywhere. Worked as a POC.
 
 
 ## Code Dependencies
