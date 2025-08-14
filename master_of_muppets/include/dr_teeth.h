@@ -3,19 +3,18 @@
 #include <cstdint>
 
 struct dr_teeth {
-    static const uint8_t  k_dac_count                   = 2;
-    static const uint8_t  k_channels_per_dac            = 4;  // Legacy constant for compatibility
-    static const uint8_t  k_max_channels_per_dac        = 8;  // Maximum channels any driver might have
-    static const uint8_t  k_total_channels              = k_dac_count * k_max_channels_per_dac;
+    static constexpr uint8_t  k_dac_count                   = 2;
+    static constexpr uint8_t  k_channels_per_dac            = 8;
+    static constexpr uint8_t  k_total_channels              = k_dac_count * k_channels_per_dac;
 
-    static const uint16_t k_max_value                   = 64 * 1024 - 1;
+    static constexpr uint16_t k_max_value                   = 64 * 1024 - 1;
     
-    static const int      k_thread_slice_micros         = 10;
-    static const int      k_force_refresh_every_millis  = 100;
+    static constexpr int      k_thread_slice_micros         = 10;
+    static const int          k_force_refresh_every_millis  = 100;
 
-    static uint16_t input_buffer[ k_total_channels ];
-    static uint16_t output_buffer[ k_total_channels ];
-  
+    static uint16_t           input_buffer[  k_total_channels ];
+    static uint16_t           output_buffer[ k_total_channels ];
+    
     template< typename T >
     static void     go_muppets( T& muppets ) {
         for ( uint8_t muppet_index = 0; muppet_index < k_dac_count; ++muppet_index ) {
