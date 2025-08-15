@@ -1,0 +1,513 @@
+{
+  "_metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-15",
+    "description": "Component node registry for Master of Muppets PCB",
+    "encoding": {
+      "pxf": "proximity_factor (0-1, higher needs closer placement)",
+      "thr": "thermal_coefficient (W dissipation estimate)",
+      "ncp": "noise_criticality_priority (0-10, higher needs better isolation)",
+      "fgp": "functional_group_id",
+      "sgw": "signal_weight (importance of signal integrity)",
+      "gnd": "ground_plane_requirement (0=none, 1=preferred, 2=critical)"
+    }
+  },
+  "nodes": {
+    "T1": {
+      "type": "mcu",
+      "value": "Teensy4.1",
+      "module": "teensy",
+      "footprint": "Teensy:Teensy41",
+      "pins": 48,
+      "metadata": {
+        "pxf": 0.8,
+        "thr": 0.5,
+        "ncp": 5,
+        "fgp": "digital_core",
+        "sgw": 10,
+        "gnd": 2,
+        "i2c_master": true,
+        "critical_placement": true
+      },
+      "ports": {
+        "i2c_sda": {"pin": 18, "net": "SDA"},
+        "i2c_scl": {"pin": 19, "net": "SCL"},
+        "i2c1_sda": {"pin": 17, "net": "SDA1"},
+        "i2c1_scl": {"pin": 16, "net": "SCL1"},
+        "vcc": {"pin": "VIN", "net": "+5V"},
+        "gnd": {"pins": ["GND", "GND2"], "net": "GND"},
+        "3v3": {"pin": "3V3", "net": "+3V3"}
+      }
+    },
+    "DAC1": {
+      "type": "dac",
+      "value": "AD5593R",
+      "module": "dac",
+      "footprint": "TSSOP-16",
+      "pins": 16,
+      "metadata": {
+        "pxf": 0.9,
+        "thr": 0.1,
+        "ncp": 8,
+        "fgp": "analog_dac",
+        "sgw": 9,
+        "gnd": 2,
+        "channels": 8,
+        "resolution": 12,
+        "i2c_addr": "0x10"
+      },
+      "ports": {
+        "sda": {"pin": 1, "net": "SDA"},
+        "scl": {"pin": 2, "net": "SCL"},
+        "a0": {"pin": 3, "net": "DAC1_CS"},
+        "vdd": {"pin": 15, "net": "+5V"},
+        "gnd": {"pin": 14, "net": "GND"},
+        "io0-7": {"pins": [4,5,6,7,8,9,10,11], "net": "DAC1_OUT[0:7]"}
+      }
+    },
+    "U1": {
+      "type": "opamp",
+      "value": "TL074",
+      "module": "amp",
+      "footprint": "SOIC-14",
+      "pins": 14,
+      "units": 4,
+      "metadata": {
+        "pxf": 0.7,
+        "thr": 0.2,
+        "ncp": 7,
+        "fgp": "analog_amp",
+        "sgw": 8,
+        "gnd": 1,
+        "channels": 4,
+        "supply_dual": true
+      },
+      "ports": {
+        "v_plus": {"pin": 4, "net": "+12V"},
+        "v_minus": {"pin": 11, "net": "-12V"},
+        "unit1": {"in_p": 3, "in_n": 2, "out": 1},
+        "unit2": {"in_p": 5, "in_n": 6, "out": 7},
+        "unit3": {"in_p": 10, "in_n": 9, "out": 8},
+        "unit4": {"in_p": 12, "in_n": 13, "out": 14}
+      }
+    },
+    "J1": {
+      "type": "connector",
+      "value": "Terminal_3P",
+      "module": "main",
+      "footprint": "TerminalBlock_3P",
+      "pins": 3,
+      "metadata": {
+        "pxf": 0.1,
+        "thr": 0,
+        "ncp": 1,
+        "fgp": "power_input",
+        "sgw": 10,
+        "gnd": 2,
+        "edge_placement": true
+      },
+      "ports": {
+        "plus_12v": {"pin": 1, "net": "+12V_IN"},
+        "gnd": {"pin": 2, "net": "GND"},
+        "minus_12v": {"pin": 3, "net": "-12V_IN"}
+      }
+    },
+    "J2": {
+      "type": "jack",
+      "value": "3.5mm_Jack",
+      "module": "jack",
+      "footprint": "PJ398SM",
+      "pins": 3,
+      "metadata": {
+        "pxf": 0.1,
+        "thr": 0,
+        "ncp": 2,
+        "fgp": "output",
+        "sgw": 5,
+        "gnd": 1,
+        "channel": 1,
+        "edge_placement": true
+      },
+      "ports": {
+        "signal": {"pin": 1, "net": "OUT_CH1"},
+        "gnd": {"pin": 2, "net": "GND"}
+      }
+    },
+    "J3": {
+      "type": "jack",
+      "value": "3.5mm_Jack",
+      "module": "jack",
+      "metadata": {
+        "pxf": 0.1,
+        "channel": 2,
+        "fgp": "output"
+      }
+    },
+    "J4": {
+      "type": "jack",
+      "value": "3.5mm_Jack",
+      "module": "jack",
+      "metadata": {
+        "pxf": 0.1,
+        "channel": 3,
+        "fgp": "output"
+      }
+    },
+    "J5": {
+      "type": "jack",
+      "value": "3.5mm_Jack",
+      "module": "jack",
+      "metadata": {
+        "pxf": 0.1,
+        "channel": 4,
+        "fgp": "output"
+      }
+    },
+    "J6": {
+      "type": "jack",
+      "value": "3.5mm_Jack",
+      "module": "jack",
+      "metadata": {
+        "pxf": 0.1,
+        "channel": 5,
+        "fgp": "output"
+      }
+    },
+    "J7": {
+      "type": "jack",
+      "value": "3.5mm_Jack",
+      "module": "jack",
+      "metadata": {
+        "pxf": 0.1,
+        "channel": 6,
+        "fgp": "output"
+      }
+    },
+    "J8": {
+      "type": "jack",
+      "value": "3.5mm_Jack",
+      "module": "jack",
+      "metadata": {
+        "pxf": 0.1,
+        "channel": 7,
+        "fgp": "output"
+      }
+    },
+    "J9": {
+      "type": "jack",
+      "value": "3.5mm_Jack",
+      "module": "jack",
+      "metadata": {
+        "pxf": 0.1,
+        "channel": 8,
+        "fgp": "output"
+      }
+    },
+    "R1": {
+      "type": "resistor",
+      "value": "4.7k",
+      "module": "dac",
+      "footprint": "R_0603",
+      "metadata": {
+        "pxf": 0.8,
+        "thr": 0,
+        "ncp": 3,
+        "fgp": "i2c_pullup",
+        "sgw": 7,
+        "function": "i2c_pullup_sda"
+      }
+    },
+    "R2": {
+      "type": "resistor",
+      "value": "4.7k",
+      "module": "dac",
+      "metadata": {
+        "pxf": 0.8,
+        "fgp": "i2c_pullup",
+        "function": "i2c_pullup_scl"
+      }
+    },
+    "R3": {
+      "type": "resistor",
+      "value": "10k",
+      "module": "dac",
+      "metadata": {
+        "pxf": 0.7,
+        "fgp": "dac_support"
+      }
+    },
+    "R4": {
+      "type": "resistor",
+      "value": "47k",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.9,
+        "fgp": "analog_amp",
+        "function": "feedback",
+        "opamp_unit": "U1.1"
+      }
+    },
+    "R5": {
+      "type": "resistor",
+      "value": "47k",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.9,
+        "fgp": "analog_amp",
+        "function": "feedback",
+        "opamp_unit": "U1.2"
+      }
+    },
+    "R6": {
+      "type": "resistor",
+      "value": "47k",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.9,
+        "fgp": "analog_amp",
+        "function": "feedback",
+        "opamp_unit": "U1.3"
+      }
+    },
+    "R7": {
+      "type": "resistor",
+      "value": "47k",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.9,
+        "fgp": "analog_amp",
+        "function": "feedback",
+        "opamp_unit": "U1.4"
+      }
+    },
+    "R8": {
+      "type": "resistor",
+      "value": "47k",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.9,
+        "fgp": "analog_amp",
+        "function": "input"
+      }
+    },
+    "R9": {
+      "type": "resistor",
+      "value": "47k",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.9,
+        "fgp": "analog_amp",
+        "function": "input"
+      }
+    },
+    "R10": {
+      "type": "resistor",
+      "value": "47k",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.9,
+        "fgp": "analog_amp",
+        "function": "input"
+      }
+    },
+    "R11": {
+      "type": "resistor",
+      "value": "47k",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.9,
+        "fgp": "analog_amp",
+        "function": "input"
+      }
+    },
+    "R12": {
+      "type": "resistor",
+      "value": "1k",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.8,
+        "fgp": "analog_amp",
+        "function": "input"
+      }
+    },
+    "R13": {
+      "type": "resistor",
+      "value": "1k",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.8,
+        "fgp": "analog_amp",
+        "function": "input"
+      }
+    },
+    "R14": {
+      "type": "resistor",
+      "value": "1k",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.8,
+        "fgp": "analog_amp",
+        "function": "input"
+      }
+    },
+    "R15": {
+      "type": "resistor",
+      "value": "1k",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.8,
+        "fgp": "analog_amp",
+        "function": "input"
+      }
+    },
+    "R16": {
+      "type": "resistor",
+      "value": "220",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.6,
+        "fgp": "analog_amp",
+        "function": "output"
+      }
+    },
+    "R17": {
+      "type": "resistor",
+      "value": "220",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.6,
+        "fgp": "analog_amp",
+        "function": "output"
+      }
+    },
+    "R18": {
+      "type": "resistor",
+      "value": "220",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.6,
+        "fgp": "analog_amp",
+        "function": "output"
+      }
+    },
+    "R19": {
+      "type": "resistor",
+      "value": "220",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.6,
+        "fgp": "analog_amp",
+        "function": "output"
+      }
+    },
+    "C1": {
+      "type": "capacitor",
+      "value": "10uF",
+      "module": "main",
+      "footprint": "C_0805",
+      "metadata": {
+        "pxf": 0.7,
+        "thr": 0,
+        "ncp": 4,
+        "fgp": "power_filter",
+        "sgw": 8,
+        "function": "bulk_filter"
+      }
+    },
+    "C2": {
+      "type": "capacitor",
+      "value": "10uF",
+      "module": "main",
+      "metadata": {
+        "pxf": 0.7,
+        "fgp": "power_filter",
+        "function": "bulk_filter"
+      }
+    },
+    "C3": {
+      "type": "capacitor",
+      "value": "100nF",
+      "module": "main",
+      "metadata": {
+        "pxf": 0.7,
+        "fgp": "power_filter",
+        "function": "decoupling"
+      }
+    },
+    "C4": {
+      "type": "capacitor",
+      "value": "100nF",
+      "module": "main",
+      "metadata": {
+        "pxf": 0.7,
+        "fgp": "power_filter",
+        "function": "decoupling"
+      }
+    },
+    "C5": {
+      "type": "capacitor",
+      "value": "100nF",
+      "module": "amp",
+      "footprint": "C_0603",
+      "metadata": {
+        "pxf": 0.95,
+        "thr": 0,
+        "ncp": 8,
+        "fgp": "analog_amp",
+        "sgw": 9,
+        "function": "opamp_decoupling",
+        "target": "U1"
+      }
+    },
+    "C6": {
+      "type": "capacitor",
+      "value": "100nF",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.95,
+        "fgp": "analog_amp",
+        "function": "opamp_decoupling"
+      }
+    },
+    "C7": {
+      "type": "capacitor",
+      "value": "100nF",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.95,
+        "fgp": "analog_amp",
+        "function": "opamp_decoupling"
+      }
+    },
+    "C8": {
+      "type": "capacitor",
+      "value": "100nF",
+      "module": "amp",
+      "metadata": {
+        "pxf": 0.95,
+        "fgp": "analog_amp",
+        "function": "opamp_decoupling"
+      }
+    },
+    "C21": {
+      "type": "capacitor",
+      "value": "100nF",
+      "module": "unripple",
+      "metadata": {
+        "pxf": 0.6,
+        "fgp": "power_filter",
+        "function": "ripple_filter"
+      }
+    },
+    "C22": {
+      "type": "capacitor",
+      "value": "10uF",
+      "module": "unripple",
+      "metadata": {
+        "pxf": 0.6,
+        "fgp": "power_filter",
+        "function": "ripple_filter"
+      }
+    }
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "_metadata": {
+    "version": "2.0.0",
+    "created": "2025-08-15",
+    "description": "Complete component node registry for Master of Muppets PCB - All 163 components",
+    "source": "KiCad TSV export",
+    "total_components": 163,
+    "encoding": {
+      "pxf": "proximity_factor (0-1, higher needs closer placement)",
+      "thr": "thermal_coefficient (W dissipation estimate)",
+      "ncp": "noise_criticality_priority (0-10, higher needs better isolation)",
+      "fgp": "functional_group_id",
+      "sgw": "signal_weight (importance of signal integrity)",
+      "gnd": "ground_plane_requirement (0=none, 1=preferred, 2=critical)",
+      "chn": "channel_number (for channel-specific components)",
+      "grp": "group_instance (for repeated subcircuits)"
+    }
+  },
+  "component_summary": {
+    "capacitors": 52,
+    "resistors": 70,
+    "opamps": 20,
+    "dacs": 2,
+    "jacks": 16,
+    "mcu": 1,
+    "regulators": 1,
+    "connectors": 1
+  },
+  "nodes": {
+    "T1": {
+      "type": "mcu",
+      "value": "Teensy4.1",
+      "footprint": "Teensy:Teensy41",
+      "page": 1,
+      "position": {"x": 3850, "y": 3750},
+      "metadata": {
+        "pxf": 0.8, "thr": 0.5, "ncp": 5, "fgp": "digital_core", "sgw": 10, "gnd": 2,
+        "i2c_master": true, "critical_placement": true
+      }
+    },
+    "DAC1": {
+      "type": "dac",
+      "value": "AD5593R",
+      "footprint": "Package_SO:TSSOP-16_4.4x5mm_P0.65mm",
+      "page": 2,
+      "position": {"x": 3800, "y": 3000},
+      "metadata": {
+        "pxf": 0.9, "thr": 0.1, "ncp": 8, "fgp": "analog_dac", "sgw": 9, "gnd": 2,
+        "channels": 8, "resolution": 12, "i2c_addr": "0x10", "chn": "1-8"
+      }
+    },
+    "DAC2": {
+      "type": "dac",
+      "value": "AD5593R",
+      "footprint": "Package_SO:TSSOP-16_4.4x5mm_P0.65mm",
+      "page": 5,
+      "position": {"x": 3800, "y": 3000},
+      "metadata": {
+        "pxf": 0.9, "thr": 0.1, "ncp": 8, "fgp": "analog_dac", "sgw": 9, "gnd": 2,
+        "channels": 8, "resolution": 12, "i2c_addr": "0x11", "chn": "9-16"
+      }
+    },
+    "V_REG1": {
+      "type": "regulator",
+      "value": "LD1117V50",
+      "footprint": "PCM_4ms_Package_TO:TO-220-3_Vertical",
+      "page": 0,
+      "position": {"x": 5700, "y": 2400},
+      "metadata": {
+        "pxf": 0.6, "thr": 1.0, "ncp": 3, "fgp": "power_regulation", "sgw": 8, "gnd": 2,
+        "output_voltage": 5.0, "max_current": 0.8
+      }
+    },
+    "J1": {
+      "type": "connector",
+      "value": "Screw_Terminal_01x03",
+      "footprint": "TerminalBlock:TerminalBlock_Xinya_XY308-2.54-3P_1x03_P2.54mm_Horizontal",
+      "page": 0,
+      "position": {"x": 3350, "y": 1050},
+      "metadata": {
+        "pxf": 0.1, "thr": 0, "ncp": 1, "fgp": "power_input", "sgw": 10, "gnd": 2,
+        "edge_placement": "left"
+      }
+    }
+  },
+  "component_groups": {
+    "capacitors": {
+      "_pattern": "C{1-52}",
+      "_template": {
+        "type": "capacitor",
+        "footprint": "PCM_4ms_Capacitor:C_0603|C_0805",
+        "metadata": {
+          "pxf": 0.9, "thr": 0, "ncp": 7, "fgp": "decoupling", "sgw": 8, "gnd": 1
+        }
+      },
+      "power_bulk": ["C1", "C2", "C3", "C4"],
+      "opamp_decoupling": ["C5-C20"],
+      "power_filter": ["C21-C52"]
+    },
+    "resistors": {
+      "_pattern": "R{1-70}",
+      "_template": {
+        "type": "resistor",
+        "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+        "metadata": {
+          "pxf": 0.8, "thr": 0, "ncp": 5, "fgp": "analog_support", "sgw": 7, "gnd": 0
+        }
+      },
+      "i2c_pullups": ["R2", "R3", "R37", "R38"],
+      "dac_support": ["R1", "R36"],
+      "input_resistors": ["R4", "R5", "R12", "R13", "R20", "R21", "R28", "R29", "R39", "R40", "R47", "R48", "R55", "R56", "R63", "R64"],
+      "feedback_resistors": ["R6", "R7", "R8", "R9", "R14", "R15", "R16", "R17", "R22", "R23", "R24", "R25", "R30", "R31", "R32", "R33", "R41", "R42", "R43", "R44", "R49", "R50", "R51", "R52", "R57", "R58", "R59", "R60", "R65", "R66", "R67", "R68"],
+      "output_resistors": ["R10", "R11", "R18", "R19", "R26", "R27", "R34", "R35", "R45", "R46", "R53", "R54", "R61", "R62", "R69", "R70"]
+    },
+    "opamps": {
+      "_pattern": "OpAmp{1-4}{A-E}",
+      "_template": {
+        "type": "opamp",
+        "value": "TL074",
+        "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+        "metadata": {
+          "pxf": 0.7, "thr": 0.2, "ncp": 7, "fgp": "analog_amp", "sgw": 8, "gnd": 1,
+          "units": 4, "supply_dual": true
+        }
+      },
+      "amp_group_1": ["OpAmp1A", "OpAmp1B", "OpAmp1C", "OpAmp1D", "OpAmp1E"],
+      "amp_group_2": ["OpAmp2A", "OpAmp2B", "OpAmp2C", "OpAmp2D", "OpAmp2E"],
+      "amp_group_3": ["OpAmp3A", "OpAmp3B", "OpAmp3C", "OpAmp3D", "OpAmp3E"],
+      "amp_group_4": ["OpAmp4A", "OpAmp4B", "OpAmp4C", "OpAmp4D", "OpAmp4E"]
+    },
+    "output_jacks": {
+      "_pattern": "J{2-17}",
+      "_template": {
+        "type": "jack",
+        "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+        "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+        "metadata": {
+          "pxf": 0.1, "thr": 0, "ncp": 2, "fgp": "output", "sgw": 5, "gnd": 1,
+          "edge_placement": "right"
+        }
+      },
+      "channels_1_8": ["J2", "J3", "J4", "J5", "J6", "J7", "J8", "J9"],
+      "channels_9_16": ["J10", "J11", "J12", "J13", "J14", "J15", "J16", "J17"]
+    }
+  },
+  "channel_mapping": {
+    "1": {"dac": "DAC1", "opamp_group": 1, "jack": "J2", "page": 3},
+    "2": {"dac": "DAC1", "opamp_group": 1, "jack": "J3", "page": 3},
+    "3": {"dac": "DAC1", "opamp_group": 1, "jack": "J4", "page": 3},
+    "4": {"dac": "DAC1", "opamp_group": 1, "jack": "J5", "page": 3},
+    "5": {"dac": "DAC1", "opamp_group": 2, "jack": "J6", "page": 4},
+    "6": {"dac": "DAC1", "opamp_group": 2, "jack": "J7", "page": 4},
+    "7": {"dac": "DAC1", "opamp_group": 2, "jack": "J8", "page": 4},
+    "8": {"dac": "DAC1", "opamp_group": 2, "jack": "J9", "page": 4},
+    "9": {"dac": "DAC2", "opamp_group": 3, "jack": "J10", "page": 6},
+    "10": {"dac": "DAC2", "opamp_group": 3, "jack": "J11", "page": 6},
+    "11": {"dac": "DAC2", "opamp_group": 3, "jack": "J12", "page": 6},
+    "12": {"dac": "DAC2", "opamp_group": 3, "jack": "J13", "page": 6},
+    "13": {"dac": "DAC2", "opamp_group": 4, "jack": "J14", "page": 7},
+    "14": {"dac": "DAC2", "opamp_group": 4, "jack": "J15", "page": 7},
+    "15": {"dac": "DAC2", "opamp_group": 4, "jack": "J16", "page": 7},
+    "16": {"dac": "DAC2", "opamp_group": 4, "jack": "J17", "page": 7}
+  },
+  "extraction_method": {
+    "description": "How to get complete component list from KiCad",
+    "steps": [
+      "1. Open main schematic in KiCad",
+      "2. Tools → Generate Bill of Materials",
+      "3. Choose 'Export as CSV/TSV'",
+      "4. Include all fields: Reference, Value, Footprint, Page, X, Y",
+      "5. Export includes all hierarchical sheet instances",
+      "6. Parse TSV for complete component inventory"
+    ],
+    "alternative": "Use KiCad Python API: board = pcbnew.LoadBoard(); components = board.GetFootprints()"
+  }
+}

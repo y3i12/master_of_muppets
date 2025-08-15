@@ -173,3 +173,46 @@ Follow rules in `CODING_STYLE.md`:
 - Manual testing via MIDI controller
 - Monitor serial output for debug messages
 - Use heartbeat channel to verify system operation
+
+## Hardware Graph Structure
+
+### Overview
+The `claude/hardware_graph/` directory contains a multi-layered graph representation of the hardware design, created to optimize PCB component placement. This structure serves as a persistent cache of hardware relationships and metadata.
+
+### Files
+- **`node_registry.json`**: Component database with metadata (proximity factors, thermal coefficients, noise criticality)
+- **`networks.json`**: Multiple network views (connectivity, proximity, power, functional hierarchy, signal flow, thermal)
+- **`placement_optimization.json`**: Derived placement rules and optimization strategies
+
+### Usage in Future Sessions
+When working on PCB layout:
+1. **Load the graph**: Read JSON files from `claude/hardware_graph/`
+2. **Analyze relationships**: Use network layers to understand component interactions
+3. **Apply optimization**: Follow placement rules in `placement_optimization.json`
+4. **Update as needed**: Modify graphs when schematic changes
+
+### Key Metadata Encoding
+- **pxf**: Proximity factor (0-1, higher needs closer placement)
+- **thr**: Thermal coefficient (W dissipation)
+- **ncp**: Noise criticality priority (0-10)
+- **fgp**: Functional group ID
+- **sgw**: Signal weight (importance)
+- **gnd**: Ground plane requirement (0=none, 1=preferred, 2=critical)
+
+### Network Layers
+1. **Primary Connectivity**: Actual electrical connections
+2. **Proximity Network**: Physical placement clusters
+3. **Power Distribution**: Supply rails and current flow
+4. **Functional Hierarchy**: Logical grouping by function
+5. **Signal Flow**: Critical signal paths
+6. **Thermal Network**: Heat generation zones
+
+### Optimization Strategy
+The graph structure enables:
+- Force-directed placement with constraints
+- Zone-based component grouping
+- Critical path length minimization
+- Thermal distribution optimization
+- Signal integrity preservation
+
+**Important**: Always check this graph structure before PCB placement decisions
