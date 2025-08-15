@@ -112,8 +112,8 @@ void test_lfo( void ) {
         ublink(true);
     #endif
 
-    float     time  = muppet_clock::what_time_is_it< float >() * 0.001f;
-    uint16_t  value = the_function_generator.LFO_SHAPE( time ) + 32 * 1024;
+    float     time  = muppet_clock::what_time_is_it< float >() * dr_teeth::k_time_to_seconds_factor;
+    uint16_t  value = the_function_generator.LFO_SHAPE( time ) + dr_teeth::k_audio_half_scale;
 
     #ifdef LFO_CHANNEL
     dr_teeth::input_buffer[ LFO_CHANNEL ] = value;
@@ -134,7 +134,7 @@ void test_lfo( void ) {
 ////////////////////////////////////////////////////////////////////////////////
 
 // callback for pitch change
-void setChannelValue( uint8_t channel_index, int pitch ) {
+void set_channel_value( uint8_t channel_index, int pitch ) {
     #ifdef DEBUG_LED
         ublink(true);
     #endif
@@ -145,11 +145,8 @@ void setChannelValue( uint8_t channel_index, int pitch ) {
     }
  
     // converts from from MIDI 14 bit to common framework 16 bit
-    static constexpr uint16_t k_midi_pitch_zero_offset = 8192;   // from 0 - 8192, we have negative bend
-    static constexpr uint16_t k_midi_pitch_14_bit_max  = 0x3FFF; // and from 8193 till k_midi_pitch_14_bit_max positive
-
     dr_teeth::input_buffer[ channel_index ] = static_cast< uint16_t >(
-        min( pitch + k_midi_pitch_zero_offset, k_midi_pitch_14_bit_max ) * 4 
+        min( pitch + dr_teeth::k_midi_pitch_zero_offset, dr_teeth::k_midi_pitch_14_bit_max ) * dr_teeth::k_midi_to_framework_scale 
     );
 
     #ifdef DEBUG_LED
@@ -207,11 +204,11 @@ void setup( void ) {
 
     #ifdef LFO_FREQUENCY
         the_function_generator.setFrequency( LFO_FREQUENCY );
-        the_function_generator.setAmplitude( 32 * 1024 - 1 );
+        the_function_generator.setAmplitude( dr_teeth::k_audio_half_scale - 1 );
     #endif
 
-    usbMIDI.setHandlePitchChange( setChannelValue );
-    threads.setSliceMicros( 10 );
+    usbMIDI.setHandlePitchChange( set_channel_value );
+    threads.setSliceMicros( dr_teeth::k_thread_slice_micros );
     threads.addThread( the_muppet_show );
     threads.addThread( the_voice_from_beyond );
 }

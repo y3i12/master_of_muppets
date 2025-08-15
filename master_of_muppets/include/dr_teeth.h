@@ -12,6 +12,13 @@ struct dr_teeth {
     static constexpr int      k_thread_slice_micros         = 10;
     static constexpr int      k_force_refresh_every_millis  = 100;
 
+    // Audio/Signal Processing Constants
+    static constexpr uint16_t k_audio_half_scale            = 32 * 1024;
+    static constexpr float    k_time_to_seconds_factor      = 0.001f;
+    static constexpr uint16_t k_midi_pitch_zero_offset      = 8192;   // from 0 - 8192, we have negative bend
+    static constexpr uint16_t k_midi_pitch_14_bit_max       = 0x3FFF; // and from 8193 till k_midi_pitch_14_bit_max positive
+    static constexpr uint8_t  k_midi_to_framework_scale     = 4;
+
     static uint16_t           input_buffer[  k_total_channels ];
     static uint16_t           output_buffer[ k_total_channels ];
     
