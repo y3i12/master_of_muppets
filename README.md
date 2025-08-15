@@ -54,20 +54,20 @@ All dependencies are incorporated in the project - for hackability... and troubl
 An iterative prompt is being used for big code changes:
 
 ```
-Good day sir! 
+Good day sir! It is time for another run. Let's update our project tracking and sync the reports.
 In the context of the GitHub repository, I'd ask you to:
 * Understand the README.md very well;
 * Understand the current code base (no need to look in previous revisions);
-* Counter check the general function of the project with me;
+* Understand the state of your control files in the folder `claude`;
 * Clarify any possible uncertainty with me;
-* Create a separate reports (they should be as much elaborated as possible for each finding in each topic) about the code, containing:
+* Create or update the reports (they should be as much elaborated as possible for each finding in each topic) about the code, containing:
    * bugs & inconsistencies
    * static code analysis
    * design improvements
    * optimizations in the code
    * general remarks
    * feature propositions
-* Analyze the KiCad schematics (disregard the PCB for the moment) and give me feedback about it's design, as OP (me) is unexperienced in the subject of electronics. Also consider this fact in your explanations.
+* Analyze the KiCad schematics (disregard the PCB for the moment) and give me feedback about it's design, as OP (me) is unexperienced in the subject of electronics. Also consider this fact in your explanations. In case the files contain too many tokens, break them down before ingestion.
 * Generate individual markdown files for each report;
 * Generated code should follow rules described in `CODING_STYLE.md`;
 * Keep the analysis context stored in the same folder so future iterations can happen easily;

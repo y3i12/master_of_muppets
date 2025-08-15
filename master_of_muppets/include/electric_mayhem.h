@@ -32,7 +32,7 @@ protected:
         volatile bool     update_requested;
         volatile bool     update_in_progress;
         volatile uint32_t update_sequence;
-        Threads::Mutex   state_mutex;
+        Threads::Mutex    state_mutex;
         
         muppet_state() : 
             update_requested(  false ),
@@ -62,7 +62,7 @@ protected:
     Threads::Mutex    muppet_lock[ dr_teeth::k_dac_count ];
     muppet_state      muppet_states[ dr_teeth::k_dac_count ];
 
-    inline bool vaid_dac(      uint8_t muppet_index  ) { return muppet_index  < dr_teeth::k_dac_count; }
+    inline bool valid_dac(     uint8_t muppet_index  ) { return muppet_index  < dr_teeth::k_dac_count; }
     inline bool valid_channel( uint8_t channel_index ) { return channel_index < k_channels_per_dac;    }
 
     
