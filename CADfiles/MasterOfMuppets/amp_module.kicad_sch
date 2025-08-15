@@ -2485,7 +2485,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "4ms_Capacitor:C_0603"
+		(property "Footprint" "PCM_4ms_Capacitor:C_0603"
 			(at 82.55 29.21 0)
 			(effects
 				(font
@@ -4185,7 +4185,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "4ms_Capacitor:C_0603"
+		(property "Footprint" "PCM_4ms_Capacitor:C_0603"
 			(at 147.32 29.21 0)
 			(effects
 				(font
@@ -4500,7 +4500,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "4ms_Capacitor:C_0603"
+		(property "Footprint" "PCM_4ms_Capacitor:C_0603"
 			(at 146.05 74.93 0)
 			(effects
 				(font
@@ -4990,7 +4990,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "4ms_Capacitor:C_0603"
+		(property "Footprint" "PCM_4ms_Capacitor:C_0603"
 			(at 81.28 74.93 0)
 			(effects
 				(font

@@ -1894,7 +1894,7 @@
 				)
 			)
 		)
-		(property "Footprint" "teensy.pretty-master:Teensy41"
+		(property "Footprint" "Teensy:Teensy41"
 			(at 87.63 105.41 0)
 			(effects
 				(font

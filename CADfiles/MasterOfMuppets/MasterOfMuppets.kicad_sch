@@ -2481,7 +2481,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "4ms_Capacitor:C_0805"
+		(property "Footprint" "PCM_4ms_Capacitor:C_0805"
 			(at 165.1 63.5 0)
 			(effects
 				(font
