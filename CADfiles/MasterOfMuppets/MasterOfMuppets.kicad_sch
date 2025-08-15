@@ -1707,7 +1707,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TerminalBlock:TerminalBlock_Xinya_XY308-2.54-3P_1x03_P2.54mm_Horizontal"
 			(at 85.09 26.67 0)
 			(effects
 				(font
@@ -2109,7 +2109,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Capacitor:C_0603"
 			(at 130.81 59.9948 0)
 			(effects
 				(font
@@ -2276,7 +2276,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Capacitor:C_0603"
 			(at 153.9748 66.04 0)
 			(effects
 				(font
@@ -2346,7 +2346,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "PCM_4ms_Capacitor:C_0805"
 			(at 132.3848 73.66 0)
 			(effects
 				(font

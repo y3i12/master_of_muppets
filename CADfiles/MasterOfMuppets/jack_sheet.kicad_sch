@@ -3,45 +3,46 @@
 	(generator "eeschema")
 	(generator_version "9.0")
 	(uuid "c681efea-34aa-4cf3-a425-8f978a6ae5f0")
-	(paper "A4")
+	(paper "A5")
 	(title_block
 		(title "MasterOfMuppets")
 		(rev "0.0.0")
 		(company "y3i12")
 	)
 	(lib_symbols
-		(symbol "ACJM-MV35-2S:ACJM-MV35-2S"
+		(symbol "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05"
 			(pin_names
-				(offset 1.016)
+				(offset 0)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "J"
-				(at -5.08 5.08 0)
+				(at -2.54 5.715 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.524 1.524)
 					)
-					(justify left bottom)
 				)
 			)
-			(property "Value" "ACJM-MV35-2S"
-				(at -5.08 -5.08 0)
+			(property "Value" "3.5mm_Mono_Switched_SymSmall_0.05"
+				(at 10.795 -10.795 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 0.6096 0.6096)
+						(bold yes)
+						(italic yes)
 					)
-					(justify left top)
+					(hide yes)
 				)
 			)
-			(property "Footprint" "ACJM-MV35-2S:AMPHENOL_ACJM-MV35-2S"
-				(at 0 0 0)
+			(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+				(at 19.05 -8.89 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.524 1.524)
 					)
-					(justify bottom)
 					(hide yes)
 				)
 			)
@@ -49,12 +50,11 @@
 				(at 0 0 0)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.524 1.524)
 					)
-					(hide yes)
 				)
 			)
-			(property "Description" ""
+			(property "Description" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
 				(at 0 0 0)
 				(effects
 					(font
@@ -63,263 +63,157 @@
 					(hide yes)
 				)
 			)
-			(property "PARTREV" "2"
+			(property "Specifications" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+				(at 1.27 -4.064 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer" "Wenzhou QingPu Electronics Co"
+				(at 1.27 -5.588 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Part Number" "WQP-WQP518MA"
+				(at 1.27 -7.112 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Display" "3.5mm_Mono"
+				(at 0.635 3.81 0)
+				(effects
+					(font
+						(size 0.762 0.762)
+						(bold yes)
+						(italic yes)
+					)
+				)
+			)
+			(property "ki_keywords" "PJ398SM PJ301SM WQP518MA"
 				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify bottom)
 					(hide yes)
 				)
 			)
-			(property "SNAPEDA_PN" "ACJM-MV35-2S"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
+			(symbol "3.5mm_Mono_Switched_SymSmall_0.05_0_0"
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 1.27 0)
 					)
-					(justify bottom)
-					(hide yes)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
 				)
 			)
-			(property "STANDARD" "Manufacturer Recommendations"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
+			(symbol "3.5mm_Mono_Switched_SymSmall_0.05_0_1"
+				(rectangle
+					(start -3.175 2.54)
+					(end -1.905 -1.905)
+					(stroke
+						(width 0)
+						(type default)
 					)
-					(justify bottom)
-					(hide yes)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -2.54) (xy -2.54 -1.905)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 2.54) (xy -0.635 1.27) (xy 0 2.54) (xy 2.54 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
 				)
 			)
-			(property "MAXIMUM_PACKAGE_HEIGHT" "28.0mm"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(property "MANUFACTURER" "Amphenol Sine Systems"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify bottom)
-					(hide yes)
-				)
-			)
-			(symbol "ACJM-MV35-2S_0_0"
-				(polyline
-					(pts
-						(xy -5.715 3.81) (xy -5.715 -0.635)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -5.715 -0.635) (xy -5.08 -0.635)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -5.08 -0.635) (xy -4.445 -0.635)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -5.08 -2.54) (xy -5.08 -0.635)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -4.445 3.81) (xy -5.715 3.81)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -4.445 -0.635) (xy -4.445 3.81)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.905 0.635) (xy -2.54 0)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 0) (xy -1.905 0.635)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 2.54) (xy 1.27 0)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 0) (xy -1.27 0)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 2.54) (xy 1.27 2.54)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 0) (xy 1.27 0)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 5.08 -2.54) (xy -5.08 -2.54)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
+			(symbol "3.5mm_Mono_Switched_SymSmall_0.05_1_1"
 				(pin passive line
-					(at 7.62 2.54 180)
-					(length 2.54)
-					(name "~"
+					(at -2.54 -3.81 90)
+					(length 1.27)
+					(name "SHEILD"
 						(effects
 							(font
-								(size 1.016 1.016)
+								(size 1.27 1.27)
 							)
 						)
 					)
 					(number "2"
 						(effects
 							(font
-								(size 1.016 1.016)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
 				(pin passive line
-					(at 7.62 0 180)
-					(length 2.54)
-					(name "~"
+					(at 3.81 0 180)
+					(length 5.08)
+					(name "SW"
 						(effects
 							(font
-								(size 1.016 1.016)
+								(size 1.27 1.27)
 							)
 						)
 					)
 					(number "3"
 						(effects
 							(font
-								(size 1.016 1.016)
+								(size 1.27 1.27)
 							)
 						)
 					)
 				)
 				(pin passive line
-					(at 7.62 -2.54 180)
-					(length 2.54)
-					(name "~"
+					(at 7.62 2.54 180)
+					(length 5.08)
+					(name "SIG"
 						(effects
 							(font
-								(size 1.016 1.016)
+								(size 1.27 1.27)
 							)
 						)
 					)
 					(number "1"
 						(effects
 							(font
-								(size 1.016 1.016)
+								(size 1.27 1.27)
 							)
 						)
 					)
@@ -467,7 +361,7 @@
 	)
 	(hierarchical_label "OUT_1"
 		(shape input)
-		(at 52.07 77.47 180)
+		(at 76.2 29.21 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -478,7 +372,7 @@
 	)
 	(hierarchical_label "OUT_3"
 		(shape input)
-		(at 52.07 113.03 180)
+		(at 76.2 64.77 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -489,7 +383,7 @@
 	)
 	(hierarchical_label "OUT_7"
 		(shape input)
-		(at 90.17 113.03 180)
+		(at 114.3 64.77 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -500,7 +394,7 @@
 	)
 	(hierarchical_label "OUT_8"
 		(shape input)
-		(at 90.17 130.81 180)
+		(at 114.3 82.55 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -511,7 +405,7 @@
 	)
 	(hierarchical_label "OUT_2"
 		(shape input)
-		(at 52.07 95.25 180)
+		(at 76.2 46.99 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -522,7 +416,7 @@
 	)
 	(hierarchical_label "OUT_5"
 		(shape input)
-		(at 90.17 77.47 180)
+		(at 114.3 29.21 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -533,7 +427,7 @@
 	)
 	(hierarchical_label "OUT_4"
 		(shape input)
-		(at 52.07 130.81 180)
+		(at 76.2 82.55 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -544,7 +438,7 @@
 	)
 	(hierarchical_label "OUT_6"
 		(shape input)
-		(at 90.17 95.25 180)
+		(at 114.3 46.99 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -555,7 +449,7 @@
 	)
 	(symbol
 		(lib_id "power:GNDREF")
-		(at 52.07 97.79 0)
+		(at 86.36 53.34 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -564,7 +458,7 @@
 		(fields_autoplaced yes)
 		(uuid "05802f03-2fa5-4a87-be2d-c2deac0ec343")
 		(property "Reference" "#PWR071"
-			(at 52.07 104.14 0)
+			(at 86.36 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -573,7 +467,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 52.07 102.87 0)
+			(at 86.36 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -581,7 +475,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 52.07 97.79 0)
+			(at 86.36 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -590,7 +484,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 52.07 97.79 0)
+			(at 86.36 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -599,7 +493,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
-			(at 52.07 97.79 0)
+			(at 86.36 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -624,8 +518,8 @@
 		)
 	)
 	(symbol
-		(lib_id "ACJM-MV35-2S:ACJM-MV35-2S")
-		(at 97.79 113.03 0)
+		(lib_id "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05")
+		(at 121.92 67.31 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -633,43 +527,44 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0c792f0d-7d84-4ef2-8e12-c22a704e6dfd")
-		(property "Reference" "OUT7"
-			(at 98.1075 104.14 0)
+		(property "Reference" "J8"
+			(at 124.46 61.595 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
 			)
 		)
-		(property "Value" "ACJM-MV35-2S"
-			(at 98.1075 106.68 0)
+		(property "Value" "3.5mm_Mono_Switched_SymSmall_0.05"
+			(at 111.125 78.105 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 0.6096 0.6096)
+					(bold yes)
+					(italic yes)
 				)
+				(hide yes)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Jack:ACJM-MV35-2S_Mono_Vert_Switch"
-			(at 97.79 113.03 0)
+		(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+			(at 102.87 76.2 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
-			(at 97.79 113.03 0)
+			(at 121.92 67.31 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 97.79 113.03 0)
+		(property "Description" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+			(at 121.92 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -678,7 +573,7 @@
 			)
 		)
 		(property "PARTREV" "2"
-			(at 97.79 113.03 0)
+			(at 121.92 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -688,7 +583,7 @@
 			)
 		)
 		(property "SNAPEDA_PN" "ACJM-MV35-2S"
-			(at 97.79 113.03 0)
+			(at 121.92 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -698,7 +593,7 @@
 			)
 		)
 		(property "STANDARD" "Manufacturer Recommendations"
-			(at 97.79 113.03 0)
+			(at 121.92 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -708,7 +603,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" "28.0mm"
-			(at 97.79 113.03 0)
+			(at 121.92 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -718,7 +613,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Amphenol Sine Systems"
-			(at 97.79 113.03 0)
+			(at 121.92 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -727,31 +622,44 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
-			(at 97.79 113.03 0)
+		(property "Manufacturer" "Wenzhou QingPu Electronics Co"
+			(at 120.65 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
-			(at 97.79 113.03 0)
+		(property "Part Number" "WQP-WQP518MA"
+			(at 120.65 74.422 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Specifications" ""
-			(at 97.79 113.03 0)
+		(property "Specifications" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+			(at 120.65 71.374 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
+			)
+		)
+		(property "Display" "3.5mm_Mono"
+			(at 121.285 63.5 0)
+			(effects
+				(font
+					(size 0.762 0.762)
+					(bold yes)
+					(italic yes)
+				)
 			)
 		)
 		(pin "2"
@@ -766,19 +674,19 @@
 		(instances
 			(project "MasterOfMuppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/e69f2e4f-b554-4083-9f69-ae83ad0071c6"
-					(reference "OUT7")
+					(reference "J8")
 					(unit 1)
 				)
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/e6c67076-e350-448f-bd1d-4e535db93c1a"
-					(reference "OUT15")
+					(reference "J16")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "ACJM-MV35-2S:ACJM-MV35-2S")
-		(at 59.69 77.47 0)
+		(lib_id "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05")
+		(at 83.82 31.75 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -786,43 +694,44 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1cff2362-6314-47ef-a806-fddc108e177f")
-		(property "Reference" "OUT1"
-			(at 60.0075 68.58 0)
+		(property "Reference" "J2"
+			(at 86.36 26.035 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
 			)
 		)
-		(property "Value" "ACJM-MV35-2S"
-			(at 60.0075 71.12 0)
+		(property "Value" "3.5mm_Mono_Switched_SymSmall_0.05"
+			(at 73.025 42.545 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 0.6096 0.6096)
+					(bold yes)
+					(italic yes)
 				)
+				(hide yes)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Jack:ACJM-MV35-2S_Mono_Vert_Switch"
-			(at 59.69 77.47 0)
+		(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+			(at 64.77 40.64 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
-			(at 59.69 77.47 0)
+			(at 83.82 31.75 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 59.69 77.47 0)
+		(property "Description" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+			(at 83.82 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -831,7 +740,7 @@
 			)
 		)
 		(property "PARTREV" "2"
-			(at 59.69 77.47 0)
+			(at 83.82 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -841,7 +750,7 @@
 			)
 		)
 		(property "SNAPEDA_PN" "ACJM-MV35-2S"
-			(at 59.69 77.47 0)
+			(at 83.82 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -851,7 +760,7 @@
 			)
 		)
 		(property "STANDARD" "Manufacturer Recommendations"
-			(at 59.69 77.47 0)
+			(at 83.82 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -861,7 +770,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" "28.0mm"
-			(at 59.69 77.47 0)
+			(at 83.82 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -871,7 +780,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Amphenol Sine Systems"
-			(at 59.69 77.47 0)
+			(at 83.82 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -880,31 +789,44 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
-			(at 59.69 77.47 0)
+		(property "Manufacturer" "Wenzhou QingPu Electronics Co"
+			(at 82.55 37.338 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
-			(at 59.69 77.47 0)
+		(property "Part Number" "WQP-WQP518MA"
+			(at 82.55 38.862 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Specifications" ""
-			(at 59.69 77.47 0)
+		(property "Specifications" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+			(at 82.55 35.814 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
+			)
+		)
+		(property "Display" "3.5mm_Mono"
+			(at 83.185 27.94 0)
+			(effects
+				(font
+					(size 0.762 0.762)
+					(bold yes)
+					(italic yes)
+				)
 			)
 		)
 		(pin "2"
@@ -919,11 +841,11 @@
 		(instances
 			(project "MasterOfMuppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/e69f2e4f-b554-4083-9f69-ae83ad0071c6"
-					(reference "OUT1")
+					(reference "J2")
 					(unit 1)
 				)
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/e6c67076-e350-448f-bd1d-4e535db93c1a"
-					(reference "OUT9")
+					(reference "J10")
 					(unit 1)
 				)
 			)
@@ -931,7 +853,7 @@
 	)
 	(symbol
 		(lib_id "power:GNDREF")
-		(at 90.17 97.79 0)
+		(at 124.46 53.34 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -940,7 +862,7 @@
 		(fields_autoplaced yes)
 		(uuid "295f4a18-3a59-4522-9d01-cd1b67a5cb4c")
 		(property "Reference" "#PWR075"
-			(at 90.17 104.14 0)
+			(at 124.46 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -949,7 +871,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 90.17 102.87 0)
+			(at 124.46 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -957,7 +879,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 90.17 97.79 0)
+			(at 124.46 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -966,7 +888,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 90.17 97.79 0)
+			(at 124.46 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -975,7 +897,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
-			(at 90.17 97.79 0)
+			(at 124.46 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1001,7 +923,7 @@
 	)
 	(symbol
 		(lib_id "power:GNDREF")
-		(at 90.17 80.01 0)
+		(at 124.46 35.56 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1010,7 +932,7 @@
 		(fields_autoplaced yes)
 		(uuid "2edb8968-9761-4ba6-8cc8-0a8d52b0123f")
 		(property "Reference" "#PWR074"
-			(at 90.17 86.36 0)
+			(at 124.46 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1019,7 +941,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 90.17 85.09 0)
+			(at 124.46 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1027,7 +949,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 90.17 80.01 0)
+			(at 124.46 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1036,7 +958,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 90.17 80.01 0)
+			(at 124.46 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1045,7 +967,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
-			(at 90.17 80.01 0)
+			(at 124.46 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1070,8 +992,8 @@
 		)
 	)
 	(symbol
-		(lib_id "ACJM-MV35-2S:ACJM-MV35-2S")
-		(at 59.69 95.25 0)
+		(lib_id "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05")
+		(at 83.82 49.53 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -1079,43 +1001,44 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "5264fba6-043f-4258-9675-d11794ae9d52")
-		(property "Reference" "OUT2"
-			(at 60.0075 86.36 0)
+		(property "Reference" "J3"
+			(at 86.36 43.815 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
 			)
 		)
-		(property "Value" "ACJM-MV35-2S"
-			(at 60.0075 88.9 0)
+		(property "Value" "3.5mm_Mono_Switched_SymSmall_0.05"
+			(at 73.025 60.325 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 0.6096 0.6096)
+					(bold yes)
+					(italic yes)
 				)
+				(hide yes)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Jack:ACJM-MV35-2S_Mono_Vert_Switch"
-			(at 59.69 95.25 0)
+		(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+			(at 64.77 58.42 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
-			(at 59.69 95.25 0)
+			(at 83.82 49.53 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 59.69 95.25 0)
+		(property "Description" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+			(at 83.82 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1124,7 +1047,7 @@
 			)
 		)
 		(property "PARTREV" "2"
-			(at 59.69 95.25 0)
+			(at 83.82 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1134,7 +1057,7 @@
 			)
 		)
 		(property "SNAPEDA_PN" "ACJM-MV35-2S"
-			(at 59.69 95.25 0)
+			(at 83.82 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1144,7 +1067,7 @@
 			)
 		)
 		(property "STANDARD" "Manufacturer Recommendations"
-			(at 59.69 95.25 0)
+			(at 83.82 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1154,7 +1077,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" "28.0mm"
-			(at 59.69 95.25 0)
+			(at 83.82 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1164,7 +1087,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Amphenol Sine Systems"
-			(at 59.69 95.25 0)
+			(at 83.82 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1173,31 +1096,44 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
-			(at 59.69 95.25 0)
+		(property "Manufacturer" "Wenzhou QingPu Electronics Co"
+			(at 82.55 55.118 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
-			(at 59.69 95.25 0)
+		(property "Part Number" "WQP-WQP518MA"
+			(at 82.55 56.642 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Specifications" ""
-			(at 59.69 95.25 0)
+		(property "Specifications" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+			(at 82.55 53.594 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
+			)
+		)
+		(property "Display" "3.5mm_Mono"
+			(at 83.185 45.72 0)
+			(effects
+				(font
+					(size 0.762 0.762)
+					(bold yes)
+					(italic yes)
+				)
 			)
 		)
 		(pin "2"
@@ -1212,11 +1148,11 @@
 		(instances
 			(project "MasterOfMuppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/e69f2e4f-b554-4083-9f69-ae83ad0071c6"
-					(reference "OUT2")
+					(reference "J3")
 					(unit 1)
 				)
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/e6c67076-e350-448f-bd1d-4e535db93c1a"
-					(reference "OUT10")
+					(reference "J11")
 					(unit 1)
 				)
 			)
@@ -1224,7 +1160,7 @@
 	)
 	(symbol
 		(lib_id "power:GNDREF")
-		(at 52.07 133.35 0)
+		(at 86.36 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1233,7 +1169,7 @@
 		(fields_autoplaced yes)
 		(uuid "53abeaa3-2333-48e8-ad8c-d5dd6f547d02")
 		(property "Reference" "#PWR073"
-			(at 52.07 139.7 0)
+			(at 86.36 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1242,7 +1178,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 52.07 138.43 0)
+			(at 86.36 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1250,7 +1186,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 52.07 133.35 0)
+			(at 86.36 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1259,7 +1195,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 52.07 133.35 0)
+			(at 86.36 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1268,7 +1204,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
-			(at 52.07 133.35 0)
+			(at 86.36 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1294,7 +1230,7 @@
 	)
 	(symbol
 		(lib_id "power:GNDREF")
-		(at 52.07 115.57 0)
+		(at 86.36 71.12 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1303,7 +1239,7 @@
 		(fields_autoplaced yes)
 		(uuid "655849f4-3eeb-484b-b347-f58a14fd1801")
 		(property "Reference" "#PWR072"
-			(at 52.07 121.92 0)
+			(at 86.36 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1312,7 +1248,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 52.07 120.65 0)
+			(at 86.36 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1320,7 +1256,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 52.07 115.57 0)
+			(at 86.36 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1329,7 +1265,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 52.07 115.57 0)
+			(at 86.36 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1338,7 +1274,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
-			(at 52.07 115.57 0)
+			(at 86.36 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1363,8 +1299,8 @@
 		)
 	)
 	(symbol
-		(lib_id "ACJM-MV35-2S:ACJM-MV35-2S")
-		(at 97.79 77.47 0)
+		(lib_id "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05")
+		(at 121.92 31.75 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -1372,43 +1308,44 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "75245ca7-c4eb-4e0a-b5a7-9a1fa24aab8d")
-		(property "Reference" "OUT5"
-			(at 98.1075 68.58 0)
+		(property "Reference" "J6"
+			(at 124.46 26.035 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
 			)
 		)
-		(property "Value" "ACJM-MV35-2S"
-			(at 98.1075 71.12 0)
+		(property "Value" "3.5mm_Mono_Switched_SymSmall_0.05"
+			(at 111.125 42.545 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 0.6096 0.6096)
+					(bold yes)
+					(italic yes)
 				)
+				(hide yes)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Jack:ACJM-MV35-2S_Mono_Vert_Switch"
-			(at 97.79 77.47 0)
+		(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+			(at 102.87 40.64 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
-			(at 97.79 77.47 0)
+			(at 121.92 31.75 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 97.79 77.47 0)
+		(property "Description" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+			(at 121.92 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1417,7 +1354,7 @@
 			)
 		)
 		(property "PARTREV" "2"
-			(at 97.79 77.47 0)
+			(at 121.92 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1427,7 +1364,7 @@
 			)
 		)
 		(property "SNAPEDA_PN" "ACJM-MV35-2S"
-			(at 97.79 77.47 0)
+			(at 121.92 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1437,7 +1374,7 @@
 			)
 		)
 		(property "STANDARD" "Manufacturer Recommendations"
-			(at 97.79 77.47 0)
+			(at 121.92 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1447,7 +1384,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" "28.0mm"
-			(at 97.79 77.47 0)
+			(at 121.92 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1457,7 +1394,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Amphenol Sine Systems"
-			(at 97.79 77.47 0)
+			(at 121.92 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1466,31 +1403,44 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
-			(at 97.79 77.47 0)
+		(property "Manufacturer" "Wenzhou QingPu Electronics Co"
+			(at 120.65 37.338 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
-			(at 97.79 77.47 0)
+		(property "Part Number" "WQP-WQP518MA"
+			(at 120.65 38.862 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Specifications" ""
-			(at 97.79 77.47 0)
+		(property "Specifications" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+			(at 120.65 35.814 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
+			)
+		)
+		(property "Display" "3.5mm_Mono"
+			(at 121.285 27.94 0)
+			(effects
+				(font
+					(size 0.762 0.762)
+					(bold yes)
+					(italic yes)
+				)
 			)
 		)
 		(pin "2"
@@ -1505,11 +1455,11 @@
 		(instances
 			(project "MasterOfMuppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/e69f2e4f-b554-4083-9f69-ae83ad0071c6"
-					(reference "OUT5")
+					(reference "J6")
 					(unit 1)
 				)
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/e6c67076-e350-448f-bd1d-4e535db93c1a"
-					(reference "OUT13")
+					(reference "J14")
 					(unit 1)
 				)
 			)
@@ -1517,7 +1467,7 @@
 	)
 	(symbol
 		(lib_id "power:GNDREF")
-		(at 52.07 80.01 0)
+		(at 86.36 35.56 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1526,7 +1476,7 @@
 		(fields_autoplaced yes)
 		(uuid "a08dfe3d-fbf4-4b7b-974e-31391d67a94e")
 		(property "Reference" "#PWR070"
-			(at 52.07 86.36 0)
+			(at 86.36 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1535,7 +1485,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 52.07 85.09 0)
+			(at 86.36 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1543,7 +1493,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 52.07 80.01 0)
+			(at 86.36 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1552,7 +1502,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 52.07 80.01 0)
+			(at 86.36 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1561,7 +1511,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
-			(at 52.07 80.01 0)
+			(at 86.36 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1586,8 +1536,8 @@
 		)
 	)
 	(symbol
-		(lib_id "ACJM-MV35-2S:ACJM-MV35-2S")
-		(at 59.69 130.81 0)
+		(lib_id "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05")
+		(at 83.82 85.09 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -1595,43 +1545,44 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a41ad13c-94ed-49fd-b493-3c2a3889230e")
-		(property "Reference" "OUT4"
-			(at 60.0075 121.92 0)
+		(property "Reference" "J5"
+			(at 86.36 79.375 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
 			)
 		)
-		(property "Value" "ACJM-MV35-2S"
-			(at 60.0075 124.46 0)
+		(property "Value" "3.5mm_Mono_Switched_SymSmall_0.05"
+			(at 73.025 95.885 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 0.6096 0.6096)
+					(bold yes)
+					(italic yes)
 				)
+				(hide yes)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Jack:ACJM-MV35-2S_Mono_Vert_Switch"
-			(at 59.69 130.81 0)
+		(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+			(at 64.77 93.98 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
-			(at 59.69 130.81 0)
+			(at 83.82 85.09 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 59.69 130.81 0)
+		(property "Description" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+			(at 83.82 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1640,7 +1591,7 @@
 			)
 		)
 		(property "PARTREV" "2"
-			(at 59.69 130.81 0)
+			(at 83.82 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1650,7 +1601,7 @@
 			)
 		)
 		(property "SNAPEDA_PN" "ACJM-MV35-2S"
-			(at 59.69 130.81 0)
+			(at 83.82 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1660,7 +1611,7 @@
 			)
 		)
 		(property "STANDARD" "Manufacturer Recommendations"
-			(at 59.69 130.81 0)
+			(at 83.82 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1670,7 +1621,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" "28.0mm"
-			(at 59.69 130.81 0)
+			(at 83.82 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1680,7 +1631,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Amphenol Sine Systems"
-			(at 59.69 130.81 0)
+			(at 83.82 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1689,31 +1640,44 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
-			(at 59.69 130.81 0)
+		(property "Manufacturer" "Wenzhou QingPu Electronics Co"
+			(at 82.55 90.678 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
-			(at 59.69 130.81 0)
+		(property "Part Number" "WQP-WQP518MA"
+			(at 82.55 92.202 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Specifications" ""
-			(at 59.69 130.81 0)
+		(property "Specifications" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+			(at 82.55 89.154 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
+			)
+		)
+		(property "Display" "3.5mm_Mono"
+			(at 83.185 81.28 0)
+			(effects
+				(font
+					(size 0.762 0.762)
+					(bold yes)
+					(italic yes)
+				)
 			)
 		)
 		(pin "2"
@@ -1728,11 +1692,11 @@
 		(instances
 			(project "MasterOfMuppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/e69f2e4f-b554-4083-9f69-ae83ad0071c6"
-					(reference "OUT4")
+					(reference "J5")
 					(unit 1)
 				)
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/e6c67076-e350-448f-bd1d-4e535db93c1a"
-					(reference "OUT12")
+					(reference "J13")
 					(unit 1)
 				)
 			)
@@ -1740,7 +1704,7 @@
 	)
 	(symbol
 		(lib_id "power:GNDREF")
-		(at 90.17 115.57 0)
+		(at 124.46 71.12 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1749,7 +1713,7 @@
 		(fields_autoplaced yes)
 		(uuid "a59b9c4f-3868-49fc-a531-8d898e4f37f4")
 		(property "Reference" "#PWR076"
-			(at 90.17 121.92 0)
+			(at 124.46 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1758,7 +1722,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 90.17 120.65 0)
+			(at 124.46 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1766,7 +1730,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 90.17 115.57 0)
+			(at 124.46 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1775,7 +1739,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 90.17 115.57 0)
+			(at 124.46 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1784,7 +1748,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
-			(at 90.17 115.57 0)
+			(at 124.46 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1809,8 +1773,8 @@
 		)
 	)
 	(symbol
-		(lib_id "ACJM-MV35-2S:ACJM-MV35-2S")
-		(at 97.79 130.81 0)
+		(lib_id "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05")
+		(at 121.92 85.09 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -1818,43 +1782,44 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "c326c905-83bf-4ef4-afae-9f4fa97a8d93")
-		(property "Reference" "OUT8"
-			(at 98.1075 121.92 0)
+		(property "Reference" "J9"
+			(at 124.46 79.375 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
 			)
 		)
-		(property "Value" "ACJM-MV35-2S"
-			(at 98.1075 124.46 0)
+		(property "Value" "3.5mm_Mono_Switched_SymSmall_0.05"
+			(at 111.125 95.885 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 0.6096 0.6096)
+					(bold yes)
+					(italic yes)
 				)
+				(hide yes)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Jack:ACJM-MV35-2S_Mono_Vert_Switch"
-			(at 97.79 130.81 0)
+		(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+			(at 102.87 93.98 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
-			(at 97.79 130.81 0)
+			(at 121.92 85.09 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 97.79 130.81 0)
+		(property "Description" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+			(at 121.92 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1863,7 +1828,7 @@
 			)
 		)
 		(property "PARTREV" "2"
-			(at 97.79 130.81 0)
+			(at 121.92 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1873,7 +1838,7 @@
 			)
 		)
 		(property "SNAPEDA_PN" "ACJM-MV35-2S"
-			(at 97.79 130.81 0)
+			(at 121.92 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1883,7 +1848,7 @@
 			)
 		)
 		(property "STANDARD" "Manufacturer Recommendations"
-			(at 97.79 130.81 0)
+			(at 121.92 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1893,7 +1858,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" "28.0mm"
-			(at 97.79 130.81 0)
+			(at 121.92 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1903,7 +1868,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Amphenol Sine Systems"
-			(at 97.79 130.81 0)
+			(at 121.92 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1912,31 +1877,44 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
-			(at 97.79 130.81 0)
+		(property "Manufacturer" "Wenzhou QingPu Electronics Co"
+			(at 120.65 90.678 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
-			(at 97.79 130.81 0)
+		(property "Part Number" "WQP-WQP518MA"
+			(at 120.65 92.202 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Specifications" ""
-			(at 97.79 130.81 0)
+		(property "Specifications" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+			(at 120.65 89.154 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
+			)
+		)
+		(property "Display" "3.5mm_Mono"
+			(at 121.285 81.28 0)
+			(effects
+				(font
+					(size 0.762 0.762)
+					(bold yes)
+					(italic yes)
+				)
 			)
 		)
 		(pin "2"
@@ -1951,19 +1929,19 @@
 		(instances
 			(project "MasterOfMuppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/e69f2e4f-b554-4083-9f69-ae83ad0071c6"
-					(reference "OUT8")
+					(reference "J9")
 					(unit 1)
 				)
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/e6c67076-e350-448f-bd1d-4e535db93c1a"
-					(reference "OUT16")
+					(reference "J17")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "ACJM-MV35-2S:ACJM-MV35-2S")
-		(at 97.79 95.25 0)
+		(lib_id "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05")
+		(at 121.92 49.53 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -1971,43 +1949,44 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ebd38496-94e8-4655-9142-b5077f260cb3")
-		(property "Reference" "OUT6"
-			(at 98.1075 86.36 0)
+		(property "Reference" "J7"
+			(at 124.46 43.815 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
 			)
 		)
-		(property "Value" "ACJM-MV35-2S"
-			(at 98.1075 88.9 0)
+		(property "Value" "3.5mm_Mono_Switched_SymSmall_0.05"
+			(at 111.125 60.325 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 0.6096 0.6096)
+					(bold yes)
+					(italic yes)
 				)
+				(hide yes)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Jack:ACJM-MV35-2S_Mono_Vert_Switch"
-			(at 97.79 95.25 0)
+		(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+			(at 102.87 58.42 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
-			(at 97.79 95.25 0)
+			(at 121.92 49.53 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 97.79 95.25 0)
+		(property "Description" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+			(at 121.92 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2016,7 +1995,7 @@
 			)
 		)
 		(property "PARTREV" "2"
-			(at 97.79 95.25 0)
+			(at 121.92 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2026,7 +2005,7 @@
 			)
 		)
 		(property "SNAPEDA_PN" "ACJM-MV35-2S"
-			(at 97.79 95.25 0)
+			(at 121.92 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2036,7 +2015,7 @@
 			)
 		)
 		(property "STANDARD" "Manufacturer Recommendations"
-			(at 97.79 95.25 0)
+			(at 121.92 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2046,7 +2025,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" "28.0mm"
-			(at 97.79 95.25 0)
+			(at 121.92 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2056,7 +2035,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Amphenol Sine Systems"
-			(at 97.79 95.25 0)
+			(at 121.92 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2065,31 +2044,44 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
-			(at 97.79 95.25 0)
+		(property "Manufacturer" "Wenzhou QingPu Electronics Co"
+			(at 120.65 55.118 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
-			(at 97.79 95.25 0)
+		(property "Part Number" "WQP-WQP518MA"
+			(at 120.65 56.642 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Specifications" ""
-			(at 97.79 95.25 0)
+		(property "Specifications" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+			(at 120.65 53.594 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
+			)
+		)
+		(property "Display" "3.5mm_Mono"
+			(at 121.285 45.72 0)
+			(effects
+				(font
+					(size 0.762 0.762)
+					(bold yes)
+					(italic yes)
+				)
 			)
 		)
 		(pin "2"
@@ -2104,19 +2096,19 @@
 		(instances
 			(project "MasterOfMuppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/e69f2e4f-b554-4083-9f69-ae83ad0071c6"
-					(reference "OUT6")
+					(reference "J7")
 					(unit 1)
 				)
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/e6c67076-e350-448f-bd1d-4e535db93c1a"
-					(reference "OUT14")
+					(reference "J15")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "ACJM-MV35-2S:ACJM-MV35-2S")
-		(at 59.69 113.03 0)
+		(lib_id "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05")
+		(at 83.82 67.31 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2124,43 +2116,44 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f3331534-25e6-4be0-b756-225b32df566d")
-		(property "Reference" "OUT3"
-			(at 60.0075 104.14 0)
+		(property "Reference" "J4"
+			(at 86.36 61.595 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
 			)
 		)
-		(property "Value" "ACJM-MV35-2S"
-			(at 60.0075 106.68 0)
+		(property "Value" "3.5mm_Mono_Switched_SymSmall_0.05"
+			(at 73.025 78.105 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 0.6096 0.6096)
+					(bold yes)
+					(italic yes)
 				)
+				(hide yes)
 			)
 		)
-		(property "Footprint" "PCM_4ms_Jack:ACJM-MV35-2S_Mono_Vert_Switch"
-			(at 59.69 113.03 0)
+		(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+			(at 64.77 76.2 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(justify bottom)
 				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
-			(at 59.69 113.03 0)
+			(at 83.82 67.31 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 59.69 113.03 0)
+		(property "Description" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+			(at 83.82 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2169,7 +2162,7 @@
 			)
 		)
 		(property "PARTREV" "2"
-			(at 59.69 113.03 0)
+			(at 83.82 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2179,7 +2172,7 @@
 			)
 		)
 		(property "SNAPEDA_PN" "ACJM-MV35-2S"
-			(at 59.69 113.03 0)
+			(at 83.82 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2189,7 +2182,7 @@
 			)
 		)
 		(property "STANDARD" "Manufacturer Recommendations"
-			(at 59.69 113.03 0)
+			(at 83.82 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2199,7 +2192,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" "28.0mm"
-			(at 59.69 113.03 0)
+			(at 83.82 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2209,7 +2202,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Amphenol Sine Systems"
-			(at 59.69 113.03 0)
+			(at 83.82 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2218,31 +2211,44 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
-			(at 59.69 113.03 0)
+		(property "Manufacturer" "Wenzhou QingPu Electronics Co"
+			(at 82.55 72.898 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Part Number" ""
-			(at 59.69 113.03 0)
+		(property "Part Number" "WQP-WQP518MA"
+			(at 82.55 74.422 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Specifications" ""
-			(at 59.69 113.03 0)
+		(property "Specifications" "Audio 3.5mm Jack, mono, switched, PC-pin Vertical"
+			(at 82.55 71.374 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
+			)
+		)
+		(property "Display" "3.5mm_Mono"
+			(at 83.185 63.5 0)
+			(effects
+				(font
+					(size 0.762 0.762)
+					(bold yes)
+					(italic yes)
+				)
 			)
 		)
 		(pin "2"
@@ -2257,11 +2263,11 @@
 		(instances
 			(project "MasterOfMuppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/e69f2e4f-b554-4083-9f69-ae83ad0071c6"
-					(reference "OUT3")
+					(reference "J4")
 					(unit 1)
 				)
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/e6c67076-e350-448f-bd1d-4e535db93c1a"
-					(reference "OUT11")
+					(reference "J12")
 					(unit 1)
 				)
 			)
@@ -2269,7 +2275,7 @@
 	)
 	(symbol
 		(lib_id "power:GNDREF")
-		(at 90.17 133.35 0)
+		(at 124.46 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2278,7 +2284,7 @@
 		(fields_autoplaced yes)
 		(uuid "f8493f56-aa60-4959-9dfd-b3ddaa1eb44d")
 		(property "Reference" "#PWR077"
-			(at 90.17 139.7 0)
+			(at 124.46 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2287,7 +2293,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 90.17 138.43 0)
+			(at 124.46 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2295,7 +2301,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 90.17 133.35 0)
+			(at 124.46 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2304,7 +2310,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 90.17 133.35 0)
+			(at 124.46 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2313,7 +2319,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
-			(at 90.17 133.35 0)
+			(at 124.46 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
