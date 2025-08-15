@@ -370,8 +370,6 @@
       "07_electronics_feedback.md - CORRECTED (power supply and gain)"
     ],
     "code_examples": [
-      "buffer_overflow_fix.cpp - Reference",
-      "race_condition_fix.cpp - IMPLEMENTED",
       "batch_i2c_optimization.cpp - Pending",
       "configuration_manager.cpp - Proposed"
     ],

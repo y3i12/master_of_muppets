@@ -56,8 +56,6 @@ Executive summary and cross-report synthesis of all findings.
 The `code_examples/` directory contains snake_case implementations of all proposed improvements:
 
 ### Critical Fixes
-- `buffer_overflow_fix.cpp` - Memory safety improvements *(reference implementation)*
-- `race_condition_fix.cpp` - ✅ **IMPLEMENTED** *(integrated into main codebase)*
 - `batch_i2c_optimization.cpp` - Performance optimizations *(pending)*
 
 ### System Improvements
