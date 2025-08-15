@@ -19,7 +19,7 @@ The internally referenced DAC output ranges from 0V to 5V and is subsequently pa
 
 
 ## Code Dependencies
- - Rob Tillaart's [AD5593R](https://github.com/RobTillaart/AD5593R);
+ - Rob Tillaart's [AD5593R](https://github.com/RobTillaart/AD5593R) and [FunctionGenerator](https://github.com/RobTillaart/FunctionGenerator);
  - Fernando Trias' [TeensyThreads](https://github.com/ftrias/TeensyThreads)
  - Adafruit's [MCP4728](https://github.com/adafruit/Adafruit_MCP4728) and [BusIO](https://github.com/adafruit/Adafruit_BusIO)
  - The Muppets
@@ -39,12 +39,44 @@ All dependencies are incorporated in the project - for hackability... and troubl
    - Enables easy expansion of the hardware by using a chip select pin (possibly with the cost of lower refresh rate).
  - On Windows it is currently limited by the update frequency of the USB stack which is about 1KHz;
    - An alternative would be ethernet, *probably it is a terrible idea*.
+ - Claude AI is being used as aid;
+   - The folder `claude` contains the context and the state of code analysis.
 
 
 ## Current Status
   - Starting to review schematics;
   - PCB is pending;
   - Firmware works, for 16 channels. Still need to benchmark.
+
+
+## About GenAI `claude`
+
+An iterative prompt is being used for big code changes:
+
+```
+Good day sir! 
+In the context of the GitHub repository, I'd ask you to:
+* Understand the README.md very well;
+* Understand the current code base (no need to look in previous revisions);
+* Counter check the general function of the project with me;
+* Clarify any possible uncertainty with me;
+* Create a separate reports (they should be as much elaborated as possible for each finding in each topic) about the code, containing:
+   * bugs & inconsistencies
+   * static code analysis
+   * design improvements
+   * optimizations in the code
+   * general remarks
+   * feature propositions
+* Analyze the KiCad schematics (disregard the PCB for the moment) and give me feedback about it's design, as OP (me) is unexperienced in the subject of electronics. Also consider this fact in your explanations.
+* Generate individual markdown files for each report;
+* Code examples should:
+  * Use snake_case for identifiers;
+  * Use `k_constant_name` for constants;
+  * Keep The Muppet puns going on;
+* Keep the analysis context stored in the same folder so future iterations can happen easily;
+```
+
+On each smaller change/fix, the agent is activated again to uptade the context state;
 
 
 ## To explore in the future

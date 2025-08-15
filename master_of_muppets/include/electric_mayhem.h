@@ -57,7 +57,7 @@ protected:
         dac_driver_t&    me               = *muppet_orientation_guide.muppet;
         Threads::Mutex&  my_lock          = *muppet_orientation_guide.lock;
         uint8_t&         am_i_dirty       = *muppet_orientation_guide.dirty;
-        uint16_t*        my_output_buffer  =  muppet_orientation_guide.output_buffer;
+        uint16_t*        my_output_buffer =  muppet_orientation_guide.output_buffer;
 
         uint16_t         my_personal_buffer_copy[ k_channels_per_dac ];
         

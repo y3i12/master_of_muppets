@@ -143,8 +143,14 @@ void setChannelValue( uint8_t channel_index, int pitch ) {
     if ( channel_index >= dr_teeth::k_total_channels ) {
         return;
     }
+ 
+    // converts from from MIDI 14 bit to common framework 16 bit
+    static constexpr uint16_t k_midi_pitch_zero_offset = 8192;   // from 0 - 8192, we have negative bend
+    static constexpr uint16_t k_midi_pitch_14_bit_max  = 0x3FFF; // and from 8193 till k_midi_pitch_14_bit_max positive
 
-    dr_teeth::input_buffer[ channel_index ] = static_cast< uint16_t >( ( pitch + 8192 ) * 4 );
+    dr_teeth::input_buffer[ channel_index ] = static_cast< uint16_t >(
+        min( pitch + k_midi_pitch_zero_offset, k_midi_pitch_14_bit_max ) * 4 
+    );
 
     #ifdef DEBUG_LED
         ublink();

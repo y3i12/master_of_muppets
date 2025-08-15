@@ -23,6 +23,16 @@
 class function_generator
 {
 public:
+
+  static constexpr int16_t HEARTBEAT_LUT_SIZE = 32;
+  static constexpr int16_t HEARTBEAT_LUT[ HEARTBEAT_LUT_SIZE ] = {
+    2000,   4000,  6000,  8000, 10000, 12000, 14000, 16000,
+    18000, 20000, 22000, 24000, 26000, 28000, 30000, 32000,
+    30000, 28000, 26000, 24000, 22000, 20000, 18000, 16000,
+    14000, 12000, 10000,  8000,  6000,  4000,  2000,     0
+  };
+
+
   function_generator(float period = 1.0, float amplitude = 1.0, float phase = 0.0, float yShift = 0.0);
 
 
@@ -79,7 +89,6 @@ public:
   float trapezium1(float t);
   float trapezium2(float t);
   float heartBeat(float t);  //  72 BPM = 72/60 = 1 setFrequency(1.2)
-  float freeWave(float t, int16_t * arr, int16_t size);  //  arr must be size+1 long
 
 
 private:

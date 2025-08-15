@@ -55,7 +55,7 @@ extern "C" {
   }
 }
 
-const int overflow_stack_size = 8;
+const int overflow_stack_size = 64;// 8;
 
 extern "C" void stack_overflow_default_isr() { 
   currentThread->flags = Threads::ENDED;

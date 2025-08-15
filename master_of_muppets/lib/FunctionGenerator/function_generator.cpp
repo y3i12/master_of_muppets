@@ -331,102 +331,36 @@ float function_generator::trapezium2(float t)
 }
 
 
-/*
-// no DC version (50%
-float function_generator::trapezium(float t)
-{
-  t += _phase;
-  if (t < 0)
-  {
-    t = -t;
-  }
-  t = fmod(t, _period);
-
-  if (t < _period * 0.25)  //  rising part
-  {
-    return -_amplitude + 2 * _amplitude * (t * 4 / _period);
-  }
-  else if (t < _period * 0.5)  //  high part
-  {
-    return _amplitude;
-  }
-  else if (t < _period * 0.75)  //  high part
-  {
-    return _amplitude - 2 * _amplitude * ((t - _period/2) * 4 / _period);
-  }
-  else   //  low part
-  {
-    return -_amplitude;
-  }
-}
-*/
-
 
 //
 //  EXPERIMENTAL HEARTBEAT  
 //  => setFrequency(72.0 / 60.0);  //  BPM/60 = BPS.
-float function_generator::heartBeat(float t)
+float function_generator::heartBeat( float time_normalized )
 {
-  int16_t out[32] = {
-       0,    0, 1000, 2500,
-    1000, 1000,  -50, 10000,
-    -2500, 2000, 2500, 3000,
-    3000, 2000,    0,    0,
-    0,0,0,0,
-    0,0,0,0,
-    0,0,0,0,
-    0,0,0,0,
-  };
-  //  use duty cycle to determine zero level duration.
-  int pts = map((long)_dutyCycle * 100, 0, 100, 31, 15);
+  // Clamp input to valid range
+  if ( time_normalized  < 0.0f ) time_normalized = 0.0f;
+  if ( time_normalized >= 1.0f ) time_normalized = 0.999f;
   
-  return freeWave(t, out, (int16_t) pts);
+  // Calculate array position with fractional part
+  float  float_index = time_normalized * ( HEARTBEAT_LUT_SIZE - 1 );
+  size_t index       = static_cast< size_t >( float_index );
+  float  fraction    = float_index - index;
+  
+  // Bounds checking for interpolation
+  if ( index >= HEARTBEAT_LUT_SIZE - 1 ) {
+    return HEARTBEAT_LUT[ HEARTBEAT_LUT_SIZE - 1 ];
+  }
+  
+  // Linear interpolation between adjacent points
+  int16_t value1 = HEARTBEAT_LUT[ index     ];
+  int16_t value2 = HEARTBEAT_LUT[ index + 1 ];
+  
+  return static_cast< int16_t >( value1 + fraction * ( value2 - value1 ) );
 }
 
 
-/*
-//  points need to  be optimized, 
-//  0.2.7 uses 160 bytes for the two arrays.
-//  wrapper around freeWave?
-float function_generator::heartBeat(float t)
-{
-  //  based upon MultiMap in[] array is normalized to 0.0 - 1.0
-  //  Heart beat phase                 P                 Q     R     S                     T         U          
-  float in[21]  = { 0.0, 0.07, 0.13, 0.20, 0.27, 0.33,  0.40, 0.46,  0.53, 0.60, 0.66, 0.73, 0.80, 0.86, 0.93, 1.00 };
-  float out[21] = { 0.0, 0.00, 0.10, 0.25, 0.10, 0.10, -0.05, 1.00, -0.25, 0.20, 0.25, 0.30, 0.30, 0.20, 0.00, 0.00 };
-
-  t += _phase;
-  t = fmod(t, _period);
-
-  //  normalize t to 0.0 - 1.0
-  t *= _freq1;
-  //  search interval
-  int idx = 0; 
-  while (t > in[idx]) idx++;
-  if (t == in[idx]) return _yShift + _amplitude * out[idx];
-  idx--;
-  //  interpolate.
-  float factor = (t - in[idx]) / (in[idx+1] - in[idx]);
-  return _yShift + _amplitude * (out[idx] + factor * (out[idx+1] - out[idx]));
-}
-*/
 
 
-float function_generator::freeWave(float t, int16_t * arr, int16_t size)
-{
-  t += _phase;
-  //  normalize t to 0.0 - 1.0
-  t = (float)fmod(t, _period);
-  t *= _freq1;
-
-  //  search interval, as arr is based upon N equidistant points,
-  //  we can easily calculate the points for direct access
-  float factor = t * size;
-  int idx = (int)factor;        //  truncate to get index of output array.
-  factor = factor - idx;   //  remainder is interpolate factor.
-  //  interpolate.
-  return _yShift + _amplitude * 1e-4f * (arr[idx] + factor * (arr[idx+1] - arr[idx]));
-}
 
 
 /////////////////////////////////////////////////////////////
