@@ -25,18 +25,34 @@ public:
     void put_muppet_to_work( uint8_t muppet_index );
 
 protected:
+    /**
+     * @brief Thread-safe state management for DAC workers
+     */
+    struct muppet_state {
+        volatile bool     update_requested;
+        volatile bool     update_in_progress;
+        volatile uint32_t update_sequence;
+        Threads::Mutex   state_mutex;
+        
+        muppet_state() : 
+            update_requested(  false ),
+            update_in_progress( false ),
+            update_sequence(   0     )
+        {}
+    };
+
     struct orientation_guide {
-        orientation_guide( void ) : muppet( 0 ), lock( 0 ), dirty( 0 ), output_buffer( 0 ) {}
-        orientation_guide( dac_driver_t& the_muppet, Threads::Mutex& the_lock, uint8_t& the_dirty_flag, uint16_t* the_buffer ) :
-            muppet(        &the_muppet     ),
-            lock(          &the_lock       ),
-            dirty(         &the_dirty_flag ),
-            output_buffer( the_buffer      )
+        orientation_guide( void ) : muppet( 0 ), lock( 0 ), state( 0 ), output_buffer( 0 ) {}
+        orientation_guide( dac_driver_t& the_muppet, Threads::Mutex& the_lock, muppet_state& the_state, uint16_t* the_buffer ) :
+            muppet(        &the_muppet ),
+            lock(          &the_lock   ),
+            state(         &the_state  ),
+            output_buffer( the_buffer  )
         { }
 
         dac_driver_t*    muppet;
         Threads::Mutex*  lock;
-        uint8_t*         dirty;
+        muppet_state*    state;
         uint16_t*        output_buffer;
     };
 
@@ -44,7 +60,7 @@ protected:
     dac_driver_t      muppets[ dr_teeth::k_dac_count ];
     orientation_guide muppet_orientation_guides[ dr_teeth::k_dac_count ];
     Threads::Mutex    muppet_lock[ dr_teeth::k_dac_count ];
-    uint8_t           is_muppet_dirty[ dr_teeth::k_dac_count ];
+    muppet_state      muppet_states[ dr_teeth::k_dac_count ];
 
     inline bool vaid_dac(      uint8_t muppet_index  ) { return muppet_index  < dr_teeth::k_dac_count; }
     inline bool valid_channel( uint8_t channel_index ) { return channel_index < k_channels_per_dac;    }
@@ -56,22 +72,43 @@ protected:
         
         dac_driver_t&    me               = *muppet_orientation_guide.muppet;
         Threads::Mutex&  my_lock          = *muppet_orientation_guide.lock;
-        uint8_t&         am_i_dirty       = *muppet_orientation_guide.dirty;
+        muppet_state&    my_state         = *muppet_orientation_guide.state;
         uint16_t*        my_output_buffer =  muppet_orientation_guide.output_buffer;
 
         uint16_t         my_personal_buffer_copy[ k_channels_per_dac ];
+        uint32_t         last_processed_sequence = 0;
         
         while ( 1 ) {
-            if ( am_i_dirty ) {
-                my_lock.lock( );
+            // Check if update is requested using thread-safe synchronization
+            my_state.state_mutex.lock();
+            uint32_t current_sequence = my_state.update_sequence;
+            bool     should_update    = ( current_sequence != last_processed_sequence ) && 
+                                        !my_state.update_in_progress;
+            
+            if ( should_update ) {
+                my_state.update_in_progress = true;
+            }
+            my_state.state_mutex.unlock();
+            
+            if ( should_update ) {
+                // Copy data safely to local buffer
+                my_lock.lock();
                 memcpy( my_personal_buffer_copy, my_output_buffer, sizeof( uint16_t ) * k_channels_per_dac );
-                am_i_dirty = 0; 
-                my_lock.unlock( );
-
-                me.enable( );
+                my_lock.unlock();
+                
+                // Perform DAC operations
+                bool operation_successful = true;
+                me.enable();
                 me.set_values( my_personal_buffer_copy );
-                me.disable( );
-
+                me.disable();
+                
+                // Clear in-progress flag only after successful completion
+                my_state.state_mutex.lock();
+                if ( operation_successful ) {
+                    last_processed_sequence = current_sequence;
+                }
+                my_state.update_in_progress = false;
+                my_state.state_mutex.unlock();
             }
 
             threads.yield();
@@ -90,7 +127,10 @@ protected:
 
 template < class dac_driver_t >
 void electric_mayhem< dac_driver_t >::initialize( const initialization_struct_t initialization_struct[ dr_teeth::k_dac_count ] ) {
-    memset( is_muppet_dirty, 1, dr_teeth::k_dac_count );
+    // Initialize muppet states with initial update request
+    for ( uint8_t i = 0; i < dr_teeth::k_dac_count; ++i ) {
+        muppet_states[ i ].update_sequence = 1; // Request initial update
+    }
     threads.setSliceMicros( dr_teeth::k_thread_slice_micros );
 
     for ( uint8_t muppet_index = 0; muppet_index < dr_teeth::k_dac_count; ++muppet_index ) {
@@ -118,7 +158,12 @@ void electric_mayhem< dac_driver_t >::thanks( uint8_t muppet_index ) {
 
 template < class dac_driver_t >
 void electric_mayhem< dac_driver_t >::throw_muppet_in_the_mud( uint8_t muppet_index ) {
-        is_muppet_dirty[ muppet_index ] = 1;
+    if ( muppet_index >= dr_teeth::k_dac_count ) return;
+    
+    // Thread-safe update request using sequence increment
+    muppet_states[ muppet_index ].state_mutex.lock();
+    muppet_states[ muppet_index ].update_sequence++;
+    muppet_states[ muppet_index ].state_mutex.unlock();
 }
 
 template < class dac_driver_t >
@@ -133,7 +178,7 @@ void electric_mayhem< dac_driver_t >::put_muppet_to_work( uint8_t muppet_index )
     muppet_orientation_guides[ muppet_index ] = orientation_guide( 
         muppets[ muppet_index ], 
         muppet_lock[ muppet_index ], 
-        is_muppet_dirty[ muppet_index ],
+        muppet_states[ muppet_index ],
         dr_teeth::output_buffer + muppet_index * k_channels_per_dac 
     );
 
