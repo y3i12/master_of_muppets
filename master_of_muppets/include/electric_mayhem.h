@@ -28,11 +28,11 @@ protected:
     struct orientation_guide {
         orientation_guide( void ) : muppet( 0 ), lock( 0 ), dirty( 0 ), output_buffer( 0 ) {}
         orientation_guide( dac_driver_t& the_muppet, Threads::Mutex& the_lock, uint8_t& the_dirty_flag, uint16_t* the_buffer ) :
-            muppet( &the_muppet ),
-            lock( &the_lock ),
-            dirty( &the_dirty_flag ),
-            output_buffer( the_buffer )
-        {}
+            muppet(        &the_muppet     ),
+            lock(          &the_lock       ),
+            dirty(         &the_dirty_flag ),
+            output_buffer( the_buffer      )
+        { }
 
         dac_driver_t*    muppet;
         Threads::Mutex*  lock;
@@ -46,8 +46,8 @@ protected:
     Threads::Mutex    muppet_lock[ dr_teeth::k_dac_count ];
     uint8_t           is_muppet_dirty[ dr_teeth::k_dac_count ];
 
-    inline bool vaid_dac(      uint8_t muppet_index     ) { return muppet_index     < dr_teeth::k_dac_count;        }
-    inline bool valid_channel( uint8_t channel_index ) { return channel_index < k_channels_per_dac; }
+    inline bool vaid_dac(      uint8_t muppet_index  ) { return muppet_index  < dr_teeth::k_dac_count; }
+    inline bool valid_channel( uint8_t channel_index ) { return channel_index < k_channels_per_dac;    }
 
     
 

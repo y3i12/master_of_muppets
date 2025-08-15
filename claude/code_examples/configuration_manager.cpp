@@ -22,41 +22,41 @@ namespace configuration {
  */
 struct system_config {
     // Hardware configuration
-    uint8_t k_dac_count = 2;
-    uint8_t k_channels_per_dac = 8;
-    uint16_t k_max_refresh_rate_hz = 1000;
-    uint8_t k_i2c_addresses[4] = {0x10, 0x11, 0x12, 0x13};
+    uint8_t  k_dac_count                    = 2;
+    uint8_t  k_channels_per_dac             = 8;
+    uint16_t k_max_refresh_rate_hz          = 1000;
+    uint8_t  k_i2c_addresses[ 4 ]           = { 0x10, 0x11, 0x12, 0x13 };
     
     // MIDI settings
-    bool k_enable_velocity_to_cv = false;
-    bool k_enable_aftertouch_to_cv = false;
-    bool k_enable_cc_to_cv = false;
-    uint8_t k_pitch_bend_range_semitones = 12;
-    uint8_t k_midi_input_channel = 0; // 0 = omni, 1-16 = specific channel
+    bool    k_enable_velocity_to_cv         = false;
+    bool    k_enable_aftertouch_to_cv       = false;
+    bool    k_enable_cc_to_cv               = false;
+    uint8_t k_pitch_bend_range_semitones    = 12;
+    uint8_t k_midi_input_channel            = 0; // 0 = omni, 1-16 = specific channel
     
     // Hardware settings  
-    bool k_enable_ldac_synchronization = true;
-    uint8_t k_ldac_pins[4] = {2, 3, 4, 5};
+    bool    k_enable_ldac_synchronization   = true;
+    uint8_t k_ldac_pins[ 4 ]                = { 2, 3, 4, 5 };
     
     // Calibration settings
-    bool k_auto_calibration_enabled = false;
-    float k_channel_offset_volts[16]; // Per-channel offset - initialized to 0 in constructor
-    float k_channel_scale_factor[16]; // Per-channel scaling - initialized to 1.0 in constructor
+    bool  k_auto_calibration_enabled       = false;
+    float k_channel_offset_volts[ 16 ];    // Per-channel offset - initialized to 0 in constructor
+    float k_channel_scale_factor[ 16 ];    // Per-channel scaling - initialized to 1.0 in constructor
     
     // Performance settings
-    uint8_t k_thread_priority_midi = 99;
-    uint8_t k_thread_priority_dac = 80;
-    uint16_t k_i2c_clock_speed_khz = 400;
+    uint8_t  k_thread_priority_midi         = 99;
+    uint8_t  k_thread_priority_dac          = 80;
+    uint16_t k_i2c_clock_speed_khz          = 400;
     
     // Version and validation
-    uint32_t k_config_version = 1;
-    uint32_t k_checksum = 0;
+    uint32_t k_config_version               = 1;
+    uint32_t k_checksum                     = 0;
     
     // Constructor to initialize arrays
     system_config() {
-        for (uint8_t i = 0; i < 16; ++i) {
-            k_channel_offset_volts[i] = 0.0f;
-            k_channel_scale_factor[i] = 1.0f;
+        for ( uint8_t i = 0; i < 16; ++i ) {
+            k_channel_offset_volts[ i ] = 0.0f;
+            k_channel_scale_factor[ i ] = 1.0f;
         }
     }
 };
@@ -74,16 +74,16 @@ struct channel_mapping {
         k_lfo_output = 5
     };
     
-    uint8_t k_midi_channel = 1;        // 1-16, 0 = disabled
-    CvMode k_mode = CvMode::k_pitch_bend;
-    uint8_t k_cc_number = 1;           // For CC_VALUE mode
-    float k_scale_factor = 1.0f;       // Output scaling
-    float k_offset_volts = 0.0f;       // Output offset
-    bool k_invert_output = false;      // Invert signal
+    uint8_t k_midi_channel       = 1;        // 1-16, 0 = disabled
+    CvMode  k_mode               = CvMode::k_pitch_bend;
+    uint8_t k_cc_number          = 1;         // For CC_VALUE mode
+    float   k_scale_factor       = 1.0f;     // Output scaling
+    float   k_offset_volts       = 0.0f;     // Output offset
+    bool    k_invert_output      = false;    // Invert signal
     
     // Range limiting
-    float k_min_output_volts = 0.0f;
-    float k_max_output_volts = 10.0f;
+    float k_min_output_volts     = 0.0f;
+    float k_max_output_volts     = 10.0f;
 };
 
 /**
@@ -91,14 +91,14 @@ struct channel_mapping {
  */
 class configuration_manager {
 private:
-    static constexpr uint16_t k_eeprom_config_address = 0x00;
+    static constexpr uint16_t k_eeprom_config_address  = 0x00;
     static constexpr uint16_t k_eeprom_mapping_address = 0x100;
-    static constexpr uint32_t k_config_magic_number = 0x4D555050; // "MUPP" in hex - Muppet theme!
-    static constexpr uint8_t k_max_channels = 16;
+    static constexpr uint32_t k_config_magic_number    = 0x4D555050; // "MUPP" in hex - Muppet theme!
+    static constexpr uint8_t  k_max_channels           = 16;
     
-    system_config current_config_;
-    channel_mapping channel_mappings_[k_max_channels];
-    bool config_dirty_ = false;
+    system_config   current_config_;
+    channel_mapping channel_mappings_[ k_max_channels ];
+    bool            config_dirty_ = false;
     
 public:
     configuration_manager() {
@@ -276,7 +276,7 @@ private:
      * @brief Initialize default system configuration
      */
     void initialize_default_config() {
-        current_config_ = SystemConfig{}; // Use default values from struct
+        current_config_ = system_config{}; // Use default values from struct
         current_config_.config_version = 1;
         current_config_.checksum = calculate_checksum(current_config_);
     }

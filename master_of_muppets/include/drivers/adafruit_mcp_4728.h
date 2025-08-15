@@ -20,10 +20,13 @@ public:
     adafruit_mcp_4728( void ) : wire( 0 ), ldac_port( 0 ) { }
     
     struct initialization_struct_t {
-        initialization_struct_t( TwoWire* the_wire, uint8_t the_ldac_port ) : wire( the_wire ), ldac_port( the_ldac_port ) { }
+        initialization_struct_t( TwoWire* the_wire, uint8_t the_ldac_port ) : 
+            wire(      the_wire      ),
+            ldac_port( the_ldac_port )
+        { }
         
-        TwoWire*   wire;
-        uint8_t ldac_port;
+        TwoWire* wire;
+        uint8_t  ldac_port;
     };
 
     void initialize( const initialization_struct_t& initialization_struct );
@@ -36,9 +39,9 @@ public:
     void set_values( value_t values[ k_channels ] );
 
 protected:
-    TwoWire*            wire;
-    uint8_t             ldac_port;
-    Adafruit_MCP4728    mcp;
+    TwoWire*         wire;
+    uint8_t          ldac_port;
+    Adafruit_MCP4728 mcp;
 
     inline value_t dac_value_rescale( value_t value ) { return static_cast< value_t >( static_cast< uint32_t >( value ) * k_max_val / dr_teeth::k_max_value ); }
 };

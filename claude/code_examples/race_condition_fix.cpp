@@ -20,12 +20,16 @@ namespace electric_mayhem {
  * @brief Thread-safe worker state management for MCU
  */
 struct muppet_state {
-    volatile bool update_requested;
-    volatile bool update_in_progress;
+    volatile bool     update_requested;
+    volatile bool     update_in_progress;
     volatile uint32_t update_sequence;
-    Threads::Mutex state_mutex;
+    Threads::Mutex   state_mutex;
     
-    muppet_state() : update_requested(false), update_in_progress(false), update_sequence(0) {}
+    muppet_state() : 
+        update_requested(  false ),
+        update_in_progress( false ),
+        update_sequence(   0     )
+    {}
 };
 
 /**
@@ -44,8 +48,11 @@ private:
     uint16_t local_buffer_[ k_channels_per_dac ];
 
 public:
-    safe_muppet_worker(dac_driver_t* dac, muppet_state* state, uint16_t* buffer)
-        : dac_instance_(dac), muppet_state_(state), output_buffer_(buffer) {}
+    safe_muppet_worker( dac_driver_t* dac, muppet_state* state, uint16_t* buffer ) :
+        dac_instance_(  dac    ),
+        muppet_state_(  state  ),
+        output_buffer_( buffer )
+    {}
 
     /**
      * @brief Thread-safe worker function with proper synchronization

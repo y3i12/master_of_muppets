@@ -12,9 +12,9 @@ public:
     };
     static uint32_t tick( void );
 protected:
-    static float             global_time_f;
+    static float    global_time_f;
 
-    static uint32_t          tick_time;
-    static uint32_t          last_tick_time;
-    static uint32_t          last_tick_delta;
+    static uint32_t tick_time;
+    static uint32_t last_tick_time;
+    static uint32_t last_tick_delta;
 };

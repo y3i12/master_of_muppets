@@ -22,14 +22,14 @@ namespace i2c_optimization {
 class batch_i2c_writer {
 private:
     // Pre-allocated buffer to avoid dynamic allocation in real-time code
-    static constexpr uint8_t k_batch_buffer_size = 32;
-    uint8_t batch_buffer_[k_batch_buffer_size];
+    static constexpr uint8_t  k_batch_buffer_size = 32;
+    uint8_t                   batch_buffer_[k_batch_buffer_size];
     
     // Constants for AD5593R protocol
-    static constexpr uint8_t k_channels_per_dac = 8;
-    static constexpr uint8_t k_multi_channel_cmd = 0x40;
-    static constexpr uint16_t k_dac_max_value = 4095; // 12-bit DAC
-    static constexpr uint16_t k_input_max_value = 65535; // 16-bit input
+    static constexpr uint8_t  k_channels_per_dac   = 8;
+    static constexpr uint8_t  k_multi_channel_cmd  = 0x40;
+    static constexpr uint16_t k_dac_max_value      = 4095;  // 12-bit DAC
+    static constexpr uint16_t k_input_max_value    = 65535; // 16-bit input
     
     // Use Arduino Wire library for I2C (Teensy compatible)
     TwoWire* i2c_bus_;
@@ -81,9 +81,9 @@ public:
         
         // Single channel command for AD5593R
         uint8_t single_cmd[3] = {
-            static_cast<uint8_t>(0x10 | channel), // Single channel command
-            static_cast<uint8_t>((scaled_value >> 8) & 0x0F),
-            static_cast<uint8_t>(scaled_value & 0xFF)
+            static_cast< uint8_t >( 0x10 | channel ),               // Single channel command
+            static_cast< uint8_t >( (scaled_value >> 8) & 0x0F ),
+            static_cast< uint8_t >( scaled_value & 0xFF )
         };
         
         i2c_bus_->beginTransmission(device_address);
@@ -101,7 +101,7 @@ private:
      */
     uint16_t scale_dac_value(uint16_t input_value) {
         // Scale from 16-bit to 12-bit with proper rounding
-        return static_cast<uint16_t>((static_cast<uint32_t>(input_value) * k_dac_max_value) / k_input_max_value);
+        return static_cast< uint16_t >( ( static_cast< uint32_t >( input_value ) * k_dac_max_value ) / k_input_max_value );
     }
 };
 
@@ -116,12 +116,12 @@ public:
     struct performance_results {
         uint32_t sequential_time_us;
         uint32_t batch_time_us;
-        float improvement_factor;
+        float    improvement_factor;
     };
     
-    performance_results compare_write_methods(batch_i2c_writer& writer,
-                                           uint8_t device_address,
-                                           const uint16_t test_values[k_channels_per_dac]) {
+    performance_results compare_write_methods( batch_i2c_writer& writer,
+                                               uint8_t           device_address,
+                                               const uint16_t    test_values[ k_channels_per_dac ] ) {
         performance_results results = {0, 0, 0.0f};
         
         // Test sequential writes
@@ -139,7 +139,7 @@ public:
         // Calculate improvement
         if (results.batch_time_us > 0) {
             results.improvement_factor = 
-                static_cast<float>(results.sequential_time_us) / results.batch_time_us;
+                static_cast< float >( results.sequential_time_us ) / results.batch_time_us;
         }
         
         return results;

@@ -10,7 +10,7 @@ struct dr_teeth {
     static constexpr uint16_t k_max_value                   = 64 * 1024 - 1;
     
     static constexpr int      k_thread_slice_micros         = 10;
-    static const int          k_force_refresh_every_millis  = 100;
+    static constexpr int      k_force_refresh_every_millis  = 100;
 
     static uint16_t           input_buffer[  k_total_channels ];
     static uint16_t           output_buffer[ k_total_channels ];

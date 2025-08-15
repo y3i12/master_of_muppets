@@ -47,8 +47,8 @@ using dac_driver_t = drivers::adafruit_mcp_4728;
 
 
 
-electric_mayhem< dac_driver_t >    the_muppets;
-static Threads::Mutex              inspiration;
+electric_mayhem< dac_driver_t > the_muppets;
+static Threads::Mutex           inspiration;
 
 // Direct channel indexing without remapping
 // Channels are used directly as: DAC0[0,1,2,3], DAC1[4,5,6,7], DAC2[8,9,10,11]
@@ -58,8 +58,8 @@ static Threads::Mutex              inspiration;
 ////////////////////////////////////////////////////////////////////////////////
 #if defined( DEBUG_LED ) || defined( DEBUG_CHANNEL )
 
-static float    last_led_time = 0.0f;
-static bool     led_status    = false;
+static float last_led_time = 0.0f;
+static bool  led_status    = false;
 
 void ublink( bool make_it_on = false ) {
   

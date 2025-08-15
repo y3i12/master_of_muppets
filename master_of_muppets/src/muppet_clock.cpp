@@ -1,11 +1,11 @@
 #include "Arduino.h"
 #include "muppet_clock.h"
 
-float    muppet_clock::global_time_f            = 0.0f;
+float    muppet_clock::global_time_f     = 0.0f;
 
-uint32_t muppet_clock::tick_time                = 0;
-uint32_t muppet_clock::last_tick_time           = 0;
-uint32_t muppet_clock::last_tick_delta          = 0;
+uint32_t muppet_clock::tick_time         = 0;
+uint32_t muppet_clock::last_tick_time    = 0;
+uint32_t muppet_clock::last_tick_delta   = 0;
 
 uint32_t muppet_clock::tick( void ) {
     tick_time       = micros();
