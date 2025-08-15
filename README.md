@@ -75,6 +75,7 @@ In the context of the GitHub repository, I'd ask you to:
 
 On each smaller change/fix, the agent is activated again to uptade the context state;
 
+The file [CLAUDE.md](CLAUDE.md) is a file that keeps the agent aware of the project and it's utility, and it is initialized with `/claude`. [This commit](https://github.com/y3i12/master_of_muppets/commit/ba7999ed3ab6fd23784af9ec2a1299c8066d6f7f) adds this file and reinforces the iterative process and the awarenes of the project feedback loop and explains how it was done.
 
 ## To explore in the future
   - Some sort of documentation;
