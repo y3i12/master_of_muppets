@@ -10,7 +10,7 @@
 
 
 #define MASTER_OF_MUPPETS_AD5993R
-#define DENTAL_CHECK
+// #define DENTAL_CHECK
 
 
 
