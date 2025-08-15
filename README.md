@@ -11,7 +11,7 @@ Similar to [Befaco MIDI Thing V2](https://www.befaco.org/midi-thing-v2/), [Der M
 
 The difference is that this fellow is not using [MAX11300](https://www.analog.com/media/en/technical-documentation/data-sheets/max11300.pdf), although it could support it. More details below.
 
-At the moment Master Of Muppets only translates MIDI pitch messages from 0..65k (16 bit) downscales it to 0..4k (12 bit) and sends them to different [AD5593R](https://www.analog.com/media/en/technical-documentation/data-sheets/ad5593r.pdf) (8x12 bit ADC/DAC) via I2C, one responsible for MIDI channels 1..8 and the other taking care of MIDI channels 9..16. 
+At the moment Master Of Muppets only upscales MIDI pitch messages from their 14bit to framework common 16bit values and downscales it to the target DAC and sends them to different [AD5593R](https://www.analog.com/media/en/technical-documentation/data-sheets/ad5593r.pdf) (8x12 bit ADC/DAC) via I2C, one responsible for MIDI channels 1..8 and the other taking care of MIDI channels 9..16. 
 
 The internally referenced DAC output ranges from 0V to 5V and is subsequently passed through a low pass filter and then amplified by 2 with OpAmps [TL074](https://www.ti.com/lit/ds/symlink/tl074-ep.pdf).
 
