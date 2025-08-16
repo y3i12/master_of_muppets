@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "git_revision": "3c837aa8d98ed585335f8773419c82d0990e9966",
+    "timestamp": "2025-08-16T12:00:00Z",
+    "network_count": 7,
+    "version": "1.0.1"
+  },
+  "networks": {
+    "dependency_graph": {
+      "description": "Code dependencies and include relationships",
+      "edges": [
+        {"from": "main", "to": "dr_teeth", "type": "includes", "weight": 10},
+        {"from": "main", "to": "electric_mayhem", "type": "includes", "weight": 10},
+        {"from": "main", "to": "muppet_clock", "type": "includes", "weight": 5},
+        {"from": "main", "to": "function_generator", "type": "includes", "weight": 3},
+        {"from": "main", "to": "rob_tillaart_ad_5993r", "type": "uses", "weight": 9},
+        {"from": "main", "to": "USBHost_t36", "type": "uses", "weight": 9},
+        {"from": "electric_mayhem", "to": "dr_teeth", "type": "includes", "weight": 10},
+        {"from": "electric_mayhem", "to": "TeensyThreads", "type": "includes", "weight": 10},
+        {"from": "rob_tillaart_ad_5993r", "to": "AD5593R", "type": "uses", "weight": 10},
+        {"from": "rob_tillaart_ad_5993r", "to": "Wire", "type": "uses", "weight": 9},
+        {"from": "rob_tillaart_ad_5993r", "to": "dr_teeth", "type": "includes", "weight": 8},
+        {"from": "adafruit_mcp_4728", "to": "Adafruit_MCP4728", "type": "uses", "weight": 10},
+        {"from": "adafruit_mcp_4728", "to": "Wire", "type": "uses", "weight": 9},
+        {"from": "adafruit_mcp_4728", "to": "dr_teeth", "type": "includes", "weight": 8},
+        {"from": "AD5593R", "to": "Wire", "type": "uses", "weight": 10},
+        {"from": "AD5593R", "to": "Arduino", "type": "uses", "weight": 10},
+        {"from": "Adafruit_MCP4728", "to": "Wire", "type": "uses", "weight": 10},
+        {"from": "Adafruit_MCP4728", "to": "Adafruit_I2CDevice", "type": "uses", "weight": 9},
+        {"from": "Adafruit_I2CDevice", "to": "Wire", "type": "uses", "weight": 10},
+        {"from": "TeensyThreads", "to": "Arduino", "type": "uses", "weight": 10},
+        {"from": "muppet_clock", "to": "Arduino", "type": "uses", "weight": 8}
+      ]
+    },
+    "data_flow": {
+      "description": "Data movement through the system",
+      "edges": [
+        {"from": "USBHost_t36", "to": "main", "type": "midi_events", "weight": 10, "latency_us": 1000},
+        {"from": "main", "to": "input_buffer", "type": "writes", "weight": 10, "frequency_hz": 1000},
+        {"from": "dr_teeth_thread", "to": "input_buffer", "type": "reads", "weight": 10},
+        {"from": "dr_teeth_thread", "to": "output_buffer", "type": "copies", "weight": 10},
+        {"from": "input_buffer", "to": "output_buffer", "type": "memcpy", "weight": 10, "size_bytes": 32},
+        {"from": "muppet_worker_thread", "to": "output_buffer", "type": "reads", "weight": 10},
+        {"from": "muppet_worker_thread", "to": "rob_tillaart_ad_5993r", "type": "sends", "weight": 9, "latency_us": 500},
+        {"from": "rob_tillaart_ad_5993r", "to": "Wire", "type": "i2c_write", "weight": 10, "latency_us": 500},
+        {"from": "function_generator", "to": "input_buffer", "type": "debug_writes", "weight": 2}
+      ]
+    },
+    "thread_communication": {
+      "description": "Inter-thread communication and synchronization",
+      "edges": [
+        {"from": "main_thread", "to": "dr_teeth_thread", "type": "creates", "weight": 10},
+        {"from": "main_thread", "to": "muppet_worker_thread", "type": "creates", "weight": 10},
+        {"from": "dr_teeth_thread", "to": "muppet_worker_thread", "type": "signals", "weight": 9, "mechanism": "state_flag"},
+        {"from": "muppet_worker_thread", "to": "Threads::Mutex", "type": "locks", "weight": 10},
+        {"from": "dr_teeth_thread", "to": "Threads::Mutex", "type": "locks", "weight": 10},
+        {"from": "main_thread", "to": "input_buffer", "type": "mutex_protected", "weight": 10},
+        {"from": "dr_teeth_thread", "to": "output_buffer", "type": "mutex_protected", "weight": 10},
+        {"from": "muppet_worker_thread", "to": "muppet_state", "type": "checks", "weight": 9}
+      ]
+    },
+    "control_flow": {
+      "description": "Program execution flow and control paths",
+      "edges": [
+        {"from": "main::setup", "to": "electric_mayhem::initialize", "type": "calls", "weight": 10},
+        {"from": "main::setup", "to": "TeensyThreads::addThread", "type": "calls", "weight": 10},
+        {"from": "main::loop", "to": "USBHost_t36::Task", "type": "calls", "weight": 10},
+        {"from": "pitch_bend_event", "to": "input_buffer", "type": "updates", "weight": 10},
+        {"from": "note_on_event", "to": "input_buffer", "type": "updates", "weight": 9},
+        {"from": "dr_teeth::go_muppets", "to": "electric_mayhem::attention_please", "type": "calls", "weight": 10},
+        {"from": "dr_teeth::go_muppets", "to": "electric_mayhem::throw_muppet_in_the_mud", "type": "calls", "weight": 10},
+        {"from": "electric_mayhem::muppet_worker", "to": "rob_tillaart_ad_5993r::set_value", "type": "calls", "weight": 9},
+        {"from": "electric_mayhem::muppet_worker", "to": "rob_tillaart_ad_5993r::update", "type": "calls", "weight": 9}
+      ]
+    },
+    "hardware_interface": {
+      "description": "Hardware communication layers",
+      "edges": [
+        {"from": "rob_tillaart_ad_5993r", "to": "Wire1", "type": "i2c_bus", "weight": 10, "address": "0x10", "a0_pin": 37},
+        {"from": "rob_tillaart_ad_5993r", "to": "Wire2", "type": "i2c_bus", "weight": 10, "address": "0x11", "a0_pin": 11},
+        {"from": "adafruit_mcp_4728", "to": "Wire1", "type": "i2c_bus", "weight": 8, "address": "0x60"},
+        {"from": "USBHost_t36", "to": "USB_HOST", "type": "usb", "weight": 10},
+        {"from": "main", "to": "LED_BUILTIN", "type": "gpio", "weight": 2}
+      ]
+    },
+    "template_instantiation": {
+      "description": "Template specializations and instantiations",
+      "edges": [
+        {"from": "electric_mayhem", "to": "rob_tillaart_ad_5993r", "type": "instantiated_with", "weight": 10},
+        {"from": "electric_mayhem", "to": "adafruit_mcp_4728", "type": "instantiated_with", "weight": 7},
+        {"from": "dr_teeth::go_muppets", "to": "electric_mayhem", "type": "template_call", "weight": 10}
+      ]
+    },
+    "criticality_flow": {
+      "description": "Critical path through the system",
+      "edges": [
+        {"from": "USBHost_t36", "to": "main", "criticality": 10, "realtime": true},
+        {"from": "main", "to": "dr_teeth", "criticality": 10, "realtime": true},
+        {"from": "dr_teeth", "to": "electric_mayhem", "criticality": 10, "realtime": true},
+        {"from": "electric_mayhem", "to": "rob_tillaart_ad_5993r", "criticality": 9, "realtime": true},
+        {"from": "rob_tillaart_ad_5993r", "to": "Wire", "criticality": 9, "realtime": true},
+        {"from": "TeensyThreads", "to": "muppet_worker_thread", "criticality": 9, "realtime": true},
+        {"from": "input_buffer", "to": "output_buffer", "criticality": 10, "realtime": true}
+      ]
+    }
+  }
+}

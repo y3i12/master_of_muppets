@@ -546,7 +546,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+		(property "Footprint" "PCM_4ms_Jack:EighthInch_PJ398SM"
 			(at 102.87 76.2 0)
 			(effects
 				(font
@@ -713,7 +713,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+		(property "Footprint" "PCM_4ms_Jack:EighthInch_PJ398SM"
 			(at 64.77 40.64 0)
 			(effects
 				(font
@@ -1020,7 +1020,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+		(property "Footprint" "PCM_4ms_Jack:EighthInch_PJ398SM"
 			(at 64.77 58.42 0)
 			(effects
 				(font
@@ -1327,7 +1327,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+		(property "Footprint" "PCM_4ms_Jack:EighthInch_PJ398SM"
 			(at 102.87 40.64 0)
 			(effects
 				(font
@@ -1564,7 +1564,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+		(property "Footprint" "PCM_4ms_Jack:EighthInch_PJ398SM"
 			(at 64.77 93.98 0)
 			(effects
 				(font
@@ -1801,7 +1801,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+		(property "Footprint" "PCM_4ms_Jack:EighthInch_PJ398SM"
 			(at 102.87 93.98 0)
 			(effects
 				(font
@@ -1968,7 +1968,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+		(property "Footprint" "PCM_4ms_Jack:EighthInch_PJ398SM"
 			(at 102.87 58.42 0)
 			(effects
 				(font
@@ -2135,7 +2135,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "4ms_Jack:EighthInch_PJ398SM"
+		(property "Footprint" "PCM_4ms_Jack:EighthInch_PJ398SM"
 			(at 64.77 76.2 0)
 			(effects
 				(font

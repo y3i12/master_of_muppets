@@ -1,0 +1,41 @@
+{
+  "_metadata": {
+    "version": "1.2.0",
+    "description": "Multi-layer network representations for PCB placement optimization",
+    "edge_weights": {
+      "prx": "proximity_requirement (0-10, higher requires closer placement)",
+      "sig": "signal_integrity_criticality (0-10)",
+      "cur": "current_capacity (mA)",
+      "frq": "frequency_content (0=DC, 1=low, 2=high)",
+      "len": "max_trace_length_mm"
+    }
+  },
+  "networks": {
+    "proximity_network": {
+      "description": "Components that should be physically close for optimal performance",
+      "clusters": [
+        {
+          "id": "i2c_bus",
+          "members": [
+            "DAC1",
+            "T1"
+          ],
+          "max_diameter_mm": 50,
+          "reason": "I2C signal integrity and timing"
+        },
+        {
+          "id": "amp_cluster_OpAmp1",
+          "members": [
+            "OpAmp1",
+            "R18",
+            "R13",
+            "R12",
+            "R6"
+          ],
+          "max_diameter_mm": 15,
+          "reason": "Operational amplifier OpAmp1 feedback network"
+        }
+      ]
+    }
+  }
+}

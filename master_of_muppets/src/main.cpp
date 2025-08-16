@@ -196,8 +196,8 @@ void the_muppet_show ( void ) {
 
 void setup( void ) {
   dac_driver_t::initialization_struct_t initialization_structs[ dr_teeth::k_dac_count ] = {
-        dac_driver_t::initialization_struct_t( &Wire2 ),
-        dac_driver_t::initialization_struct_t( &Wire1 ),
+        dac_driver_t::initialization_struct_t( &Wire2, 11 ),
+        dac_driver_t::initialization_struct_t( &Wire1, 37 ),
     };
 
     the_muppets.initialize( initialization_structs );

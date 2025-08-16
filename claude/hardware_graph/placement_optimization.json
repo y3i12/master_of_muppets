@@ -1,0 +1,160 @@
+{
+  "_metadata": {
+    "version": "1.1.0",
+    "git_revision": "3c837aa8d98ed585335f8773419c82d0990e9966",
+    "updated": "2025-08-16",
+    "description": "PCB placement optimization rules derived from graph analysis",
+    "algorithm": "force-directed with constraints"
+  },
+  "placement_rules": {
+    "absolute_constraints": [
+      {
+        "component": "J1",
+        "position": "edge_left",
+        "reason": "power_input_accessibility"
+      },
+      {
+        "components": ["J2", "J3", "J4", "J5", "J6", "J7", "J8", "J9", "J10", "J11", "J12", "J13", "J14", "J15", "J16", "J17"],
+        "position": "edge_right",
+        "arrangement": "linear_vertical",
+        "spacing_mm": 5.08,
+        "reason": "eurorack_standard"
+      },
+      {
+        "components": ["C5", "C6", "C7", "C8"],
+        "constraint": "within_3mm_of_target",
+        "targets": ["U1", "U2", "DAC1", "DAC2"],
+        "reason": "decoupling_effectiveness"
+      }
+    ],
+    "relative_constraints": [
+      {
+        "group": "i2c_critical",
+        "components": ["T1", "DAC1", "DAC2", "R1", "R2"],
+        "max_distance_mm": 50,
+        "priority": 10
+      },
+      {
+        "group": "opamp_feedback",
+        "pairs": [
+          ["U1", "R4"],
+          ["U1", "R5"],
+          ["U1", "R6"],
+          ["U1", "R7"],
+          ["U2", "R28"],
+          ["U2", "R29"],
+          ["U2", "R30"],
+          ["U2", "R31"]
+        ],
+        "max_distance_mm": 10,
+        "priority": 9
+      }
+    ],
+    "zone_assignments": {
+      "zones": [
+        {
+          "id": "power",
+          "bounds": {"x": [0, 20], "y": [0, 80]},
+          "components": ["J1", "C1", "C2", "C21", "C22"]
+        },
+        {
+          "id": "digital",
+          "bounds": {"x": [20, 50], "y": [0, 80]},
+          "components": ["T1", "C3", "C4"]
+        },
+        {
+          "id": "mixed_signal",
+          "bounds": {"x": [50, 60], "y": [0, 80]},
+          "components": ["DAC1", "R1", "R2", "R3", "C6"]
+        },
+        {
+          "id": "analog",
+          "bounds": {"x": [60, 85], "y": [0, 80]},
+          "components": ["U1", "R4", "R5", "R6", "R7", "R8", "R9", "R10", "R11", "C5", "C7", "C8"]
+        },
+        {
+          "id": "output",
+          "bounds": {"x": [85, 100], "y": [0, 80]},
+          "components": ["J2", "J3", "J4", "J5", "J6", "J7", "J8", "J9", "R16", "R17", "R18", "R19"]
+        }
+      ]
+    },
+    "routing_priorities": [
+      {
+        "net_type": "i2c",
+        "priority": 1,
+        "constraints": {
+          "max_length_mm": 50,
+          "matched_length": true,
+          "differential": false,
+          "keepout_from": ["power_traces"]
+        }
+      },
+      {
+        "net_type": "analog_signal",
+        "priority": 2,
+        "constraints": {
+          "max_length_mm": 30,
+          "guard_trace": "recommended",
+          "keepout_from": ["digital_traces", "power_traces"]
+        }
+      },
+      {
+        "net_type": "power",
+        "priority": 3,
+        "constraints": {
+          "min_width_mm": 0.5,
+          "star_routing": true,
+          "plane_pour": "recommended"
+        }
+      }
+    ],
+    "optimization_scores": {
+      "description": "Weighted scoring function for placement quality",
+      "weights": {
+        "proximity_satisfaction": 0.3,
+        "signal_integrity": 0.25,
+        "thermal_distribution": 0.1,
+        "manufacturability": 0.15,
+        "aesthetics": 0.05,
+        "routing_complexity": 0.15
+      },
+      "target_score": 0.85
+    }
+  },
+  "placement_sequence": {
+    "description": "Recommended order for component placement",
+    "steps": [
+      {
+        "step": 1,
+        "action": "place_fixed_components",
+        "components": ["J1", "J2", "J3", "J4", "J5", "J6", "J7", "J8", "J9"],
+        "method": "absolute_position"
+      },
+      {
+        "step": 2,
+        "action": "place_critical_ics",
+        "components": ["T1", "DAC1", "U1"],
+        "method": "force_directed_with_zones"
+      },
+      {
+        "step": 3,
+        "action": "place_decoupling",
+        "components": ["C5", "C6", "C7", "C8"],
+        "method": "nearest_to_target"
+      },
+      {
+        "step": 4,
+        "action": "place_support_passives",
+        "components": ["R1", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "R9", "R10", "R11"],
+        "method": "cluster_around_parent"
+      },
+      {
+        "step": 5,
+        "action": "place_remaining",
+        "components": ["*"],
+        "method": "fill_available_space"
+      }
+    ]
+  }
+}

@@ -67,7 +67,7 @@ In the context of the GitHub repository, I'd ask you to:
    * optimizations in the code
    * general remarks
    * feature propositions
-* Analyze the KiCad schematics (disregard the PCB for the moment) and give me feedback about it's design, as OP (me) is unexperienced in the subject of electronics. Also consider this fact in your explanations. In case the files contain too many tokens, break them down before ingestion.
+* Analyze the KiCad schematics and PCB, providing feedback about its design, as OP is unexperienced in the subject of electronics. Also consider this fact in your explanations. In case the files contain too many tokens, break them down before ingestion.
 * Generate individual markdown files for each report;
 * Generated code should follow rules described in `CODING_STYLE.md`;
 * Keep the analysis context stored in the same folder so future iterations can happen easily;

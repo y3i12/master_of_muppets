@@ -39,6 +39,14 @@ void rob_tillaart_ad_5993r::initialize( const initialization_struct_t& initializ
     }
 }
 
+void rob_tillaart_ad_5993r::enable( void ) {
+    digitalWrite( a0_port, LOW );
+}
+
+void rob_tillaart_ad_5993r::disable( void ) {
+    digitalWrite( a0_port, HIGH );
+}
+
 void rob_tillaart_ad_5993r::set_channel_value( uint8_t channel_index, value_t value ) {
     if ( channel_index >= rob_tillaart_ad_5993r::k_channels ) {
         return;  // Invalid channel index

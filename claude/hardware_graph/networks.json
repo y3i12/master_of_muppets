@@ -1,0 +1,221 @@
+{
+  "_metadata": {
+    "version": "1.1.0",
+    "git_revision": "3c837aa8d98ed585335f8773419c82d0990e9966",
+    "updated": "2025-08-16",
+    "description": "Multi-layer network representations for PCB placement optimization",
+    "edge_weights": {
+      "prx": "proximity_requirement (0-10, higher requires closer placement)",
+      "sig": "signal_integrity_criticality (0-10)",
+      "cur": "current_capacity (mA)",
+      "frq": "frequency_content (0=DC, 1=low, 2=high)",
+      "len": "max_trace_length_mm"
+    }
+  },
+  "networks": {
+    "primary_connectivity": {
+      "description": "Actual electrical connections from schematic",
+      "edges": [
+        {"from": "T1", "to": "DAC1", "net": "I2C1", "weight": {"prx": 9, "sig": 8, "frq": 2, "len": 50}},
+        {"from": "T1", "to": "DAC2", "net": "I2C2", "weight": {"prx": 9, "sig": 8, "frq": 2, "len": 50}},
+        {"from": "T1", "to": "R1", "net": "SDA1", "weight": {"prx": 8, "sig": 7, "frq": 2, "len": 30}},
+        {"from": "T1", "to": "R2", "net": "SCL1", "weight": {"prx": 8, "sig": 7, "frq": 2, "len": 30}},
+        {"from": "DAC1", "to": "R8", "net": "DAC_OUT0", "weight": {"prx": 8, "sig": 9, "frq": 1, "len": 20}},
+        {"from": "DAC1", "to": "R9", "net": "DAC_OUT1", "weight": {"prx": 8, "sig": 9, "frq": 1, "len": 20}},
+        {"from": "DAC1", "to": "R10", "net": "DAC_OUT2", "weight": {"prx": 8, "sig": 9, "frq": 1, "len": 20}},
+        {"from": "DAC1", "to": "R11", "net": "DAC_OUT3", "weight": {"prx": 8, "sig": 9, "frq": 1, "len": 20}},
+        {"from": "DAC1", "to": "R12", "net": "DAC_OUT4", "weight": {"prx": 8, "sig": 9, "frq": 1, "len": 20}},
+        {"from": "DAC1", "to": "R13", "net": "DAC_OUT5", "weight": {"prx": 8, "sig": 9, "frq": 1, "len": 20}},
+        {"from": "DAC1", "to": "R14", "net": "DAC_OUT6", "weight": {"prx": 8, "sig": 9, "frq": 1, "len": 20}},
+        {"from": "DAC1", "to": "R15", "net": "DAC_OUT7", "weight": {"prx": 8, "sig": 9, "frq": 1, "len": 20}},
+        {"from": "DAC2", "to": "R20", "net": "DAC2_OUT0", "weight": {"prx": 8, "sig": 9, "frq": 1, "len": 20}},
+        {"from": "DAC2", "to": "R21", "net": "DAC2_OUT1", "weight": {"prx": 8, "sig": 9, "frq": 1, "len": 20}},
+        {"from": "DAC2", "to": "R22", "net": "DAC2_OUT2", "weight": {"prx": 8, "sig": 9, "frq": 1, "len": 20}},
+        {"from": "DAC2", "to": "R23", "net": "DAC2_OUT3", "weight": {"prx": 8, "sig": 9, "frq": 1, "len": 20}},
+        {"from": "DAC2", "to": "R24", "net": "DAC2_OUT4", "weight": {"prx": 8, "sig": 9, "frq": 1, "len": 20}},
+        {"from": "DAC2", "to": "R25", "net": "DAC2_OUT5", "weight": {"prx": 8, "sig": 9, "frq": 1, "len": 20}},
+        {"from": "DAC2", "to": "R26", "net": "DAC2_OUT6", "weight": {"prx": 8, "sig": 9, "frq": 1, "len": 20}},
+        {"from": "DAC2", "to": "R27", "net": "DAC2_OUT7", "weight": {"prx": 8, "sig": 9, "frq": 1, "len": 20}},
+        {"from": "U1", "to": "R4", "net": "FB1", "weight": {"prx": 10, "sig": 9, "frq": 1, "len": 10}},
+        {"from": "U1", "to": "R5", "net": "FB2", "weight": {"prx": 10, "sig": 9, "frq": 1, "len": 10}},
+        {"from": "U1", "to": "R6", "net": "FB3", "weight": {"prx": 10, "sig": 9, "frq": 1, "len": 10}},
+        {"from": "U1", "to": "R7", "net": "FB4", "weight": {"prx": 10, "sig": 9, "frq": 1, "len": 10}},
+        {"from": "U1", "to": "R16", "net": "OUT1", "weight": {"prx": 7, "sig": 7, "frq": 1, "len": 30}},
+        {"from": "U1", "to": "R17", "net": "OUT2", "weight": {"prx": 7, "sig": 7, "frq": 1, "len": 30}},
+        {"from": "U1", "to": "R18", "net": "OUT3", "weight": {"prx": 7, "sig": 7, "frq": 1, "len": 30}},
+        {"from": "U1", "to": "R19", "net": "OUT4", "weight": {"prx": 7, "sig": 7, "frq": 1, "len": 30}},
+        {"from": "R16", "to": "J2", "net": "CH1", "weight": {"prx": 3, "sig": 5, "frq": 1, "len": 100}},
+        {"from": "R17", "to": "J3", "net": "CH2", "weight": {"prx": 3, "sig": 5, "frq": 1, "len": 100}},
+        {"from": "R18", "to": "J4", "net": "CH3", "weight": {"prx": 3, "sig": 5, "frq": 1, "len": 100}},
+        {"from": "R19", "to": "J5", "net": "CH4", "weight": {"prx": 3, "sig": 5, "frq": 1, "len": 100}},
+        {"from": "R20", "to": "J6", "net": "CH5", "weight": {"prx": 3, "sig": 5, "frq": 1, "len": 100}},
+        {"from": "R21", "to": "J7", "net": "CH6", "weight": {"prx": 3, "sig": 5, "frq": 1, "len": 100}},
+        {"from": "R22", "to": "J8", "net": "CH7", "weight": {"prx": 3, "sig": 5, "frq": 1, "len": 100}},
+        {"from": "R23", "to": "J9", "net": "CH8", "weight": {"prx": 3, "sig": 5, "frq": 1, "len": 100}},
+        {"from": "U2", "to": "R28", "net": "FB9", "weight": {"prx": 10, "sig": 9, "frq": 1, "len": 10}},
+        {"from": "U2", "to": "R29", "net": "FB10", "weight": {"prx": 10, "sig": 9, "frq": 1, "len": 10}},
+        {"from": "U2", "to": "R30", "net": "FB11", "weight": {"prx": 10, "sig": 9, "frq": 1, "len": 10}},
+        {"from": "U2", "to": "R31", "net": "FB12", "weight": {"prx": 10, "sig": 9, "frq": 1, "len": 10}},
+        {"from": "R24", "to": "J10", "net": "CH9", "weight": {"prx": 3, "sig": 5, "frq": 1, "len": 100}},
+        {"from": "R25", "to": "J11", "net": "CH10", "weight": {"prx": 3, "sig": 5, "frq": 1, "len": 100}},
+        {"from": "R26", "to": "J12", "net": "CH11", "weight": {"prx": 3, "sig": 5, "frq": 1, "len": 100}},
+        {"from": "R27", "to": "J13", "net": "CH12", "weight": {"prx": 3, "sig": 5, "frq": 1, "len": 100}},
+        {"from": "R28", "to": "J14", "net": "CH13", "weight": {"prx": 3, "sig": 5, "frq": 1, "len": 100}},
+        {"from": "R29", "to": "J15", "net": "CH14", "weight": {"prx": 3, "sig": 5, "frq": 1, "len": 100}},
+        {"from": "R30", "to": "J16", "net": "CH15", "weight": {"prx": 3, "sig": 5, "frq": 1, "len": 100}},
+        {"from": "R31", "to": "J17", "net": "CH16", "weight": {"prx": 3, "sig": 5, "frq": 1, "len": 100}},
+        {"from": "U2", "to": "C7", "net": "DECOUPLE", "weight": {"prx": 10, "sig": 10, "frq": 2, "len": 3}},
+        {"from": "DAC2", "to": "C8", "net": "DECOUPLE", "weight": {"prx": 10, "sig": 10, "frq": 2, "len": 3}},
+        {"from": "U1", "to": "C5", "net": "DECOUPLE", "weight": {"prx": 10, "sig": 10, "frq": 2, "len": 3}},
+        {"from": "DAC1", "to": "C6", "net": "DECOUPLE", "weight": {"prx": 10, "sig": 10, "frq": 2, "len": 3}},
+        {"from": "T1", "to": "C3", "net": "DECOUPLE", "weight": {"prx": 9, "sig": 8, "frq": 2, "len": 5}}
+      ]
+    },
+    "proximity_network": {
+      "description": "Components that should be physically close for optimal performance",
+      "clusters": [
+        {
+          "id": "i2c_bus",
+          "members": ["T1", "DAC1", "DAC2", "R1", "R2"],
+          "centroid_weight": {"T1": 0.3, "DAC1": 0.3, "DAC2": 0.3, "R1": 0.05, "R2": 0.05},
+          "max_diameter_mm": 40
+        },
+        {
+          "id": "opamp_1",
+          "members": ["U1", "R4", "R5", "R6", "R7", "R8", "R9", "R10", "R11", "C5"],
+          "centroid_weight": {"U1": 0.5},
+          "max_diameter_mm": 25
+        },
+        {
+          "id": "power_input",
+          "members": ["J1", "C1", "C2", "C21", "C22"],
+          "centroid_weight": {"J1": 0.6},
+          "max_diameter_mm": 30
+        },
+        {
+          "id": "output_jacks",
+          "members": ["J2", "J3", "J4", "J5", "J6", "J7", "J8", "J9"],
+          "centroid_weight": {},
+          "max_diameter_mm": 80,
+          "linear_arrangement": true
+        }
+      ]
+    },
+    "power_distribution": {
+      "description": "Power supply hierarchy and current flow",
+      "rails": {
+        "+12V": {
+          "source": "J1",
+          "consumers": ["U1"],
+          "decoupling": ["C1", "C5"],
+          "trace_width_mm": 0.5,
+          "current_ma": 50
+        },
+        "-12V": {
+          "source": "J1",
+          "consumers": ["U1"],
+          "decoupling": ["C2", "C5"],
+          "trace_width_mm": 0.5,
+          "current_ma": 50
+        },
+        "+5V": {
+          "source": "REG_5V",
+          "consumers": ["T1", "DAC1"],
+          "decoupling": ["C3", "C4", "C6"],
+          "trace_width_mm": 0.8,
+          "current_ma": 200
+        },
+        "+3V3": {
+          "source": "T1",
+          "consumers": ["R1", "R2"],
+          "trace_width_mm": 0.25,
+          "current_ma": 10
+        },
+        "GND": {
+          "star_point": "J1",
+          "zones": ["digital_gnd", "analog_gnd"],
+          "plane_required": true
+        }
+      }
+    },
+    "functional_hierarchy": {
+      "description": "Logical grouping by function",
+      "groups": {
+        "power_management": {
+          "components": ["J1", "C1", "C2", "C21", "C22"],
+          "zone": "power",
+          "placement_priority": 1,
+          "edge_constraint": "left"
+        },
+        "digital_control": {
+          "components": ["T1", "C3", "C4"],
+          "zone": "digital",
+          "placement_priority": 2,
+          "edge_constraint": null
+        },
+        "i2c_interface": {
+          "components": ["R1", "R2", "R3"],
+          "zone": "digital",
+          "placement_priority": 3,
+          "edge_constraint": null
+        },
+        "dac_conversion": {
+          "components": ["DAC1", "C6"],
+          "zone": "mixed_signal",
+          "placement_priority": 4,
+          "edge_constraint": null
+        },
+        "analog_amplification": {
+          "components": ["U1", "R4", "R5", "R6", "R7", "R8", "R9", "R10", "R11", "R12", "R13", "R14", "R15", "C5", "C7", "C8"],
+          "zone": "analog",
+          "placement_priority": 5,
+          "edge_constraint": null
+        },
+        "output_stage": {
+          "components": ["R16", "R17", "R18", "R19", "J2", "J3", "J4", "J5", "J6", "J7", "J8", "J9"],
+          "zone": "output",
+          "placement_priority": 6,
+          "edge_constraint": "right"
+        }
+      }
+    },
+    "signal_flow": {
+      "description": "Signal path from input to output",
+      "paths": [
+        {
+          "id": "ch1_path",
+          "sequence": ["T1", "DAC1", "R8", "U1", "R4", "R16", "J2"],
+          "criticality": 9
+        },
+        {
+          "id": "ch2_path",
+          "sequence": ["T1", "DAC1", "R9", "U1", "R5", "R17", "J3"],
+          "criticality": 9
+        },
+        {
+          "id": "ch3_path",
+          "sequence": ["T1", "DAC1", "R10", "U1", "R6", "R18", "J4"],
+          "criticality": 9
+        },
+        {
+          "id": "ch4_path",
+          "sequence": ["T1", "DAC1", "R11", "U1", "R7", "R19", "J5"],
+          "criticality": 9
+        }
+      ]
+    },
+    "thermal_network": {
+      "description": "Heat generation and dissipation requirements",
+      "heat_sources": [
+        {"component": "T1", "power_mw": 500, "heatsink": false},
+        {"component": "U1", "power_mw": 200, "heatsink": false},
+        {"component": "DAC1", "power_mw": 100, "heatsink": false}
+      ],
+      "thermal_zones": {
+        "hot": ["T1"],
+        "warm": ["U1", "DAC1"],
+        "cool": ["J2", "J3", "J4", "J5", "J6", "J7", "J8", "J9"]
+      }
+    }
+  }
+}
