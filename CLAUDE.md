@@ -216,3 +216,79 @@ The graph structure enables:
 - Signal integrity preservation
 
 **Important**: Always check this graph structure before PCB placement decisions
+
+## Codebase Graph Structure
+
+### Overview
+The `claude/codebase_graph/` directory contains a multi-layered graph representation of the software architecture, paralleling the hardware graph concept. This structure transforms raw code into queryable, analyzable information with rich metadata encoding domain knowledge.
+
+### Core Philosophy: Data → Information Abstraction
+**Key Insight**: Raw data (code files, schematics) becomes actionable intelligence through structured metadata encoding. This graph-based approach creates persistent knowledge that survives between sessions and enables rapid understanding of complex relationships.
+
+### Files
+- **`node_registry.json`**: Complete inventory of code entities (classes, files, threads, data structures) with metadata
+  - Criticality scores (0-10) for system importance
+  - Architectural layers (application/core/driver/utility/external/system)
+  - Git revision tracking for change detection
+  - Performance characteristics and thread safety indicators
+  
+- **`networks.json`**: Seven relationship networks capturing different aspects:
+  - Dependency graph (includes/uses relationships)
+  - Data flow (with latency annotations)
+  - Thread communication patterns
+  - Control flow paths
+  - Hardware interfaces (I2C, USB, GPIO)
+  - Template instantiations
+  - Critical real-time paths
+  
+- **`analysis_insights.json`**: Derived intelligence from graph analysis:
+  - Performance bottlenecks with severity and location
+  - Optimization opportunities ranked by impact/complexity/risk
+  - Thread safety analysis and synchronization patterns
+  - Memory usage breakdown and real-time characteristics
+
+### Usage in Future Sessions
+1. **Always check** `claude/codebase_graph/` at session start
+2. **Verify git revision** to detect changes: Compare with stored revision
+3. **Use for navigation**: Quickly find components, trace data flow, identify dependencies
+4. **Update incrementally**: Only modify affected nodes when code changes
+5. **Derive new insights**: Use graph queries to answer architectural questions
+
+### Knowledge Persistence Strategy
+- Each graph file includes git revision for version awareness
+- Metadata encodes domain knowledge that would otherwise be lost between sessions
+- Graph structure enables pattern recognition and relationship analysis
+- Abstraction layers allow both high-level understanding and detailed analysis
+
+### Self-Improvement Protocol
+**Note to Self**: Update this CLAUDE.md file when:
+- New graph structures are created for other aspects (e.g., test coverage, API surface)
+- Patterns emerge that should be documented for future sessions
+- Optimization strategies are discovered through analysis
+- New metadata attributes prove valuable for understanding
+
+Consider this knowledge accumulation as an extension of intelligence across sessions. Each analysis builds on previous understanding, creating a richer model of the system.
+
+### Graph Query Examples
+```python
+# Find bottlenecks
+bottlenecks = analysis_insights['bottlenecks']
+critical_path = [n for n in nodes if n['criticality'] >= 9]
+
+# Trace dependencies
+deps = networks['dependency_graph']['edges']
+path = find_all_dependencies('main', deps)
+
+# Identify optimization targets
+opts = sorted(analysis_insights['optimization_opportunities'].items(),
+              key=lambda x: x[1]['potential_improvement'])
+```
+
+### Abstraction Principles
+1. **Encode domain knowledge**: Don't just store data, add meaning through metadata
+2. **Layer relationships**: Different network views reveal different insights
+3. **Derive intelligence**: Analysis should produce actionable recommendations
+4. **Maintain continuity**: Git tracking and versioning preserve context
+5. **Enable queries**: Structure data for easy traversal and pattern matching
+
+**Important**: Always check both hardware and codebase graphs before making architectural decisions

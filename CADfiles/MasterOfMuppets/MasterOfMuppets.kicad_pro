@@ -668,6 +668,18 @@
           "label": "Manufacturer",
           "name": "Manufacturer",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "JLCPCB ID",
+          "name": "JLCPCB ID",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Display",
+          "name": "Display",
+          "show": false
         }
       ],
       "filter_string": "",
