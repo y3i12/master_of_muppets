@@ -1,0 +1,27 @@
+{
+  "patterns": {
+    "4a3af288": {
+      "type": "file_ops",
+      "frequency": 3,
+      "tool_exists": true,
+      "tool_path": "claude\\brain_systems\\evolution\\file_ops_4a3af288_tool.py",
+      "efficiency_gain": 2.0
+    }
+  },
+  "tools": {
+    "file_ops_4a3af288_tool": {
+      "version": 1.0,
+      "usage_count": 0,
+      "average_time_saved": 0.0
+    }
+  },
+  "statistics": {
+    "total_patterns": 1,
+    "patterns_with_tools": 1,
+    "total_evolved_tools": 1,
+    "average_efficiency_gain": 2.0,
+    "most_frequent_pattern": "file_ops",
+    "total_task_observations": 3,
+    "evolution_velocity": 1.0
+  }
+}
