@@ -360,7 +360,19 @@ This tool exemplifies the principle of creating efficiency multipliers. When fac
 ## Session Documentation Protocol
 
 ### Overview
-When sessions involve significant developments, learning, or problem-solving that would benefit future sessions, create clean session transcripts for the `sessions/` folder. These serve as knowledge artifacts and development history.
+When sessions involve significant developments, learning, or problem-solving that would benefit future sessions, create clean session transcripts organized by seasons and episodes. These serve as knowledge artifacts and development history.
+
+### Seasonal Organization Structure
+- **Seasons**: Each major development theme gets its own branch and season
+- **Episodes**: Individual sessions within a season focused on specific topics
+- **Location**: `claude/sessions/season_XX_theme_name/episode_YY_topic_name.md`
+
+**Current Structure:**
+- **Season 01: Knowledge and Tooling** (`claude/sessions/season_01_knowledge_and_tooling/`)
+  - Episode 01: PCB - Teaching the AI
+  - Episode 02: Code - Teaching the AI  
+  - Episode 03: Syncing the Knowledge
+  - Episode 04: Helping You Help Me (KiCad Parser development)
 
 ### When to Create Session Files
 - Major tool development (like the KiCad Hierarchical Parser)
@@ -399,10 +411,10 @@ Use consistent markdown formatting:
 - Tool invocation details or system messages
 
 ### File Naming Convention
-Use descriptive names that capture the session's key contribution:
-- `kicad_hierarchical_parser_development.md`
-- `efficiency_optimization_breakthrough.md`
-- `architectural_decision_pcb_layout.md`
+Use seasonal organization with descriptive episode names:
+- `claude/sessions/season_01_knowledge_and_tooling/episode_01_pcb_teaching_ai.md`
+- `claude/sessions/season_01_knowledge_and_tooling/episode_04_helping_you_help_me.md`
+- `claude/sessions/season_02_pcb_layout/episode_01_component_placement.md` (future example)
 
 ### Purpose and Value
 Session files serve multiple purposes:
@@ -423,15 +435,30 @@ Session files serve multiple purposes:
 
 ### Self-Instruction for Future Sessions
 When generating session files:
-1. **Create transcript automatically** during significant sessions - do not rely on LITTER_BOX.md
-2. **Write clean transcript progressively** as the session develops key insights
-3. **Focus on problem-solving narrative** rather than technical implementation details
-4. **Remove technical noise** while preserving collaborative insights
-5. **Focus on transferable knowledge** that benefits future work
-6. **Ensure proper attribution** to collaborators and projects
-7. **Generate final session file** before context compression or session end
+1. **Identify the current season and episode** - follow the seasonal organization structure
+2. **Create transcript automatically** during significant sessions - do not rely on LITTER_BOX.md
+3. **Write clean transcript progressively** as the session develops key insights
+4. **Use proper seasonal path**: `claude/sessions/season_XX_theme_name/episode_YY_topic_name.md`
+5. **Focus on problem-solving narrative** rather than technical implementation details
+6. **Remove technical noise** while preserving collaborative insights
+7. **Focus on transferable knowledge** that benefits future work
+8. **Ensure proper attribution** to collaborators and projects
+9. **Generate final session file** before context compression or session end
 
-**Important**: Generate session transcripts proactively during valuable sessions, not as post-processing. The transcript should capture the collaborative journey in real-time as insights emerge.
+**Seasonal Guidelines:**
+- **New seasons** start with major development themes (e.g., Knowledge & Tooling, PCB Layout, Testing & Validation)
+- **New episodes** within a season focus on specific topics or breakthrough sessions
+- **Each season** typically corresponds to a development branch
+- **Update CLAUDE.md** when starting new seasons to document the structure
+
+**Important**: Generate session transcripts proactively during valuable sessions, following the seasonal organization. Each episode should capture a focused aspect of the collaborative journey.
+
+### Episode Management Protocol
+When user requests episode documentation:
+- **"Write episode [title]"** → Create new episode file in current season directory
+- **"Update episode [number/title]"** → Append new content to existing episode file
+- Episodes should document the collaborative journey, key breakthroughs, and transferable insights
+- Each episode captures focused aspects of the current season's development theme
 
 This protocol ensures that valuable collaborative insights are preserved and can inform future development work.
 
