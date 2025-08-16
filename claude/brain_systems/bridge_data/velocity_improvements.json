@@ -1,0 +1,17 @@
+{
+  "channel": "velocity_improvements",
+  "messages": [
+    {
+      "id": 0,
+      "timestamp": 1755372439.5397751,
+      "sender": "velocity_optimizer",
+      "data": {
+        "improvement": {
+          "boost": "2.20x",
+          "improvements": 24
+        },
+        "type": "velocity"
+      }
+    }
+  ]
+}

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCB Interactive Layout Tool</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 20px;
+            background: #1e1e1e;
+            color: #ffffff;
+        }
+        
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .pcb-area {
+            flex: 1;
+        }
+        
+        .controls {
+            width: 300px;
+            background: #2d2d2d;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .pcb-svg {
+            border: 2px solid #4CAF50;
+            border-radius: 4px;
+            background: #2d5016;
+            cursor: crosshair;
+        }
+        
+        .component {
+            cursor: move;
+            stroke: #000;
+            stroke-width: 1;
+            opacity: 0.9;
+        }
+        
+        .component:hover {
+            stroke-width: 2;
+            stroke: #ffff00;
+        }
+        
+        .component.selected {
+            stroke: #ff4444;
+            stroke-width: 3;
+        }
+        
+        .component-label {
+            font-size: 10px;
+            text-anchor: middle;
+            fill: white;
+            pointer-events: none;
+            font-weight: bold;
+        }
+        
+        .grid-line {
+            stroke: #555;
+            stroke-width: 0.5;
+            opacity: 0.3;
+        }
+        
+        .zone {
+            fill: none;
+            stroke: #888;
+            stroke-width: 1;
+            stroke-dasharray: 4,4;
+            opacity: 0.6;
+        }
+        
+        .info-panel {
+            background: #333;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        
+        .coords {
+            background: #444;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin: 5px 0;
+        }
+        
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        button:hover {
+            background: #45a049;
+        }
+        
+        .footprint-library {
+            max-height: 200px;
+            overflow-y: auto;
+            background: #333;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        
+        .footprint-item {
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        
+        .footprint-item:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎭 PCB Electric Boogaloo - Interactive Layout</h1>
+    
+    <div class="container">
+        <div class="pcb-area">
+            <svg id="pcb-svg" class="pcb-svg" width="800" height="600" viewBox="0 0 100 160">
+                <!-- Grid -->
+                <defs>
+                    <pattern id="grid" width="2.54" height="2.54" patternUnits="userSpaceOnUse">
+                        <path d="M 2.54 0 L 0 0 0 2.54" class="grid-line"/>
+                    </pattern>
+                </defs>
+                <rect width="100" height="160" fill="url(#grid)"/>
+                
+                <!-- PCB Outline -->
+                <rect x="0" y="0" width="100" height="160" fill="none" stroke="#4CAF50" stroke-width="0.5"/>
+                
+                <!-- Zones -->
+                <g id="zones">
+                    <rect x="0" y="0" width="40" height="160" class="zone" title="Power Zone"/>
+                    <rect x="40" y="0" width="30" height="160" class="zone" title="Digital Zone"/>
+                    <rect x="70" y="0" width="30" height="160" class="zone" title="Connectors"/>
+                </g>
+                
+                <!-- Components will be added here -->
+                <g id="components"></g>
+            </svg>
+            
+            <div class="coords" id="mouse-coords">Mouse: (0, 0) mm</div>
+            <div class="coords" id="selected-coords">Selected: None</div>
+        </div>
+        
+        <div class="controls">
+            <div class="info-panel">
+                <h3>Master of Muppets PCB</h3>
+                <div>Size: 100×160mm Eurocard</div>
+                <div>Components: <span id="component-count">0</span></div>
+                <div>Grid: 2.54mm (0.1")</div>
+            </div>
+            
+            <h4>Quick Actions</h4>
+            <button onclick="loadDefaultLayout()">Load Default Layout</button>
+            <button onclick="clearAll()">Clear All</button>
+            <button onclick="exportCoordinates()">Export Coordinates</button>
+            <button onclick="toggleGrid()">Toggle Grid</button>
+            
+            <h4>Footprint Library</h4>
+            <div class="footprint-library" id="footprint-library">
+                <!-- Footprints will be populated here -->
+            </div>
+            
+            <h4>Selected Component</h4>
+            <div id="component-info" class="info-panel">
+                <div>Ref: <span id="selected-ref">-</span></div>
+                <div>Package: <span id="selected-package">-</span></div>
+                <div>Size: <span id="selected-size">-</span></div>
+                <div>Position: <span id="selected-pos">-</span></div>
+            </div>
+            
+            <h4>Placement Rules</h4>
+            <div class="info-panel" style="font-size: 11px;">
+                • Decoupling caps within 3mm of ICs<br>
+                • I2C group within 50mm<br>
+                • Jacks on edge (19.05mm spacing)<br>
+                • Power components isolated<br>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // PCB Interactive Library
+        class PCBLayoutTool {
+            constructor() {
+                this.components = [];
+                this.selectedComponent = null;
+                this.isDragging = false;
+                this.scale = 8; // SVG units per mm
+                this.gridVisible = true;
+                
+                this.footprints = {
+                    'Teensy41': { width: 61, height: 17.78, color: '#4a90e2' },
+                    'AD5593R': { width: 4.4, height: 5.0, color: '#e24a4a' },
+                    'TL074': { width: 3.9, height: 8.7, color: '#e24a4a' },
+                    'Jack_3.5mm': { width: 15.8, height: 15.8, color: '#e2a04a' },
+                    'R_0603': { width: 1.6, height: 0.8, color: '#e2e24a' },
+                    'C_0603': { width: 1.6, height: 0.8, color: '#4ae24a' },
+                    'C_0805': { width: 2.0, height: 1.25, color: '#4ae24a' }
+                };
+                
+                this.initializeEvents();
+                this.populateFootprintLibrary();
+            }
+            
+            initializeEvents() {
+                const svg = document.getElementById('pcb-svg');
+                
+                svg.addEventListener('mousemove', (e) => this.onMouseMove(e));
+                svg.addEventListener('mousedown', (e) => this.onMouseDown(e));
+                svg.addEventListener('mouseup', (e) => this.onMouseUp(e));
+                
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Delete' && this.selectedComponent) {
+                        this.deleteComponent(this.selectedComponent);
+                    }
+                });
+            }
+            
+            populateFootprintLibrary() {
+                const library = document.getElementById('footprint-library');
+                
+                Object.keys(this.footprints).forEach(footprint => {
+                    const item = document.createElement('div');
+                    item.className = 'footprint-item';
+                    item.textContent = `${footprint} (${this.footprints[footprint].width}×${this.footprints[footprint].height}mm)`;
+                    item.onclick = () => this.selectFootprintType(footprint);
+                    library.appendChild(item);
+                });
+            }
+            
+            selectFootprintType(footprint) {
+                this.selectedFootprintType = footprint;
+                document.querySelectorAll('.footprint-item').forEach(item => {
+                    item.style.background = item.textContent.includes(footprint) ? '#555' : '';
+                });
+            }
+            
+            onMouseMove(e) {
+                const rect = e.target.getBoundingClientRect();
+                const svg = document.getElementById('pcb-svg');
+                const pt = svg.createSVGPoint();
+                pt.x = e.clientX - rect.left;
+                pt.y = e.clientY - rect.top;
+                const svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+                
+                document.getElementById('mouse-coords').textContent = 
+                    `Mouse: (${svgP.x.toFixed(1)}, ${svgP.y.toFixed(1)}) mm`;
+                
+                if (this.isDragging && this.selectedComponent) {
+                    this.moveComponent(this.selectedComponent, svgP.x, svgP.y);
+                }
+            }
+            
+            onMouseDown(e) {
+                if (e.target.classList.contains('component')) {
+                    this.selectComponent(e.target);
+                    this.isDragging = true;
+                } else if (this.selectedFootprintType) {
+                    // Place new component
+                    const rect = e.target.getBoundingClientRect();
+                    const svg = document.getElementById('pcb-svg');
+                    const pt = svg.createSVGPoint();
+                    pt.x = e.clientX - rect.left;
+                    pt.y = e.clientY - rect.top;
+                    const svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+                    
+                    this.addComponent(this.selectedFootprintType, svgP.x, svgP.y);
+                    this.selectedFootprintType = null;
+                    document.querySelectorAll('.footprint-item').forEach(item => {
+                        item.style.background = '';
+                    });
+                }
+            }
+            
+            onMouseUp(e) {
+                this.isDragging = false;
+            }
+            
+            addComponent(footprint, x, y) {
+                const fp = this.footprints[footprint];
+                const componentId = `${footprint}_${this.components.length + 1}`;
+                
+                const component = {
+                    id: componentId,
+                    ref: componentId,
+                    footprint: footprint,
+                    x: x,
+                    y: y,
+                    width: fp.width,
+                    height: fp.height,
+                    color: fp.color
+                };
+                
+                this.components.push(component);
+                this.renderComponent(component);
+                this.updateComponentCount();
+            }
+            
+            renderComponent(component) {
+                const svg = document.getElementById('components');
+                
+                const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+                group.setAttribute('id', component.id);
+                
+                const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                rect.setAttribute('x', component.x - component.width/2);
+                rect.setAttribute('y', component.y - component.height/2);
+                rect.setAttribute('width', component.width);
+                rect.setAttribute('height', component.height);
+                rect.setAttribute('fill', component.color);
+                rect.classList.add('component');
+                rect.setAttribute('data-id', component.id);
+                
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', component.x);
+                text.setAttribute('y', component.y);
+                text.classList.add('component-label');
+                text.textContent = component.ref;
+                
+                group.appendChild(rect);
+                group.appendChild(text);
+                svg.appendChild(group);
+            }
+            
+            selectComponent(element) {
+                // Clear previous selection
+                document.querySelectorAll('.component').forEach(comp => {
+                    comp.classList.remove('selected');
+                });
+                
+                element.classList.add('selected');
+                const componentId = element.getAttribute('data-id');
+                this.selectedComponent = this.components.find(c => c.id === componentId);
+                
+                this.updateComponentInfo();
+            }
+            
+            moveComponent(component, x, y) {
+                component.x = x;
+                component.y = y;
+                
+                const group = document.getElementById(component.id);
+                const rect = group.querySelector('rect');
+                const text = group.querySelector('text');
+                
+                rect.setAttribute('x', x - component.width/2);
+                rect.setAttribute('y', y - component.height/2);
+                text.setAttribute('x', x);
+                text.setAttribute('y', y);
+                
+                this.updateComponentInfo();
+            }
+            
+            updateComponentInfo() {
+                if (this.selectedComponent) {
+                    const comp = this.selectedComponent;
+                    document.getElementById('selected-ref').textContent = comp.ref;
+                    document.getElementById('selected-package').textContent = comp.footprint;
+                    document.getElementById('selected-size').textContent = `${comp.width}×${comp.height}mm`;
+                    document.getElementById('selected-pos').textContent = `(${comp.x.toFixed(1)}, ${comp.y.toFixed(1)})`;
+                    document.getElementById('selected-coords').textContent = 
+                        `Selected: ${comp.ref} @ (${comp.x.toFixed(1)}, ${comp.y.toFixed(1)})`;
+                } else {
+                    document.getElementById('selected-coords').textContent = 'Selected: None';
+                }
+            }
+            
+            updateComponentCount() {
+                document.getElementById('component-count').textContent = this.components.length;
+            }
+            
+            deleteComponent(component) {
+                const index = this.components.indexOf(component);
+                if (index > -1) {
+                    this.components.splice(index, 1);
+                    document.getElementById(component.id).remove();
+                    this.selectedComponent = null;
+                    this.updateComponentCount();
+                    this.updateComponentInfo();
+                }
+            }
+            
+            exportCoordinates() {
+                const coords = this.components.map(comp => 
+                    `${comp.ref.padEnd(12)} (${comp.footprint.padEnd(10)}) @ (${comp.x.toFixed(1).padStart(5)}, ${comp.y.toFixed(1).padStart(5)}) [${comp.width.toFixed(1)}×${comp.height.toFixed(1)}mm]`
+                ).join('\n');
+                
+                const blob = new Blob([coords], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'pcb_layout_coordinates.txt';
+                a.click();
+                URL.revokeObjectURL(url);
+            }
+        }
+        
+        // Global functions
+        let pcb;
+        
+        function initializePCB() {
+            pcb = new PCBLayoutTool();
+        }
+        
+        function loadDefaultLayout() {
+            pcb.components = [];
+            document.getElementById('components').innerHTML = '';
+            
+            // Default Master of Muppets layout
+            pcb.addComponent('Teensy41', 20, 70);
+            pcb.addComponent('AD5593R', 25, 45);
+            pcb.addComponent('AD5593R', 25, 100);
+            pcb.addComponent('TL074', 60, 30);
+            pcb.addComponent('TL074', 70, 30);
+            pcb.addComponent('TL074', 60, 110);
+            pcb.addComponent('TL074', 70, 110);
+            
+            // Jacks
+            for (let i = 0; i < 16; i++) {
+                pcb.addComponent('Jack_3.5mm', 85, 10 + i * 9);
+            }
+            
+            // Decoupling caps
+            pcb.addComponent('C_0603', 22, 42);
+            pcb.addComponent('C_0603', 22, 97);
+            pcb.addComponent('C_0603', 57, 27);
+            pcb.addComponent('C_0603', 57, 107);
+        }
+        
+        function clearAll() {
+            pcb.components = [];
+            document.getElementById('components').innerHTML = '';
+            pcb.updateComponentCount();
+        }
+        
+        function toggleGrid() {
+            const grid = document.querySelector('#grid');
+            pcb.gridVisible = !pcb.gridVisible;
+            grid.style.display = pcb.gridVisible ? 'block' : 'none';
+        }
+        
+        // Initialize when page loads
+        window.onload = initializePCB;
+    </script>
+</body>
+</html>
