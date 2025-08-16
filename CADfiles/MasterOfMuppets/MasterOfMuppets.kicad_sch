@@ -1241,6 +1241,16 @@
 	)
 	(wire
 		(pts
+			(xy 57.15 40.64) (xy 57.15 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0c5ad592-8e11-4f17-9821-8606f95ef1f8")
+	)
+	(wire
+		(pts
 			(xy 45.72 62.23) (xy 31.75 62.23)
 		)
 		(stroke
@@ -1381,6 +1391,16 @@
 	)
 	(wire
 		(pts
+			(xy 35.56 40.64) (xy 35.56 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4510e7b0-bb9d-4405-9f0d-9f67a0144951")
+	)
+	(wire
+		(pts
 			(xy 48.26 40.64) (xy 48.26 59.69)
 		)
 		(stroke
@@ -1438,26 +1458,6 @@
 			(type default)
 		)
 		(uuid "60973e9f-ec57-4344-9759-d155c9c99ba3")
-	)
-	(wire
-		(pts
-			(xy 35.56 40.64) (xy 35.56 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "67673846-df4e-464d-819d-aaf561e5d77c")
-	)
-	(wire
-		(pts
-			(xy 57.15 40.64) (xy 57.15 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7a2bf286-5d63-4336-b9f6-ff9d46b009e3")
 	)
 	(wire
 		(pts
@@ -2961,16 +2961,6 @@
 				(justify left)
 			)
 		)
-		(pin "~{CHIP_SELECT_0}" output
-			(at 38.1 40.64 270)
-			(uuid "3caf6238-d143-4b94-8799-7aaac7acd250")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
 		(pin "~{RESET}" output
 			(at 48.26 40.64 270)
 			(uuid "8320b0c2-7695-4188-bf1c-801c21265d59")
@@ -2982,18 +2972,8 @@
 			)
 		)
 		(pin "SDA1" bidirectional
-			(at 35.56 40.64 270)
+			(at 57.15 40.64 270)
 			(uuid "af5755db-d27c-4f9f-abb8-08b11ee6d97b")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "SCL0" output
-			(at 33.02 40.64 270)
-			(uuid "dd000b4b-08f3-413d-8b7b-39ab8260017d")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3011,9 +2991,29 @@
 				(justify left)
 			)
 		)
-		(pin "SDA0" bidirectional
-			(at 57.15 40.64 270)
-			(uuid "5a6b684c-7abd-4092-b57c-334a127b6642")
+		(pin "SCL2" output
+			(at 33.02 40.64 270)
+			(uuid "89536125-f5dd-4135-bc38-ad81708b3aed")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SDA2" bidirectional
+			(at 35.56 40.64 270)
+			(uuid "37baa1b0-0363-43a1-ab30-93a0f63052ad")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "~{CHIP_SELECT_2}" output
+			(at 38.1 40.64 270)
+			(uuid "b2cbb902-2551-40e8-a136-50a55f863659")
 			(effects
 				(font
 					(size 1.27 1.27)
