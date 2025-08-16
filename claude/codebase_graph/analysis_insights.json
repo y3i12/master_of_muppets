@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "git_revision": "0bdb53df897813bafc394d29242ff30ca9edac81",
-    "timestamp": "2025-08-16T00:00:00Z",
-    "version": "1.0.0"
+    "git_revision": "3c837aa8d98ed585335f8773419c82d0990e9966",
+    "timestamp": "2025-08-16T12:00:00Z",
+    "version": "1.0.1"
   },
   "bottlenecks": {
     "i2c_communication": {
@@ -95,7 +95,8 @@
       "Clean template-based design allows easy DAC driver swapping",
       "Thread separation prevents USB blocking from affecting DAC updates",
       "Static memory allocation prevents fragmentation",
-      "Mutex protection ensures thread safety"
+      "Mutex protection ensures thread safety",
+      "Explicit chip select pin configuration for DAC addressing"
     ],
     "weaknesses": [
       "Tight coupling between dr_teeth and electric_mayhem",

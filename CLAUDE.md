@@ -292,3 +292,39 @@ opts = sorted(analysis_insights['optimization_opportunities'].items(),
 5. **Enable queries**: Structure data for easy traversal and pattern matching
 
 **Important**: Always check both hardware and codebase graphs before making architectural decisions
+
+## Hardware/Software Synchronization Protocol
+
+### Critical Cross-Validation Process
+When hardware or software changes occur, **always** verify consistency between:
+
+1. **Hardware schematics** (`CADfiles/MasterOfMuppets/*.kicad_sch`)
+2. **Software configuration** (`src/main.cpp` initialization)
+3. **Hardware graph** (`claude/hardware_graph/`)
+4. **Codebase graph** (`claude/codebase_graph/`)
+
+### Key Synchronization Points
+- **I2C bus assignments**: Verify `Wire1`/`Wire2` mapping matches schematic
+- **Chip select pins**: Ensure `initialization_struct_t` pins match hardware A0 connections
+- **DAC addressing**: Confirm I2C addresses align between driver code and physical wiring
+- **Channel mapping**: Validate 16-channel layout consistency across all representations
+
+### Update Protocol
+1. **Detect changes**: Check git revision in graph metadata vs current HEAD
+2. **Analyze impact**: Determine if changes affect hardware/software interface
+3. **Update graphs**: Modify both hardware and codebase graphs simultaneously
+4. **Cross-validate**: Ensure all representations remain consistent
+5. **Document**: Update git revision metadata in all graph files
+
+### Example Consistency Check
+```bash
+# Hardware: AD5593R on Wire1 with A0=pin37
+initialization_struct_t( &Wire1, 37 )
+
+# Graph: Must show matching bus assignment
+"sda": {"pin": 17, "net": "SDA1"}
+"a0": {"pin": 2, "net": "CS1"}
+```
+
+**Critical**: This synchronization prevents subtle bugs where software expects different hardware configuration than actually implemented.
+- to memorize keep `CLAUDE.md` in sync with your knowledge. Update it as you see fit.

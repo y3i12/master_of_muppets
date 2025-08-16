@@ -1,5 +1,9 @@
 # Hardware Graph Structure
 
+**Git Revision:** `3c837aa8d98ed585335f8773419c82d0990e9966`  
+**Last Updated:** 2025-08-16  
+**Version:** 1.1.0  
+
 ## Purpose
 This directory contains a multi-layered graph representation of the Master of Muppets hardware design, optimized for PCB placement analysis and decision-making.
 

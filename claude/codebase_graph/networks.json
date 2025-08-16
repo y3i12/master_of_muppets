@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "git_revision": "0bdb53df897813bafc394d29242ff30ca9edac81",
-    "timestamp": "2025-08-16T00:00:00Z",
+    "git_revision": "3c837aa8d98ed585335f8773419c82d0990e9966",
+    "timestamp": "2025-08-16T12:00:00Z",
     "network_count": 7,
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "networks": {
     "dependency_graph": {
@@ -76,8 +76,8 @@
     "hardware_interface": {
       "description": "Hardware communication layers",
       "edges": [
-        {"from": "rob_tillaart_ad_5993r", "to": "Wire1", "type": "i2c_bus", "weight": 10, "address": "0x10"},
-        {"from": "rob_tillaart_ad_5993r", "to": "Wire2", "type": "i2c_bus", "weight": 10, "address": "0x11"},
+        {"from": "rob_tillaart_ad_5993r", "to": "Wire1", "type": "i2c_bus", "weight": 10, "address": "0x10", "a0_pin": 37},
+        {"from": "rob_tillaart_ad_5993r", "to": "Wire2", "type": "i2c_bus", "weight": 10, "address": "0x11", "a0_pin": 11},
         {"from": "adafruit_mcp_4728", "to": "Wire1", "type": "i2c_bus", "weight": 8, "address": "0x60"},
         {"from": "USBHost_t36", "to": "USB_HOST", "type": "usb", "weight": 10},
         {"from": "main", "to": "LED_BUILTIN", "type": "gpio", "weight": 2}

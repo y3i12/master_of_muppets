@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "git_revision": "0bdb53df897813bafc394d29242ff30ca9edac81",
-    "timestamp": "2025-08-16T00:00:00Z",
+    "git_revision": "3c837aa8d98ed585335f8773419c82d0990e9966",
+    "timestamp": "2025-08-16T12:00:00Z",
     "total_nodes": 42,
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "nodes": {
     "main": {
@@ -17,7 +17,8 @@
         "thread_creator": true,
         "criticality": 10,
         "layer": "application",
-        "git_last_modified": "0bdb53d"
+        "git_last_modified": "3c837aa",
+        "initialization_pins": [11, 37]
       },
       "functions": ["setup", "loop", "pitch_bend_event", "note_on_event", "ublink"],
       "dependencies": ["dr_teeth", "electric_mayhem", "muppet_clock", "function_generator", "rob_tillaart_ad_5993r", "adafruit_mcp_4728"]
@@ -97,6 +98,7 @@
       },
       "typedefs": ["value_t", "initialization_struct_t"],
       "members": ["begin", "set_value", "update", "set_chip_select"],
+      "initialization": {"a0_port": "chip_select_pin"},
       "dependencies": ["AD5593R", "Wire", "dr_teeth"]
     },
     "adafruit_mcp_4728": {

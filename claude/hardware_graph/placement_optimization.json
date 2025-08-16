@@ -1,6 +1,8 @@
 {
   "_metadata": {
-    "version": "1.0.0",
+    "version": "1.1.0",
+    "git_revision": "3c837aa8d98ed585335f8773419c82d0990e9966",
+    "updated": "2025-08-16",
     "description": "PCB placement optimization rules derived from graph analysis",
     "algorithm": "force-directed with constraints"
   },
@@ -12,7 +14,7 @@
         "reason": "power_input_accessibility"
       },
       {
-        "components": ["J2", "J3", "J4", "J5", "J6", "J7", "J8", "J9"],
+        "components": ["J2", "J3", "J4", "J5", "J6", "J7", "J8", "J9", "J10", "J11", "J12", "J13", "J14", "J15", "J16", "J17"],
         "position": "edge_right",
         "arrangement": "linear_vertical",
         "spacing_mm": 5.08,
@@ -21,14 +23,14 @@
       {
         "components": ["C5", "C6", "C7", "C8"],
         "constraint": "within_3mm_of_target",
-        "targets": ["U1", "DAC1"],
+        "targets": ["U1", "U2", "DAC1", "DAC2"],
         "reason": "decoupling_effectiveness"
       }
     ],
     "relative_constraints": [
       {
         "group": "i2c_critical",
-        "components": ["T1", "DAC1", "R1", "R2"],
+        "components": ["T1", "DAC1", "DAC2", "R1", "R2"],
         "max_distance_mm": 50,
         "priority": 10
       },
@@ -38,7 +40,11 @@
           ["U1", "R4"],
           ["U1", "R5"],
           ["U1", "R6"],
-          ["U1", "R7"]
+          ["U1", "R7"],
+          ["U2", "R28"],
+          ["U2", "R29"],
+          ["U2", "R30"],
+          ["U2", "R31"]
         ],
         "max_distance_mm": 10,
         "priority": 9

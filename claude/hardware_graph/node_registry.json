@@ -1,7 +1,9 @@
 {
   "_metadata": {
-    "version": "1.0.0",
+    "version": "1.1.0",
     "created": "2025-08-15",
+    "updated": "2025-08-16",
+    "git_revision": "3c837aa8d98ed585335f8773419c82d0990e9966",
     "description": "Component node registry for Master of Muppets PCB",
     "encoding": {
       "pxf": "proximity_factor (0-1, higher needs closer placement)",
@@ -30,10 +32,14 @@
         "critical_placement": true
       },
       "ports": {
-        "i2c_sda": {"pin": 18, "net": "SDA"},
-        "i2c_scl": {"pin": 19, "net": "SCL"},
+        "i2c0_sda": {"pin": 18, "net": "SDA0"},
+        "i2c0_scl": {"pin": 19, "net": "SCL0"},
         "i2c1_sda": {"pin": 17, "net": "SDA1"},
         "i2c1_scl": {"pin": 16, "net": "SCL1"},
+        "i2c2_sda": {"pin": 25, "net": "SDA2"},
+        "i2c2_scl": {"pin": 24, "net": "SCL2"},
+        "chip_select_0": {"pin": 11, "net": "CS0"},
+        "chip_select_1": {"pin": 37, "net": "CS1"},
         "vcc": {"pin": "VIN", "net": "+5V"},
         "gnd": {"pins": ["GND", "GND2"], "net": "GND"},
         "3v3": {"pin": "3V3", "net": "+3V3"}
@@ -57,15 +63,67 @@
         "i2c_addr": "0x10"
       },
       "ports": {
-        "sda": {"pin": 1, "net": "SDA"},
-        "scl": {"pin": 2, "net": "SCL"},
-        "a0": {"pin": 3, "net": "DAC1_CS"},
-        "vdd": {"pin": 15, "net": "+5V"},
+        "sda": {"pin": 15, "net": "SDA1"},
+        "scl": {"pin": 16, "net": "SCL1"},
+        "a0": {"pin": 2, "net": "CS1"},
+        "vdd": {"pin": 3, "net": "+5V"},
         "gnd": {"pin": 14, "net": "GND"},
         "io0-7": {"pins": [4,5,6,7,8,9,10,11], "net": "DAC1_OUT[0:7]"}
       }
     },
+    "DAC2": {
+      "type": "dac",
+      "value": "AD5593R",
+      "module": "dac",
+      "footprint": "TSSOP-16",
+      "pins": 16,
+      "metadata": {
+        "pxf": 0.9,
+        "thr": 0.1,
+        "ncp": 8,
+        "fgp": "analog_dac",
+        "sgw": 9,
+        "gnd": 2,
+        "channels": 8,
+        "resolution": 12,
+        "i2c_addr": "0x11"
+      },
+      "ports": {
+        "sda": {"pin": 15, "net": "SDA2"},
+        "scl": {"pin": 16, "net": "SCL2"},
+        "a0": {"pin": 2, "net": "CS0"},
+        "vdd": {"pin": 3, "net": "+5V"},
+        "gnd": {"pin": 14, "net": "GND"},
+        "io0-7": {"pins": [4,5,6,7,8,9,10,11], "net": "DAC2_OUT[0:7]"}
+      }
+    },
     "U1": {
+      "type": "opamp",
+      "value": "TL074",
+      "module": "amp",
+      "footprint": "SOIC-14",
+      "pins": 14,
+      "units": 4,
+      "metadata": {
+        "pxf": 0.7,
+        "thr": 0.2,
+        "ncp": 7,
+        "fgp": "analog_amp",
+        "sgw": 8,
+        "gnd": 1,
+        "channels": 4,
+        "supply_dual": true
+      },
+      "ports": {
+        "v_plus": {"pin": 4, "net": "+12V"},
+        "v_minus": {"pin": 11, "net": "-12V"},
+        "unit1": {"in_p": 3, "in_n": 2, "out": 1},
+        "unit2": {"in_p": 5, "in_n": 6, "out": 7},
+        "unit3": {"in_p": 10, "in_n": 9, "out": 8},
+        "unit4": {"in_p": 12, "in_n": 13, "out": 14}
+      }
+    },
+    "U2": {
       "type": "opamp",
       "value": "TL074",
       "module": "amp",
@@ -200,6 +258,86 @@
       "metadata": {
         "pxf": 0.1,
         "channel": 8,
+        "fgp": "output"
+      }
+    },
+    "J10": {
+      "type": "jack",
+      "value": "3.5mm_Jack",
+      "module": "jack",
+      "metadata": {
+        "pxf": 0.1,
+        "channel": 9,
+        "fgp": "output"
+      }
+    },
+    "J11": {
+      "type": "jack",
+      "value": "3.5mm_Jack",
+      "module": "jack",
+      "metadata": {
+        "pxf": 0.1,
+        "channel": 10,
+        "fgp": "output"
+      }
+    },
+    "J12": {
+      "type": "jack",
+      "value": "3.5mm_Jack",
+      "module": "jack",
+      "metadata": {
+        "pxf": 0.1,
+        "channel": 11,
+        "fgp": "output"
+      }
+    },
+    "J13": {
+      "type": "jack",
+      "value": "3.5mm_Jack",
+      "module": "jack",
+      "metadata": {
+        "pxf": 0.1,
+        "channel": 12,
+        "fgp": "output"
+      }
+    },
+    "J14": {
+      "type": "jack",
+      "value": "3.5mm_Jack",
+      "module": "jack",
+      "metadata": {
+        "pxf": 0.1,
+        "channel": 13,
+        "fgp": "output"
+      }
+    },
+    "J15": {
+      "type": "jack",
+      "value": "3.5mm_Jack",
+      "module": "jack",
+      "metadata": {
+        "pxf": 0.1,
+        "channel": 14,
+        "fgp": "output"
+      }
+    },
+    "J16": {
+      "type": "jack",
+      "value": "3.5mm_Jack",
+      "module": "jack",
+      "metadata": {
+        "pxf": 0.1,
+        "channel": 15,
+        "fgp": "output"
+      }
+    },
+    "J17": {
+      "type": "jack",
+      "value": "3.5mm_Jack",
+      "module": "jack",
+      "metadata": {
+        "pxf": 0.1,
+        "channel": 16,
         "fgp": "output"
       }
     },
