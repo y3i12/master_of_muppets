@@ -1,0 +1,1679 @@
+{
+  "metadata": {
+    "project_path": "CADfiles\\MasterOfMuppets",
+    "version": "1.1.0",
+    "parser": "kicad_parser.py"
+  },
+  "schematics": {
+    "amp_module.kicad_sch": {
+      "file_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "version": "20250114",
+      "generator": "eeschema",
+      "uuid": "187e3c00-5c30-42c2-89ec-585912782641",
+      "components": [
+        {
+          "reference": "R18",
+          "value": "220Ω",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            175.26,
+            33.02
+          ],
+          "rotation": 90.0,
+          "properties": {
+            "Reference": "R18",
+            "Value": "220Ω",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR021",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            149.86,
+            67.31
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR021",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R13",
+          "value": "1k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            140.97,
+            30.48
+          ],
+          "rotation": 90.0,
+          "properties": {
+            "Reference": "R13",
+            "Value": "1k",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR015",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            78.74,
+            91.44
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR015",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R12",
+          "value": "1k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            139.7,
+            76.2
+          ],
+          "rotation": 90.0,
+          "properties": {
+            "Reference": "R12",
+            "Value": "1k",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "OpAmp1",
+          "value": "TL074",
+          "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+          "lib_id": "Amplifier_Operational:TL074",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            162.56,
+            33.02
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "OpAmp1",
+            "Value": "TL074",
+            "Footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+            "Datasheet": "http://www.ti.com/lit/ds/symlink/tl071.pdf",
+            "Description": "Quad Low-Noise JFET-Input Operational Amplifiers, DIP-14/SOIC-14",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R6",
+          "value": "47k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            78.74,
+            87.63
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "R6",
+            "Value": "47k",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "C6",
+          "value": "100pF_0603_50V",
+          "footprint": "PCM_4ms_Capacitor:C_0603",
+          "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            80.01,
+            24.13
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "C6",
+            "Value": "100pF_0603_50V",
+            "Footprint": "PCM_4ms_Capacitor:C_0603",
+            "Datasheet": "",
+            "Description": "100pF, Min. 50V 10%, NP0",
+            "Specifications": "100pF, Min. 50V 10% NP0 or C0G",
+            "Manufacturer": "Yageo",
+            "Part Number": "CC0603JRNPO9BN101",
+            "Display": "100pF",
+            "JLCPCB ID": "C14858"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R19",
+          "value": "220Ω",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            175.26,
+            78.74
+          ],
+          "rotation": 90.0,
+          "properties": {
+            "Reference": "R19",
+            "Value": "220Ω",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR020",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            144.78,
+            45.72
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR020",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR013",
+          "value": "+12V",
+          "footprint": "",
+          "lib_id": "power:+12V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            41.91,
+            52.07
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR013",
+            "Value": "+12V",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R7",
+          "value": "47k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            80.01,
+            41.91
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "R7",
+            "Value": "47k",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R5",
+          "value": "1k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            76.2,
+            30.48
+          ],
+          "rotation": 90.0,
+          "properties": {
+            "Reference": "R5",
+            "Value": "1k",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R11",
+          "value": "220Ω",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            110.49,
+            78.74
+          ],
+          "rotation": 90.0,
+          "properties": {
+            "Reference": "R11",
+            "Value": "220Ω",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR016",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            80.01,
+            45.72
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR016",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR017",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            85.09,
+            67.31
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR017",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "OpAmp1",
+          "value": "TL074",
+          "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+          "lib_id": "Amplifier_Operational:TL074",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            97.79,
+            78.74
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "OpAmp1",
+            "Value": "TL074",
+            "Footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+            "Datasheet": "http://www.ti.com/lit/ds/symlink/tl071.pdf",
+            "Description": "Quad Low-Noise JFET-Input Operational Amplifiers, DIP-14/SOIC-14",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R17",
+          "value": "47k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            165.1,
+            92.71
+          ],
+          "rotation": 90.0,
+          "properties": {
+            "Reference": "R17",
+            "Value": "47k",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R16",
+          "value": "47k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            165.1,
+            46.99
+          ],
+          "rotation": 90.0,
+          "properties": {
+            "Reference": "R16",
+            "Value": "47k",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "OpAmp1",
+          "value": "TL074",
+          "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+          "lib_id": "Amplifier_Operational:TL074",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            44.45,
+            59.69
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "OpAmp1",
+            "Value": "TL074",
+            "Footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+            "Datasheet": "http://www.ti.com/lit/ds/symlink/tl071.pdf",
+            "Description": "Quad Low-Noise JFET-Input Operational Amplifiers, DIP-14/SOIC-14",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "OpAmp1",
+          "value": "TL074",
+          "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+          "lib_id": "Amplifier_Operational:TL074",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            97.79,
+            33.02
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "OpAmp1",
+            "Value": "TL074",
+            "Footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+            "Datasheet": "http://www.ti.com/lit/ds/symlink/tl071.pdf",
+            "Description": "Quad Low-Noise JFET-Input Operational Amplifiers, DIP-14/SOIC-14",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R10",
+          "value": "220Ω",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            110.49,
+            33.02
+          ],
+          "rotation": 90.0,
+          "properties": {
+            "Reference": "R10",
+            "Value": "220Ω",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR022",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            151.13,
+            21.59
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR022",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "C8",
+          "value": "100pF_0603_50V",
+          "footprint": "PCM_4ms_Capacitor:C_0603",
+          "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            144.78,
+            24.13
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "C8",
+            "Value": "100pF_0603_50V",
+            "Footprint": "PCM_4ms_Capacitor:C_0603",
+            "Datasheet": "",
+            "Description": "100pF, Min. 50V 10%, NP0",
+            "Specifications": "100pF, Min. 50V 10% NP0 or C0G",
+            "Manufacturer": "Yageo",
+            "Part Number": "CC0603JRNPO9BN101",
+            "Display": "100pF",
+            "JLCPCB ID": "C14858"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R8",
+          "value": "47k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            100.33,
+            46.99
+          ],
+          "rotation": 90.0,
+          "properties": {
+            "Reference": "R8",
+            "Value": "47k",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR019",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            143.51,
+            91.44
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR019",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "C7",
+          "value": "100pF_0603_50V",
+          "footprint": "PCM_4ms_Capacitor:C_0603",
+          "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            143.51,
+            69.85
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "C7",
+            "Value": "100pF_0603_50V",
+            "Footprint": "PCM_4ms_Capacitor:C_0603",
+            "Datasheet": "",
+            "Description": "100pF, Min. 50V 10%, NP0",
+            "Specifications": "100pF, Min. 50V 10% NP0 or C0G",
+            "Manufacturer": "Yageo",
+            "Part Number": "CC0603JRNPO9BN101",
+            "Display": "100pF",
+            "JLCPCB ID": "C14858"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R4",
+          "value": "1k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            74.93,
+            76.2
+          ],
+          "rotation": 90.0,
+          "properties": {
+            "Reference": "R4",
+            "Value": "1k",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R15",
+          "value": "47k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            144.78,
+            41.91
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "R15",
+            "Value": "47k",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "OpAmp1",
+          "value": "TL074",
+          "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+          "lib_id": "Amplifier_Operational:TL074",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            162.56,
+            78.74
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "OpAmp1",
+            "Value": "TL074",
+            "Footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+            "Datasheet": "http://www.ti.com/lit/ds/symlink/tl071.pdf",
+            "Description": "Quad Low-Noise JFET-Input Operational Amplifiers, DIP-14/SOIC-14",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "C5",
+          "value": "100pF_0603_50V",
+          "footprint": "PCM_4ms_Capacitor:C_0603",
+          "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            78.74,
+            69.85
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "C5",
+            "Value": "100pF_0603_50V",
+            "Footprint": "PCM_4ms_Capacitor:C_0603",
+            "Datasheet": "",
+            "Description": "100pF, Min. 50V 10%, NP0",
+            "Specifications": "100pF, Min. 50V 10% NP0 or C0G",
+            "Manufacturer": "Yageo",
+            "Part Number": "CC0603JRNPO9BN101",
+            "Display": "100pF",
+            "JLCPCB ID": "C14858"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR014",
+          "value": "-12V",
+          "footprint": "",
+          "lib_id": "power:-12V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            41.91,
+            67.31
+          ],
+          "rotation": 180.0,
+          "properties": {
+            "Reference": "#PWR014",
+            "Value": "-12V",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR018",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            86.36,
+            21.59
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR018",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R9",
+          "value": "47k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            100.33,
+            92.71
+          ],
+          "rotation": 90.0,
+          "properties": {
+            "Reference": "R9",
+            "Value": "47k",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R14",
+          "value": "47k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "position": [
+            143.51,
+            87.63
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "R14",
+            "Value": "47k",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        }
+      ],
+      "nets": [],
+      "sheets": [
+        {
+          "name": "UNRIPPLE_MODULE2",
+          "file_path": "unripple_module.kicad_sch",
+          "uuid": "45d11efb-a1cc-46e8-9e3b-dcea3e8724d6",
+          "parent_sheet": null,
+          "sheet_instances": [],
+          "pin_connections": {
+            "UNRIPPLE": "input"
+          }
+        },
+        {
+          "name": "UNRIPPLE_MODULE1",
+          "file_path": "unripple_module.kicad_sch",
+          "uuid": "eef141d8-f350-40f2-990d-9c18dcf6372d",
+          "parent_sheet": null,
+          "sheet_instances": [],
+          "pin_connections": {
+            "UNRIPPLE": "input"
+          }
+        }
+      ],
+      "title_block": {
+        "title": "MasterOfMuppets",
+        "rev": "0.0.0",
+        "company": "y3i12"
+      }
+    },
+    "dac_module.kicad_sch": {
+      "file_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+      "version": "20250114",
+      "generator": "eeschema",
+      "uuid": "177cfd6a-1ed3-4511-a0a7-a5da522e26c3",
+      "components": [
+        {
+          "reference": "DAC1",
+          "value": "AD5593R",
+          "footprint": "Package_SO:TSSOP-16_4.4x5mm_P0.65mm",
+          "lib_id": "Analog:AD5593R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+          "position": [
+            96.52,
+            76.2
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "DAC1",
+            "Value": "AD5593R",
+            "Footprint": "Package_SO:TSSOP-16_4.4x5mm_P0.65mm",
+            "Datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/AD5593R.pdf",
+            "Description": "8-channel 12bits configurable ADC/DAC/GPIO Internal Reference, I2C interface Integrated temperature sensor,Single Supply, TSSOP-16"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR011",
+          "value": "VCC",
+          "footprint": "",
+          "lib_id": "power:+5V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+          "position": [
+            93.98,
+            38.1
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR011",
+            "Value": "VCC",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R3",
+          "value": "4.7k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+          "position": [
+            81.28,
+            33.02
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "R3",
+            "Value": "4.7k",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR012",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+          "position": [
+            96.52,
+            91.44
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR012",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R1",
+          "value": "10k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+          "position": [
+            63.5,
+            33.02
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "R1",
+            "Value": "10k",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "R2",
+          "value": "4.7k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+          "position": [
+            72.39,
+            33.02
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "R2",
+            "Value": "4.7k",
+            "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "Datasheet": "~",
+            "Description": "Resistor",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        }
+      ],
+      "nets": [],
+      "sheets": [
+        {
+          "name": "AMP_MODULE",
+          "file_path": "amp_module.kicad_sch",
+          "uuid": "02ed2e6d-b4fd-4f27-b067-e65a1933feb0",
+          "parent_sheet": null,
+          "sheet_instances": [],
+          "pin_connections": {
+            "INPUT_1": "input",
+            "INPUT_2": "input",
+            "INPUT_3": "input",
+            "INPUT_4": "input",
+            "OUTPUT_1": "output",
+            "OUTPUT_2": "output",
+            "OUTPUT_3": "output",
+            "OUTPUT_4": "output"
+          }
+        },
+        {
+          "name": "UNRIPPLE_MODULE1",
+          "file_path": "unripple_module.kicad_sch",
+          "uuid": "1ebaab9f-3adf-4ab6-b6c9-964263e520cd",
+          "parent_sheet": null,
+          "sheet_instances": [],
+          "pin_connections": {
+            "UNRIPPLE": "input"
+          }
+        },
+        {
+          "name": "AMP_MODULE1",
+          "file_path": "amp_module.kicad_sch",
+          "uuid": "415bd524-e348-40cf-853f-c7af6379b92b",
+          "parent_sheet": null,
+          "sheet_instances": [],
+          "pin_connections": {
+            "INPUT_1": "input",
+            "INPUT_2": "input",
+            "INPUT_3": "input",
+            "INPUT_4": "input",
+            "OUTPUT_1": "output",
+            "OUTPUT_2": "output",
+            "OUTPUT_3": "output",
+            "OUTPUT_4": "output"
+          }
+        },
+        {
+          "name": "UNRIPPLE_MODULE2",
+          "file_path": "unripple_module.kicad_sch",
+          "uuid": "677b72c2-bf5a-4c5d-aefa-30b62731dc07",
+          "parent_sheet": null,
+          "sheet_instances": [],
+          "pin_connections": {
+            "UNRIPPLE": "input"
+          }
+        },
+        {
+          "name": "UNRIPPLE_MODULE",
+          "file_path": "unripple_module.kicad_sch",
+          "uuid": "9b55f2e7-8956-440a-8522-8732ca051d63",
+          "parent_sheet": null,
+          "sheet_instances": [],
+          "pin_connections": {
+            "UNRIPPLE": "input"
+          }
+        },
+        {
+          "name": "UNRIPPLE_MODULE3",
+          "file_path": "unripple_module.kicad_sch",
+          "uuid": "c23ed8e9-fd80-4ab9-a446-b909f916776c",
+          "parent_sheet": null,
+          "sheet_instances": [],
+          "pin_connections": {
+            "UNRIPPLE": "input"
+          }
+        }
+      ],
+      "title_block": {
+        "title": "MasterOfMuppets",
+        "rev": "0.0.0",
+        "company": "y3i12"
+      }
+    },
+    "jack_sheet.kicad_sch": {
+      "file_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "version": "20250114",
+      "generator": "eeschema",
+      "uuid": "c681efea-34aa-4cf3-a425-8f978a6ae5f0",
+      "components": [
+        {
+          "reference": "#PWR071",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "position": [
+            86.36,
+            53.34
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR071",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "J8",
+          "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+          "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+          "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "position": [
+            121.92,
+            67.31
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "J8",
+            "Value": "3.5mm_Mono_Switched_SymSmall_0.05",
+            "Footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+            "Datasheet": "",
+            "Description": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+            "PARTREV": "2",
+            "SNAPEDA_PN": "ACJM-MV35-2S",
+            "STANDARD": "Manufacturer Recommendations",
+            "MAXIMUM_PACKAGE_HEIGHT": "28.0mm",
+            "MANUFACTURER": "Amphenol Sine Systems",
+            "Manufacturer": "Wenzhou QingPu Electronics Co",
+            "Part Number": "WQP-WQP518MA",
+            "Specifications": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+            "Display": "3.5mm_Mono"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "J2",
+          "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+          "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+          "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "position": [
+            83.82,
+            31.75
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "J2",
+            "Value": "3.5mm_Mono_Switched_SymSmall_0.05",
+            "Footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+            "Datasheet": "",
+            "Description": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+            "PARTREV": "2",
+            "SNAPEDA_PN": "ACJM-MV35-2S",
+            "STANDARD": "Manufacturer Recommendations",
+            "MAXIMUM_PACKAGE_HEIGHT": "28.0mm",
+            "MANUFACTURER": "Amphenol Sine Systems",
+            "Manufacturer": "Wenzhou QingPu Electronics Co",
+            "Part Number": "WQP-WQP518MA",
+            "Specifications": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+            "Display": "3.5mm_Mono"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR075",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "position": [
+            124.46,
+            53.34
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR075",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR074",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "position": [
+            124.46,
+            35.56
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR074",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "J3",
+          "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+          "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+          "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "position": [
+            83.82,
+            49.53
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "J3",
+            "Value": "3.5mm_Mono_Switched_SymSmall_0.05",
+            "Footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+            "Datasheet": "",
+            "Description": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+            "PARTREV": "2",
+            "SNAPEDA_PN": "ACJM-MV35-2S",
+            "STANDARD": "Manufacturer Recommendations",
+            "MAXIMUM_PACKAGE_HEIGHT": "28.0mm",
+            "MANUFACTURER": "Amphenol Sine Systems",
+            "Manufacturer": "Wenzhou QingPu Electronics Co",
+            "Part Number": "WQP-WQP518MA",
+            "Specifications": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+            "Display": "3.5mm_Mono"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR073",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "position": [
+            86.36,
+            88.9
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR073",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR072",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "position": [
+            86.36,
+            71.12
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR072",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "J6",
+          "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+          "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+          "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "position": [
+            121.92,
+            31.75
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "J6",
+            "Value": "3.5mm_Mono_Switched_SymSmall_0.05",
+            "Footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+            "Datasheet": "",
+            "Description": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+            "PARTREV": "2",
+            "SNAPEDA_PN": "ACJM-MV35-2S",
+            "STANDARD": "Manufacturer Recommendations",
+            "MAXIMUM_PACKAGE_HEIGHT": "28.0mm",
+            "MANUFACTURER": "Amphenol Sine Systems",
+            "Manufacturer": "Wenzhou QingPu Electronics Co",
+            "Part Number": "WQP-WQP518MA",
+            "Specifications": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+            "Display": "3.5mm_Mono"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR070",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "position": [
+            86.36,
+            35.56
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR070",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "J5",
+          "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+          "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+          "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "position": [
+            83.82,
+            85.09
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "J5",
+            "Value": "3.5mm_Mono_Switched_SymSmall_0.05",
+            "Footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+            "Datasheet": "",
+            "Description": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+            "PARTREV": "2",
+            "SNAPEDA_PN": "ACJM-MV35-2S",
+            "STANDARD": "Manufacturer Recommendations",
+            "MAXIMUM_PACKAGE_HEIGHT": "28.0mm",
+            "MANUFACTURER": "Amphenol Sine Systems",
+            "Manufacturer": "Wenzhou QingPu Electronics Co",
+            "Part Number": "WQP-WQP518MA",
+            "Specifications": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+            "Display": "3.5mm_Mono"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR076",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "position": [
+            124.46,
+            71.12
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR076",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "J9",
+          "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+          "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+          "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "position": [
+            121.92,
+            85.09
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "J9",
+            "Value": "3.5mm_Mono_Switched_SymSmall_0.05",
+            "Footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+            "Datasheet": "",
+            "Description": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+            "PARTREV": "2",
+            "SNAPEDA_PN": "ACJM-MV35-2S",
+            "STANDARD": "Manufacturer Recommendations",
+            "MAXIMUM_PACKAGE_HEIGHT": "28.0mm",
+            "MANUFACTURER": "Amphenol Sine Systems",
+            "Manufacturer": "Wenzhou QingPu Electronics Co",
+            "Part Number": "WQP-WQP518MA",
+            "Specifications": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+            "Display": "3.5mm_Mono"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "J7",
+          "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+          "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+          "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "position": [
+            121.92,
+            49.53
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "J7",
+            "Value": "3.5mm_Mono_Switched_SymSmall_0.05",
+            "Footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+            "Datasheet": "",
+            "Description": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+            "PARTREV": "2",
+            "SNAPEDA_PN": "ACJM-MV35-2S",
+            "STANDARD": "Manufacturer Recommendations",
+            "MAXIMUM_PACKAGE_HEIGHT": "28.0mm",
+            "MANUFACTURER": "Amphenol Sine Systems",
+            "Manufacturer": "Wenzhou QingPu Electronics Co",
+            "Part Number": "WQP-WQP518MA",
+            "Specifications": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+            "Display": "3.5mm_Mono"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "J4",
+          "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+          "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+          "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "position": [
+            83.82,
+            67.31
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "J4",
+            "Value": "3.5mm_Mono_Switched_SymSmall_0.05",
+            "Footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+            "Datasheet": "",
+            "Description": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+            "PARTREV": "2",
+            "SNAPEDA_PN": "ACJM-MV35-2S",
+            "STANDARD": "Manufacturer Recommendations",
+            "MAXIMUM_PACKAGE_HEIGHT": "28.0mm",
+            "MANUFACTURER": "Amphenol Sine Systems",
+            "Manufacturer": "Wenzhou QingPu Electronics Co",
+            "Part Number": "WQP-WQP518MA",
+            "Specifications": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+            "Display": "3.5mm_Mono"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR077",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "position": [
+            124.46,
+            88.9
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR077",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        }
+      ],
+      "nets": [],
+      "sheets": [],
+      "title_block": {
+        "title": "MasterOfMuppets",
+        "rev": "0.0.0",
+        "company": "y3i12"
+      }
+    },
+    "MasterOfMuppets.kicad_sch": {
+      "file_path": "CADfiles\\MasterOfMuppets\\MasterOfMuppets.kicad_sch",
+      "version": "20250114",
+      "generator": "eeschema",
+      "uuid": "01709e3c-d295-4eba-a9f6-77b38e73bd4a",
+      "components": [],
+      "nets": [],
+      "sheets": [],
+      "title_block": {
+        "title": "MasterOfMuppets",
+        "rev": null,
+        "company": null
+      }
+    },
+    "teensy_module.kicad_sch": {
+      "file_path": "CADfiles\\MasterOfMuppets\\teensy_module.kicad_sch",
+      "version": "20250114",
+      "generator": "eeschema",
+      "uuid": "31e314f0-8bdb-4818-9294-5c02474fdafa",
+      "components": [
+        {
+          "reference": "#PWR09",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\teensy_module.kicad_sch",
+          "position": [
+            119.38,
+            55.88
+          ],
+          "rotation": 90.0,
+          "properties": {
+            "Reference": "#PWR09",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "T1",
+          "value": "Teensy4.1",
+          "footprint": "Teensy:Teensy41",
+          "lib_id": "teensy:Teensy4.1",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\teensy_module.kicad_sch",
+          "position": [
+            76.2,
+            107.95
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "T1",
+            "Value": "Teensy4.1",
+            "Footprint": "Teensy:Teensy41",
+            "Datasheet": "",
+            "Description": "",
+            "Manufacturer": "",
+            "Part Number": "",
+            "Specifications": ""
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR010",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\teensy_module.kicad_sch",
+          "position": [
+            107.95,
+            90.17
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR010",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR07",
+          "value": "VCC",
+          "footprint": "",
+          "lib_id": "power:+5V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\teensy_module.kicad_sch",
+          "position": [
+            107.95,
+            52.07
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR07",
+            "Value": "VCC",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR08",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\teensy_module.kicad_sch",
+          "position": [
+            48.26,
+            53.34
+          ],
+          "rotation": 270.0,
+          "properties": {
+            "Reference": "#PWR08",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        }
+      ],
+      "nets": [],
+      "sheets": [],
+      "title_block": {
+        "title": "MasterOfMuppets",
+        "rev": "0.0.0",
+        "company": "y3i12"
+      }
+    },
+    "unripple_module.kicad_sch": {
+      "file_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "version": "20250114",
+      "generator": "eeschema",
+      "uuid": "5d7da71d-c580-4c32-9092-b7aa9321dacb",
+      "components": [
+        {
+          "reference": "C22",
+          "value": "10uF_0805_25V",
+          "footprint": "PCM_4ms_Capacitor:C_0805",
+          "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+          "position": [
+            104.14,
+            67.31
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "C22",
+            "Value": "10uF_0805_25V",
+            "Footprint": "PCM_4ms_Capacitor:C_0805",
+            "Datasheet": "",
+            "Description": "10uF, Min. 25V, X5R/X6S/X7R/X7S, 0805, MLCC",
+            "Specifications": "10uF, Min. 25V, X5R/X6S/X7R/X7S, 0805, MLCC",
+            "Manufacturer": "Murata",
+            "Part Number": "GRM21BR61E106MA73L",
+            "Display": "10uF/25V",
+            "JLCPCB ID": "C15850"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "#PWR055",
+          "value": "GND",
+          "footprint": "",
+          "lib_id": "power:GNDREF",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+          "position": [
+            78.74,
+            69.85
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "#PWR055",
+            "Value": "GND",
+            "Footprint": "",
+            "Datasheet": "",
+            "Description": "Power symbol creates a global label with name \\"
+          },
+          "pins": {}
+        },
+        {
+          "reference": "C21",
+          "value": "100nF_0603_16V",
+          "footprint": "PCM_4ms_Capacitor:C_0603",
+          "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+          "position": [
+            90.17,
+            67.31
+          ],
+          "rotation": 0.0,
+          "properties": {
+            "Reference": "C21",
+            "Value": "100nF_0603_16V",
+            "Footprint": "PCM_4ms_Capacitor:C_0603",
+            "Datasheet": "",
+            "Description": "0.1uF, Min. 16V 10%, X7R or X5R or similar",
+            "Specifications": "0.1uF, Min. 16V 10%, X7R or X5R or similar",
+            "Manufacturer": "AVX Corporation",
+            "Part Number": "0603YC104KAT2A",
+            "Display": "0.1uF",
+            "JLCPCB ID": "C14663"
+          },
+          "pins": {}
+        }
+      ],
+      "nets": [],
+      "sheets": [],
+      "title_block": {
+        "title": "MasterOfMuppets",
+        "rev": "0.0.0",
+        "company": "y3i12"
+      }
+    }
+  },
+  "flattened_components": [],
+  "summary": {
+    "total_components": 0,
+    "component_types": {},
+    "sheet_instances": {},
+    "hierarchical_sheets": [],
+    "nets": []
+  }
+}
