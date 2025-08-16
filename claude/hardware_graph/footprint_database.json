@@ -1,0 +1,196 @@
+{
+  "footprints": {
+    "Teensy41": {
+      "package": "DIP-48",
+      "dimensions": {
+        "width_mm": 61.0,
+        "height_mm": 17.78,
+        "pin_pitch_mm": 2.54,
+        "pad_size_mm": [
+          1.6,
+          1.6
+        ],
+        "courtyard_mm": [
+          63.0,
+          20.0
+        ]
+      },
+      "placement": {
+        "priority": 10,
+        "thermal": true
+      }
+    },
+    "AD5593R": {
+      "package": "TSSOP-16",
+      "dimensions": {
+        "width_mm": 4.4,
+        "height_mm": 5.0,
+        "pin_pitch_mm": 0.65,
+        "pad_size_mm": [
+          0.3,
+          1.5
+        ],
+        "courtyard_mm": [
+          5.4,
+          6.0
+        ]
+      },
+      "placement": {
+        "priority": 9,
+        "thermal": true
+      }
+    },
+    "TL074": {
+      "package": "SOIC-14",
+      "dimensions": {
+        "width_mm": 3.9,
+        "height_mm": 8.7,
+        "pin_pitch_mm": 1.27,
+        "pad_size_mm": [
+          0.6,
+          1.5
+        ],
+        "courtyard_mm": [
+          4.9,
+          9.7
+        ]
+      },
+      "placement": {
+        "priority": 8,
+        "thermal": true
+      }
+    },
+    "Jack_3.5mm": {
+      "package": "TRS",
+      "dimensions": {
+        "width_mm": 15.8,
+        "height_mm": 15.8,
+        "pin_pitch_mm": 5.08,
+        "pad_size_mm": [
+          2.0,
+          2.0
+        ],
+        "courtyard_mm": [
+          17.8,
+          17.8
+        ]
+      },
+      "placement": {
+        "priority": 7,
+        "thermal": false
+      }
+    },
+    "R_0603": {
+      "package": "SMD",
+      "dimensions": {
+        "width_mm": 1.6,
+        "height_mm": 0.8,
+        "pin_pitch_mm": 0.0,
+        "pad_size_mm": [
+          0.8,
+          0.95
+        ],
+        "courtyard_mm": [
+          2.4,
+          1.6
+        ]
+      },
+      "placement": {
+        "priority": 3,
+        "thermal": false
+      }
+    },
+    "C_0603": {
+      "package": "SMD",
+      "dimensions": {
+        "width_mm": 1.6,
+        "height_mm": 0.8,
+        "pin_pitch_mm": 0.0,
+        "pad_size_mm": [
+          0.8,
+          0.95
+        ],
+        "courtyard_mm": [
+          2.4,
+          1.6
+        ]
+      },
+      "placement": {
+        "priority": 4,
+        "thermal": false
+      }
+    },
+    "C_0805": {
+      "package": "SMD",
+      "dimensions": {
+        "width_mm": 2.0,
+        "height_mm": 1.25,
+        "pin_pitch_mm": 0.0,
+        "pad_size_mm": [
+          1.0,
+          1.25
+        ],
+        "courtyard_mm": [
+          2.8,
+          2.0
+        ]
+      },
+      "placement": {
+        "priority": 4,
+        "thermal": false
+      }
+    },
+    "TO-220": {
+      "package": "TO-220",
+      "dimensions": {
+        "width_mm": 10.0,
+        "height_mm": 4.5,
+        "pin_pitch_mm": 2.54,
+        "pad_size_mm": [
+          1.8,
+          1.8
+        ],
+        "courtyard_mm": [
+          12.0,
+          6.5
+        ]
+      },
+      "placement": {
+        "priority": 6,
+        "thermal": true
+      }
+    }
+  },
+  "placement_rules": {
+    "critical_spacing": {
+      "decoupling_caps_to_ic": 3.0,
+      "analog_to_digital": 10.0,
+      "thermal_isolation": 5.0,
+      "jack_spacing": 19.05
+    },
+    "placement_priority": [
+      "Teensy41 (central position)",
+      "AD5593R DACs (near Teensy)",
+      "Decoupling capacitors (within 3mm)",
+      "TL074 OpAmps (analog zone)",
+      "Voltage regulator (edge, heat sink access)",
+      "Jacks (edge, user accessible)",
+      "Resistors/Capacitors (fill remaining)"
+    ],
+    "manufacturing_constraints": {
+      "min_component_spacing": 0.2,
+      "min_courtyard_clearance": 0.5,
+      "pick_place_clearance": 1.0
+    }
+  },
+  "master_of_muppets_specific": {
+    "total_components": 163,
+    "hierarchy_depth": 4,
+    "critical_signals": [
+      "I2C",
+      "Analog_Out",
+      "Power"
+    ],
+    "pcb_recommendation": "100x160mm Eurocard 4-layer"
+  }
+}

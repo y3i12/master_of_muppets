@@ -19,7 +19,7 @@ class EpisodeTranscriber:
         self.transcript_buffer = []
         self.last_update = time.time()
         
-    def quick_append(self, user_msg: str, assistant_msg: str, achievements: List[str] = None) -> bool:
+    def quick_append(self, user_msg: str, assistant_msg: str, achievements: List[str] = None, findings: str = None) -> bool:
         """Ultra-fast transcript append (< 5 tokens)"""
         
         # Find current episode
@@ -45,6 +45,10 @@ class EpisodeTranscriber:
             exchange += "\n\n**Achievements:**"
             for achievement in achievements:
                 exchange += f"\n- {achievement}"
+        
+        # Add findings if present
+        if findings:
+            exchange += f"\n\n**Findings:**\n{findings}"
         
         # Append and close
         content += exchange + "\n\n---\n\n*Episode in progress...*"
