@@ -1,0 +1,271 @@
+/* PCB Designer Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #1e1e1e;
+    color: #ffffff;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Layout */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    background: #2d2d2d;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #555;
+}
+
+.header h1 {
+    font-size: 18px;
+    color: #4CAF50;
+}
+
+.header-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.left-panel, .right-panel {
+    width: 250px;
+    background: #2d2d2d;
+    border-right: 1px solid #555;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.right-panel {
+    border-right: none;
+    border-left: 1px solid #555;
+}
+
+.pcb-canvas-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #1a1a1a;
+}
+
+/* Canvas */
+.canvas-toolbar {
+    background: #333;
+    padding: 8px 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-bottom: 1px solid #555;
+}
+
+.pcb-canvas {
+    flex: 1;
+    background: #2d5016;
+    cursor: crosshair;
+}
+
+/* Components */
+button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+button:disabled {
+    background: #666;
+    cursor: not-allowed;
+}
+
+.tool-btn {
+    background: #555;
+    width: 60px;
+    margin: 2px;
+}
+
+.tool-btn.active {
+    background: #4CAF50;
+}
+
+/* Panels */
+h3 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 5px;
+}
+
+.property-group, .info-item, .rule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.property-group label, .info-item label, .rule-item label {
+    color: #ccc;
+}
+
+select, input {
+    background: #444;
+    color: white;
+    border: 1px solid #666;
+    border-radius: 3px;
+    padding: 4px;
+    font-size: 11px;
+}
+
+/* Component Library */
+.component-categories {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.component-item {
+    padding: 6px;
+    cursor: pointer;
+    border-radius: 3px;
+    margin: 2px 0;
+    font-size: 11px;
+    background: #3a3a3a;
+}
+
+.component-item:hover {
+    background: #4a4a4a;
+}
+
+.component-item.selected {
+    background: #4CAF50;
+}
+
+/* Layer Control */
+.layer-item {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    font-size: 11px;
+}
+
+.layer-item input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.layer-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    margin-right: 8px;
+}
+
+/* PCB Layers */
+.pcb-layer {
+    pointer-events: none;
+}
+
+.pcb-layer.active {
+    pointer-events: all;
+}
+
+/* Component rendering */
+.component {
+    cursor: move;
+    stroke: #000;
+    stroke-width: 0.1;
+}
+
+.component:hover {
+    stroke: #ffff00;
+    stroke-width: 0.2;
+}
+
+.component.selected {
+    stroke: #ff4444;
+    stroke-width: 0.3;
+}
+
+.component-label {
+    font-size: 2px;
+    text-anchor: middle;
+    fill: white;
+    pointer-events: none;
+}
+
+/* Footprint specific styles */
+.footprint-smd {
+    fill: #666;
+}
+
+.footprint-tht {
+    fill: #888;
+}
+
+.footprint-connector {
+    fill: #e2a04a;
+}
+
+.footprint-ic {
+    fill: #4a90e2;
+}
+
+/* Coordinates and status */
+.coordinates, .status {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #aaa;
+}
+
+/* Tool groups */
+.tool-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .left-panel, .right-panel {
+        width: 200px;
+    }
+}
+
+/* Animation for smooth interactions */
+.component {
+    transition: stroke-width 0.1s ease;
+}
+
+/* Grid visibility */
+.grid-visible {
+    opacity: 0.3;
+}
+
+.grid-hidden {
+    opacity: 0;
+}
