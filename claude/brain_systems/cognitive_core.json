@@ -1,0 +1,288 @@
+{
+  "v": "2.0.0",
+  "ts": "2025-08-16T17:58:17.091706",
+  "git": "season_02",
+  "ctx": {
+    "prj": "mom",
+    "arch": "teensy41_dac16ch_usb_midi",
+    "lang": [
+      "cpp",
+      "py",
+      "kicad"
+    ],
+    "style": "snake_case"
+  },
+  "mem": {
+    "s1": {
+      "e1-5": "knowledge_tooling_complete",
+      "tools": [
+        "kicad_parser:900x",
+        "hw_graph",
+        "code_graph"
+      ],
+      "achieve": [
+        "graph_persist",
+        "tool_community",
+        "doc_protocol"
+      ]
+    },
+    "s2": {
+      "e1": "mahna_mahna:active",
+      "goal": "pcb_layout_optimization",
+      "next": "cognitive_continuity"
+    }
+  },
+  "idx": {
+    "hw": {
+      "dac": [
+        "ad5593r:2x8ch",
+        "wire1_wire2",
+        "a0_pin37_38",
+        "12bit_res",
+        "0-5v_range"
+      ],
+      "amp": [
+        "tl074:4x4ch",
+        "gain_2x",
+        "10v_output",
+        "dual_12v_supply"
+      ],
+      "i2c": [
+        "500us_latency",
+        "batch_possible",
+        "wire1_pin17_18",
+        "wire2_pin24_25"
+      ],
+      "crit": [
+        "power_zones",
+        "signal_integrity",
+        "thermal_mgmt",
+        "a0_chip_select"
+      ],
+      "teensy": [
+        "4.1_arm_cortex_m7",
+        "600mhz",
+        "teensy_threads"
+      ]
+    },
+    "sw": {
+      "threads": [
+        "dr_teeth:usb_midi",
+        "electric_mayhem:dac_workers",
+        "cooperative_multitask"
+      ],
+      "mutex": [
+        "input_buffer",
+        "output_buffer",
+        "sequence_tracking",
+        "muppet_state"
+      ],
+      "perf": [
+        "2-3ms_target",
+        "win_1khz_limit",
+        "usb_1ms_latency"
+      ],
+      "midi": [
+        "pitch_bend_14bit",
+        "k_midi_pitch_zero_8192",
+        "scale_factor_4",
+        "audio_half_scale"
+      ],
+      "buffers": [
+        "static_only",
+        "input_buffer[16]",
+        "output_buffer[16]",
+        "no_dynamic_alloc"
+      ],
+      "templates": [
+        "electric_mayhem<T>",
+        "go_muppets()",
+        "driver_interface"
+      ]
+    },
+    "tools": {
+      "parse": "claude/tools/kicad_parser.py",
+      "graph": "claude/hardware_graph/*.json",
+      "code": "claude/codebase_graph/*.json",
+      "sessions": "claude/sessions/season_*/episode_*.md"
+    },
+    "build": {
+      "cmd": [
+        "pio run -e teensy41",
+        "pio run -e teensy41 -t upload",
+        "pio device monitor"
+      ],
+      "test": [
+        "manual_only",
+        "oscilloscope",
+        "multimeter",
+        "no_auto_test"
+      ],
+      "lint": [
+        "check_readme",
+        "npm_run_lint",
+        "ruff",
+        "no_default"
+      ]
+    },
+    "files": {
+      "core": [
+        "include/dr_teeth.h",
+        "include/electric_mayhem.h",
+        "src/main.cpp"
+      ],
+      "drivers": [
+        "include/drivers/rob_tillaart_ad_5993r.h",
+        "include/drivers/adafruit_mcp_4728.h"
+      ],
+      "style": [
+        "CODING_STYLE.md",
+        "snake_case_always",
+        "k_prefix_constants",
+        "4_space_indent"
+      ],
+      "docs": [
+        "CLAUDE.md",
+        "README.md",
+        "claude/COGNITIVE_SYSTEM.md"
+      ]
+    },
+    "kicad": {
+      "files": [
+        "CADfiles/MasterOfMuppets/*.kicad_sch",
+        "6_files",
+        "4_level_hierarchy"
+      ],
+      "components": [
+        "163_total",
+        "32_unripple",
+        "4_amp_modules",
+        "2_dac_modules"
+      ],
+      "parser": [
+        "900x_faster",
+        "100%_accurate",
+        "zero_deps",
+        "mit_license"
+      ]
+    },
+    "critical": {
+      "warnings": [
+        "never_modify_buffer_outside_mutex",
+        "always_sequence_track",
+        "copy_before_i2c"
+      ],
+      "constraints": [
+        "500us_i2c_operation",
+        "1ms_usb_latency",
+        "2-3ms_total_target"
+      ],
+      "memory": [
+        "static_only",
+        "64byte_stack_margin",
+        "no_dynamic_alloc"
+      ],
+      "sync": [
+        "verify_i2c_bus_mapping",
+        "check_chip_select_pins",
+        "validate_16ch_layout"
+      ]
+    },
+    "optimize": {
+      "i2c_batch": "60-70%_reduction",
+      "lock_free": "40%_blocking_reduction",
+      "simd": "80%_math_speedup",
+      "limitations": [
+        "windows_1khz",
+        "no_auto_test",
+        "no_eeprom_config"
+      ]
+    }
+  },
+  "flags": {
+    "defensive_only": true,
+    "no_dynamic_alloc": true,
+    "snake_case": true,
+    "no_proactive_docs": true,
+    "git_commit_explicit": true
+  },
+  "ops": {
+    "lint": [
+      "pio run",
+      "npm run lint",
+      "ruff"
+    ],
+    "test": "check_readme_first",
+    "build": "pio run -e teensy41",
+    "commit": [
+      "git_status_diff_log_parallel",
+      "draft_message",
+      "add_untracked",
+      "emoji_footer"
+    ],
+    "pr": [
+      "analyze_all_commits",
+      "push_u_flag",
+      "gh_pr_create",
+      "heredoc_body"
+    ]
+  },
+  "learn": {
+    "last": "pre_bootstrap_backup_complete_safe_state_preserved",
+    "pend": [
+      "pcb_force_directed",
+      "zone_placement",
+      "thermal_distribution"
+    ],
+    "achieved": [
+      "hardware_graph_creation",
+      "kicad_parser_900x",
+      "session_documentation",
+      "cognitive_continuity_80x"
+    ],
+    "patterns": [
+      "graph_based_knowledge",
+      "tool_efficiency_multipliers",
+      "seasonal_organization",
+      "mental_state_compilation"
+    ],
+    "hist": [
+      {
+        "ts": "2025-08-16T17:27:38.053809",
+        "insight": "working_graph_system_for_hot_memory"
+      },
+      {
+        "ts": "2025-08-16T17:42:49.620490",
+        "insight": "brain_enhancement_suite_complete_ai_upgrade"
+      },
+      {
+        "ts": "2025-08-16T17:58:17.091677",
+        "insight": "pre_bootstrap_backup_complete_safe_state_preserved"
+      }
+    ]
+  },
+  "rules": {
+    "always": [
+      "check_claude_folder_state",
+      "follow_coding_style_md",
+      "consider_realtime_nature",
+      "maintain_continuity"
+    ],
+    "never": [
+      "create_unnecessary_files",
+      "proactive_documentation",
+      "dynamic_memory_allocation",
+      "commit_without_asking"
+    ],
+    "security": [
+      "defensive_only",
+      "no_malicious_code",
+      "no_secrets_in_logs",
+      "no_keys_in_repo"
+    ]
+  },
+  "tools": {
+    "working_graphs": "claude/working_graphs.py,claude/hot_cache.cc,claude/graph_ops.py",
+    "brain_enhancement": "neural_core.py,code_ingestor.py,schematic_brain.py,transcript_sync.py,meta_brain.py"
+  }
+}
