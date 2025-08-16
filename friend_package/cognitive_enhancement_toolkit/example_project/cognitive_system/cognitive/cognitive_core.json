@@ -1,0 +1,88 @@
+{
+  "v": "1.0.0",
+  "domain": "research_project",
+  "project": "ExampleProject",
+  "knowledge_indices": {
+    "entities": [
+      "After",
+      "Automatic",
+      "Brain_Systems",
+      "Claude",
+      "Cognitive",
+      "Enhancement",
+      "Example",
+      "ExampleProject",
+      "Explore",
+      "Out",
+      "Professional",
+      "Project",
+      "Self",
+      "This",
+      "Toolkit"
+    ],
+    "file_types": [
+      ".md",
+      ".py"
+    ],
+    "vocabulary": [
+      "session_publisher",
+      "installation",
+      "improvement",
+      "bootstrap_framework",
+      "brain_systems",
+      "documentation",
+      "improvement_hook",
+      "velocity_optimizer",
+      "enhancement",
+      "cognitive_system",
+      "publication",
+      "example_project",
+      "management",
+      "project_name",
+      "optimization"
+    ],
+    "complexity_factors": [
+      "file_count_score",
+      "directory_depth_score",
+      "language_diversity_score",
+      "overall_score"
+    ],
+    "concepts": [
+      "hypothesis",
+      "method",
+      "result",
+      "conclusion"
+    ],
+    "data_types": [
+      "experimental",
+      "simulation",
+      "survey"
+    ],
+    "publications": [
+      "paper",
+      "conference",
+      "journal"
+    ]
+  },
+  "performance_targets": {
+    "context_load_time_ms": 106.06,
+    "query_response_time_ms": 53.03,
+    "analysis_speedup_factor": 9.428625306430323,
+    "memory_efficiency_ratio": 0.8
+  },
+  "working_memory": {
+    "hot_cache_size": 50,
+    "focus_components": 10,
+    "relationship_types": [
+      "citation",
+      "methodology",
+      "data_flow",
+      "collaboration"
+    ],
+    "performance_targets": {
+      "lookup_time_ms": 10,
+      "cache_hit_rate": 0.85,
+      "sync_frequency_minutes": 30
+    }
+  }
+}
