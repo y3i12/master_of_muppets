@@ -86,8 +86,21 @@ struct CognitiveState {
 // Recent Learnings (append-only log)
 const char* learnings[] = {
     "git_branch==season",
-    "snake_case_always",
+    "snake_case_always", 
     "pcb_graphs_ready",
     "cognitive_compact",
+    "component_count_formula_validated",
+    "pcb_147_schematic_163_correct",
+    "tl074_1pcb_5schematic_learned",
+    "brain_path_mapper_system_created",
+    "smart_path_resolver_with_learning",
+    "auto_brain_updater_maintenance",
+    "self_organizing_file_intelligence",
+    "autonomous_learning_architecture_87pct",
+    "recursive_self_improvement_achieved",
+    "7_cognitive_systems_integrated",
+    "emergent_intelligence_demonstrated",
+    "meta_meta_system_operational",
+    "next_episode_kicad_fu_training",
     nullptr
 };

@@ -19,7 +19,7 @@ class KicadParser:
         self.parsed_data = {}
         self.last_scan_time = 0
         
-        print(f"[INIT] {parser_name} initialized for {self.project_path}")
+        print(f"[INIT] KiCad Parser initialized for {self.project_path}")
     
     def scan_files(self) -> Dict[str, Any]:
         """Scan and parse relevant files"""
