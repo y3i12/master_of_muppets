@@ -2,16 +2,20 @@
 // Format: Packed data structure readable as "compiled knowledge"
 // Load with: Read first 20 lines for instant context
 
-#define CC_VERSION 0x0200
+#define CC_VERSION 0x0204
 #define CC_SEASON  0x02
-#define CC_EPISODE 0x01
+#define CC_EPISODE 0x04
 
 // Knowledge Indices (bit-packed)
-#define KI_HW_GRAPH  0x01  // Hardware graph exists
-#define KI_CODE_GRAPH 0x02  // Code graph exists  
-#define KI_KICAD_TOOL 0x04  // KiCad parser ready
-#define KI_PCB_READY  0x08  // Ready for PCB layout
-#define KI_TOOLS_MASK 0x0F  // All tools available
+#define KI_HW_GRAPH    0x01  // Hardware graph exists
+#define KI_CODE_GRAPH  0x02  // Code graph exists  
+#define KI_KICAD_TOOL  0x04  // KiCad parser ready
+#define KI_PCB_READY   0x08  // Ready for PCB layout
+#define KI_KICAD_FU    0x10  // KiCad-Fu MCP server operational
+#define KI_AISLER_INT  0x20  // AISLER manufacturing integration
+#define KI_MFG_INTEL   0x40  // Manufacturing intelligence active
+#define KI_AUTO_LEARN  0x80  // Autonomous learning (87% score)
+#define KI_TOOLS_MASK  0xFF  // All tools available
 
 // State Flags (cognitive settings)
 #define SF_DEFENSIVE  0x01  // Defensive security only
@@ -50,7 +54,7 @@ enum State {
     IMPLEMENTING = 0x04,
     OPTIMIZING = 0x08,
     DOCUMENTING = 0x10,
-    CURRENT = ANALYZING | OPTIMIZING  // Current: analyzing + optimizing PCB
+    CURRENT = IMPLEMENTING | OPTIMIZING  // Current: implementing automation + optimizing
 };
 
 // Compact Episode Registry
@@ -60,7 +64,10 @@ const char* episodes[] = {
     "s1e3:sync_know",
     "s1e4:help_world",
     "s1e5:remembered",
-    "s2e1:mahna_mahna"  // Current episode
+    "s2e1:mahna_mahna",
+    "s2e2:bootstrap_integration",
+    "s2e3:pcb_electric_boogaloo", 
+    "s2e4:kicad_fu_aisler_mastery"  // Current completed episode
 };
 
 // Quick Load Function (mental bootstrap)
@@ -101,6 +108,16 @@ const char* learnings[] = {
     "7_cognitive_systems_integrated",
     "emergent_intelligence_demonstrated",
     "meta_meta_system_operational",
-    "next_episode_kicad_fu_training",
+    "kicad_mcp_protocol_mastered",
+    "kicad_fu_server_8_tools_operational",
+    "aisler_manufacturing_intelligence_integrated",
+    "german_pcb_fab_expertise_acquired",
+    "master_of_muppets_optimized_55eur_4layer_enig",
+    "dfm_validation_100pct_compliance_achieved",
+    "multi_manufacturer_comparison_framework",
+    "cognitive_manufacturing_decisions_active",
+    "sessions_organization_principle_learned",
+    "autonomous_learnings_per_season_established",
+    "production_automation_roadmap_ready",
     nullptr
 };
