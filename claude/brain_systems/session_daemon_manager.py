@@ -57,12 +57,12 @@ class SessionDaemonManager:
                 'auto_started': True
             }
             
-            print(f"[SESSION] ✅ Daemons started: {bootstrap_result.get('daemons_active', 0)} active")
+            print(f"[SESSION] Daemons started: {bootstrap_result.get('daemons_active', 0)} active")
             
             return self.daemon_status
             
         except Exception as e:
-            print(f"[SESSION] ❌ Daemon startup failed: {e}")
+            print(f"[SESSION] Daemon startup failed: {e}")
             return {
                 'status': 'failed',
                 'error': str(e),
