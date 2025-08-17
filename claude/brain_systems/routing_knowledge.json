@@ -1,0 +1,219 @@
+{
+  "knowledge": {
+    "via_placement": {
+      "minimize_vias": 1.0,
+      "avoid_under_components": 0.95,
+      "thermal_via_spacing": 0.8
+    },
+    "trace_routing": {
+      "prefer_orthogonal": 0.85,
+      "minimize_bends": 0.9,
+      "avoid_acute_angles": 0.95
+    },
+    "layer_usage": {
+      "power_on_planes": 0.95,
+      "signals_on_outer": 0.8,
+      "high_speed_short": 0.9
+    },
+    "design_optimization": {
+      "differential_pair_matching": 0.95,
+      "length_matching_critical": 0.9,
+      "crosstalk_minimization": 0.85
+    }
+  },
+  "patterns": {
+    "net_VCC_0": {
+      "net_priority": 1,
+      "pin_count": 3,
+      "route_length": 99.00000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 3.3000000000000003,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_GND_1": {
+      "net_priority": 1,
+      "pin_count": 3,
+      "route_length": 99.00000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 3.3000000000000003,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_SDA1_2": {
+      "net_priority": 2,
+      "pin_count": 2,
+      "route_length": 49.50000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 2.4750000000000005,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_SCL1_3": {
+      "net_priority": 2,
+      "pin_count": 2,
+      "route_length": 49.50000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 2.4750000000000005,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_SDA2_4": {
+      "net_priority": 2,
+      "pin_count": 2,
+      "route_length": 49.50000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 2.4750000000000005,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_SCL2_5": {
+      "net_priority": 2,
+      "pin_count": 2,
+      "route_length": 49.50000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 2.4750000000000005,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_VCC_6": {
+      "net_priority": 1,
+      "pin_count": 3,
+      "route_length": 99.00000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 3.3000000000000003,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_GND_7": {
+      "net_priority": 1,
+      "pin_count": 3,
+      "route_length": 99.00000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 3.3000000000000003,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_SDA1_8": {
+      "net_priority": 2,
+      "pin_count": 2,
+      "route_length": 49.50000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 2.4750000000000005,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_SCL1_9": {
+      "net_priority": 2,
+      "pin_count": 2,
+      "route_length": 49.50000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 2.4750000000000005,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_SDA2_10": {
+      "net_priority": 2,
+      "pin_count": 2,
+      "route_length": 49.50000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 2.4750000000000005,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_SCL2_11": {
+      "net_priority": 2,
+      "pin_count": 2,
+      "route_length": 49.50000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 2.4750000000000005,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_VCC_12": {
+      "net_priority": 1,
+      "pin_count": 3,
+      "route_length": 99.00000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 3.3000000000000003,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_GND_13": {
+      "net_priority": 1,
+      "pin_count": 3,
+      "route_length": 99.00000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 3.3000000000000003,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_SDA1_14": {
+      "net_priority": 2,
+      "pin_count": 2,
+      "route_length": 49.50000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 2.4750000000000005,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_SCL1_15": {
+      "net_priority": 2,
+      "pin_count": 2,
+      "route_length": 49.50000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 2.4750000000000005,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_SDA2_16": {
+      "net_priority": 2,
+      "pin_count": 2,
+      "route_length": 49.50000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 2.4750000000000005,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    },
+    "net_SCL2_17": {
+      "net_priority": 2,
+      "pin_count": 2,
+      "route_length": 49.50000000000001,
+      "via_count": 0,
+      "efficiency_ratio": 2.4750000000000005,
+      "success_factors": [
+        "minimal_vias"
+      ]
+    }
+  },
+  "version": "1.0",
+  "design_rules_used": {
+    "min_trace_width": 0.125,
+    "min_via_size": 0.25,
+    "min_spacing": 0.125,
+    "max_via_count": 100,
+    "preferred_layers": [
+      "F.Cu",
+      "B.Cu",
+      "In1.Cu",
+      "In2.Cu"
+    ]
+  }
+}

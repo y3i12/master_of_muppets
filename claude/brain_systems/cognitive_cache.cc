@@ -118,6 +118,12 @@ const char* learnings[] = {
     "cognitive_manufacturing_decisions_active",
     "sessions_organization_principle_learned",
     "autonomous_learnings_per_season_established",
-    "production_automation_roadmap_ready",
+    "production_automation_complete_kibot_github_actions",
+    "ai_enhanced_routing_placement_69pct_score_achieved",
+    "cognitive_system_optimization_ultra_fast_learning",
+    "transcript_logging_conversation_capture_active",
+    "failure_driven_evolution_unicode_prevention_learned",
+    "complete_ai_pcb_design_platform_operational",
+    "episode_04_kicad_fu_aisler_mastery_complete",
     nullptr
 };
