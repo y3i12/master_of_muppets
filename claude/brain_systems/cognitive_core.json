@@ -59,9 +59,11 @@
       }
     },
     "s2": {
-      "e1": "mahna_mahna:active",
-      "goal": "pcb_layout_optimization",
-      "next": "cognitive_continuity"
+      "e1": "mahna_mahna:complete",
+      "e2": "bootstrap_integration:complete", 
+      "e3": "pcb_electric_boogaloo:complete",
+      "goal": "hardware_firmware_focus",
+      "next": "teensy_code_optimization"
     }
   },
   "idx": {

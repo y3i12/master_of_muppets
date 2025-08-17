@@ -198,15 +198,49 @@ class AutonomousLearner:
         if not opportunities:
             return None
         
+        # Filter out already implemented improvements
+        available_opportunities = []
+        for opp in opportunities:
+            if not self.is_already_implemented(opp):
+                available_opportunities.append(opp)
+        
+        if not available_opportunities:
+            return None
+        
         # Score by impact/effort ratio
         scored = []
-        for opp in opportunities:
+        for opp in available_opportunities:
             score = opp["impact"] / max(opp["effort"], 1)
             scored.append((score, opp))
         
         # Return highest scoring
         scored.sort(key=lambda x: x[0], reverse=True)
         return scored[0][1]
+    
+    def is_already_implemented(self, opportunity: Dict[str, Any]) -> bool:
+        """Check if improvement has already been implemented"""
+        
+        description = opportunity.get("description", "").lower()
+        
+        # Check if we've already done this improvement in this session
+        for completed in self.improvements_made:
+            if completed.get("description", "").lower() == description:
+                return True
+        
+        # Check for specific implemented features that no longer exist
+        if "keyboard shortcuts" in description and "pcb" in description:
+            # PCB app was removed, so this is no longer relevant
+            return True
+            
+        if "zoom" in description and "pcb" in description:
+            # PCB app was removed, so this is no longer relevant  
+            return True
+            
+        if "routing" in description and "pcb" in description:
+            # PCB app was removed, so this is no longer relevant
+            return True
+        
+        return False
     
     def implement_improvement(self, improvement: Dict[str, Any]) -> Dict[str, Any]:
         """Implement selected improvement"""
