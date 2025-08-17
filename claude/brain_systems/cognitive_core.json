@@ -26,6 +26,38 @@
         "doc_protocol"
       ]
     },
+    "pcb_footprints": {
+      "teensy41": {
+        "dim": "61.0x17.78mm",
+        "pins": 48,
+        "pitch": "2.54mm",
+        "drill": "1.1mm"
+      },
+      "ad5593r": {
+        "pkg": "TSSOP-16",
+        "dim": "4.4x5.0mm",
+        "pitch": "0.65mm"
+      },
+      "tl074": {
+        "pkg": "SOIC-14",
+        "dim": "3.9x8.7mm",
+        "pitch": "1.27mm"
+      },
+      "jack_3.5mm": {
+        "dim": "15.8x15.8mm",
+        "spacing": "19.05mm_min",
+        "height": "28mm"
+      },
+      "r_0603": "1.6x0.8mm",
+      "c_0603": "1.6x0.8mm",
+      "c_0805": "2.0x1.25mm",
+      "constraints": {
+        "trace_min": "0.1mm",
+        "via_min": "0.2mm_drill",
+        "spacing_min": "0.15mm",
+        "board_optimal": "120x100mm"
+      }
+    },
     "s2": {
       "e1": "mahna_mahna:active",
       "goal": "pcb_layout_optimization",
