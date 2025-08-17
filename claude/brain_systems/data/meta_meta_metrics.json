@@ -1,0 +1,105 @@
+{
+  "timestamp": "2025-08-17T08:27:33.709170",
+  "metrics": {
+    "profiler": {
+      "system_id": "profiler_20250817_082733",
+      "system_name": "profiler",
+      "performance_score": 0.5,
+      "efficiency_score": 0.6,
+      "learning_rate": 0.5,
+      "adaptation_score": 0.7,
+      "improvement_potential": 0.5,
+      "bottlenecks": [],
+      "optimization_opportunities": [
+        "Add optimization method",
+        "Implement real-time streaming metrics",
+        "Add predictive performance modeling",
+        "Create adaptive sampling rates"
+      ],
+      "measured_at": "2025-08-17T08:27:33.707584"
+    },
+    "crystallizer": {
+      "system_id": "crystallizer_20250817_082733",
+      "system_name": "crystallizer",
+      "performance_score": 0.5,
+      "efficiency_score": 0.6,
+      "learning_rate": 0.5,
+      "adaptation_score": 0.6,
+      "improvement_potential": 0.5,
+      "bottlenecks": [],
+      "optimization_opportunities": [
+        "Add optimization method",
+        "Implement parallel crystallization",
+        "Add compression algorithm selection",
+        "Create knowledge fusion mechanisms"
+      ],
+      "measured_at": "2025-08-17T08:27:33.707713"
+    },
+    "evolution": {
+      "system_id": "evolution_20250817_082733",
+      "system_name": "evolution",
+      "performance_score": 0.5,
+      "efficiency_score": 0.6,
+      "learning_rate": 0.7,
+      "adaptation_score": 0.7,
+      "improvement_potential": 0.5,
+      "bottlenecks": [],
+      "optimization_opportunities": [
+        "Add optimization method",
+        "Implement multi-objective optimization",
+        "Add genetic programming for immunity",
+        "Create adaptive mutation rates"
+      ],
+      "measured_at": "2025-08-17T08:27:33.707818"
+    },
+    "cross_domain": {
+      "system_id": "cross_domain_20250817_082733",
+      "system_name": "cross_domain",
+      "performance_score": 0.5,
+      "efficiency_score": 0.8,
+      "learning_rate": 0.5,
+      "adaptation_score": 0.7,
+      "improvement_potential": 0.5,
+      "bottlenecks": [],
+      "optimization_opportunities": [
+        "Add optimization method",
+        "Implement semantic similarity matching",
+        "Add automated domain discovery",
+        "Create insight validation frameworks"
+      ],
+      "measured_at": "2025-08-17T08:27:33.707925"
+    },
+    "predictive": {
+      "system_id": "predictive_20250817_082733",
+      "system_name": "predictive",
+      "performance_score": 0.5,
+      "efficiency_score": 0.6,
+      "learning_rate": 0.5,
+      "adaptation_score": 0.7,
+      "improvement_potential": 0.5,
+      "bottlenecks": [],
+      "optimization_opportunities": [
+        "Add optimization method",
+        "Implement ensemble prediction models",
+        "Add uncertainty quantification",
+        "Create adaptive prediction horizons"
+      ],
+      "measured_at": "2025-08-17T08:27:33.708030"
+    },
+    "meta_cognitive": {
+      "system_id": "meta_cognitive_20250817_082733",
+      "system_name": "meta_cognitive",
+      "performance_score": 0.5,
+      "efficiency_score": 0.6,
+      "learning_rate": 0.7,
+      "adaptation_score": 0.6,
+      "improvement_potential": 0.5,
+      "bottlenecks": [],
+      "optimization_opportunities": [
+        "Add optimization method"
+      ],
+      "measured_at": "2025-08-17T08:27:33.708113"
+    }
+  },
+  "total_systems": 6
+}

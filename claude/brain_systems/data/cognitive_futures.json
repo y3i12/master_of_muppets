@@ -1,0 +1,30 @@
+{
+  "timestamp": "2025-08-17T08:25:05.642142",
+  "futures": [
+    {
+      "future_id": "future_medium_term_20250817_082505",
+      "time_horizon": "8:00:00",
+      "predicted_challenges": [],
+      "required_capabilities": [],
+      "knowledge_gaps": [],
+      "optimization_opportunities": [],
+      "preparation_plan": {
+        "immediate_actions": [],
+        "resource_allocation": {
+          "cpu": "medium",
+          "memory": "medium",
+          "storage": "medium",
+          "network": "low"
+        },
+        "priority_order": [],
+        "contingency_plans": [
+          "If predictions fail: Fall back to reactive optimization",
+          "If resources insufficient: Prioritize high-confidence predictions",
+          "If new patterns emerge: Update prediction models"
+        ]
+      },
+      "confidence_score": 0.5
+    }
+  ],
+  "total_futures": 1
+}
