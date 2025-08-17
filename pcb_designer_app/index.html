@@ -13,6 +13,8 @@
             <h1>🎭 PCB Designer</h1>
             <div class="header-controls">
                 <button id="auto-place">Auto Place</button>
+                <button id="auto-route">Auto Route</button>
+                <button id="run-drc">Check DRC</button>
                 <button id="layer-toggle">Layers</button>
                 <button id="export">Export</button>
                 <span class="status" id="status">Ready</span>
@@ -52,6 +54,7 @@
                     <button id="zoom-in">🔍+</button>
                     <button id="zoom-out">🔍-</button>
                     <button id="zoom-fit">Fit</button>
+                    <span class="zoom-level" id="zoom-level">100%</span>
                     <span class="coordinates" id="mouse-coords">0, 0</span>
                 </div>
                 
@@ -106,6 +109,13 @@
                     <button class="tool-btn" data-tool="measure">Measure</button>
                 </div>
                 
+                <h3>Net Visualization</h3>
+                <div class="tool-group">
+                    <button id="toggle-ratsnest" class="toggle-btn active">Ratsnest</button>
+                    <button id="toggle-net-labels" class="toggle-btn active">Net Labels</button>
+                    <button id="toggle-drc-markers" class="toggle-btn active">DRC Markers</button>
+                </div>
+                
                 <h3>Selection Info</h3>
                 <div class="selection-info" id="selection-info">
                     <div class="info-item">
@@ -149,6 +159,9 @@
     <script src="js/footprint-library.js"></script>
     <script src="js/pcb-renderer.js"></script>
     <script src="js/auto-placer.js"></script>
+    <script src="js/pcb-router.js"></script>
+    <script src="js/raster-visualizer.js"></script>
+    <script src="js/design-rule-checker.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

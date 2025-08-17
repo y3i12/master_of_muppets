@@ -278,6 +278,10 @@ class PCBRenderer {
         return null;
     }
 
+    getComponent(reference) {
+        return this.components.get(reference);
+    }
+
     exportComponents() {
         const components = [];
         for (const [ref, comp] of this.components) {

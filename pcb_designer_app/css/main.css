@@ -1,4 +1,113 @@
 /* PCB Designer Styles */
+
+/* PCB Trace Styles */
+.pcb-trace {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.pcb-trace:hover {
+    opacity: 1.0;
+    stroke-width: calc(attr(stroke-width) * 1.5) !important;
+}
+
+.pcb-via {
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.pcb-via:hover {
+    opacity: 1.0;
+    r: calc(attr(r) * 1.2) !important;
+}
+
+/* Ratsnest Styles */
+.ratsnest-layer {
+    pointer-events: auto;
+}
+
+.ratsnest-connection {
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.ratsnest-line {
+    stroke-linecap: round;
+    transition: stroke-width 0.2s ease;
+}
+
+.ratsnest-dot {
+    stroke: none;
+}
+
+.net-label {
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Toggle Button Styles */
+.toggle-btn {
+    background: #555;
+    color: #ccc;
+    border: 1px solid #666;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 2px;
+    transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+    background: #666;
+    color: #fff;
+}
+
+.toggle-btn.active {
+    background: #4CAF50;
+    color: white;
+    border-color: #45a049;
+}
+
+/* DRC Violation Styles */
+.violation-layer {
+    pointer-events: auto;
+}
+
+.violation-marker {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.violation-marker:hover {
+    transform: scale(1.2);
+}
+
+.violation-circle {
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.8));
+}
+
+.violation-marker[data-severity="error"] .violation-circle {
+    fill: #ff4444;
+    animation: pulse-error 2s infinite;
+}
+
+.violation-marker[data-severity="warning"] .violation-circle {
+    fill: #ffaa00;
+    animation: pulse-warning 3s infinite;
+}
+
+@keyframes pulse-error {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+@keyframes pulse-warning {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
 * {
     margin: 0;
     padding: 0;

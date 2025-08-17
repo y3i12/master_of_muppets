@@ -83,14 +83,15 @@ class AutonomousLearner:
         css_files = list(app_path.glob("css/*.css"))
         
         return {
+            "status": "found",
             "js_files": len(js_files),
             "css_files": len(css_files),
             "total_files": len(list(app_path.rglob("*"))),
             "improvements_needed": [
-                "Add zoom functionality",
-                "Implement routing preview",
-                "Add design rule checking",
-                "Optimize rendering performance"
+                "Optimize rendering performance",
+                "Add keyboard shortcuts",
+                "Improve error handling",
+                "Add undo/redo functionality"
             ]
         }
     
@@ -136,19 +137,26 @@ class AutonomousLearner:
         opportunities = []
         
         # PCB app improvements
-        if analysis["pcb_app_status"]["status"] != "not_found":
+        if analysis.get("pcb_app_status", {}).get("status") != "not_found":
             opportunities.extend([
                 {
                     "type": "feature",
                     "target": "pcb_app",
-                    "description": "Add zoom functionality to canvas",
-                    "impact": 7,
-                    "effort": 3
+                    "description": "Add undo/redo functionality",
+                    "impact": 8,
+                    "effort": 4
                 },
                 {
                     "type": "optimization",
                     "target": "pcb_app", 
-                    "description": "Optimize SVG rendering performance",
+                    "description": "Optimize large board rendering performance",
+                    "impact": 7,
+                    "effort": 3
+                },
+                {
+                    "type": "feature",
+                    "target": "pcb_app",
+                    "description": "Add keyboard shortcuts for tools",
                     "impact": 6,
                     "effort": 2
                 }

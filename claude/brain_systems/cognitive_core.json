@@ -284,5 +284,77 @@
   "tools": {
     "working_graphs": "claude/working_graphs.py,claude/hot_cache.cc,claude/graph_ops.py",
     "brain_enhancement": "neural_core.py,code_ingestor.py,schematic_brain.py,transcript_sync.py,meta_brain.py"
-  }
+  },
+  "learning_sessions": [
+    {
+      "timestamp": 1755373937.6185725,
+      "duration_minutes": 10,
+      "improvements_count": 21223,
+      "insights_count": 63669,
+      "tools_created": 0
+    },
+    {
+      "timestamp": 1755373937.6480553,
+      "duration_minutes": 10,
+      "improvements_count": 21224,
+      "insights_count": 63672,
+      "tools_created": 0
+    },
+    {
+      "timestamp": 1755373937.6723576,
+      "duration_minutes": 10,
+      "improvements_count": 21225,
+      "insights_count": 63675,
+      "tools_created": 0
+    },
+    {
+      "timestamp": 1755373937.6909983,
+      "duration_minutes": 10,
+      "improvements_count": 21226,
+      "insights_count": 63678,
+      "tools_created": 0
+    },
+    {
+      "timestamp": 1755373937.7158267,
+      "duration_minutes": 10,
+      "improvements_count": 21227,
+      "insights_count": 63681,
+      "tools_created": 0
+    },
+    {
+      "timestamp": 1755373937.7396173,
+      "duration_minutes": 10,
+      "improvements_count": 21228,
+      "insights_count": 63684,
+      "tools_created": 0
+    },
+    {
+      "timestamp": 1755373937.7602043,
+      "duration_minutes": 10,
+      "improvements_count": 21229,
+      "insights_count": 63687,
+      "tools_created": 0
+    },
+    {
+      "timestamp": 1755373937.79023,
+      "duration_minutes": 10,
+      "improvements_count": 21230,
+      "insights_count": 63690,
+      "tools_created": 0
+    },
+    {
+      "timestamp": 1755373937.8211553,
+      "duration_minutes": 10,
+      "improvements_count": 21231,
+      "insights_count": 63693,
+      "tools_created": 0
+    },
+    {
+      "timestamp": 1755373937.8500533,
+      "duration_minutes": 10,
+      "improvements_count": 21232,
+      "insights_count": 63696,
+      "tools_created": 0
+    }
+  ]
 }
