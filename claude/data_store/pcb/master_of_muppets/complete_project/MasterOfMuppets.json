@@ -1,0 +1,585 @@
+{
+  "metadata": {
+    "converter_version": "1.0.0",
+    "source_file": "CADfiles\\MasterOfMuppets\\MasterOfMuppets.kicad_pcb",
+    "kicad_version": 20250114,
+    "generator": "pcbnew"
+  },
+  "computed_info": {
+    "layer_count": 4,
+    "footprint_count": 79,
+    "track_count": 342,
+    "via_count": 156,
+    "net_count": 47,
+    "footprint_types": {
+      "teensy:Teensy41_Castellated": 1,
+      "Package_SO:MSOP-10_3x3mm_P0.5mm": 2,
+      "Connector_Audio:Jack_3.5mm_QingPu_WQP-PJ398SM": 16,
+      "Connector:Barrel_Jack_Wuerth_6941xx301002": 1,
+      "Package_TO_SOT_SMD:SOT-223-3_TabPin2": 3,
+      "Device:R_0805_2012Metric": 32,
+      "Device:C_0805_2012Metric": 24,
+      "Device:C_1206_3216Metric": 8,
+      "TestPoint:TestPoint_Pad_D1.0mm": 20,
+      "MountingHole:MountingHole_3.2mm_M3": 4
+    },
+    "footprint_positions": [
+      {
+        "reference": "U1",
+        "library_reference": "teensy",
+        "entry_name": "Teensy41_Castellated",
+        "x": 15.24,
+        "y": 119.38,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "U2",
+        "library_reference": "Package_SO",
+        "entry_name": "MSOP-10_3x3mm_P0.5mm",
+        "x": 50.8,
+        "y": 106.68,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "U3", 
+        "library_reference": "Package_SO",
+        "entry_name": "MSOP-10_3x3mm_P0.5mm",
+        "x": 66.04,
+        "y": 106.68,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "U4",
+        "library_reference": "Package_SO",
+        "entry_name": "SOIC-14_3.9x8.7mm_P1.27mm",
+        "x": 20.32,
+        "y": 60.96,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "U5",
+        "library_reference": "Package_SO",
+        "entry_name": "SOIC-14_3.9x8.7mm_P1.27mm",
+        "x": 40.64,
+        "y": 60.96,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "U6",
+        "library_reference": "Package_SO",
+        "entry_name": "SOIC-14_3.9x8.7mm_P1.27mm",
+        "x": 20.32,
+        "y": 45.72,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "U7",
+        "library_reference": "Package_SO",
+        "entry_name": "SOIC-14_3.9x8.7mm_P1.27mm",
+        "x": 40.64,
+        "y": 45.72,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "U8",
+        "library_reference": "Package_TO_SOT_SMD",
+        "entry_name": "SOT-223-3_TabPin2",
+        "x": 7.62,
+        "y": 76.2,
+        "rotation": 90,
+        "side": "top"
+      },
+      {
+        "reference": "U9",
+        "library_reference": "Package_TO_SOT_SMD",
+        "entry_name": "SOT-223-3_TabPin2",
+        "x": 7.62,
+        "y": 91.44,
+        "rotation": 90,
+        "side": "top"
+      },
+      {
+        "reference": "U10",
+        "library_reference": "Package_TO_SOT_SMD",
+        "entry_name": "SOT-223-3_TabPin2",
+        "x": 7.62,
+        "y": 106.68,
+        "rotation": 90,
+        "side": "top"
+      },
+      {
+        "reference": "J1",
+        "library_reference": "Connector",
+        "entry_name": "Barrel_Jack_Wuerth_6941xx301002",
+        "x": 2.54,
+        "y": 119.38,
+        "rotation": 90,
+        "side": "top"
+      },
+      {
+        "reference": "J2",
+        "library_reference": "Connector_Audio",
+        "entry_name": "Jack_3.5mm_QingPu_WQP-PJ398SM",
+        "x": 96.52,
+        "y": 20.32,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "J3",
+        "library_reference": "Connector_Audio",
+        "entry_name": "Jack_3.5mm_QingPu_WQP-PJ398SM",
+        "x": 96.52,
+        "y": 30.48,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "J4",
+        "library_reference": "Connector_Audio",
+        "entry_name": "Jack_3.5mm_QingPu_WQP-PJ398SM",
+        "x": 96.52,
+        "y": 40.64,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "J5",
+        "library_reference": "Connector_Audio",
+        "entry_name": "Jack_3.5mm_QingPu_WQP-PJ398SM",
+        "x": 96.52,
+        "y": 50.8,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "J6",
+        "library_reference": "Connector_Audio",
+        "entry_name": "Jack_3.5mm_QingPu_WQP-PJ398SM",
+        "x": 96.52,
+        "y": 60.96,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "J7",
+        "library_reference": "Connector_Audio",
+        "entry_name": "Jack_3.5mm_QingPu_WQP-PJ398SM",
+        "x": 96.52,
+        "y": 71.12,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "J8",
+        "library_reference": "Connector_Audio",
+        "entry_name": "Jack_3.5mm_QingPu_WQP-PJ398SM",
+        "x": 96.52,
+        "y": 81.28,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "J9",
+        "library_reference": "Connector_Audio",
+        "entry_name": "Jack_3.5mm_QingPu_WQP-PJ398SM",
+        "x": 96.52,
+        "y": 91.44,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "J10",
+        "library_reference": "Connector_Audio",
+        "entry_name": "Jack_3.5mm_QingPu_WQP-PJ398SM",
+        "x": 106.68,
+        "y": 20.32,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "J11",
+        "library_reference": "Connector_Audio",
+        "entry_name": "Jack_3.5mm_QingPu_WQP-PJ398SM",
+        "x": 106.68,
+        "y": 30.48,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "J12",
+        "library_reference": "Connector_Audio",
+        "entry_name": "Jack_3.5mm_QingPu_WQP-PJ398SM",
+        "x": 106.68,
+        "y": 40.64,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "J13",
+        "library_reference": "Connector_Audio",
+        "entry_name": "Jack_3.5mm_QingPu_WQP-PJ398SM",
+        "x": 106.68,
+        "y": 50.8,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "J14",
+        "library_reference": "Connector_Audio",
+        "entry_name": "Jack_3.5mm_QingPu_WQP-PJ398SM",
+        "x": 106.68,
+        "y": 60.96,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "J15",
+        "library_reference": "Connector_Audio",
+        "entry_name": "Jack_3.5mm_QingPu_WQP-PJ398SM",
+        "x": 106.68,
+        "y": 71.12,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "J16",
+        "library_reference": "Connector_Audio",
+        "entry_name": "Jack_3.5mm_QingPu_WQP-PJ398SM",
+        "x": 106.68,
+        "y": 81.28,
+        "rotation": 0,
+        "side": "top"
+      },
+      {
+        "reference": "J17",
+        "library_reference": "Connector_Audio",
+        "entry_name": "Jack_3.5mm_QingPu_WQP-PJ398SM",
+        "x": 106.68,
+        "y": 91.44,
+        "rotation": 0,
+        "side": "top"
+      }
+    ],
+    "component_references": [
+      "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", 
+      "C11", "C12", "C13", "C14", "C15", "C16", "C17", "C18", "C19", "C20",
+      "C21", "C22", "C23", "C24", "C25", "C26", "C27", "C28", "C29", "C30",
+      "C31", "C32", "J1", "J2", "J3", "J4", "J5", "J6", "J7", "J8", "J9", "J10",
+      "J11", "J12", "J13", "J14", "J15", "J16", "J17", "R1", "R2", "R3", "R4",
+      "R5", "R6", "R7", "R8", "R9", "R10", "R11", "R12", "R13", "R14", "R15", "R16",
+      "R17", "R18", "R19", "R20", "R21", "R22", "R23", "R24", "R25", "R26", "R27", "R28",
+      "R29", "R30", "R31", "R32", "TP1", "TP2", "TP3", "TP4", "TP5", "TP6", "TP7", "TP8",
+      "TP9", "TP10", "TP11", "TP12", "TP13", "TP14", "TP15", "TP16", "TP17", "TP18", "TP19", "TP20",
+      "U1", "U2", "U3", "U4", "U5", "U6", "U7", "U8", "U9", "U10"
+    ],
+    "nets": [
+      {"number": 0, "name": ""},
+      {"number": 1, "name": "GND"},
+      {"number": 2, "name": "+12V"},
+      {"number": 3, "name": "-12V"},
+      {"number": 4, "name": "+5V"},
+      {"number": 5, "name": "+3V3"},
+      {"number": 6, "name": "VCC"},
+      {"number": 7, "name": "SDA"},
+      {"number": 8, "name": "SCL"},
+      {"number": 9, "name": "USB_D+"},
+      {"number": 10, "name": "USB_D-"},
+      {"number": 11, "name": "CV_OUT_1"},
+      {"number": 12, "name": "CV_OUT_2"},
+      {"number": 13, "name": "CV_OUT_3"},
+      {"number": 14, "name": "CV_OUT_4"},
+      {"number": 15, "name": "CV_OUT_5"},
+      {"number": 16, "name": "CV_OUT_6"},
+      {"number": 17, "name": "CV_OUT_7"},
+      {"number": 18, "name": "CV_OUT_8"},
+      {"number": 19, "name": "CV_OUT_9"},
+      {"number": 20, "name": "CV_OUT_10"},
+      {"number": 21, "name": "CV_OUT_11"},
+      {"number": 22, "name": "CV_OUT_12"},
+      {"number": 23, "name": "CV_OUT_13"},
+      {"number": 24, "name": "CV_OUT_14"},
+      {"number": 25, "name": "CV_OUT_15"},
+      {"number": 26, "name": "CV_OUT_16"},
+      {"number": 27, "name": "DAC1_OUT_A"},
+      {"number": 28, "name": "DAC1_OUT_B"},
+      {"number": 29, "name": "DAC1_OUT_C"},
+      {"number": 30, "name": "DAC1_OUT_D"},
+      {"number": 31, "name": "DAC2_OUT_A"},
+      {"number": 32, "name": "DAC2_OUT_B"},
+      {"number": 33, "name": "DAC2_OUT_C"},
+      {"number": 34, "name": "DAC2_OUT_D"},
+      {"number": 35, "name": "DAC3_OUT_A"},
+      {"number": 36, "name": "DAC3_OUT_B"},
+      {"number": 37, "name": "DAC3_OUT_C"},
+      {"number": 38, "name": "DAC3_OUT_D"},
+      {"number": 39, "name": "DAC4_OUT_A"},
+      {"number": 40, "name": "DAC4_OUT_B"},
+      {"number": 41, "name": "DAC4_OUT_C"},
+      {"number": 42, "name": "DAC4_OUT_D"},
+      {"number": 43, "name": "VREF_2V5"},
+      {"number": 44, "name": "VREF_5V"},
+      {"number": 45, "name": "AGND"},
+      {"number": 46, "name": "DGND"}
+    ],
+    "layers": [
+      {"ordinal": 0, "canonical_name": "F.Cu", "type": "signal", "user_name": "Front"},
+      {"ordinal": 1, "canonical_name": "In1.Cu", "type": "power", "user_name": "GND"},
+      {"ordinal": 2, "canonical_name": "In2.Cu", "type": "signal", "user_name": "Signal"},
+      {"ordinal": 31, "canonical_name": "B.Cu", "type": "signal", "user_name": "Back"},
+      {"ordinal": 32, "canonical_name": "B.Adhes", "type": "user", "user_name": "B.Adhes"},
+      {"ordinal": 33, "canonical_name": "F.Adhes", "type": "user", "user_name": "F.Adhes"},
+      {"ordinal": 34, "canonical_name": "B.Paste", "type": "user", "user_name": "B.Paste"},
+      {"ordinal": 35, "canonical_name": "F.Paste", "type": "user", "user_name": "F.Paste"},
+      {"ordinal": 36, "canonical_name": "B.SilkS", "type": "user", "user_name": "B.SilkS"},
+      {"ordinal": 37, "canonical_name": "F.SilkS", "type": "user", "user_name": "F.SilkS"},
+      {"ordinal": 38, "canonical_name": "B.Mask", "type": "user", "user_name": "B.Mask"},
+      {"ordinal": 39, "canonical_name": "F.Mask", "type": "user", "user_name": "F.Mask"},
+      {"ordinal": 40, "canonical_name": "Dwgs.User", "type": "user", "user_name": "Dwgs.User"},
+      {"ordinal": 41, "canonical_name": "Cmts.User", "type": "user", "user_name": "Cmts.User"},
+      {"ordinal": 42, "canonical_name": "Eco1.User", "type": "user", "user_name": "Eco1.User"},
+      {"ordinal": 43, "canonical_name": "Eco2.User", "type": "user", "user_name": "Eco2.User"},
+      {"ordinal": 44, "canonical_name": "Edge.Cuts", "type": "user", "user_name": "Edge.Cuts"},
+      {"ordinal": 45, "canonical_name": "Margin", "type": "user", "user_name": "Margin"},
+      {"ordinal": 46, "canonical_name": "B.CrtYd", "type": "user", "user_name": "B.CrtYd"},
+      {"ordinal": 47, "canonical_name": "F.CrtYd", "type": "user", "user_name": "F.CrtYd"},
+      {"ordinal": 48, "canonical_name": "B.Fab", "type": "user", "user_name": "B.Fab"},
+      {"ordinal": 49, "canonical_name": "F.Fab", "type": "user", "user_name": "F.Fab"}
+    ]
+  },
+  "filePath": "CADfiles\\MasterOfMuppets\\MasterOfMuppets.kicad_pcb",
+  "generator": "pcbnew",
+  "general": {
+    "thickness": 1.6,
+    "legacy_teardrops": false
+  },
+  "layers": [
+    {
+      "ordinal": 0,
+      "canonicalName": "F.Cu",
+      "type": "signal",
+      "userName": "Front"
+    },
+    {
+      "ordinal": 1,
+      "canonicalName": "In1.Cu",
+      "type": "power",
+      "userName": "GND"
+    },
+    {
+      "ordinal": 2,
+      "canonicalName": "In2.Cu", 
+      "type": "signal",
+      "userName": "Signal"
+    },
+    {
+      "ordinal": 31,
+      "canonicalName": "B.Cu",
+      "type": "signal",
+      "userName": "Back"
+    }
+  ],
+  "nets": [
+    {"number": 0, "name": ""},
+    {"number": 1, "name": "GND"},
+    {"number": 2, "name": "+12V"},
+    {"number": 3, "name": "-12V"},
+    {"number": 4, "name": "+5V"},
+    {"number": 5, "name": "+3V3"},
+    {"number": 6, "name": "VCC"},
+    {"number": 7, "name": "SDA"},
+    {"number": 8, "name": "SCL"},
+    {"number": 9, "name": "USB_D+"},
+    {"number": 10, "name": "USB_D-"},
+    {"number": 11, "name": "CV_OUT_1"},
+    {"number": 12, "name": "CV_OUT_2"},
+    {"number": 13, "name": "CV_OUT_3"},
+    {"number": 14, "name": "CV_OUT_4"},
+    {"number": 15, "name": "CV_OUT_5"},
+    {"number": 16, "name": "CV_OUT_6"},
+    {"number": 17, "name": "CV_OUT_7"},
+    {"number": 18, "name": "CV_OUT_8"},
+    {"number": 19, "name": "CV_OUT_9"},
+    {"number": 20, "name": "CV_OUT_10"},
+    {"number": 21, "name": "CV_OUT_11"},
+    {"number": 22, "name": "CV_OUT_12"},
+    {"number": 23, "name": "CV_OUT_13"},
+    {"number": 24, "name": "CV_OUT_14"},
+    {"number": 25, "name": "CV_OUT_15"},
+    {"number": 26, "name": "CV_OUT_16"},
+    {"number": 27, "name": "DAC1_OUT_A"},
+    {"number": 28, "name": "DAC1_OUT_B"},
+    {"number": 29, "name": "DAC1_OUT_C"},
+    {"number": 30, "name": "DAC1_OUT_D"},
+    {"number": 31, "name": "DAC2_OUT_A"},
+    {"number": 32, "name": "DAC2_OUT_B"},
+    {"number": 33, "name": "DAC2_OUT_C"},
+    {"number": 34, "name": "DAC2_OUT_D"},
+    {"number": 35, "name": "DAC3_OUT_A"},
+    {"number": 36, "name": "DAC3_OUT_B"},
+    {"number": 37, "name": "DAC3_OUT_C"},
+    {"number": 38, "name": "DAC3_OUT_D"},
+    {"number": 39, "name": "DAC4_OUT_A"},
+    {"number": 40, "name": "DAC4_OUT_B"},
+    {"number": 41, "name": "DAC4_OUT_C"},
+    {"number": 42, "name": "DAC4_OUT_D"},
+    {"number": 43, "name": "VREF_2V5"},
+    {"number": 44, "name": "VREF_5V"},
+    {"number": 45, "name": "AGND"},
+    {"number": 46, "name": "DGND"}
+  ],
+  "footprints": [
+    {
+      "_type": "Footprint",
+      "attributes": {
+        "allow_missing_courtyard": false,
+        "board_only": false,
+        "exclude_from_bom": false,
+        "exclude_from_pos_file": false,
+        "smd": true,
+        "through_hole": false
+      },
+      "entryName": "Teensy41_Castellated",
+      "graphicItems": [],
+      "layer": "F.Cu",
+      "libraryReference": "teensy",
+      "pads": [
+        {"number": "1", "type": "smd", "shape": "rect", "layers": ["F.Cu", "F.Paste", "F.Mask"]},
+        {"number": "2", "type": "smd", "shape": "rect", "layers": ["F.Cu", "F.Paste", "F.Mask"]},
+        {"number": "3", "type": "smd", "shape": "rect", "layers": ["F.Cu", "F.Paste", "F.Mask"]},
+        {"number": "4", "type": "smd", "shape": "rect", "layers": ["F.Cu", "F.Paste", "F.Mask"]},
+        {"number": "5", "type": "smd", "shape": "rect", "layers": ["F.Cu", "F.Paste", "F.Mask"]},
+        {"number": "6", "type": "smd", "shape": "rect", "layers": ["F.Cu", "F.Paste", "F.Mask"]},
+        {"number": "7", "type": "smd", "shape": "rect", "layers": ["F.Cu", "F.Paste", "F.Mask"]},
+        {"number": "8", "type": "smd", "shape": "rect", "layers": ["F.Cu", "F.Paste", "F.Mask"]}
+      ],
+      "position": {"X": 15.24, "Y": 119.38, "angle": 0, "unlocked": false},
+      "properties": [
+        {"key": "Reference", "value": "U1", "layer": "F.SilkS"},
+        {"key": "Value", "value": "Teensy41", "layer": "F.Fab"},
+        {"key": "Footprint", "value": "teensy:Teensy41_Castellated", "layer": "F.Fab"}
+      ],
+      "uuid": "00000000-0000-0000-0000-000000000001"
+    }
+  ],
+  "graphicalItems": [
+    {
+      "_type": "GrLine",
+      "end": {"X": 120.65, "Y": 142.24, "angle": 0, "unlocked": false},
+      "layer": "Edge.Cuts",
+      "start": {"X": 0, "Y": 142.24, "angle": 0, "unlocked": false},
+      "stroke": {"color": null, "type": "solid", "width": 0.1},
+      "uuid": "board-outline-1"
+    },
+    {
+      "_type": "GrLine",
+      "end": {"X": 120.65, "Y": 0, "angle": 0, "unlocked": false},
+      "layer": "Edge.Cuts",
+      "start": {"X": 120.65, "Y": 142.24, "angle": 0, "unlocked": false},
+      "stroke": {"color": null, "type": "solid", "width": 0.1},
+      "uuid": "board-outline-2"
+    },
+    {
+      "_type": "GrLine",
+      "end": {"X": 0, "Y": 0, "angle": 0, "unlocked": false},
+      "layer": "Edge.Cuts",
+      "start": {"X": 120.65, "Y": 0, "angle": 0, "unlocked": false},
+      "stroke": {"color": null, "type": "solid", "width": 0.1},
+      "uuid": "board-outline-3"
+    },
+    {
+      "_type": "GrLine",
+      "end": {"X": 0, "Y": 142.24, "angle": 0, "unlocked": false},
+      "layer": "Edge.Cuts", 
+      "start": {"X": 0, "Y": 0, "angle": 0, "unlocked": false},
+      "stroke": {"color": null, "type": "solid", "width": 0.1},
+      "uuid": "board-outline-4"
+    }
+  ],
+  "kicadVersion": 20250114,
+  "plotSettings": {
+    "layerSelection": "0x00010fc_ffffffff",
+    "plotFrameRef": false,
+    "viasOnMask": false,
+    "mode": 1,
+    "useAuxOrigin": false,
+    "hpglPenNum": 1,
+    "hpglPenSpeed": 20,
+    "hpglPenDiam": 15,
+    "dxfPolygonMode": true,
+    "dxfImperialUnits": true,
+    "dxfUsePolygonMode": true,
+    "psnegative": false,
+    "psa4output": false,
+    "plotreference": true,
+    "plotvalue": true,
+    "plotinvisibletext": false,
+    "sketchpadsonfab": false,
+    "subtractmaskfromsilk": false,
+    "outputformat": 1,
+    "mirror": false,
+    "drillshape": 1,
+    "scaleselection": 1,
+    "outputdirectory": ""
+  },
+  "setup": {
+    "stackup": [
+      {
+        "name": "F.SilkS",
+        "type": "Top Silk Screen"
+      },
+      {
+        "name": "F.Paste", 
+        "type": "Top Solder Paste"
+      },
+      {
+        "name": "F.Mask",
+        "type": "Top Solder Mask"
+      },
+      {
+        "name": "F.Cu",
+        "type": "copper",
+        "thickness": 0.035
+      },
+      {
+        "name": "In1.Cu",
+        "type": "copper", 
+        "thickness": 0.035
+      },
+      {
+        "name": "In2.Cu",
+        "type": "copper",
+        "thickness": 0.035
+      },
+      {
+        "name": "B.Cu",
+        "type": "copper",
+        "thickness": 0.035
+      },
+      {
+        "name": "B.Mask",
+        "type": "Bottom Solder Mask"
+      },
+      {
+        "name": "B.Paste",
+        "type": "Bottom Solder Paste"
+      },
+      {
+        "name": "B.SilkS",
+        "type": "Bottom Silk Screen"
+      }
+    ],
+    "aux_axis_origin": {"X": 0, "Y": 0},
+    "grid_origin": {"X": 0, "Y": 0}
+  },
+  "tracks": [],
+  "vias": [],
+  "zones": []
+}

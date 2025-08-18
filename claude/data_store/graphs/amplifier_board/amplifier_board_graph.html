@@ -4,6 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Amplifier Board - Circuit Graph</title>
+    <!-- 
+    CORS Notice: If opening this file directly (file:// protocol), 
+    fetch requests will be blocked by browser security.
+    
+    To run properly with full PCB data:
+    1. From project root, run: python -m http.server 8000
+    2. Or use: npx http-server -p 8000  
+    3. Then open: http://localhost:8000/claude/data_store/graphs/amplifier_board/amplifier_board_graph.html
+    
+    Fallback data is embedded for direct file opening.
+    -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.26.0/cytoscape.min.js"></script>
     <style>
         body {
@@ -163,75 +174,360 @@
     </div>
     
     <script>
-        // Embedded graph data from AmpBoard.json
+        // Graph data will be loaded from PCB JSON
         const graphData = {
-            nodes: [
-                {"id": "POW0", "label": "POW0\n24V", "x": 81.28, "y": -68.58, "class": "connector"},
-                {"id": "R10", "label": "R10\n1R_1/2W", "x": 193.04, "y": -104.14, "class": "resistor"},
-                {"id": "R1", "label": "R1\n100K-1/4W", "x": 116.84, "y": -81.28, "class": "resistor"},
-                {"id": "OUT0", "label": "OUT0\nSPK", "x": 213.36, "y": -111.76, "class": "connector"},
-                {"id": "C7", "label": "C7\n220uf-25v", "x": 185.42, "y": -101.6, "class": "capacitor"},
-                {"id": "C3", "label": "C3\n47uf-25v", "x": 127, "y": -124.46, "class": "capacitor"},
-                {"id": "Q2", "label": "Q2\nBD439", "x": 190.5, "y": -81.28, "class": "transistor"},
-                {"id": "R5", "label": "R5\n1K5-1/4W", "x": 147.32, "y": -73.66, "class": "resistor"},
-                {"id": "Q1", "label": "Q1\nBC560", "x": 137.16, "y": -111.76, "class": "transistor"},
-                {"id": "#GND3", "label": "#GND3\nGNDA", "x": 83.82, "y": -144.78, "class": "ground"},
-                {"id": "C8", "label": "C8\n1000uf-25v", "x": 210.82, "y": -91.44, "class": "capacitor"},
-                {"id": "IN0", "label": "IN0\nAUDIO", "x": 83.82, "y": -114.3, "class": "connector"},
-                {"id": "C5", "label": "C5\n150nf-63v", "x": 157.48, "y": -73.66, "class": "capacitor"},
-                {"id": "Q3", "label": "Q3\nBD439", "x": 190.5, "y": -119.38, "class": "transistor"},
-                {"id": "R7", "label": "R7\n100R-1/4W", "x": 152.4, "y": -111.76, "class": "resistor"},
-                {"id": "#P+1", "label": "#P+1\n+24V", "x": 88.9, "y": -63.5, "class": "power"},
-                {"id": "C6", "label": "C6\n220uf-25v", "x": 152.4, "y": -124.46, "class": "capacitor"},
-                {"id": "C4", "label": "C4\n100uf-35v", "x": 132.08, "y": -66.04, "class": "capacitor"},
-                {"id": "R4", "label": "R4\n8K2-1/4W", "x": 139.7, "y": -127, "class": "resistor"},
-                {"id": "C2", "label": "C2\n10uf-63v", "x": 106.68, "y": -111.76, "class": "capacitor"},
-                {"id": "R2", "label": "R2\n12K-1/4W", "x": 116.84, "y": -127, "class": "resistor"},
-                {"id": "R9", "label": "R9\n100R-1/4W", "x": 177.8, "y": -104.14, "class": "resistor"},
-                {"id": "R6", "label": "R6\n2K7-1/4W", "x": 152.4, "y": -91.44, "class": "resistor"},
-                {"id": "S1", "label": "S1\n2P2T", "x": 165.1, "y": -83.82, "class": "switch"},
-                {"id": "R8", "label": "R8\n560R_1/2W", "x": 177.8, "y": -68.58, "class": "resistor"},
-                {"id": "R3", "label": "R3\n47K-1/4W", "x": 127, "y": -101.6, "class": "resistor"},
-                {"id": "#GND2", "label": "#GND2\nGNDA", "x": 132.08, "y": -78.74, "class": "ground"},
-                {"id": "#GND1", "label": "#GND1\nGNDA", "x": 81.28, "y": -83.82, "class": "ground"}
-            ],
+            nodes: [],
             edges: []
         };
 
-        // Function to load nets from JSON file
-        async function loadNetsFromJson() {
+        // Function to load all PCB data in one request
+        async function loadPCBData() {
             try {
-                const response = await fetch('../schematics/amplifier_board/complete_project/AmpBoard.json');
-                const jsonData = await response.json();
-                
-                if (jsonData.netConnectivity && jsonData.netConnectivity.nets) {
-                    return jsonData.netConnectivity.nets;
-                } else {
-                    console.error('No netConnectivity data found in JSON');
-                    return [];
+                // Check if we're running from file:// protocol
+                if (window.location.protocol === 'file:') {
+                    console.warn('Running from file:// protocol. CORS will block fetch requests.');
+                    console.warn('To fix this, either:');
+                    console.warn('1. Run: python -m http.server 8000 (from the project root)');
+                    console.warn('2. Or use: npx http-server -p 8000');
+                    console.warn('3. Then open: http://localhost:8000/claude/data_store/graphs/amplifier_board/amplifier_board_graph.html');
+                    
+                    // Return fallback data for file:// protocol
+                    return getFallbackPCBData();
                 }
+                
+                const response = await fetch('../../pcb/amplifier_board/complete_project/AmpBoard.json');
+                const pcbData = await response.json();
+                return pcbData;
             } catch (error) {
-                console.error('Error loading AmpBoard.json:', error);
-                // Fallback to hardcoded nets if JSON loading fails
-                return [
-                    {components: ["C3", "#GND3", "IN0", "Q3", "C6", "R4", "R2"]},
-                    {components: ["R10", "C7", "Q3", "R9"]},
-                    {components: ["R10", "C7", "Q2", "C8", "R6", "S1"]},
-                    {components: ["Q1", "Q3", "R4"]},
-                    {components: ["POW0", "#P+1"]},
-                    {components: ["R10", "C7", "Q2", "R9", "R8"]},
-                    {components: ["IN0", "C2"]},
-                    {components: ["C5", "R8"]},
-                    {components: ["R7", "C6"]},
-                    {components: ["C4", "#GND2"]},
-                    {components: ["#GND1", "POW0"]},
-                    {components: ["R5", "C5"]},
-                    {components: ["R6", "#GND2", "Q1", "R5", "R7"]},
-                    {components: ["OUT0", "C8"]},
-                    {components: ["R1", "#P+1", "C4", "R8", "Q2"]},
-                    {components: ["R3", "C2", "Q1"]},
-                    {components: ["R1", "R2", "R3", "C3"]}
-                ];
+                console.error('Error loading PCB AmpBoard.json:', error);
+                console.warn('Falling back to embedded data...');
+                return getFallbackPCBData();
+            }
+        }
+
+        // Fallback PCB data when fetch fails (extracted key data from AmpBoard.json)
+        function getFallbackPCBData() {
+            return {
+                computed_info: {
+                    footprint_positions: [
+                        {"reference": "POW0", "x": 81.28, "y": -68.58, "rotation": 0, "entry_name": "WEIDMULLER_PM5.08_2", "library_reference": "Connector_Phoenix_MSTB"},
+                        {"reference": "R10", "x": 193.04, "y": -104.14, "rotation": 0, "entry_name": "0204_7_420", "library_reference": "Resistor_THT"},
+                        {"reference": "R1", "x": 116.84, "y": -81.28, "rotation": 0, "entry_name": "0204_7_420", "library_reference": "Resistor_THT"},
+                        {"reference": "OUT0", "x": 213.36, "y": -111.76, "rotation": 0, "entry_name": "WEIDMULLER_PM5.08_2", "library_reference": "Connector_Phoenix_MSTB"},
+                        {"reference": "C7", "x": 185.42, "y": -101.6, "rotation": 0, "entry_name": "E3,5-8_420", "library_reference": "Capacitor_THT"},
+                        {"reference": "C3", "x": 127, "y": -124.46, "rotation": 0, "entry_name": "E2-5_420", "library_reference": "Capacitor_THT"},
+                        {"reference": "Q2", "x": 190.5, "y": -81.28, "rotation": 0, "entry_name": "TO126AV_400", "library_reference": "Package_TO_SOT_THT"},
+                        {"reference": "R5", "x": 147.32, "y": -73.66, "rotation": 0, "entry_name": "0204_7_420", "library_reference": "Resistor_THT"},
+                        {"reference": "Q1", "x": 137.16, "y": -111.76, "rotation": 0, "entry_name": "TO92-EBC_399", "library_reference": "Package_TO_SOT_THT"},
+                        {"reference": "C8", "x": 210.82, "y": -91.44, "rotation": 0, "entry_name": "E5-13_420", "library_reference": "Capacitor_THT"},
+                        {"reference": "IN0", "x": 83.82, "y": -114.3, "rotation": 0, "entry_name": "WEIDMULLER_PM5.08_2", "library_reference": "Connector_Phoenix_MSTB"},
+                        {"reference": "C5", "x": 157.48, "y": -73.66, "rotation": 0, "entry_name": "C050-025X075_420", "library_reference": "Capacitor_THT"},
+                        {"reference": "Q3", "x": 190.5, "y": -119.38, "rotation": 0, "entry_name": "TO126AV_400", "library_reference": "Package_TO_SOT_THT"},
+                        {"reference": "R7", "x": 152.4, "y": -111.76, "rotation": 0, "entry_name": "0204_7_420", "library_reference": "Resistor_THT"},
+                        {"reference": "C6", "x": 152.4, "y": -124.46, "rotation": 0, "entry_name": "E3,5-8_420", "library_reference": "Capacitor_THT"},
+                        {"reference": "C4", "x": 132.08, "y": -66.04, "rotation": 0, "entry_name": "E3,5-8_420", "library_reference": "Capacitor_THT"},
+                        {"reference": "R4", "x": 139.7, "y": -127, "rotation": 0, "entry_name": "0204_7_420", "library_reference": "Resistor_THT"},
+                        {"reference": "C2", "x": 106.68, "y": -111.76, "rotation": 0, "entry_name": "E2,5-6_420", "library_reference": "Capacitor_THT"},
+                        {"reference": "R2", "x": 116.84, "y": -127, "rotation": 0, "entry_name": "0204_7_420", "library_reference": "Resistor_THT"},
+                        {"reference": "R9", "x": 177.8, "y": -104.14, "rotation": 0, "entry_name": "0204_7_420", "library_reference": "Resistor_THT"},
+                        {"reference": "R6", "x": 152.4, "y": -91.44, "rotation": 0, "entry_name": "0204_7_420", "library_reference": "Resistor_THT"},
+                        {"reference": "S1", "x": 165.1, "y": -83.82, "rotation": 0, "entry_name": "2P2T_380", "library_reference": "Button_Switch_THT"},
+                        {"reference": "R8", "x": 177.8, "y": -68.58, "rotation": 0, "entry_name": "0204_7_420", "library_reference": "Resistor_THT"},
+                        {"reference": "R3", "x": 127, "y": -101.6, "rotation": 0, "entry_name": "0204_7_420", "library_reference": "Resistor_THT"}
+                    ]
+                },
+                footprints: [
+                    {
+                        properties: {"Reference": "POW0", "Value": "24V"},
+                        pads: [
+                            {net: {number: 11, name: "+24V"}},
+                            {net: {number: 12, name: "GNDA"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "R10", "Value": "1R_1/2W"},
+                        pads: [
+                            {net: {number: 1, name: "N$1"}},
+                            {net: {number: 2, name: "N$2"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "R1", "Value": "100K-1/4W"},
+                        pads: [
+                            {net: {number: 11, name: "+24V"}},
+                            {net: {number: 3, name: "N$3"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "OUT0", "Value": "SPK"},
+                        pads: [
+                            {net: {number: 1, name: "N$1"}},
+                            {net: {number: 12, name: "GNDA"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "C7", "Value": "220uf-25v"},
+                        pads: [
+                            {net: {number: 1, name: "N$1"}},
+                            {net: {number: 2, name: "N$2"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "C3", "Value": "47uf-25v"},
+                        pads: [
+                            {net: {number: 3, name: "N$3"}},
+                            {net: {number: 12, name: "GNDA"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "Q2", "Value": "BD439"},
+                        pads: [
+                            {net: {number: 4, name: "N$4"}},
+                            {net: {number: 5, name: "N$5"}},
+                            {net: {number: 2, name: "N$2"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "R5", "Value": "1K5-1/4W"},
+                        pads: [
+                            {net: {number: 6, name: "N$6"}},
+                            {net: {number: 7, name: "N$7"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "Q1", "Value": "BC560C"},
+                        pads: [
+                            {net: {number: 8, name: "N$8"}},
+                            {net: {number: 6, name: "N$6"}},
+                            {net: {number: 9, name: "N$9"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "C8", "Value": "1000uf-25v"},
+                        pads: [
+                            {net: {number: 1, name: "N$1"}},
+                            {net: {number: 12, name: "GNDA"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "IN0", "Value": "AUDIO"},
+                        pads: [
+                            {net: {number: 10, name: "N$10"}},
+                            {net: {number: 12, name: "GNDA"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "C5", "Value": "150nf-63v"},
+                        pads: [
+                            {net: {number: 7, name: "N$7"}},
+                            {net: {number: 12, name: "GNDA"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "Q3", "Value": "BD439"},
+                        pads: [
+                            {net: {number: 13, name: "N$13"}},
+                            {net: {number: 14, name: "N$14"}},
+                            {net: {number: 1, name: "N$1"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "R7", "Value": "100R-1/4W"},
+                        pads: [
+                            {net: {number: 9, name: "N$9"}},
+                            {net: {number: 15, name: "N$15"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "C6", "Value": "220uf-25v"},
+                        pads: [
+                            {net: {number: 15, name: "N$15"}},
+                            {net: {number: 12, name: "GNDA"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "C4", "Value": "100uf-35v"},
+                        pads: [
+                            {net: {number: 11, name: "+24V"}},
+                            {net: {number: 12, name: "GNDA"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "R4", "Value": "8K2-1/4W"},
+                        pads: [
+                            {net: {number: 3, name: "N$3"}},
+                            {net: {number: 16, name: "N$16"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "C2", "Value": "10uf-63v"},
+                        pads: [
+                            {net: {number: 10, name: "N$10"}},
+                            {net: {number: 8, name: "N$8"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "R2", "Value": "12K-1/4W"},
+                        pads: [
+                            {net: {number: 3, name: "N$3"}},
+                            {net: {number: 12, name: "GNDA"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "R9", "Value": "100R-1/4W"},
+                        pads: [
+                            {net: {number: 2, name: "N$2"}},
+                            {net: {number: 17, name: "N$17"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "R6", "Value": "2K7-1/4W"},
+                        pads: [
+                            {net: {number: 6, name: "N$6"}},
+                            {net: {number: 5, name: "N$5"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "S1", "Value": "2P2T"},
+                        pads: [
+                            {net: {number: 4, name: "N$4"}},
+                            {net: {number: 7, name: "N$7"}},
+                            {net: {number: 18, name: "N$18"}},
+                            {net: {number: 12, name: "GNDA"}},
+                            {net: {number: 5, name: "N$5"}},
+                            {net: {number: 17, name: "N$17"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "R8", "Value": "560R_1/2W"},
+                        pads: [
+                            {net: {number: 4, name: "N$4"}},
+                            {net: {number: 7, name: "N$7"}}
+                        ]
+                    },
+                    {
+                        properties: {"Reference": "R3", "Value": "47K-1/4W"},
+                        pads: [
+                            {net: {number: 8, name: "N$8"}},
+                            {net: {number: 3, name: "N$3"}}
+                        ]
+                    }
+                ]
+            };
+        }
+
+        // Function to extract component positions from PCB data
+        function getComponentPositions(pcbData) {
+            if (pcbData && pcbData.computed_info && pcbData.computed_info.footprint_positions) {
+                return pcbData.computed_info.footprint_positions;
+            } else {
+                console.error('No footprint_positions data found in PCB JSON');
+                return [];
+            }
+        }
+
+        // Function to extract net connectivity from PCB data
+        function getNetsFromPCB(pcbData) {
+            if (!pcbData) return [];
+            
+            // Create net to components mapping
+            const netToComponents = new Map();
+            
+            // Extract net connectivity from footprint pads
+            if (pcbData.footprints) {
+                for (const footprint of pcbData.footprints) {
+                    let componentRef = '';
+                    
+                    // Get component reference
+                    const properties = footprint.properties || {};
+                    if (typeof properties === 'object') {
+                        componentRef = properties.Reference || '';
+                    }
+                    
+                    if (!componentRef) continue;
+                    
+                    // Process each pad to find net connections
+                    const pads = footprint.pads || [];
+                    for (const pad of pads) {
+                        const netInfo = pad.net;
+                        if (netInfo && netInfo.number !== undefined && netInfo.number > 0) {
+                            const netNumber = netInfo.number;
+                            const netName = netInfo.name || `N$${netNumber}`;
+                            
+                            if (!netToComponents.has(netNumber)) {
+                                netToComponents.set(netNumber, {
+                                    name: netName,
+                                    number: netNumber,
+                                    components: []
+                                });
+                            }
+                            
+                            const net = netToComponents.get(netNumber);
+                            if (!net.components.includes(componentRef)) {
+                                net.components.push(componentRef);
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Convert to array format expected by netsToEdges function
+            const nets = Array.from(netToComponents.values()).filter(net => net.components.length >= 2);
+            
+            console.log('Extracted nets from PCB:', nets);
+            return nets;
+        }
+
+        // Function to extract component values from PCB data
+        function getComponentValues(pcbData) {
+            if (!pcbData) return {};
+            
+            const componentValues = {};
+            
+            // Extract component values from footprints
+            if (pcbData.footprints) {
+                for (const footprint of pcbData.footprints) {
+                    let reference = '';
+                    let value = '';
+                    
+                    // Extract reference and value from properties
+                    const properties = footprint.properties || {};
+                    if (typeof properties === 'object') {
+                        reference = properties.Reference || '';
+                        value = properties.Value || '';
+                    }
+                    
+                    if (reference) {
+                        componentValues[reference] = value;
+                    }
+                }
+            }
+            
+            return componentValues;
+        }
+
+        // Function to determine component class based on footprint type and reference
+        function getComponentClass(reference, entryName, description) {
+            const ref = reference.toUpperCase();
+            const footprint = (entryName || '').toLowerCase();
+            const desc = (description || '').toLowerCase();
+            
+            if (ref.startsWith('R')) {
+                return 'resistor';
+            } else if (ref.startsWith('C')) {
+                return 'capacitor';
+            } else if (ref.startsWith('Q') || ref.startsWith('U')) {
+                return 'transistor';
+            } else if (ref.includes('GND')) {
+                return 'ground';
+            } else if (ref.startsWith('#P') || ref.includes('+') || ref.includes('PWR')) {
+                return 'power';
+            } else if (ref.startsWith('S') || footprint.includes('switch')) {
+                return 'switch';
+            } else if (ref.startsWith('J') || ref.startsWith('IN') || ref.startsWith('OUT') || ref.startsWith('POW') || footprint.includes('connector') || footprint.includes('weidmuller')) {
+                return 'connector';
+            } else {
+                return 'resistor'; // default
             }
         }
 
@@ -270,11 +566,53 @@
         
         // Function to initialize Cytoscape with loaded data
         async function initializeCytoscape() {
-            // Load nets from JSON
-            const nets = await loadNetsFromJson();
+            // Load PCB data in a single request
+            console.log('Loading PCB data...');
+            const pcbData = await loadPCBData();
+            
+            if (!pcbData) {
+                console.error('Failed to load PCB data');
+                return;
+            }
+            
+            // Extract all needed data from the loaded PCB data
+            const componentPositions = getComponentPositions(pcbData);
+            const componentValues = getComponentValues(pcbData);
+            const nets = getNetsFromPCB(pcbData);
+            
+            // Build nodes from PCB component positions
+            graphData.nodes = [];
+            for (const position of componentPositions) {
+                if (!position.reference) continue; // Skip components without references
+                
+                const reference = position.reference;
+                const value = componentValues[reference] || '';
+                const componentClass = getComponentClass(
+                    reference, 
+                    position.entry_name, 
+                    position.library_reference
+                );
+                
+                graphData.nodes.push({
+                    id: reference,
+                    label: `${reference}${value ? '\n' + value : ''}`,
+                    x: position.x || 0,
+                    y: position.y || 0,
+                    rotation: position.rotation || 0,
+                    class: componentClass,
+                    footprint: position.entry_name || '',
+                    library: position.library_reference || ''
+                });
+            }
+            
+            // All components should now come from PCB data only
+            
+            // Generate edges from nets
             graphData.edges = netsToEdges(nets);
             
-            console.log('Loaded', nets.length, 'nets from JSON, generated', graphData.edges.length, 'edges');
+            console.log('Loaded', componentPositions.length, 'component positions from PCB');
+            console.log('Built', graphData.nodes.length, 'nodes total');
+            console.log('Loaded', nets.length, 'nets from PCB, generated', graphData.edges.length, 'edges');
             
             cy = cytoscape({
             container: document.getElementById('cy'),
@@ -565,9 +903,6 @@
                 button.textContent = 'Stop Physics';
                 button.style.backgroundColor = '#f44336';
             }
-        }
-
-            });
         }
         
         // Initialize everything when page loads

@@ -1,0 +1,225 @@
+{
+  "project_info": {
+    "name": "Master of Muppets PCB",
+    "description": "USB MIDI to 16-channel CV (0-10V) converter PCB layout on Teensy 4.1",
+    "purpose": "PCB implementation of USB MIDI to analog control voltages converter",
+    "main_controller": "Teensy 4.1",
+    "board_size": "100mm x 160mm (estimated)",
+    "layer_count": 4,
+    "output_specification": "16 channels, 0-10V CV range"
+  },
+  
+  "pcb_hierarchy": {
+    "main_pcb": "complete_project/MasterOfMuppets.json",
+    "description": "Single PCB design with modular layout sections",
+    "sections": [
+      {
+        "name": "teensy_section",
+        "purpose": "Teensy 4.1 microcontroller placement",
+        "components": ["Teensy 4.1", "USB connector", "Power input"],
+        "location": "Top-left quadrant"
+      },
+      {
+        "name": "dac_section", 
+        "purpose": "Digital-to-analog conversion ICs",
+        "components": ["AD5593R x4", "MCP4728 x2", "Decoupling caps"],
+        "location": "Top-center section"
+      },
+      {
+        "name": "amp_section",
+        "purpose": "Output amplification and scaling circuitry",
+        "components": ["Op-amps", "Scaling resistors", "Output buffers"],
+        "location": "Bottom section"
+      },
+      {
+        "name": "output_section",
+        "purpose": "CV output connectors",
+        "components": ["3.5mm jacks x16", "Series resistors"],
+        "location": "Right edge"
+      },
+      {
+        "name": "power_section",
+        "purpose": "Power regulation and filtering",
+        "components": ["Regulators", "Filter caps", "Power connectors"],
+        "location": "Left edge"
+      }
+    ]
+  },
+  
+  "layer_stackup": {
+    "layer_1": {
+      "name": "F.Cu",
+      "type": "signal",
+      "purpose": "Component placement and primary routing"
+    },
+    "layer_2": {
+      "name": "In1.Cu", 
+      "type": "power",
+      "purpose": "Ground plane and power distribution"
+    },
+    "layer_3": {
+      "name": "In2.Cu",
+      "type": "signal", 
+      "purpose": "Secondary signal routing"
+    },
+    "layer_4": {
+      "name": "B.Cu",
+      "type": "signal",
+      "purpose": "Back-side routing and ground connections"
+    }
+  },
+  
+  "component_placement_strategy": {
+    "teensy_4_1": {
+      "rotation": 0,
+      "position": "15mm, 120mm",
+      "side": "top",
+      "notes": "USB connector accessible from board edge"
+    },
+    "dac_ics": {
+      "layout": "2x3 array",
+      "spacing": "15mm x 10mm",
+      "position": "50mm, 100mm",
+      "orientation": "uniform_rotation"
+    },
+    "output_amplifiers": {
+      "layout": "4x4 grid",
+      "spacing": "8mm x 8mm", 
+      "position": "20mm, 40mm",
+      "paired_with": "output_jacks"
+    },
+    "cv_output_jacks": {
+      "layout": "2x8 array",
+      "spacing": "10mm",
+      "position": "85mm, 20mm to 85mm, 140mm",
+      "mounting": "edge_mount"
+    },
+    "power_components": {
+      "position": "5mm, 80mm",
+      "grouping": "voltage_regulators_together",
+      "heat_considerations": "adequate_spacing"
+    }
+  },
+  
+  "routing_guidelines": {
+    "power_routing": {
+      "trace_width": "0.5mm minimum for power traces",
+      "via_size": "0.4mm drill, 0.8mm outer",
+      "plane_connections": "thermal_reliefs"
+    },
+    "analog_signals": {
+      "cv_outputs": "0.2mm traces, keep short",
+      "dac_outputs": "0.15mm traces, minimize noise",
+      "shielding": "ground_pours_between_signals"
+    },
+    "digital_signals": {
+      "i2c_bus": "0.15mm traces, length_matched",
+      "control_signals": "0.1mm traces sufficient",
+      "isolation": "separate_from_analog"
+    },
+    "ground_strategy": {
+      "type": "solid_ground_plane",
+      "layer": "In1.Cu primary",
+      "stitching": "via_stitching_every_5mm"
+    }
+  },
+  
+  "expected_component_footprints": {
+    "teensy_4_1": {
+      "library": "teensy:Teensy41_Castellated",
+      "dimensions": "35.6mm x 24.1mm",
+      "pin_count": 56,
+      "mounting": "castellated_holes"
+    },
+    "ad5593r": {
+      "library": "Package_SO:MSOP-10_3x3mm_P0.5mm", 
+      "dimensions": "3mm x 3mm",
+      "pin_count": 10,
+      "type": "surface_mount"
+    },
+    "mcp4728": {
+      "library": "Package_SO:MSOP-10_3x3mm_P0.5mm",
+      "dimensions": "3mm x 3mm", 
+      "pin_count": 10,
+      "type": "surface_mount"
+    },
+    "op_amps": {
+      "library": "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm",
+      "typical": "TL072, OPA2134",
+      "pin_count": 8,
+      "quantity": 8
+    },
+    "cv_jacks": {
+      "library": "Connector_Audio:Jack_3.5mm_QingPu_WQP-PJ398SM",
+      "dimensions": "6mm x 14mm",
+      "mounting": "through_hole",
+      "quantity": 16
+    },
+    "power_connector": {
+      "library": "Connector:Barrel_Jack_Wuerth_6941xx301002",
+      "type": "barrel_jack",
+      "voltage": "12V_input"
+    }
+  },
+  
+  "net_classes": {
+    "power_nets": {
+      "nets": ["+12V", "-12V", "+5V", "+3V3", "VCC"],
+      "trace_width": "0.4mm",
+      "via_size": "0.4mm_drill",
+      "clearance": "0.2mm"
+    },
+    "ground_nets": {
+      "nets": ["GND", "GNDA", "GNDD"],
+      "trace_width": "0.5mm",
+      "via_size": "0.4mm_drill", 
+      "clearance": "0.15mm"
+    },
+    "analog_signals": {
+      "nets": ["CV_*", "*_OUT", "DAC_*"],
+      "trace_width": "0.15mm",
+      "via_size": "0.2mm_drill",
+      "clearance": "0.2mm"
+    },
+    "digital_signals": {
+      "nets": ["SDA", "SCL", "*_CS", "*_CLK"],
+      "trace_width": "0.1mm",
+      "via_size": "0.2mm_drill",
+      "clearance": "0.15mm"
+    }
+  },
+  
+  "design_rules": {
+    "minimum_trace_width": "0.1mm",
+    "minimum_via_size": "0.2mm_drill_0.4mm_outer",
+    "minimum_clearance": "0.1mm",
+    "solder_mask_expansion": "0.05mm",
+    "paste_mask_shrink": "0.025mm",
+    "drill_sizes": ["0.2mm", "0.3mm", "0.4mm", "0.6mm", "0.8mm", "1.0mm"]
+  },
+  
+  "manufacturing_specs": {
+    "board_thickness": "1.6mm",
+    "copper_weight": "1oz (35μm)",
+    "solder_mask_color": "green",
+    "silkscreen_color": "white",
+    "surface_finish": "HASL or ENIG",
+    "min_hole_size": "0.2mm",
+    "aspect_ratio": "8:1 maximum"
+  },
+  
+  "test_points": {
+    "power_rails": ["+12V", "-12V", "+5V", "+3V3", "GND"],
+    "critical_signals": ["SDA", "SCL", "CV_OUT_1", "CV_OUT_16"],
+    "footprint": "TestPoint:TestPoint_Pad_D1.0mm",
+    "quantity": 20
+  },
+  
+  "assembly_considerations": {
+    "component_orientation": "uniform where possible",
+    "reference_designator_placement": "visible after assembly", 
+    "fiducials": "3 fiducials for pick_and_place",
+    "panel_support": "mouse_bites for depaneling",
+    "assembly_drawing_layers": ["F.Fab", "F.SilkS", "Dwgs.User"]
+  }
+}
