@@ -1,0 +1,12 @@
+{
+  "project_name": "Amplifier Board",
+  "description": "CV amplifier/scaling board for Master of Muppets project",
+  "root_schematic": "AmpBoard.json",
+  "created_date": "2025-08-18",
+  "kicad_version": "8.0.x",
+  "conversion_tool": "kicad_json_converter.py v1.0",
+  "purpose": "Op-amp based CV scaling circuits for control voltage outputs",
+  "related_projects": ["master_of_muppets"],
+  "architecture": "Single-sheet design with analog amplification circuits",
+  "notes": "Part of the Master of Muppets 16-channel CV converter system"
+}

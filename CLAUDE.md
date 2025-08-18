@@ -4,3 +4,4 @@
 - **Security**: Defensive only, no malicious code
 - **Memory**: Static allocation only, no dynamic
 - **Git**: Never commit without explicit request
+- **Documentation**: NEVER create README.md or documentation files unless explicitly requested by the user

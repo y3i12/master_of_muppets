@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amplifier Board - Circuit Graph</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.26.0/cytoscape.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        #cy {
+            width: 100%;
+            height: 100vh;
+            background: #2a2a2a;
+        }
+        .controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 1000;
+        }
+        .controls h3 {
+            margin: 0 0 10px 0;
+            color: #4CAF50;
+        }
+        .controls button {
+            display: block;
+            margin: 5px 0;
+            padding: 8px 15px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 150px;
+        }
+        .controls button:hover {
+            background: #45a049;
+        }
+        .legend {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 1000;
+        }
+        .legend h3 {
+            margin: 0 0 10px 0;
+            color: #4CAF50;
+        }
+        .legend-item {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="cy"></div>
+    
+    <div class="controls">
+        <h3>Amplifier Board Graph</h3>
+        <button onclick="fitToScreen()">Fit to Screen</button>
+        <button onclick="toggleLabels()">Toggle Labels</button>
+        <button id="physicsToggle" onclick="togglePhysicsButton()">Start Physics</button>
+        
+        <div style="margin-top: 15px;">
+            <label style="color: #ccc; font-size: 12px;">Edge Length:</label>
+            <input type="range" id="edgeLength" min="50" max="300" value="120" 
+                   style="width: 120px; margin: 5px 0;" onchange="updatePhysics()">
+            <span id="edgeLengthValue" style="color: #ccc; font-size: 11px;">120</span>
+        </div>
+        
+        <div>
+            <label style="color: #ccc; font-size: 12px;">Repulsion:</label>
+            <input type="range" id="repulsion" min="100000" max="2000000" value="800000" 
+                   style="width: 120px; margin: 5px 0;" onchange="updatePhysics()">
+            <span id="repulsionValue" style="color: #ccc; font-size: 11px;">800k</span>
+        </div>
+        
+        <div>
+            <label style="color: #ccc; font-size: 12px;">Gravity:</label>
+            <input type="range" id="gravity" min="1" max="50" value="5" 
+                   style="width: 120px; margin: 5px 0;" onchange="updatePhysics()">
+            <span id="gravityValue" style="color: #ccc; font-size: 11px;">5</span>
+        </div>
+        
+        <div>
+            <label style="color: #ccc; font-size: 12px;">Damping:</label>
+            <input type="range" id="damping" min="0.5" max="0.99" value="0.85" step="0.01"
+                   style="width: 120px; margin: 5px 0;" onchange="updatePhysics()">
+            <span id="dampingValue" style="color: #ccc; font-size: 11px;">0.85</span>
+        </div>
+        
+        <div>
+            <label style="color: #ccc; font-size: 12px;">Speed:</label>
+            <input type="range" id="speed" min="0.1" max="2.0" value="1.0" step="0.1"
+                   style="width: 120px; margin: 5px 0;" onchange="updatePhysics()">
+            <span id="speedValue" style="color: #ccc; font-size: 11px;">1.0x</span>
+        </div>
+        
+        <div>
+            <label style="color: #ccc; font-size: 12px;">Repulsion Range:</label>
+            <input type="range" id="repulsionRange" min="50" max="300" value="150" 
+                   style="width: 120px; margin: 5px 0;" onchange="updatePhysics()">
+            <span id="repulsionRangeValue" style="color: #ccc; font-size: 11px;">150</span>
+        </div>
+        
+        <div>
+            <label style="color: #ccc; font-size: 12px;">Gravity Range:</label>
+            <input type="range" id="gravityRange" min="100" max="500" value="250" 
+                   style="width: 120px; margin: 5px 0;" onchange="updatePhysics()">
+            <span id="gravityRangeValue" style="color: #ccc; font-size: 11px;">250</span>
+        </div>
+    </div>
+    
+    <div class="legend">
+        <h3>Component Types</h3>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #FF6B6B;"></div>
+            <span>Transistor</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #FFA500;"></div>
+            <span>Resistor</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #9370DB;"></div>
+            <span>Capacitor</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #4CAF50;"></div>
+            <span>Connector</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #FFD700;"></div>
+            <span>Power</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #8B4513;"></div>
+            <span>Ground</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #87CEEB;"></div>
+            <span>Switch</span>
+        </div>
+    </div>
+    
+    <script>
+        // Embedded graph data from AmpBoard.json
+        const graphData = {
+            nodes: [
+                {"id": "POW0", "label": "POW0\n24V", "x": 81.28, "y": -68.58, "class": "connector"},
+                {"id": "R10", "label": "R10\n1R_1/2W", "x": 193.04, "y": -104.14, "class": "resistor"},
+                {"id": "R1", "label": "R1\n100K-1/4W", "x": 116.84, "y": -81.28, "class": "resistor"},
+                {"id": "OUT0", "label": "OUT0\nSPK", "x": 213.36, "y": -111.76, "class": "connector"},
+                {"id": "C7", "label": "C7\n220uf-25v", "x": 185.42, "y": -101.6, "class": "capacitor"},
+                {"id": "C3", "label": "C3\n47uf-25v", "x": 127, "y": -124.46, "class": "capacitor"},
+                {"id": "Q2", "label": "Q2\nBD439", "x": 190.5, "y": -81.28, "class": "transistor"},
+                {"id": "R5", "label": "R5\n1K5-1/4W", "x": 147.32, "y": -73.66, "class": "resistor"},
+                {"id": "Q1", "label": "Q1\nBC560", "x": 137.16, "y": -111.76, "class": "transistor"},
+                {"id": "#GND3", "label": "#GND3\nGNDA", "x": 83.82, "y": -144.78, "class": "ground"},
+                {"id": "C8", "label": "C8\n1000uf-25v", "x": 210.82, "y": -91.44, "class": "capacitor"},
+                {"id": "IN0", "label": "IN0\nAUDIO", "x": 83.82, "y": -114.3, "class": "connector"},
+                {"id": "C5", "label": "C5\n150nf-63v", "x": 157.48, "y": -73.66, "class": "capacitor"},
+                {"id": "Q3", "label": "Q3\nBD439", "x": 190.5, "y": -119.38, "class": "transistor"},
+                {"id": "R7", "label": "R7\n100R-1/4W", "x": 152.4, "y": -111.76, "class": "resistor"},
+                {"id": "#P+1", "label": "#P+1\n+24V", "x": 88.9, "y": -63.5, "class": "power"},
+                {"id": "C6", "label": "C6\n220uf-25v", "x": 152.4, "y": -124.46, "class": "capacitor"},
+                {"id": "C4", "label": "C4\n100uf-35v", "x": 132.08, "y": -66.04, "class": "capacitor"},
+                {"id": "R4", "label": "R4\n8K2-1/4W", "x": 139.7, "y": -127, "class": "resistor"},
+                {"id": "C2", "label": "C2\n10uf-63v", "x": 106.68, "y": -111.76, "class": "capacitor"},
+                {"id": "R2", "label": "R2\n12K-1/4W", "x": 116.84, "y": -127, "class": "resistor"},
+                {"id": "R9", "label": "R9\n100R-1/4W", "x": 177.8, "y": -104.14, "class": "resistor"},
+                {"id": "R6", "label": "R6\n2K7-1/4W", "x": 152.4, "y": -91.44, "class": "resistor"},
+                {"id": "S1", "label": "S1\n2P2T", "x": 165.1, "y": -83.82, "class": "switch"},
+                {"id": "R8", "label": "R8\n560R_1/2W", "x": 177.8, "y": -68.58, "class": "resistor"},
+                {"id": "R3", "label": "R3\n47K-1/4W", "x": 127, "y": -101.6, "class": "resistor"},
+                {"id": "#GND2", "label": "#GND2\nGNDA", "x": 132.08, "y": -78.74, "class": "ground"},
+                {"id": "#GND1", "label": "#GND1\nGNDA", "x": 81.28, "y": -83.82, "class": "ground"}
+            ],
+            edges: []
+        };
+
+        // Function to load nets from JSON file
+        async function loadNetsFromJson() {
+            try {
+                const response = await fetch('../schematics/amplifier_board/complete_project/AmpBoard.json');
+                const jsonData = await response.json();
+                
+                if (jsonData.netConnectivity && jsonData.netConnectivity.nets) {
+                    return jsonData.netConnectivity.nets;
+                } else {
+                    console.error('No netConnectivity data found in JSON');
+                    return [];
+                }
+            } catch (error) {
+                console.error('Error loading AmpBoard.json:', error);
+                // Fallback to hardcoded nets if JSON loading fails
+                return [
+                    {components: ["C3", "#GND3", "IN0", "Q3", "C6", "R4", "R2"]},
+                    {components: ["R10", "C7", "Q3", "R9"]},
+                    {components: ["R10", "C7", "Q2", "C8", "R6", "S1"]},
+                    {components: ["Q1", "Q3", "R4"]},
+                    {components: ["POW0", "#P+1"]},
+                    {components: ["R10", "C7", "Q2", "R9", "R8"]},
+                    {components: ["IN0", "C2"]},
+                    {components: ["C5", "R8"]},
+                    {components: ["R7", "C6"]},
+                    {components: ["C4", "#GND2"]},
+                    {components: ["#GND1", "POW0"]},
+                    {components: ["R5", "C5"]},
+                    {components: ["R6", "#GND2", "Q1", "R5", "R7"]},
+                    {components: ["OUT0", "C8"]},
+                    {components: ["R1", "#P+1", "C4", "R8", "Q2"]},
+                    {components: ["R3", "C2", "Q1"]},
+                    {components: ["R1", "R2", "R3", "C3"]}
+                ];
+            }
+        }
+
+        // Function to convert nets to edges
+        function netsToEdges(nets) {
+            const realEdges = [];
+            
+            for (const net of nets) {
+                if (net.components && net.components.length >= 2) {
+                    // Create full mesh within each net
+                    for (let i = 0; i < net.components.length; i++) {
+                        for (let j = i + 1; j < net.components.length; j++) {
+                            realEdges.push({
+                                source: net.components[i],
+                                target: net.components[j]
+                            });
+                        }
+                    }
+                }
+            }
+            
+            // Add edges with IDs
+            return realEdges.map((edge, i) => ({
+                id: `e${i}`,
+                source: edge.source,
+                target: edge.target
+            }));
+        }
+
+        // Initialize edges (will be populated after loading JSON)
+        graphData.edges = [];
+
+        // Initialize Cytoscape
+        let labelsVisible = true;
+        let cy = null;
+        
+        // Function to initialize Cytoscape with loaded data
+        async function initializeCytoscape() {
+            // Load nets from JSON
+            const nets = await loadNetsFromJson();
+            graphData.edges = netsToEdges(nets);
+            
+            console.log('Loaded', nets.length, 'nets from JSON, generated', graphData.edges.length, 'edges');
+            
+            cy = cytoscape({
+            container: document.getElementById('cy'),
+            
+            elements: {
+                nodes: graphData.nodes.map(node => ({
+                    data: {
+                        id: node.id,
+                        label: node.label
+                    },
+                    position: {
+                        x: node.x * 3,  // Scale up positions
+                        y: node.y * 3
+                    },
+                    classes: node.class
+                })),
+                edges: graphData.edges.map(edge => ({
+                    data: {
+                        id: edge.id,
+                        source: edge.source,
+                        target: edge.target
+                    }
+                }))
+            },
+            
+            style: [
+                {
+                    selector: 'node',
+                    style: {
+                        'background-color': '#666',
+                        'label': 'data(label)',
+                        'text-valign': 'center',
+                        'text-halign': 'center',
+                        'color': '#fff',
+                        'text-outline-width': 2,
+                        'text-outline-color': '#000',
+                        'font-size': '11px',
+                        'width': 'label',
+                        'height': 'label',
+                        'padding': '8px',
+                        'text-wrap': 'wrap',
+                        'text-max-width': '80px'
+                    }
+                },
+                {
+                    selector: '.transistor',
+                    style: {
+                        'background-color': '#FF6B6B',
+                        'shape': 'triangle',
+                        'min-width': '50px',
+                        'min-height': '50px'
+                    }
+                },
+                {
+                    selector: '.resistor',
+                    style: {
+                        'background-color': '#FFA500',
+                        'shape': 'rectangle',
+                        'min-width': '60px',
+                        'min-height': '30px'
+                    }
+                },
+                {
+                    selector: '.capacitor',
+                    style: {
+                        'background-color': '#9370DB',
+                        'shape': 'ellipse',
+                        'min-width': '50px',
+                        'min-height': '50px'
+                    }
+                },
+                {
+                    selector: '.connector',
+                    style: {
+                        'background-color': '#4CAF50',
+                        'shape': 'pentagon',
+                        'min-width': '60px',
+                        'min-height': '60px'
+                    }
+                },
+                {
+                    selector: '.power',
+                    style: {
+                        'background-color': '#FFD700',
+                        'shape': 'star',
+                        'min-width': '55px',
+                        'min-height': '55px'
+                    }
+                },
+                {
+                    selector: '.ground',
+                    style: {
+                        'background-color': '#8B4513',
+                        'shape': 'diamond',
+                        'min-width': '50px',
+                        'min-height': '50px'
+                    }
+                },
+                {
+                    selector: '.switch',
+                    style: {
+                        'background-color': '#87CEEB',
+                        'shape': 'hexagon',
+                        'min-width': '45px',
+                        'min-height': '45px'
+                    }
+                },
+                {
+                    selector: 'edge',
+                    style: {
+                        'width': 2,
+                        'line-color': '#666',
+                        'curve-style': 'straight'
+                    }
+                },
+                {
+                    selector: ':selected',
+                    style: {
+                        'background-color': '#61bffc',
+                        'line-color': '#61bffc',
+                        'target-arrow-color': '#61bffc',
+                        'source-arrow-color': '#61bffc'
+                    }
+                }
+            ],
+            
+            layout: {
+                name: 'preset'
+            },
+            
+            minZoom: 0.1,
+            maxZoom: 10,
+            wheelSensitivity: 0.2
+        });
+        }
+
+        // Toggle labels
+        function toggleLabels() {
+            if (!cy) return;
+            labelsVisible = !labelsVisible;
+            cy.style().selector('node').style({
+                'label': labelsVisible ? 'data(label)' : ''
+            }).update();
+        }
+
+        // Fit to screen
+        function fitToScreen() {
+            if (!cy) return;
+            cy.fit();
+        }
+
+        // Store current physics parameters
+        let currentPhysics = {
+            edgeLength: 120,
+            repulsion: 800,
+            gravity: 5,
+            damping: 0.85,
+            speed: 1.0,
+            repulsionRange: 150,
+            gravityRange: 250
+        };
+        
+        let animationId = null;
+        let isPhysicsRunning = false;
+        
+        // Enhanced physics simulation with overlap prevention
+        function runContinuousPhysics() {
+            if (!isPhysicsRunning) return;
+            
+            const nodes = cy.nodes();
+            const dt = 0.016 * currentPhysics.speed;
+            
+            // Physics with overlap prevention
+            nodes.forEach(node => {
+                if (node.grabbed()) return;
+                
+                let fx = 0, fy = 0;
+                const pos = node.position();
+                const bb1 = node.boundingBox();
+                
+                // Global repulsion from all other nodes
+                nodes.forEach(other => {
+                    if (node === other) return;
+                    const otherPos = other.position();
+                    const bb2 = other.boundingBox();
+                    const dx = pos.x - otherPos.x;
+                    const dy = pos.y - otherPos.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    
+                    // Minimum distance based on bounding boxes to prevent overlap
+                    const minDist = Math.max((bb1.w + bb2.w) * 0.6, (bb1.h + bb2.h) * 0.6);
+                    
+                    if (dist < currentPhysics.repulsionRange && dist > 0) {
+                        let force = currentPhysics.repulsion * 1000 / (dist * dist);
+                        
+                        // Extra strong repulsion if too close (overlap prevention)
+                        if (dist < minDist) {
+                            force *= 5;
+                        }
+                        
+                        fx += force * dx / dist;
+                        fy += force * dy / dist;
+                    }
+                });
+                
+                // Gravity attraction to connected nodes only
+                const connectedNodes = node.neighborhood().nodes();
+                connectedNodes.forEach(other => {
+                    const otherPos = other.position();
+                    const dx = otherPos.x - pos.x;
+                    const dy = otherPos.y - pos.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (dist < currentPhysics.gravityRange && dist > 0) {
+                        const desiredDist = currentPhysics.edgeLength;
+                        const springForce = (dist - desiredDist) * currentPhysics.gravity * 0.1;
+                        fx += springForce * dx / dist;
+                        fy += springForce * dy / dist;
+                    }
+                });
+                
+                // Update velocity and position
+                let vel = node.scratch('velocity') || { x: 0, y: 0 };
+                vel.x = (vel.x + fx * dt) * currentPhysics.damping;
+                vel.y = (vel.y + fy * dt) * currentPhysics.damping;
+                
+                node.scratch('velocity', vel);
+                node.position({
+                    x: pos.x + vel.x * dt,
+                    y: pos.y + vel.y * dt
+                });
+            });
+            
+            animationId = requestAnimationFrame(runContinuousPhysics);
+        }
+        
+        
+        // Start/stop physics simulation
+        function togglePhysics(enable) {
+            isPhysicsRunning = enable;
+            if (enable) {
+                runContinuousPhysics();
+            } else if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
+        }
+        
+        // Update physics parameters
+        function updatePhysics() {
+            const edgeLength = parseInt(document.getElementById('edgeLength').value);
+            const repulsion = parseInt(document.getElementById('repulsion').value);
+            const gravity = parseInt(document.getElementById('gravity').value);
+            const damping = parseFloat(document.getElementById('damping').value);
+            const speed = parseFloat(document.getElementById('speed').value);
+            const repulsionRange = parseInt(document.getElementById('repulsionRange').value);
+            const gravityRange = parseInt(document.getElementById('gravityRange').value);
+            
+            // Update display values
+            document.getElementById('edgeLengthValue').textContent = edgeLength;
+            document.getElementById('repulsionValue').textContent = (repulsion / 1000) + 'k';
+            document.getElementById('gravityValue').textContent = gravity;
+            document.getElementById('dampingValue').textContent = damping;
+            document.getElementById('speedValue').textContent = speed + 'x';
+            document.getElementById('repulsionRangeValue').textContent = repulsionRange;
+            document.getElementById('gravityRangeValue').textContent = gravityRange;
+            
+            // Update stored parameters
+            currentPhysics = { 
+                edgeLength, 
+                repulsion: repulsion * 0.001, // Scale for continuous physics
+                gravity: gravity,
+                damping: damping,
+                speed: speed,
+                repulsionRange: repulsionRange,
+                gravityRange: gravityRange
+            };
+        }
+
+        // Toggle physics button
+        function togglePhysicsButton() {
+            const button = document.getElementById('physicsToggle');
+            if (isPhysicsRunning) {
+                togglePhysics(false);
+                button.textContent = 'Start Physics';
+                button.style.backgroundColor = '#4CAF50';
+            } else {
+                togglePhysics(true);
+                button.textContent = 'Stop Physics';
+                button.style.backgroundColor = '#f44336';
+            }
+        }
+
+            });
+        }
+        
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', async function() {
+            await initializeCytoscape();
+            
+            // Fit to screen on load
+            cy.ready(() => {
+                console.log('Cytoscape ready, nodes:', cy.nodes().length, 'edges:', cy.edges().length);
+                cy.fit();
+                
+                // Initialize physics parameters
+                currentPhysics = { 
+                    edgeLength: 120, 
+                    repulsion: 800, // Already scaled
+                    gravity: 5,
+                    damping: 0.85,
+                    speed: 1.0,
+                    repulsionRange: 150,
+                    gravityRange: 250
+                };
+                
+                // Auto-start physics after initial layout
+                setTimeout(() => {
+                    togglePhysicsButton();
+                }, 1000);
+                
+                // Node click info
+                cy.on('tap', 'node', function(evt) {
+                    const node = evt.target;
+                    console.log('Node clicked:', node.id(), node.data());
+                });
+            });
+        });
+        
+        // Debug: Log any errors
+        window.addEventListener('error', function(e) {
+            console.error('JavaScript error:', e.error);
+        });
+    </script>
+</body>
+</html>

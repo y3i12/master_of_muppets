@@ -1,0 +1,7052 @@
+{
+  "metadata": {
+    "converter_version": "1.0.0",
+    "source_file": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+    "kicad_version": 20250114,
+    "generator": "eeschema"
+  },
+  "busAliases": [],
+  "busEntries": [],
+  "filePath": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+  "generator": "eeschema",
+  "globalLabels": [],
+  "graphicalItems": [
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 99.06,
+          "Y": 58.42,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 101.6,
+          "Y": 58.42,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "0101a41d-b4a3-4bc1-900a-36c3ed6bb22c"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 83.82,
+          "Y": 78.74,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 83.82,
+          "Y": 81.28,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "020f735c-cb8e-46a1-9870-99bf383b44b8"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 81.28,
+          "Y": 66.04,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 83.82,
+          "Y": 66.04,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "02d8ee30-268e-4ae6-93f0-c9df520f1eb7"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 83.82,
+          "Y": 68.58,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 72.39,
+          "Y": 68.58,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "0a3d425e-0be4-47d1-a2ba-79a4b618e6f6"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 72.39,
+          "Y": 29.21,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 81.28,
+          "Y": 29.21,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "1135c7aa-eee4-432e-b5cb-50bdda761b3f"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 99.06,
+          "Y": 57.15,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 99.06,
+          "Y": 58.42,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "13bd6be4-4849-4547-8009-a7f51455a0d1"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 63.5,
+          "Y": 29.21,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 72.39,
+          "Y": 29.21,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "148f886a-31d4-42c5-bad9-4b9dc57177eb"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 81.28,
+          "Y": 29.21,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 88.9,
+          "Y": 29.21,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "1d6f4659-c325-4b63-acb3-13abb1aece50"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 83.82,
+          "Y": 86.36,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 82.55,
+          "Y": 86.36,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "1eed190d-9b94-4c89-a3b4-de095fbcdd4b"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 81.28,
+          "Y": 36.83,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 81.28,
+          "Y": 66.04,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "33e45a1d-1ac7-4e3e-9e74-fbc6e2aa7c03"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 82.55,
+          "Y": 81.28,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 83.82,
+          "Y": 81.28,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "4cfbf56f-b46c-4eb9-a807-a81a491ccf56"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 71.12,
+          "Y": 68.58,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 72.39,
+          "Y": 68.58,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "5554e6f1-26ff-4060-ab2f-7aaf8286dbf5"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 88.9,
+          "Y": 53.34,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 93.98,
+          "Y": 53.34,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "63f8f33b-900d-44cc-b9a1-738a24b040a4"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 63.5,
+          "Y": 83.82,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 83.82,
+          "Y": 83.82,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "9735647c-d4c5-4a30-b291-d76959571bbb"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 88.9,
+          "Y": 29.21,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 88.9,
+          "Y": 53.34,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "994ab917-bd20-491f-9fa1-26349f593cd8"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 72.39,
+          "Y": 68.58,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 72.39,
+          "Y": 36.83,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "9ae85006-486b-46a2-84fa-ba0e70e1f65e"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 83.82,
+          "Y": 83.82,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 83.82,
+          "Y": 86.36,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "b15b7ff3-9934-427d-a4c6-a03766b455ac"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 93.98,
+          "Y": 53.34,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 93.98,
+          "Y": 58.42,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "c7d0eabf-560a-412c-830f-a3ab9391ba47"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 63.5,
+          "Y": 78.74,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 83.82,
+          "Y": 78.74,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "db514bed-ef1a-4aa9-b5b2-8640a1b75dce"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 82.55,
+          "Y": 73.66,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 83.82,
+          "Y": 73.66,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "e02ba008-7971-4fa6-9a22-0d8759bb466a"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 63.5,
+          "Y": 36.83,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 63.5,
+          "Y": 78.74,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "f46e86c3-b0d1-4858-8e3d-37fab0732c22"
+    },
+    {
+      "_type": "Connection",
+      "points": [
+        {
+          "_type": "Position",
+          "X": 93.98,
+          "Y": 38.1,
+          "angle": null,
+          "unlocked": false
+        },
+        {
+          "_type": "Position",
+          "X": 93.98,
+          "Y": 53.34,
+          "angle": null,
+          "unlocked": false
+        }
+      ],
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "default",
+        "width": 0
+      },
+      "type": "wire",
+      "uuid": "ff6b0b03-da2e-4666-8cb4-f851611448d3"
+    }
+  ],
+  "hierarchicalLabels": [
+    {
+      "_type": "HierarchicalLabel",
+      "effects": {
+        "_type": "Effects",
+        "font": {
+          "_type": "Font",
+          "bold": false,
+          "color": null,
+          "face": null,
+          "height": 1.27,
+          "italic": false,
+          "lineSpacing": null,
+          "thickness": null,
+          "width": 1.27
+        },
+        "hide": false,
+        "href": null,
+        "justify": {
+          "_type": "Justify",
+          "horizontally": "right",
+          "mirror": false,
+          "vertically": null
+        }
+      },
+      "fieldsAutoplaced": false,
+      "position": {
+        "_type": "Position",
+        "X": 63.5,
+        "Y": 78.74,
+        "angle": 180,
+        "unlocked": false
+      },
+      "shape": "input",
+      "text": "~{RESET}",
+      "uuid": "26873781-f403-4051-884c-25bb549b1948"
+    },
+    {
+      "_type": "HierarchicalLabel",
+      "effects": {
+        "_type": "Effects",
+        "font": {
+          "_type": "Font",
+          "bold": false,
+          "color": null,
+          "face": null,
+          "height": 1.27,
+          "italic": false,
+          "lineSpacing": null,
+          "thickness": null,
+          "width": 1.27
+        },
+        "hide": false,
+        "href": null,
+        "justify": {
+          "_type": "Justify",
+          "horizontally": "right",
+          "mirror": false,
+          "vertically": null
+        }
+      },
+      "fieldsAutoplaced": false,
+      "position": {
+        "_type": "Position",
+        "X": 81.28,
+        "Y": 66.04,
+        "angle": 180,
+        "unlocked": false
+      },
+      "shape": "input",
+      "text": "SCL",
+      "uuid": "6a8c31b5-9ac1-4661-bc6c-ca117a525ce0"
+    },
+    {
+      "_type": "HierarchicalLabel",
+      "effects": {
+        "_type": "Effects",
+        "font": {
+          "_type": "Font",
+          "bold": false,
+          "color": null,
+          "face": null,
+          "height": 1.27,
+          "italic": false,
+          "lineSpacing": null,
+          "thickness": null,
+          "width": 1.27
+        },
+        "hide": false,
+        "href": null,
+        "justify": {
+          "_type": "Justify",
+          "horizontally": "left",
+          "mirror": false,
+          "vertically": null
+        }
+      },
+      "fieldsAutoplaced": false,
+      "position": {
+        "_type": "Position",
+        "X": 99.06,
+        "Y": 57.15,
+        "angle": 90,
+        "unlocked": false
+      },
+      "shape": "input",
+      "text": "VLOGIC",
+      "uuid": "96d4899e-c0e9-461f-9431-0710e5914e28"
+    },
+    {
+      "_type": "HierarchicalLabel",
+      "effects": {
+        "_type": "Effects",
+        "font": {
+          "_type": "Font",
+          "bold": false,
+          "color": null,
+          "face": null,
+          "height": 1.27,
+          "italic": false,
+          "lineSpacing": null,
+          "thickness": null,
+          "width": 1.27
+        },
+        "hide": false,
+        "href": null,
+        "justify": {
+          "_type": "Justify",
+          "horizontally": "left",
+          "mirror": false,
+          "vertically": null
+        }
+      },
+      "fieldsAutoplaced": false,
+      "position": {
+        "_type": "Position",
+        "X": 139.7,
+        "Y": 66.04,
+        "angle": 0,
+        "unlocked": false
+      },
+      "shape": "output",
+      "text": "OUTPUT_1",
+      "uuid": "ba2636b7-61f8-481f-b682-1906bf759714"
+    },
+    {
+      "_type": "HierarchicalLabel",
+      "effects": {
+        "_type": "Effects",
+        "font": {
+          "_type": "Font",
+          "bold": false,
+          "color": null,
+          "face": null,
+          "height": 1.27,
+          "italic": false,
+          "lineSpacing": null,
+          "thickness": null,
+          "width": 1.27
+        },
+        "hide": false,
+        "href": null,
+        "justify": {
+          "_type": "Justify",
+          "horizontally": "left",
+          "mirror": false,
+          "vertically": null
+        }
+      },
+      "fieldsAutoplaced": false,
+      "position": {
+        "_type": "Position",
+        "X": 139.7,
+        "Y": 78.74,
+        "angle": 0,
+        "unlocked": false
+      },
+      "shape": "output",
+      "text": "OUTPUT_6",
+      "uuid": "def2d8b3-3300-48e4-a041-7fb417638b77"
+    },
+    {
+      "_type": "HierarchicalLabel",
+      "effects": {
+        "_type": "Effects",
+        "font": {
+          "_type": "Font",
+          "bold": false,
+          "color": null,
+          "face": null,
+          "height": 1.27,
+          "italic": false,
+          "lineSpacing": null,
+          "thickness": null,
+          "width": 1.27
+        },
+        "hide": false,
+        "href": null,
+        "justify": {
+          "_type": "Justify",
+          "horizontally": "left",
+          "mirror": false,
+          "vertically": null
+        }
+      },
+      "fieldsAutoplaced": false,
+      "position": {
+        "_type": "Position",
+        "X": 139.7,
+        "Y": 83.82,
+        "angle": 0,
+        "unlocked": false
+      },
+      "shape": "output",
+      "text": "OUTPUT_8",
+      "uuid": "def2d8b3-3300-48e4-a041-7fb417638b78"
+    },
+    {
+      "_type": "HierarchicalLabel",
+      "effects": {
+        "_type": "Effects",
+        "font": {
+          "_type": "Font",
+          "bold": false,
+          "color": null,
+          "face": null,
+          "height": 1.27,
+          "italic": false,
+          "lineSpacing": null,
+          "thickness": null,
+          "width": 1.27
+        },
+        "hide": false,
+        "href": null,
+        "justify": {
+          "_type": "Justify",
+          "horizontally": "left",
+          "mirror": false,
+          "vertically": null
+        }
+      },
+      "fieldsAutoplaced": false,
+      "position": {
+        "_type": "Position",
+        "X": 139.7,
+        "Y": 81.28,
+        "angle": 0,
+        "unlocked": false
+      },
+      "shape": "output",
+      "text": "OUTPUT_7",
+      "uuid": "def2d8b3-3300-48e4-a041-7fb417638b79"
+    },
+    {
+      "_type": "HierarchicalLabel",
+      "effects": {
+        "_type": "Effects",
+        "font": {
+          "_type": "Font",
+          "bold": false,
+          "color": null,
+          "face": null,
+          "height": 1.27,
+          "italic": false,
+          "lineSpacing": null,
+          "thickness": null,
+          "width": 1.27
+        },
+        "hide": false,
+        "href": null,
+        "justify": {
+          "_type": "Justify",
+          "horizontally": "left",
+          "mirror": false,
+          "vertically": null
+        }
+      },
+      "fieldsAutoplaced": false,
+      "position": {
+        "_type": "Position",
+        "X": 139.7,
+        "Y": 76.2,
+        "angle": 0,
+        "unlocked": false
+      },
+      "shape": "output",
+      "text": "OUTPUT_5",
+      "uuid": "def2d8b3-3300-48e4-a041-7fb417638b7a"
+    },
+    {
+      "_type": "HierarchicalLabel",
+      "effects": {
+        "_type": "Effects",
+        "font": {
+          "_type": "Font",
+          "bold": false,
+          "color": null,
+          "face": null,
+          "height": 1.27,
+          "italic": false,
+          "lineSpacing": null,
+          "thickness": null,
+          "width": 1.27
+        },
+        "hide": false,
+        "href": null,
+        "justify": {
+          "_type": "Justify",
+          "horizontally": "left",
+          "mirror": false,
+          "vertically": null
+        }
+      },
+      "fieldsAutoplaced": false,
+      "position": {
+        "_type": "Position",
+        "X": 139.7,
+        "Y": 68.58,
+        "angle": 0,
+        "unlocked": false
+      },
+      "shape": "output",
+      "text": "OUTPUT_2",
+      "uuid": "def2d8b3-3300-48e4-a041-7fb417638b7b"
+    },
+    {
+      "_type": "HierarchicalLabel",
+      "effects": {
+        "_type": "Effects",
+        "font": {
+          "_type": "Font",
+          "bold": false,
+          "color": null,
+          "face": null,
+          "height": 1.27,
+          "italic": false,
+          "lineSpacing": null,
+          "thickness": null,
+          "width": 1.27
+        },
+        "hide": false,
+        "href": null,
+        "justify": {
+          "_type": "Justify",
+          "horizontally": "left",
+          "mirror": false,
+          "vertically": null
+        }
+      },
+      "fieldsAutoplaced": false,
+      "position": {
+        "_type": "Position",
+        "X": 139.7,
+        "Y": 71.12,
+        "angle": 0,
+        "unlocked": false
+      },
+      "shape": "output",
+      "text": "OUTPUT_3",
+      "uuid": "def2d8b3-3300-48e4-a041-7fb417638b7c"
+    },
+    {
+      "_type": "HierarchicalLabel",
+      "effects": {
+        "_type": "Effects",
+        "font": {
+          "_type": "Font",
+          "bold": false,
+          "color": null,
+          "face": null,
+          "height": 1.27,
+          "italic": false,
+          "lineSpacing": null,
+          "thickness": null,
+          "width": 1.27
+        },
+        "hide": false,
+        "href": null,
+        "justify": {
+          "_type": "Justify",
+          "horizontally": "left",
+          "mirror": false,
+          "vertically": null
+        }
+      },
+      "fieldsAutoplaced": false,
+      "position": {
+        "_type": "Position",
+        "X": 139.7,
+        "Y": 73.66,
+        "angle": 0,
+        "unlocked": false
+      },
+      "shape": "output",
+      "text": "OUTPUT_4",
+      "uuid": "def2d8b3-3300-48e4-a041-7fb417638b7d"
+    },
+    {
+      "_type": "HierarchicalLabel",
+      "effects": {
+        "_type": "Effects",
+        "font": {
+          "_type": "Font",
+          "bold": false,
+          "color": null,
+          "face": null,
+          "height": 1.27,
+          "italic": false,
+          "lineSpacing": null,
+          "thickness": null,
+          "width": 1.27
+        },
+        "hide": false,
+        "href": null,
+        "justify": {
+          "_type": "Justify",
+          "horizontally": "right",
+          "mirror": false,
+          "vertically": null
+        }
+      },
+      "fieldsAutoplaced": false,
+      "position": {
+        "_type": "Position",
+        "X": 63.5,
+        "Y": 83.82,
+        "angle": 180,
+        "unlocked": false
+      },
+      "shape": "input",
+      "text": "~{CHIP_SELECT}",
+      "uuid": "e1947231-c1d3-4d93-bea8-e54e2e0f3b0e"
+    },
+    {
+      "_type": "HierarchicalLabel",
+      "effects": {
+        "_type": "Effects",
+        "font": {
+          "_type": "Font",
+          "bold": false,
+          "color": null,
+          "face": null,
+          "height": 1.27,
+          "italic": false,
+          "lineSpacing": null,
+          "thickness": null,
+          "width": 1.27
+        },
+        "hide": false,
+        "href": null,
+        "justify": {
+          "_type": "Justify",
+          "horizontally": "right",
+          "mirror": false,
+          "vertically": null
+        }
+      },
+      "fieldsAutoplaced": false,
+      "position": {
+        "_type": "Position",
+        "X": 71.12,
+        "Y": 68.58,
+        "angle": 180,
+        "unlocked": false
+      },
+      "shape": "bidirectional",
+      "text": "SDA",
+      "uuid": "fc90f730-4079-40f5-bce5-fe536dd806f5"
+    }
+  ],
+  "images": [],
+  "junctions": [
+    {
+      "_type": "Junction",
+      "color": {
+        "_type": "ColorRGBA",
+        "A": 0,
+        "B": 0,
+        "G": 0,
+        "R": 0,
+        "precision": null
+      },
+      "diameter": 0,
+      "position": {
+        "_type": "Position",
+        "X": 93.98,
+        "Y": 53.34,
+        "angle": null,
+        "unlocked": false
+      },
+      "uuid": "3b031003-396d-4067-856d-079b87537347"
+    },
+    {
+      "_type": "Junction",
+      "color": {
+        "_type": "ColorRGBA",
+        "A": 0,
+        "B": 0,
+        "G": 0,
+        "R": 0,
+        "precision": null
+      },
+      "diameter": 0,
+      "position": {
+        "_type": "Position",
+        "X": 99.06,
+        "Y": 58.42,
+        "angle": null,
+        "unlocked": false
+      },
+      "uuid": "5f4acdc2-f7cd-406c-af23-add3619db0e7"
+    },
+    {
+      "_type": "Junction",
+      "color": {
+        "_type": "ColorRGBA",
+        "A": 0,
+        "B": 0,
+        "G": 0,
+        "R": 0,
+        "precision": null
+      },
+      "diameter": 0,
+      "position": {
+        "_type": "Position",
+        "X": 83.82,
+        "Y": 78.74,
+        "angle": null,
+        "unlocked": false
+      },
+      "uuid": "89b4d324-cf00-4919-8ad5-93be9f2be32f"
+    },
+    {
+      "_type": "Junction",
+      "color": {
+        "_type": "ColorRGBA",
+        "A": 0,
+        "B": 0,
+        "G": 0,
+        "R": 0,
+        "precision": null
+      },
+      "diameter": 0,
+      "position": {
+        "_type": "Position",
+        "X": 72.39,
+        "Y": 68.58,
+        "angle": null,
+        "unlocked": false
+      },
+      "uuid": "b64f72ef-645a-4b05-8d8c-5ea43bf705bf"
+    },
+    {
+      "_type": "Junction",
+      "color": {
+        "_type": "ColorRGBA",
+        "A": 0,
+        "B": 0,
+        "G": 0,
+        "R": 0,
+        "precision": null
+      },
+      "diameter": 0,
+      "position": {
+        "_type": "Position",
+        "X": 81.28,
+        "Y": 29.21,
+        "angle": null,
+        "unlocked": false
+      },
+      "uuid": "d755adc7-d463-4b6b-86b1-b29a25d66bed"
+    },
+    {
+      "_type": "Junction",
+      "color": {
+        "_type": "ColorRGBA",
+        "A": 0,
+        "B": 0,
+        "G": 0,
+        "R": 0,
+        "precision": null
+      },
+      "diameter": 0,
+      "position": {
+        "_type": "Position",
+        "X": 83.82,
+        "Y": 83.82,
+        "angle": null,
+        "unlocked": false
+      },
+      "uuid": "f31e5cb7-750b-4778-a9e4-a4b6cc2a35b6"
+    },
+    {
+      "_type": "Junction",
+      "color": {
+        "_type": "ColorRGBA",
+        "A": 0,
+        "B": 0,
+        "G": 0,
+        "R": 0,
+        "precision": null
+      },
+      "diameter": 0,
+      "position": {
+        "_type": "Position",
+        "X": 72.39,
+        "Y": 29.21,
+        "angle": null,
+        "unlocked": false
+      },
+      "uuid": "f861c304-ee79-41d2-9ae9-7eb5cef9b717"
+    }
+  ],
+  "labels": [],
+  "libSymbols": [
+    {
+      "_type": "Symbol",
+      "entryName": "AD5593R",
+      "extends": null,
+      "graphicItems": [],
+      "hidePinNumbers": false,
+      "inBom": true,
+      "isPower": false,
+      "libId": "Analog:AD5593R",
+      "libraryNickname": "Analog",
+      "onBoard": true,
+      "pinNames": true,
+      "pinNamesHide": false,
+      "pinNamesOffset": 1.27,
+      "pins": [],
+      "properties": [
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Reference",
+          "position": {
+            "_type": "Position",
+            "X": -8.89,
+            "Y": 15.24,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "U"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Value",
+          "position": {
+            "_type": "Position",
+            "X": 3.81,
+            "Y": 15.24,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "AD5593R"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Footprint",
+          "position": {
+            "_type": "Position",
+            "X": 25.4,
+            "Y": -12.7,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "Package_SO:TSSOP-16_4.4x5mm_P0.65mm"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Datasheet",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": -5.08,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "https://www.analog.com/media/en/technical-documentation/data-sheets/AD5593R.pdf"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Description",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 0,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "8-channel 12bits configurable ADC/DAC/GPIO Internal Reference, I2C interface Integrated temperature sensor,Single Supply, TSSOP-16"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "ki_keywords",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 0,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "8channel 12bit ADC DAC GPIO I2C Temperature"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "ki_fp_filters",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 0,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "TSSOP*4.4x5mm*P0.65mm*"
+        }
+      ],
+      "styleId": null,
+      "unitId": null,
+      "units": [
+        {
+          "_type": "Symbol",
+          "entryName": "AD5593R",
+          "extends": null,
+          "graphicItems": [
+            {
+              "_type": "SyRect",
+              "end": {
+                "_type": "Position",
+                "X": 8.89,
+                "Y": -11.43,
+                "angle": null,
+                "unlocked": false
+              },
+              "fill": {
+                "_type": "Fill",
+                "color": null,
+                "type": "background"
+              },
+              "private": false,
+              "start": {
+                "_type": "Position",
+                "X": -8.89,
+                "Y": 13.97,
+                "angle": null,
+                "unlocked": false
+              },
+              "stroke": {
+                "_type": "Stroke",
+                "color": null,
+                "type": "default",
+                "width": 0.254
+              }
+            }
+          ],
+          "hidePinNumbers": false,
+          "inBom": null,
+          "isPower": false,
+          "libId": "AD5593R_0_1",
+          "libraryNickname": null,
+          "onBoard": null,
+          "pinNames": false,
+          "pinNamesHide": false,
+          "pinNamesOffset": null,
+          "pins": [],
+          "properties": [],
+          "styleId": 1,
+          "unitId": 0,
+          "units": []
+        },
+        {
+          "_type": "Symbol",
+          "entryName": "AD5593R",
+          "extends": null,
+          "graphicItems": [],
+          "hidePinNumbers": false,
+          "inBom": null,
+          "isPower": false,
+          "libId": "AD5593R_1_1",
+          "libraryNickname": null,
+          "onBoard": null,
+          "pinNames": false,
+          "pinNamesHide": false,
+          "pinNamesOffset": null,
+          "pins": [
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "bidirectional",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 3.81,
+              "name": "SDA",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "15",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": -12.7,
+                "Y": 10.16,
+                "angle": 0,
+                "unlocked": false
+              }
+            },
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "input",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 3.81,
+              "name": "SCL",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "16",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": -12.7,
+                "Y": 7.62,
+                "angle": 0,
+                "unlocked": false
+              }
+            },
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "passive",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 3.81,
+              "name": "V_{REF}",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "8",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": -12.7,
+                "Y": 2.54,
+                "angle": 0,
+                "unlocked": false
+              }
+            },
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "input",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 3.81,
+              "name": "~{RESET}",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "1",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": -12.7,
+                "Y": -2.54,
+                "angle": 0,
+                "unlocked": false
+              }
+            },
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "input",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 3.81,
+              "name": "A0",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "2",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": -12.7,
+                "Y": -7.62,
+                "angle": 0,
+                "unlocked": false
+              }
+            },
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "power_in",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 3.81,
+              "name": "V_{DD}",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "3",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": -2.54,
+                "Y": 17.78,
+                "angle": 270,
+                "unlocked": false
+              }
+            },
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "power_in",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 3.81,
+              "name": "GND",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "14",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": 0,
+                "Y": -15.24,
+                "angle": 90,
+                "unlocked": false
+              }
+            },
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "power_in",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 3.81,
+              "name": "V_{LOGIC}",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "9",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": 2.54,
+                "Y": 17.78,
+                "angle": 270,
+                "unlocked": false
+              }
+            },
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "bidirectional",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 3.81,
+              "name": "IO0",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "4",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": 12.7,
+                "Y": 10.16,
+                "angle": 180,
+                "unlocked": false
+              }
+            },
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "bidirectional",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 3.81,
+              "name": "IO1",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "5",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": 12.7,
+                "Y": 7.62,
+                "angle": 180,
+                "unlocked": false
+              }
+            },
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "bidirectional",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 3.81,
+              "name": "IO2",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "6",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": 12.7,
+                "Y": 5.08,
+                "angle": 180,
+                "unlocked": false
+              }
+            },
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "bidirectional",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 3.81,
+              "name": "IO3",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "7",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": 12.7,
+                "Y": 2.54,
+                "angle": 180,
+                "unlocked": false
+              }
+            },
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "bidirectional",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 3.81,
+              "name": "IO4",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "10",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": 12.7,
+                "Y": 0,
+                "angle": 180,
+                "unlocked": false
+              }
+            },
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "bidirectional",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 3.81,
+              "name": "IO5",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "11",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": 12.7,
+                "Y": -2.54,
+                "angle": 180,
+                "unlocked": false
+              }
+            },
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "bidirectional",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 3.81,
+              "name": "IO6",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "12",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": 12.7,
+                "Y": -5.08,
+                "angle": 180,
+                "unlocked": false
+              }
+            },
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "bidirectional",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 3.81,
+              "name": "IO7",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "13",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": 12.7,
+                "Y": -7.62,
+                "angle": 180,
+                "unlocked": false
+              }
+            }
+          ],
+          "properties": [],
+          "styleId": 1,
+          "unitId": 1,
+          "units": []
+        }
+      ]
+    },
+    {
+      "_type": "Symbol",
+      "entryName": "R",
+      "extends": null,
+      "graphicItems": [],
+      "hidePinNumbers": false,
+      "inBom": true,
+      "isPower": false,
+      "libId": "Device:R",
+      "libraryNickname": "Device",
+      "onBoard": true,
+      "pinNames": true,
+      "pinNamesHide": false,
+      "pinNamesOffset": 0,
+      "pins": [],
+      "properties": [
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Reference",
+          "position": {
+            "_type": "Position",
+            "X": 2.032,
+            "Y": 0,
+            "angle": 90,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "R"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Value",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 0,
+            "angle": 90,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "R"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Footprint",
+          "position": {
+            "_type": "Position",
+            "X": -1.778,
+            "Y": 0,
+            "angle": 90,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Datasheet",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 0,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "~"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Description",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 0,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "Resistor"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "ki_keywords",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 0,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "R res resistor"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "ki_fp_filters",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 0,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "R_*"
+        }
+      ],
+      "styleId": null,
+      "unitId": null,
+      "units": [
+        {
+          "_type": "Symbol",
+          "entryName": "R",
+          "extends": null,
+          "graphicItems": [
+            {
+              "_type": "SyRect",
+              "end": {
+                "_type": "Position",
+                "X": 1.016,
+                "Y": 2.54,
+                "angle": null,
+                "unlocked": false
+              },
+              "fill": {
+                "_type": "Fill",
+                "color": null,
+                "type": "none"
+              },
+              "private": false,
+              "start": {
+                "_type": "Position",
+                "X": -1.016,
+                "Y": -2.54,
+                "angle": null,
+                "unlocked": false
+              },
+              "stroke": {
+                "_type": "Stroke",
+                "color": null,
+                "type": "default",
+                "width": 0.254
+              }
+            }
+          ],
+          "hidePinNumbers": false,
+          "inBom": null,
+          "isPower": false,
+          "libId": "R_0_1",
+          "libraryNickname": null,
+          "onBoard": null,
+          "pinNames": false,
+          "pinNamesHide": false,
+          "pinNamesOffset": null,
+          "pins": [],
+          "properties": [],
+          "styleId": 1,
+          "unitId": 0,
+          "units": []
+        },
+        {
+          "_type": "Symbol",
+          "entryName": "R",
+          "extends": null,
+          "graphicItems": [],
+          "hidePinNumbers": false,
+          "inBom": null,
+          "isPower": false,
+          "libId": "R_1_1",
+          "libraryNickname": null,
+          "onBoard": null,
+          "pinNames": false,
+          "pinNamesHide": false,
+          "pinNamesOffset": null,
+          "pins": [
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "passive",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 1.27,
+              "name": "~",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "1",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": 0,
+                "Y": 3.81,
+                "angle": 270,
+                "unlocked": false
+              }
+            },
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "passive",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 1.27,
+              "name": "~",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "2",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": 0,
+                "Y": -3.81,
+                "angle": 90,
+                "unlocked": false
+              }
+            }
+          ],
+          "properties": [],
+          "styleId": 1,
+          "unitId": 1,
+          "units": []
+        }
+      ]
+    },
+    {
+      "_type": "Symbol",
+      "entryName": "+5V",
+      "extends": null,
+      "graphicItems": [],
+      "hidePinNumbers": false,
+      "inBom": true,
+      "isPower": true,
+      "libId": "power:+5V",
+      "libraryNickname": "power",
+      "onBoard": true,
+      "pinNames": true,
+      "pinNamesHide": false,
+      "pinNamesOffset": 0,
+      "pins": [],
+      "properties": [
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Reference",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": -3.81,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "#PWR"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Value",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 3.556,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "+5V"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Footprint",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 0,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Datasheet",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 0,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Description",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 0,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "Power symbol creates a global label with name \"+5V\""
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "ki_keywords",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 0,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "global power"
+        }
+      ],
+      "styleId": null,
+      "unitId": null,
+      "units": [
+        {
+          "_type": "Symbol",
+          "entryName": "+5V",
+          "extends": null,
+          "graphicItems": [
+            {
+              "_type": "SyPolyLine",
+              "fill": {
+                "_type": "Fill",
+                "color": null,
+                "type": "none"
+              },
+              "points": [
+                {
+                  "_type": "Position",
+                  "X": -0.762,
+                  "Y": 1.27,
+                  "angle": null,
+                  "unlocked": false
+                },
+                {
+                  "_type": "Position",
+                  "X": 0,
+                  "Y": 2.54,
+                  "angle": null,
+                  "unlocked": false
+                }
+              ],
+              "stroke": {
+                "_type": "Stroke",
+                "color": null,
+                "type": "default",
+                "width": 0
+              }
+            },
+            {
+              "_type": "SyPolyLine",
+              "fill": {
+                "_type": "Fill",
+                "color": null,
+                "type": "none"
+              },
+              "points": [
+                {
+                  "_type": "Position",
+                  "X": 0,
+                  "Y": 2.54,
+                  "angle": null,
+                  "unlocked": false
+                },
+                {
+                  "_type": "Position",
+                  "X": 0.762,
+                  "Y": 1.27,
+                  "angle": null,
+                  "unlocked": false
+                }
+              ],
+              "stroke": {
+                "_type": "Stroke",
+                "color": null,
+                "type": "default",
+                "width": 0
+              }
+            },
+            {
+              "_type": "SyPolyLine",
+              "fill": {
+                "_type": "Fill",
+                "color": null,
+                "type": "none"
+              },
+              "points": [
+                {
+                  "_type": "Position",
+                  "X": 0,
+                  "Y": 0,
+                  "angle": null,
+                  "unlocked": false
+                },
+                {
+                  "_type": "Position",
+                  "X": 0,
+                  "Y": 2.54,
+                  "angle": null,
+                  "unlocked": false
+                }
+              ],
+              "stroke": {
+                "_type": "Stroke",
+                "color": null,
+                "type": "default",
+                "width": 0
+              }
+            }
+          ],
+          "hidePinNumbers": false,
+          "inBom": null,
+          "isPower": false,
+          "libId": "+5V_0_1",
+          "libraryNickname": null,
+          "onBoard": null,
+          "pinNames": false,
+          "pinNamesHide": false,
+          "pinNamesOffset": null,
+          "pins": [],
+          "properties": [],
+          "styleId": 1,
+          "unitId": 0,
+          "units": []
+        },
+        {
+          "_type": "Symbol",
+          "entryName": "+5V",
+          "extends": null,
+          "graphicItems": [],
+          "hidePinNumbers": false,
+          "inBom": null,
+          "isPower": false,
+          "libId": "+5V_1_1",
+          "libraryNickname": null,
+          "onBoard": null,
+          "pinNames": false,
+          "pinNamesHide": false,
+          "pinNamesOffset": null,
+          "pins": [
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "power_in",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 0,
+              "name": "~",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "1",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": 0,
+                "Y": 0,
+                "angle": 90,
+                "unlocked": false
+              }
+            }
+          ],
+          "properties": [],
+          "styleId": 1,
+          "unitId": 1,
+          "units": []
+        }
+      ]
+    },
+    {
+      "_type": "Symbol",
+      "entryName": "GNDREF",
+      "extends": null,
+      "graphicItems": [],
+      "hidePinNumbers": false,
+      "inBom": true,
+      "isPower": true,
+      "libId": "power:GNDREF",
+      "libraryNickname": "power",
+      "onBoard": true,
+      "pinNames": true,
+      "pinNamesHide": false,
+      "pinNamesOffset": 0,
+      "pins": [],
+      "properties": [
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Reference",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": -6.35,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "#PWR"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Value",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": -3.81,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "GNDREF"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Footprint",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 0,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Datasheet",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 0,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Description",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 0,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "ki_keywords",
+          "position": {
+            "_type": "Position",
+            "X": 0,
+            "Y": 0,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "global power"
+        }
+      ],
+      "styleId": null,
+      "unitId": null,
+      "units": [
+        {
+          "_type": "Symbol",
+          "entryName": "GNDREF",
+          "extends": null,
+          "graphicItems": [
+            {
+              "_type": "SyPolyLine",
+              "fill": {
+                "_type": "Fill",
+                "color": null,
+                "type": "none"
+              },
+              "points": [
+                {
+                  "_type": "Position",
+                  "X": -0.635,
+                  "Y": -1.905,
+                  "angle": null,
+                  "unlocked": false
+                },
+                {
+                  "_type": "Position",
+                  "X": 0.635,
+                  "Y": -1.905,
+                  "angle": null,
+                  "unlocked": false
+                }
+              ],
+              "stroke": {
+                "_type": "Stroke",
+                "color": null,
+                "type": "default",
+                "width": 0
+              }
+            },
+            {
+              "_type": "SyPolyLine",
+              "fill": {
+                "_type": "Fill",
+                "color": null,
+                "type": "none"
+              },
+              "points": [
+                {
+                  "_type": "Position",
+                  "X": -0.127,
+                  "Y": -2.54,
+                  "angle": null,
+                  "unlocked": false
+                },
+                {
+                  "_type": "Position",
+                  "X": 0.127,
+                  "Y": -2.54,
+                  "angle": null,
+                  "unlocked": false
+                }
+              ],
+              "stroke": {
+                "_type": "Stroke",
+                "color": null,
+                "type": "default",
+                "width": 0
+              }
+            },
+            {
+              "_type": "SyPolyLine",
+              "fill": {
+                "_type": "Fill",
+                "color": null,
+                "type": "none"
+              },
+              "points": [
+                {
+                  "_type": "Position",
+                  "X": 0,
+                  "Y": -1.27,
+                  "angle": null,
+                  "unlocked": false
+                },
+                {
+                  "_type": "Position",
+                  "X": 0,
+                  "Y": 0,
+                  "angle": null,
+                  "unlocked": false
+                }
+              ],
+              "stroke": {
+                "_type": "Stroke",
+                "color": null,
+                "type": "default",
+                "width": 0
+              }
+            },
+            {
+              "_type": "SyPolyLine",
+              "fill": {
+                "_type": "Fill",
+                "color": null,
+                "type": "none"
+              },
+              "points": [
+                {
+                  "_type": "Position",
+                  "X": 1.27,
+                  "Y": -1.27,
+                  "angle": null,
+                  "unlocked": false
+                },
+                {
+                  "_type": "Position",
+                  "X": -1.27,
+                  "Y": -1.27,
+                  "angle": null,
+                  "unlocked": false
+                }
+              ],
+              "stroke": {
+                "_type": "Stroke",
+                "color": null,
+                "type": "default",
+                "width": 0
+              }
+            }
+          ],
+          "hidePinNumbers": false,
+          "inBom": null,
+          "isPower": false,
+          "libId": "GNDREF_0_1",
+          "libraryNickname": null,
+          "onBoard": null,
+          "pinNames": false,
+          "pinNamesHide": false,
+          "pinNamesOffset": null,
+          "pins": [],
+          "properties": [],
+          "styleId": 1,
+          "unitId": 0,
+          "units": []
+        },
+        {
+          "_type": "Symbol",
+          "entryName": "GNDREF",
+          "extends": null,
+          "graphicItems": [],
+          "hidePinNumbers": false,
+          "inBom": null,
+          "isPower": false,
+          "libId": "GNDREF_1_1",
+          "libraryNickname": null,
+          "onBoard": null,
+          "pinNames": false,
+          "pinNamesHide": false,
+          "pinNamesOffset": null,
+          "pins": [
+            {
+              "_type": "SymbolPin",
+              "alternatePins": [],
+              "electricalType": "power_in",
+              "graphicalStyle": "line",
+              "hide": false,
+              "length": 0,
+              "name": "~",
+              "nameEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "number": "1",
+              "numberEffects": {
+                "_type": "Effects",
+                "font": {
+                  "_type": "Font",
+                  "bold": false,
+                  "color": null,
+                  "face": null,
+                  "height": 1.27,
+                  "italic": false,
+                  "lineSpacing": null,
+                  "thickness": null,
+                  "width": 1.27
+                },
+                "hide": false,
+                "href": null,
+                "justify": {
+                  "_type": "Justify",
+                  "horizontally": null,
+                  "mirror": false,
+                  "vertically": null
+                }
+              },
+              "position": {
+                "_type": "Position",
+                "X": 0,
+                "Y": 0,
+                "angle": 270,
+                "unlocked": false
+              }
+            }
+          ],
+          "properties": [],
+          "styleId": 1,
+          "unitId": 1,
+          "units": []
+        }
+      ]
+    }
+  ],
+  "netclassFlags": [],
+  "noConnects": [],
+  "paper": {
+    "_type": "PageSettings",
+    "height": null,
+    "paperSize": "A5",
+    "portrait": false,
+    "width": null
+  },
+  "schematicSymbols": [
+    {
+      "_type": "SchematicSymbol",
+      "dnp": false,
+      "entryName": "AD5593R",
+      "fieldsAutoplaced": true,
+      "inBom": true,
+      "instances": [
+        {
+          "_type": "SymbolProjectInstance",
+          "name": "MasterOfMuppets",
+          "paths": [
+            {
+              "_type": "SymbolProjectPath",
+              "reference": "DAC2",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c",
+              "unit": 1
+            },
+            {
+              "_type": "SymbolProjectPath",
+              "reference": "DAC1",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b",
+              "unit": 1
+            }
+          ]
+        }
+      ],
+      "libId": "Analog:AD5593R",
+      "libName": null,
+      "libraryNickname": "Analog",
+      "mirror": null,
+      "onBoard": true,
+      "pins": {
+        "10": "bf961c4c-3aae-48dd-85f6-2a677782cead",
+        "6": "78c41191-6e70-4c5a-90e6-a98bf18fc9f7",
+        "7": "f4eddf82-4bce-4513-a9ce-2da589dd0d96",
+        "8": "2de3412f-fd20-47c4-9fb6-c415e6370713",
+        "1": "a1bcbc8b-2016-4c77-b282-0930683c2a28",
+        "4": "3ba2be48-126a-48ce-81e5-0704c24347b6",
+        "9": "5b7de94e-23af-4f83-865d-06546aac7ce6",
+        "2": "3df3ce84-d7ea-4706-8e85-391a33b24202",
+        "3": "ba65339a-8bb2-47bb-8d55-df49eaf9923d",
+        "5": "a89f1fab-a0a6-4df5-879a-6de0d028f4d1",
+        "15": "6f8f4e16-f747-44af-a43a-76ddfd50e01f",
+        "16": "71cc19db-8f7e-4a80-bfe5-1834c61ca684",
+        "14": "4049e8e5-11b2-4646-be8b-ed79f57c959a",
+        "12": "1b95e098-9163-4085-8f4b-245bdcd9a88a",
+        "13": "c272ad91-826b-434b-99da-110c7a79faad",
+        "11": "564a13cb-ac4c-4dd5-83d7-e353ba30ee1c"
+      },
+      "position": {
+        "_type": "Position",
+        "X": 96.52,
+        "Y": 76.2,
+        "angle": 0,
+        "unlocked": false
+      },
+      "properties": [
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Reference",
+          "position": {
+            "_type": "Position",
+            "X": 98.6633,
+            "Y": 90.17,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "DAC1"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Value",
+          "position": {
+            "_type": "Position",
+            "X": 98.6633,
+            "Y": 92.71,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "AD5593R"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Footprint",
+          "position": {
+            "_type": "Position",
+            "X": 121.92,
+            "Y": 88.9,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "Package_SO:TSSOP-16_4.4x5mm_P0.65mm"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Datasheet",
+          "position": {
+            "_type": "Position",
+            "X": 96.52,
+            "Y": 81.28,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "https://www.analog.com/media/en/technical-documentation/data-sheets/AD5593R.pdf"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Description",
+          "position": {
+            "_type": "Position",
+            "X": 96.52,
+            "Y": 76.2,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "8-channel 12bits configurable ADC/DAC/GPIO Internal Reference, I2C interface Integrated temperature sensor,Single Supply, TSSOP-16"
+        }
+      ],
+      "unit": 1,
+      "uuid": "147647cf-30b1-4924-a56e-588ddf6855c4"
+    },
+    {
+      "_type": "SchematicSymbol",
+      "dnp": false,
+      "entryName": "+5V",
+      "fieldsAutoplaced": false,
+      "inBom": true,
+      "instances": [
+        {
+          "_type": "SymbolProjectInstance",
+          "name": "MasterOfMuppets",
+          "paths": [
+            {
+              "_type": "SymbolProjectPath",
+              "reference": "#PWR033",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c",
+              "unit": 1
+            },
+            {
+              "_type": "SymbolProjectPath",
+              "reference": "#PWR011",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b",
+              "unit": 1
+            }
+          ]
+        }
+      ],
+      "libId": "power:+5V",
+      "libName": null,
+      "libraryNickname": "power",
+      "mirror": null,
+      "onBoard": true,
+      "pins": {
+        "1": "8bbe4b94-b012-4a43-b7db-672c1043f4ff"
+      },
+      "position": {
+        "_type": "Position",
+        "X": 93.98,
+        "Y": 38.1,
+        "angle": 0,
+        "unlocked": false
+      },
+      "properties": [
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Reference",
+          "position": {
+            "_type": "Position",
+            "X": 93.98,
+            "Y": 41.91,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "#PWR011"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Value",
+          "position": {
+            "_type": "Position",
+            "X": 93.98,
+            "Y": 33.02,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "VCC"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Footprint",
+          "position": {
+            "_type": "Position",
+            "X": 93.98,
+            "Y": 38.1,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Datasheet",
+          "position": {
+            "_type": "Position",
+            "X": 93.98,
+            "Y": 38.1,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Description",
+          "position": {
+            "_type": "Position",
+            "X": 93.98,
+            "Y": 38.1,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "Power symbol creates a global label with name \"+5V\""
+        }
+      ],
+      "unit": 1,
+      "uuid": "3ca8fc4e-61b3-4f17-b155-a5c3707b21ae"
+    },
+    {
+      "_type": "SchematicSymbol",
+      "dnp": false,
+      "entryName": "R",
+      "fieldsAutoplaced": true,
+      "inBom": true,
+      "instances": [
+        {
+          "_type": "SymbolProjectInstance",
+          "name": "MasterOfMuppets",
+          "paths": [
+            {
+              "_type": "SymbolProjectPath",
+              "reference": "R38",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c",
+              "unit": 1
+            },
+            {
+              "_type": "SymbolProjectPath",
+              "reference": "R3",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b",
+              "unit": 1
+            }
+          ]
+        }
+      ],
+      "libId": "Device:R",
+      "libName": null,
+      "libraryNickname": "Device",
+      "mirror": null,
+      "onBoard": true,
+      "pins": {
+        "2": "87a5f45a-7021-4b06-b80f-5c8bfab9c421",
+        "1": "a596b0fe-78d3-462b-877c-663b64484a51"
+      },
+      "position": {
+        "_type": "Position",
+        "X": 81.28,
+        "Y": 33.02,
+        "angle": 0,
+        "unlocked": false
+      },
+      "properties": [
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Reference",
+          "position": {
+            "_type": "Position",
+            "X": 83.82,
+            "Y": 31.7499,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "R3"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Value",
+          "position": {
+            "_type": "Position",
+            "X": 83.82,
+            "Y": 34.2899,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "4.7k"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Footprint",
+          "position": {
+            "_type": "Position",
+            "X": 79.502,
+            "Y": 33.02,
+            "angle": 90,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Datasheet",
+          "position": {
+            "_type": "Position",
+            "X": 81.28,
+            "Y": 33.02,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "~"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Description",
+          "position": {
+            "_type": "Position",
+            "X": 81.28,
+            "Y": 33.02,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "Resistor"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Manufacturer",
+          "position": {
+            "_type": "Position",
+            "X": 81.28,
+            "Y": 33.02,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Part Number",
+          "position": {
+            "_type": "Position",
+            "X": 81.28,
+            "Y": 33.02,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Specifications",
+          "position": {
+            "_type": "Position",
+            "X": 81.28,
+            "Y": 33.02,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        }
+      ],
+      "unit": 1,
+      "uuid": "6cf5d3ec-637d-421c-9421-56b76ea492dd"
+    },
+    {
+      "_type": "SchematicSymbol",
+      "dnp": false,
+      "entryName": "GNDREF",
+      "fieldsAutoplaced": true,
+      "inBom": true,
+      "instances": [
+        {
+          "_type": "SymbolProjectInstance",
+          "name": "MasterOfMuppets",
+          "paths": [
+            {
+              "_type": "SymbolProjectPath",
+              "reference": "#PWR034",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c",
+              "unit": 1
+            },
+            {
+              "_type": "SymbolProjectPath",
+              "reference": "#PWR012",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b",
+              "unit": 1
+            }
+          ]
+        }
+      ],
+      "libId": "power:GNDREF",
+      "libName": null,
+      "libraryNickname": "power",
+      "mirror": null,
+      "onBoard": true,
+      "pins": {
+        "1": "7a3b38bd-2e85-41e1-ba6b-515c67d0719c"
+      },
+      "position": {
+        "_type": "Position",
+        "X": 96.52,
+        "Y": 91.44,
+        "angle": 0,
+        "unlocked": false
+      },
+      "properties": [
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Reference",
+          "position": {
+            "_type": "Position",
+            "X": 96.52,
+            "Y": 97.79,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "#PWR012"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Value",
+          "position": {
+            "_type": "Position",
+            "X": 96.52,
+            "Y": 96.52,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "GND"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Footprint",
+          "position": {
+            "_type": "Position",
+            "X": 96.52,
+            "Y": 91.44,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Datasheet",
+          "position": {
+            "_type": "Position",
+            "X": 96.52,
+            "Y": 91.44,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Description",
+          "position": {
+            "_type": "Position",
+            "X": 96.52,
+            "Y": 91.44,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+        }
+      ],
+      "unit": 1,
+      "uuid": "b780d003-b2a2-44ba-8330-41c4906521b0"
+    },
+    {
+      "_type": "SchematicSymbol",
+      "dnp": false,
+      "entryName": "R",
+      "fieldsAutoplaced": true,
+      "inBom": true,
+      "instances": [
+        {
+          "_type": "SymbolProjectInstance",
+          "name": "MasterOfMuppets",
+          "paths": [
+            {
+              "_type": "SymbolProjectPath",
+              "reference": "R36",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c",
+              "unit": 1
+            },
+            {
+              "_type": "SymbolProjectPath",
+              "reference": "R1",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b",
+              "unit": 1
+            }
+          ]
+        }
+      ],
+      "libId": "Device:R",
+      "libName": null,
+      "libraryNickname": "Device",
+      "mirror": null,
+      "onBoard": true,
+      "pins": {
+        "2": "ecb52f3f-8615-4c34-a81a-27eae5871b9b",
+        "1": "082b01b3-76c6-4689-a5a9-6ecb8d85daf6"
+      },
+      "position": {
+        "_type": "Position",
+        "X": 63.5,
+        "Y": 33.02,
+        "angle": 0,
+        "unlocked": false
+      },
+      "properties": [
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Reference",
+          "position": {
+            "_type": "Position",
+            "X": 66.04,
+            "Y": 31.7499,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "R1"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Value",
+          "position": {
+            "_type": "Position",
+            "X": 66.04,
+            "Y": 34.2899,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "10k"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Footprint",
+          "position": {
+            "_type": "Position",
+            "X": 61.722,
+            "Y": 33.02,
+            "angle": 90,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Datasheet",
+          "position": {
+            "_type": "Position",
+            "X": 63.5,
+            "Y": 33.02,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "~"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Description",
+          "position": {
+            "_type": "Position",
+            "X": 63.5,
+            "Y": 33.02,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "Resistor"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Manufacturer",
+          "position": {
+            "_type": "Position",
+            "X": 63.5,
+            "Y": 33.02,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Part Number",
+          "position": {
+            "_type": "Position",
+            "X": 63.5,
+            "Y": 33.02,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Specifications",
+          "position": {
+            "_type": "Position",
+            "X": 63.5,
+            "Y": 33.02,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        }
+      ],
+      "unit": 1,
+      "uuid": "c8f03f70-0a54-4982-8479-ef7c38d53a37"
+    },
+    {
+      "_type": "SchematicSymbol",
+      "dnp": false,
+      "entryName": "R",
+      "fieldsAutoplaced": true,
+      "inBom": true,
+      "instances": [
+        {
+          "_type": "SymbolProjectInstance",
+          "name": "MasterOfMuppets",
+          "paths": [
+            {
+              "_type": "SymbolProjectPath",
+              "reference": "R37",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c",
+              "unit": 1
+            },
+            {
+              "_type": "SymbolProjectPath",
+              "reference": "R2",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b",
+              "unit": 1
+            }
+          ]
+        }
+      ],
+      "libId": "Device:R",
+      "libName": null,
+      "libraryNickname": "Device",
+      "mirror": null,
+      "onBoard": true,
+      "pins": {
+        "2": "64e8e9dd-3378-4707-a7de-a66b96bde880",
+        "1": "b21f36be-d632-4793-8392-8be4c460ec4b"
+      },
+      "position": {
+        "_type": "Position",
+        "X": 72.39,
+        "Y": 33.02,
+        "angle": 0,
+        "unlocked": false
+      },
+      "properties": [
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Reference",
+          "position": {
+            "_type": "Position",
+            "X": 74.93,
+            "Y": 31.7499,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "R2"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Value",
+          "position": {
+            "_type": "Position",
+            "X": 74.93,
+            "Y": 34.2899,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "4.7k"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Footprint",
+          "position": {
+            "_type": "Position",
+            "X": 70.612,
+            "Y": 33.02,
+            "angle": 90,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Datasheet",
+          "position": {
+            "_type": "Position",
+            "X": 72.39,
+            "Y": 33.02,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "~"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Description",
+          "position": {
+            "_type": "Position",
+            "X": 72.39,
+            "Y": 33.02,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": "Resistor"
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Manufacturer",
+          "position": {
+            "_type": "Position",
+            "X": 72.39,
+            "Y": 33.02,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Part Number",
+          "position": {
+            "_type": "Position",
+            "X": 72.39,
+            "Y": 33.02,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        },
+        {
+          "_type": "Property",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": null,
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "id": null,
+          "key": "Specifications",
+          "position": {
+            "_type": "Position",
+            "X": 72.39,
+            "Y": 33.02,
+            "angle": 0,
+            "unlocked": false
+          },
+          "showName": false,
+          "value": ""
+        }
+      ],
+      "unit": 1,
+      "uuid": "d8bc3281-a640-46a6-9cec-08ec30b6881f"
+    }
+  ],
+  "shapes": [],
+  "sheetInstances": [],
+  "sheets": [
+    {
+      "_type": "HierarchicalSheet",
+      "fieldsAutoplaced": false,
+      "fileName": {
+        "_type": "Property",
+        "effects": {
+          "_type": "Effects",
+          "font": {
+            "_type": "Font",
+            "bold": false,
+            "color": null,
+            "face": null,
+            "height": 1.27,
+            "italic": false,
+            "lineSpacing": null,
+            "thickness": null,
+            "width": 1.27
+          },
+          "hide": false,
+          "href": null,
+          "justify": {
+            "_type": "Justify",
+            "horizontally": "left",
+            "mirror": false,
+            "vertically": "top"
+          }
+        },
+        "id": null,
+        "key": "Sheetfile",
+        "position": {
+          "_type": "Position",
+          "X": 109.22,
+          "Y": 75.5146,
+          "angle": 0,
+          "unlocked": false
+        },
+        "showName": false,
+        "value": "amp_module.kicad_sch"
+      },
+      "fill": {
+        "_type": "ColorRGBA",
+        "A": 0,
+        "B": 0,
+        "G": 0,
+        "R": 0,
+        "precision": 4
+      },
+      "height": 10.16,
+      "instances": [
+        {
+          "_type": "HierarchicalSheetProjectInstance",
+          "name": "MasterOfMuppets",
+          "paths": [
+            {
+              "_type": "HierarchicalSheetProjectPath",
+              "page": "4",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b"
+            },
+            {
+              "_type": "HierarchicalSheetProjectPath",
+              "page": "6",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c"
+            }
+          ]
+        }
+      ],
+      "pins": [
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "input",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "INPUT_1",
+          "position": {
+            "_type": "Position",
+            "X": 109.22,
+            "Y": 66.04,
+            "angle": 180,
+            "unlocked": false
+          },
+          "uuid": "b31f3d15-62f8-4f84-bbee-fb8f057ecdb1"
+        },
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "input",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "INPUT_2",
+          "position": {
+            "_type": "Position",
+            "X": 109.22,
+            "Y": 68.58,
+            "angle": 180,
+            "unlocked": false
+          },
+          "uuid": "0882d094-57ca-4346-9ba4-965add161f32"
+        },
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "input",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "INPUT_3",
+          "position": {
+            "_type": "Position",
+            "X": 109.22,
+            "Y": 71.12,
+            "angle": 180,
+            "unlocked": false
+          },
+          "uuid": "e48da419-a8b9-422c-b23e-3b3dcdd2fe76"
+        },
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "input",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "INPUT_4",
+          "position": {
+            "_type": "Position",
+            "X": 109.22,
+            "Y": 73.66,
+            "angle": 180,
+            "unlocked": false
+          },
+          "uuid": "079e3915-07ab-40c5-8d1a-56bff331cd55"
+        },
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "output",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "right",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "OUTPUT_1",
+          "position": {
+            "_type": "Position",
+            "X": 139.7,
+            "Y": 66.04,
+            "angle": 0,
+            "unlocked": false
+          },
+          "uuid": "570cc835-0ee5-4eb6-8c33-e37d4d0f28d6"
+        },
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "output",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "right",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "OUTPUT_2",
+          "position": {
+            "_type": "Position",
+            "X": 139.7,
+            "Y": 68.58,
+            "angle": 0,
+            "unlocked": false
+          },
+          "uuid": "4dfac9b0-7bd4-4718-bb49-c6bd5e7735b9"
+        },
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "output",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "right",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "OUTPUT_3",
+          "position": {
+            "_type": "Position",
+            "X": 139.7,
+            "Y": 71.12,
+            "angle": 0,
+            "unlocked": false
+          },
+          "uuid": "bd9e0c0b-d84c-46c0-80f5-5be62b9e477d"
+        },
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "output",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "right",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "OUTPUT_4",
+          "position": {
+            "_type": "Position",
+            "X": 139.7,
+            "Y": 73.66,
+            "angle": 0,
+            "unlocked": false
+          },
+          "uuid": "c077e84f-b135-41f2-8a41-3496ba537ad4"
+        }
+      ],
+      "position": {
+        "_type": "Position",
+        "X": 109.22,
+        "Y": 64.77,
+        "angle": null,
+        "unlocked": false
+      },
+      "properties": [],
+      "sheetName": {
+        "_type": "Property",
+        "effects": {
+          "_type": "Effects",
+          "font": {
+            "_type": "Font",
+            "bold": false,
+            "color": null,
+            "face": null,
+            "height": 1.27,
+            "italic": false,
+            "lineSpacing": null,
+            "thickness": null,
+            "width": 1.27
+          },
+          "hide": false,
+          "href": null,
+          "justify": {
+            "_type": "Justify",
+            "horizontally": "left",
+            "mirror": false,
+            "vertically": "bottom"
+          }
+        },
+        "id": null,
+        "key": "Sheetname",
+        "position": {
+          "_type": "Position",
+          "X": 117.475,
+          "Y": 64.008,
+          "angle": 0,
+          "unlocked": false
+        },
+        "showName": false,
+        "value": "AMP_MODULE"
+      },
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "solid",
+        "width": 0.1524
+      },
+      "uuid": "02ed2e6d-b4fd-4f27-b067-e65a1933feb0",
+      "width": 30.48
+    },
+    {
+      "_type": "HierarchicalSheet",
+      "fieldsAutoplaced": true,
+      "fileName": {
+        "_type": "Property",
+        "effects": {
+          "_type": "Effects",
+          "font": {
+            "_type": "Font",
+            "bold": false,
+            "color": null,
+            "face": null,
+            "height": 1.27,
+            "italic": false,
+            "lineSpacing": null,
+            "thickness": null,
+            "width": 1.27
+          },
+          "hide": false,
+          "href": null,
+          "justify": {
+            "_type": "Justify",
+            "horizontally": "left",
+            "mirror": false,
+            "vertically": "top"
+          }
+        },
+        "id": null,
+        "key": "Sheetfile",
+        "position": {
+          "_type": "Position",
+          "X": 69.85,
+          "Y": 76.1496,
+          "angle": 0,
+          "unlocked": false
+        },
+        "showName": false,
+        "value": "unripple_module.kicad_sch"
+      },
+      "fill": {
+        "_type": "ColorRGBA",
+        "A": 0,
+        "B": 0,
+        "G": 0,
+        "R": 0,
+        "precision": 4
+      },
+      "height": 3.81,
+      "instances": [
+        {
+          "_type": "HierarchicalSheetProjectInstance",
+          "name": "MasterOfMuppets",
+          "paths": [
+            {
+              "_type": "HierarchicalSheetProjectPath",
+              "page": "8",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b"
+            },
+            {
+              "_type": "HierarchicalSheetProjectPath",
+              "page": "10",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c"
+            }
+          ]
+        }
+      ],
+      "pins": [
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "input",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "right",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "UNRIPPLE",
+          "position": {
+            "_type": "Position",
+            "X": 82.55,
+            "Y": 73.66,
+            "angle": 0,
+            "unlocked": false
+          },
+          "uuid": "cd9e4f4b-b1fc-4444-9651-7b9c029d128c"
+        }
+      ],
+      "position": {
+        "_type": "Position",
+        "X": 69.85,
+        "Y": 71.755,
+        "angle": null,
+        "unlocked": false
+      },
+      "properties": [],
+      "sheetName": {
+        "_type": "Property",
+        "effects": {
+          "_type": "Effects",
+          "font": {
+            "_type": "Font",
+            "bold": false,
+            "color": null,
+            "face": null,
+            "height": 1.27,
+            "italic": false,
+            "lineSpacing": null,
+            "thickness": null,
+            "width": 1.27
+          },
+          "hide": false,
+          "href": null,
+          "justify": {
+            "_type": "Justify",
+            "horizontally": "left",
+            "mirror": false,
+            "vertically": "bottom"
+          }
+        },
+        "id": null,
+        "key": "Sheetname",
+        "position": {
+          "_type": "Position",
+          "X": 69.85,
+          "Y": 71.0434,
+          "angle": 0,
+          "unlocked": false
+        },
+        "showName": false,
+        "value": "UNRIPPLE_MODULE1"
+      },
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "solid",
+        "width": 0.1524
+      },
+      "uuid": "1ebaab9f-3adf-4ab6-b6c9-964263e520cd",
+      "width": 12.7
+    },
+    {
+      "_type": "HierarchicalSheet",
+      "fieldsAutoplaced": false,
+      "fileName": {
+        "_type": "Property",
+        "effects": {
+          "_type": "Effects",
+          "font": {
+            "_type": "Font",
+            "bold": false,
+            "color": null,
+            "face": null,
+            "height": 1.27,
+            "italic": false,
+            "lineSpacing": null,
+            "thickness": null,
+            "width": 1.27
+          },
+          "hide": false,
+          "href": null,
+          "justify": {
+            "_type": "Justify",
+            "horizontally": "left",
+            "mirror": false,
+            "vertically": "top"
+          }
+        },
+        "id": null,
+        "key": "Sheetfile",
+        "position": {
+          "_type": "Position",
+          "X": 109.22,
+          "Y": 85.6746,
+          "angle": 0,
+          "unlocked": false
+        },
+        "showName": false,
+        "value": "amp_module.kicad_sch"
+      },
+      "fill": {
+        "_type": "ColorRGBA",
+        "A": 0,
+        "B": 0,
+        "G": 0,
+        "R": 0,
+        "precision": 4
+      },
+      "height": 10.16,
+      "instances": [
+        {
+          "_type": "HierarchicalSheetProjectInstance",
+          "name": "MasterOfMuppets",
+          "paths": [
+            {
+              "_type": "HierarchicalSheetProjectPath",
+              "page": "3",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b"
+            },
+            {
+              "_type": "HierarchicalSheetProjectPath",
+              "page": "7",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c"
+            }
+          ]
+        }
+      ],
+      "pins": [
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "input",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "INPUT_1",
+          "position": {
+            "_type": "Position",
+            "X": 109.22,
+            "Y": 76.2,
+            "angle": 180,
+            "unlocked": false
+          },
+          "uuid": "de9cd5ac-240f-44d0-9c69-d207da12edb2"
+        },
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "input",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "INPUT_2",
+          "position": {
+            "_type": "Position",
+            "X": 109.22,
+            "Y": 78.74,
+            "angle": 180,
+            "unlocked": false
+          },
+          "uuid": "e78721ac-505c-4fbb-8822-93ebddbf49f6"
+        },
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "input",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "INPUT_3",
+          "position": {
+            "_type": "Position",
+            "X": 109.22,
+            "Y": 81.28,
+            "angle": 180,
+            "unlocked": false
+          },
+          "uuid": "d22c5b48-f551-4eb7-85ab-50246858cd69"
+        },
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "input",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "INPUT_4",
+          "position": {
+            "_type": "Position",
+            "X": 109.22,
+            "Y": 83.82,
+            "angle": 180,
+            "unlocked": false
+          },
+          "uuid": "fcabf395-e41b-415b-9385-ef32637cfca0"
+        },
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "output",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "right",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "OUTPUT_1",
+          "position": {
+            "_type": "Position",
+            "X": 139.7,
+            "Y": 76.2,
+            "angle": 0,
+            "unlocked": false
+          },
+          "uuid": "516b87ed-2562-4599-b972-d3de93ae69db"
+        },
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "output",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "right",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "OUTPUT_2",
+          "position": {
+            "_type": "Position",
+            "X": 139.7,
+            "Y": 78.74,
+            "angle": 0,
+            "unlocked": false
+          },
+          "uuid": "a8d062fb-3748-4503-a282-3aa5f24efd5a"
+        },
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "output",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "right",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "OUTPUT_3",
+          "position": {
+            "_type": "Position",
+            "X": 139.7,
+            "Y": 81.28,
+            "angle": 0,
+            "unlocked": false
+          },
+          "uuid": "15bca78b-d59c-4bd5-bd00-fe60cd550537"
+        },
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "output",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "right",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "OUTPUT_4",
+          "position": {
+            "_type": "Position",
+            "X": 139.7,
+            "Y": 83.82,
+            "angle": 0,
+            "unlocked": false
+          },
+          "uuid": "e765704e-58b6-41d8-b527-4d8ac5fac46c"
+        }
+      ],
+      "position": {
+        "_type": "Position",
+        "X": 109.22,
+        "Y": 74.93,
+        "angle": null,
+        "unlocked": false
+      },
+      "properties": [],
+      "sheetName": {
+        "_type": "Property",
+        "effects": {
+          "_type": "Effects",
+          "font": {
+            "_type": "Font",
+            "bold": false,
+            "color": null,
+            "face": null,
+            "height": 1.27,
+            "italic": false,
+            "lineSpacing": null,
+            "thickness": null,
+            "width": 1.27
+          },
+          "hide": false,
+          "href": null,
+          "justify": {
+            "_type": "Justify",
+            "horizontally": "left",
+            "mirror": false,
+            "vertically": "bottom"
+          }
+        },
+        "id": null,
+        "key": "Sheetname",
+        "position": {
+          "_type": "Position",
+          "X": 117.348,
+          "Y": 87.122,
+          "angle": 0,
+          "unlocked": false
+        },
+        "showName": false,
+        "value": "AMP_MODULE1"
+      },
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "solid",
+        "width": 0.1524
+      },
+      "uuid": "415bd524-e348-40cf-853f-c7af6379b92b",
+      "width": 30.48
+    },
+    {
+      "_type": "HierarchicalSheet",
+      "fieldsAutoplaced": true,
+      "fileName": {
+        "_type": "Property",
+        "effects": {
+          "_type": "Effects",
+          "font": {
+            "_type": "Font",
+            "bold": false,
+            "color": null,
+            "face": null,
+            "height": 1.27,
+            "italic": false,
+            "lineSpacing": null,
+            "thickness": null,
+            "width": 1.27
+          },
+          "hide": false,
+          "href": null,
+          "justify": {
+            "_type": "Justify",
+            "horizontally": "left",
+            "mirror": false,
+            "vertically": "top"
+          }
+        },
+        "id": null,
+        "key": "Sheetfile",
+        "position": {
+          "_type": "Position",
+          "X": 69.85,
+          "Y": 83.7696,
+          "angle": 0,
+          "unlocked": false
+        },
+        "showName": false,
+        "value": "unripple_module.kicad_sch"
+      },
+      "fill": {
+        "_type": "ColorRGBA",
+        "A": 0,
+        "B": 0,
+        "G": 0,
+        "R": 0,
+        "precision": 4
+      },
+      "height": 3.81,
+      "instances": [
+        {
+          "_type": "HierarchicalSheetProjectInstance",
+          "name": "MasterOfMuppets",
+          "paths": [
+            {
+              "_type": "HierarchicalSheetProjectPath",
+              "page": "11",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b"
+            },
+            {
+              "_type": "HierarchicalSheetProjectPath",
+              "page": "12",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c"
+            }
+          ]
+        }
+      ],
+      "pins": [
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "input",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "right",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "UNRIPPLE",
+          "position": {
+            "_type": "Position",
+            "X": 82.55,
+            "Y": 81.28,
+            "angle": 0,
+            "unlocked": false
+          },
+          "uuid": "d7748de7-8995-4a75-8db8-7c8b3d5693c5"
+        }
+      ],
+      "position": {
+        "_type": "Position",
+        "X": 69.85,
+        "Y": 79.375,
+        "angle": null,
+        "unlocked": false
+      },
+      "properties": [],
+      "sheetName": {
+        "_type": "Property",
+        "effects": {
+          "_type": "Effects",
+          "font": {
+            "_type": "Font",
+            "bold": false,
+            "color": null,
+            "face": null,
+            "height": 1.27,
+            "italic": false,
+            "lineSpacing": null,
+            "thickness": null,
+            "width": 1.27
+          },
+          "hide": false,
+          "href": null,
+          "justify": {
+            "_type": "Justify",
+            "horizontally": "left",
+            "mirror": false,
+            "vertically": "bottom"
+          }
+        },
+        "id": null,
+        "key": "Sheetname",
+        "position": {
+          "_type": "Position",
+          "X": 69.85,
+          "Y": 78.6634,
+          "angle": 0,
+          "unlocked": false
+        },
+        "showName": false,
+        "value": "UNRIPPLE_MODULE2"
+      },
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "solid",
+        "width": 0.1524
+      },
+      "uuid": "677b72c2-bf5a-4c5d-aefa-30b62731dc07",
+      "width": 12.7
+    },
+    {
+      "_type": "HierarchicalSheet",
+      "fieldsAutoplaced": true,
+      "fileName": {
+        "_type": "Property",
+        "effects": {
+          "_type": "Effects",
+          "font": {
+            "_type": "Font",
+            "bold": false,
+            "color": null,
+            "face": null,
+            "height": 1.27,
+            "italic": false,
+            "lineSpacing": null,
+            "thickness": null,
+            "width": 1.27
+          },
+          "hide": false,
+          "href": null,
+          "justify": {
+            "_type": "Justify",
+            "horizontally": "left",
+            "mirror": false,
+            "vertically": "top"
+          }
+        },
+        "id": null,
+        "key": "Sheetfile",
+        "position": {
+          "_type": "Position",
+          "X": 101.6,
+          "Y": 60.9096,
+          "angle": 0,
+          "unlocked": false
+        },
+        "showName": false,
+        "value": "unripple_module.kicad_sch"
+      },
+      "fill": {
+        "_type": "ColorRGBA",
+        "A": 0,
+        "B": 0,
+        "G": 0,
+        "R": 0,
+        "precision": 4
+      },
+      "height": 3.81,
+      "instances": [
+        {
+          "_type": "HierarchicalSheetProjectInstance",
+          "name": "MasterOfMuppets",
+          "paths": [
+            {
+              "_type": "HierarchicalSheetProjectPath",
+              "page": "9",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b"
+            }
+          ]
+        }
+      ],
+      "pins": [
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "input",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "left",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "UNRIPPLE",
+          "position": {
+            "_type": "Position",
+            "X": 101.6,
+            "Y": 58.42,
+            "angle": 180,
+            "unlocked": false
+          },
+          "uuid": "eef57614-2d2e-401a-a4a9-938f114f4253"
+        }
+      ],
+      "position": {
+        "_type": "Position",
+        "X": 101.6,
+        "Y": 56.515,
+        "angle": null,
+        "unlocked": false
+      },
+      "properties": [],
+      "sheetName": {
+        "_type": "Property",
+        "effects": {
+          "_type": "Effects",
+          "font": {
+            "_type": "Font",
+            "bold": false,
+            "color": null,
+            "face": null,
+            "height": 1.27,
+            "italic": false,
+            "lineSpacing": null,
+            "thickness": null,
+            "width": 1.27
+          },
+          "hide": false,
+          "href": null,
+          "justify": {
+            "_type": "Justify",
+            "horizontally": "left",
+            "mirror": false,
+            "vertically": "bottom"
+          }
+        },
+        "id": null,
+        "key": "Sheetname",
+        "position": {
+          "_type": "Position",
+          "X": 101.6,
+          "Y": 55.8034,
+          "angle": 0,
+          "unlocked": false
+        },
+        "showName": false,
+        "value": "UNRIPPLE_MODULE"
+      },
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "solid",
+        "width": 0.1524
+      },
+      "uuid": "9b55f2e7-8956-440a-8522-8732ca051d63",
+      "width": 12.7
+    },
+    {
+      "_type": "HierarchicalSheet",
+      "fieldsAutoplaced": true,
+      "fileName": {
+        "_type": "Property",
+        "effects": {
+          "_type": "Effects",
+          "font": {
+            "_type": "Font",
+            "bold": false,
+            "color": null,
+            "face": null,
+            "height": 1.27,
+            "italic": false,
+            "lineSpacing": null,
+            "thickness": null,
+            "width": 1.27
+          },
+          "hide": false,
+          "href": null,
+          "justify": {
+            "_type": "Justify",
+            "horizontally": "left",
+            "mirror": false,
+            "vertically": "top"
+          }
+        },
+        "id": null,
+        "key": "Sheetfile",
+        "position": {
+          "_type": "Position",
+          "X": 69.85,
+          "Y": 88.8496,
+          "angle": 0,
+          "unlocked": false
+        },
+        "showName": false,
+        "value": "unripple_module.kicad_sch"
+      },
+      "fill": {
+        "_type": "ColorRGBA",
+        "A": 0,
+        "B": 0,
+        "G": 0,
+        "R": 0,
+        "precision": 4
+      },
+      "height": 3.81,
+      "instances": [
+        {
+          "_type": "HierarchicalSheetProjectInstance",
+          "name": "MasterOfMuppets",
+          "paths": [
+            {
+              "_type": "HierarchicalSheetProjectPath",
+              "page": "13",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b"
+            },
+            {
+              "_type": "HierarchicalSheetProjectPath",
+              "page": "14",
+              "sheetInstancePath": "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c"
+            }
+          ]
+        }
+      ],
+      "pins": [
+        {
+          "_type": "HierarchicalPin",
+          "connectionType": "input",
+          "effects": {
+            "_type": "Effects",
+            "font": {
+              "_type": "Font",
+              "bold": false,
+              "color": null,
+              "face": null,
+              "height": 1.27,
+              "italic": false,
+              "lineSpacing": null,
+              "thickness": null,
+              "width": 1.27
+            },
+            "hide": false,
+            "href": null,
+            "justify": {
+              "_type": "Justify",
+              "horizontally": "right",
+              "mirror": false,
+              "vertically": null
+            }
+          },
+          "name": "UNRIPPLE",
+          "position": {
+            "_type": "Position",
+            "X": 82.55,
+            "Y": 86.36,
+            "angle": 0,
+            "unlocked": false
+          },
+          "uuid": "a52c0d60-12a6-4aa6-91a0-2f2213bc60f2"
+        }
+      ],
+      "position": {
+        "_type": "Position",
+        "X": 69.85,
+        "Y": 84.455,
+        "angle": null,
+        "unlocked": false
+      },
+      "properties": [],
+      "sheetName": {
+        "_type": "Property",
+        "effects": {
+          "_type": "Effects",
+          "font": {
+            "_type": "Font",
+            "bold": false,
+            "color": null,
+            "face": null,
+            "height": 1.27,
+            "italic": false,
+            "lineSpacing": null,
+            "thickness": null,
+            "width": 1.27
+          },
+          "hide": false,
+          "href": null,
+          "justify": {
+            "_type": "Justify",
+            "horizontally": "left",
+            "mirror": false,
+            "vertically": "bottom"
+          }
+        },
+        "id": null,
+        "key": "Sheetname",
+        "position": {
+          "_type": "Position",
+          "X": 69.85,
+          "Y": 83.7434,
+          "angle": 0,
+          "unlocked": false
+        },
+        "showName": false,
+        "value": "UNRIPPLE_MODULE3"
+      },
+      "stroke": {
+        "_type": "Stroke",
+        "color": null,
+        "type": "solid",
+        "width": 0.1524
+      },
+      "uuid": "c23ed8e9-fd80-4ab9-a446-b909f916776c",
+      "width": 12.7
+    }
+  ],
+  "symbolInstances": [],
+  "textBoxes": [],
+  "texts": [],
+  "titleBlock": {
+    "_type": "TitleBlock",
+    "comments": {},
+    "company": "y3i12",
+    "date": null,
+    "revision": "0.0.0",
+    "title": "MasterOfMuppets"
+  },
+  "uuid": "177cfd6a-1ed3-4511-a0a7-a5da522e26c3",
+  "version": 20250114
+}

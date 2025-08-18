@@ -1,0 +1,74 @@
+{
+  "tools": {
+    "active": [
+      {
+        "name": "kicad_json_converter.py",
+        "path": "claude/tools/kicad_json_converter.py",
+        "purpose": "Bidirectional conversion between KiCad .kicad_sch and JSON format",
+        "status": "working",
+        "dependencies": ["kiutils"],
+        "usage": "python kicad_json_converter.py batch input.kicad_sch -o output_dir"
+      },
+      {
+        "name": "schematic_graph_viewer.html",
+        "path": "claude/tools/schematic_graph_viewer.html",
+        "purpose": "D3.js-based interactive schematic viewer",
+        "status": "standalone",
+        "dependencies": ["D3.js (CDN)"],
+        "note": "Original viewer, separate from removed graph tools"
+      }
+    ],
+    "removed": [
+      {
+        "name": "json_to_graph_converter.py",
+        "removed_date": "2025-08-18",
+        "reason": "Unsuccessful visualization approach, overcomplicated"
+      },
+      {
+        "name": "parse_kicad_to_graph.py",
+        "removed_date": "2025-08-18",
+        "reason": "Initial graph parser, replaced by JSON converter"
+      }
+    ]
+  },
+  "data_structures": {
+    "schematics": {
+      "location": "claude/data_store/schematics/",
+      "projects": [
+        {
+          "name": "master_of_muppets",
+          "components": 249,
+          "sheets": 6,
+          "instances": 26,
+          "description": "USB MIDI to 16-channel CV converter"
+        },
+        {
+          "name": "amplifier_board",
+          "components": 28,
+          "sheets": 1,
+          "instances": 1,
+          "description": "Audio amplifier circuit"
+        }
+      ],
+      "format": "JSON converted from KiCad .kicad_sch"
+    }
+  },
+  "analysis_scripts": {
+    "master_of_muppets": "claude/data_store/schematics/master_of_muppets/analysis/quick_analysis_example.py",
+    "amplifier_board": "claude/data_store/schematics/amplifier_board/analysis/quick_analysis_example.py",
+    "purpose": "Component counting, connectivity analysis, validation"
+  },
+  "documentation": {
+    "guides": [
+      "claude/data_store/schematics/CLAUDE_SCHEMATIC_GUIDE.md",
+      "claude/tools/README_converter.md"
+    ],
+    "project_docs": [
+      "claude/data_store/schematics/README.md",
+      "claude/data_store/schematics/master_of_muppets/README.md",
+      "claude/data_store/schematics/amplifier_board/README.md"
+    ]
+  },
+  "last_updated": "2025-08-18",
+  "primary_focus": "KiCad schematic analysis and conversion"
+}

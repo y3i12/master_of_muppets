@@ -1,0 +1,225 @@
+{
+  "project_info": {
+    "name": "Master of Muppets",
+    "description": "USB MIDI to 16-channel CV (0-10V) converter on Teensy 4.1",
+    "purpose": "Convert USB MIDI messages to analog control voltages for modular synthesizers",
+    "main_controller": "Teensy 4.1",
+    "output_specification": "16 channels, 0-10V CV range",
+    "coding_style": "snake_case (see CODING_STYLE.md in root)"
+  },
+  
+  "file_hierarchy": {
+    "root_schematic": "complete_project/MasterOfMuppets.json",
+    "sub_schematics": [
+      {
+        "file": "complete_project/dac_module.json",
+        "purpose": "Digital-to-analog conversion modules",
+        "expected_ics": ["AD5593R", "MCP4728"],
+        "channels": "Multiple DAC channels for CV generation"
+      },
+      {
+        "file": "complete_project/amp_module.json", 
+        "purpose": "Output amplification and scaling to 0-10V",
+        "expected_components": ["Op-amps", "Scaling resistors", "Output buffers"],
+        "function": "Scale DAC outputs to modular synth voltage levels"
+      },
+      {
+        "file": "complete_project/teensy_module.json",
+        "purpose": "Teensy 4.1 microcontroller connections",
+        "function": "USB MIDI input, I2C communication with DACs, control logic"
+      },
+      {
+        "file": "complete_project/jack_sheet.json",
+        "purpose": "Physical I/O connectors",
+        "expected_connectors": ["1/4 inch jacks", "3.5mm jacks", "Power connector"],
+        "function": "CV output connections for patch cables"
+      },
+      {
+        "file": "complete_project/unripple_module.json",
+        "purpose": "Power supply filtering and conditioning", 
+        "expected_components": ["Filter capacitors", "Regulators", "Decoupling"],
+        "voltages": ["+12V", "-12V", "+5V", "+3V3", "GND"]
+      }
+    ]
+  },
+  
+  "power_architecture": {
+    "supply_voltages": [
+      {
+        "rail": "+12V",
+        "purpose": "Positive supply for op-amps and output stages",
+        "expected_current": "100-500mA"
+      },
+      {
+        "rail": "-12V", 
+        "purpose": "Negative supply for op-amps (dual supply operation)",
+        "expected_current": "100-500mA"
+      },
+      {
+        "rail": "VCC",
+        "purpose": "Digital logic supply (likely +5V or +3.3V)",
+        "expected_current": "200-1000mA"
+      },
+      {
+        "rail": "GND",
+        "purpose": "Common ground reference",
+        "notes": "May have separate analog and digital grounds"
+      },
+      {
+        "rail": "+3V3",
+        "purpose": "Teensy 4.1 and digital IC supply",
+        "expected_current": "100-300mA"
+      }
+    ],
+    "power_symbols_to_recognize": [
+      "GND", "GNDA", "GNDD", "GNDPWR", "+12V", "-12V", 
+      "VCC", "VDD", "+5V", "+3V3", "VBUS", "VBAT"
+    ]
+  },
+  
+  "expected_component_types": {
+    "microcontroller": {
+      "primary": "Teensy 4.1",
+      "library_refs": ["teensy:Teensy41", "MCU_*:Teensy*"],
+      "pins_of_interest": ["USB", "I2C (SDA/SCL)", "SPI", "GPIO"]
+    },
+    "dacs": {
+      "likely_ics": ["AD5593R", "MCP4728", "DAC8554"],
+      "library_refs": ["Analog_DAC:*", "AD5593R:*", "MCP4728:*"],
+      "interface": "I2C typically",
+      "channels": "4-8 channels per IC"
+    },
+    "amplifiers": {
+      "types": ["Op-amps for scaling", "Buffer amplifiers"],
+      "library_refs": ["Amplifier_Operational:*", "Device:R", "Device:C"],
+      "purpose": "Scale DAC outputs to 0-10V range"
+    },
+    "connectors": {
+      "types": ["Audio jacks", "Power connectors", "Headers"],
+      "library_refs": ["Connector:*", "Connector_Audio:*"],
+      "count": "16 CV outputs expected"
+    },
+    "passives": {
+      "resistors": "Scaling, biasing, feedback",
+      "capacitors": "Decoupling, filtering, compensation",
+      "library_refs": ["Device:R", "Device:C", "Device:L"]
+    }
+  },
+  
+  "net_naming_conventions": {
+    "power_nets": {
+      "patterns": ["*12V*", "*5V*", "*3V3*", "VCC", "VDD", "*GND*"],
+      "global": true,
+      "description": "Power supply rails, typically global across all sheets"
+    },
+    "i2c_nets": {
+      "patterns": ["SDA", "SCL", "*I2C*"],
+      "global": true,
+      "description": "I2C communication between Teensy and DACs"
+    },
+    "cv_outputs": {
+      "patterns": ["CV_*", "OUT_*", "*_OUT"],
+      "hierarchical": true,
+      "description": "Control voltage outputs to jacks"
+    },
+    "digital_signals": {
+      "patterns": ["*_CS", "*_MOSI", "*_MISO", "*_CLK"],
+      "local_or_hierarchical": true,
+      "description": "SPI and control signals"
+    }
+  },
+  
+  "analysis_priorities": {
+    "primary_questions": [
+      "How many DAC ICs are used and what type?",
+      "How is the I2C bus structured between Teensy and DACs?", 
+      "What op-amp configuration scales DAC outputs to 0-10V?",
+      "How are the 16 CV outputs distributed across modules?",
+      "What is the power supply architecture and current requirements?"
+    ],
+    "component_inventory_focus": [
+      "Count and identify all DAC ICs",
+      "List all op-amps and their configurations", 
+      "Identify Teensy pin assignments",
+      "Count CV output connectors",
+      "Map power supply components"
+    ],
+    "connectivity_analysis": [
+      "Trace I2C bus from Teensy to all DACs",
+      "Follow CV signal path from DAC to output jack",
+      "Map power distribution to all ICs",
+      "Identify feedback/scaling networks"
+    ]
+  },
+  
+  "json_parsing_helpers": {
+    "key_object_types": [
+      "SchematicSymbol", "HierarchicalSheet", "GlobalLabel", 
+      "HierarchicalLabel", "Position", "Property", "Junction"
+    ],
+    "essential_symbol_properties": [
+      "libraryIdentifier", "position", "uuid", "properties"
+    ],
+    "property_keys_of_interest": [
+      "Reference", "Value", "Footprint", "Datasheet", "Description"
+    ],
+    "hierarchical_navigation": {
+      "start_from": "sheets array in root schematic",
+      "sheet_identification": "sheetName and fileName properties",
+      "pin_connections": "pins array in each sheet object"
+    }
+  },
+  
+  "common_analysis_patterns": {
+    "find_dac_ics": {
+      "method": "Search schematicSymbols for libraryIdentifier containing DAC, AD559, MCP472",
+      "extract": "Reference, Value, position, associated I2C connections"
+    },
+    "trace_power_nets": {
+      "method": "Find globalLabels with power symbol names",
+      "map_distribution": "Cross-reference with component power pins"
+    },
+    "count_cv_outputs": {
+      "method": "Search for connectors in jack_sheet, count hierarchical labels",
+      "validate": "Should total 16 channels as per project spec"
+    },
+    "analyze_scaling_circuits": {
+      "method": "Find op-amps in amp_module, trace input/output connections",
+      "calculate": "Gain and offset for 0-10V output range"
+    }
+  },
+  
+  "validation_checks": {
+    "component_counts": {
+      "teensy_controllers": "Should be exactly 1",
+      "dac_ics": "Likely 2-4 ICs for 16 channels",
+      "cv_outputs": "Should total 16 connectors/channels",
+      "power_connectors": "At least 1 main power input"
+    },
+    "net_consistency": {
+      "power_rails": "All sheets should reference same power net names",
+      "i2c_bus": "SDA/SCL should connect Teensy to all DACs",
+      "hierarchical_pins": "Should match between parent and child sheets"
+    },
+    "signal_integrity": {
+      "cv_paths": "Each DAC output should trace to unique connector",
+      "power_decoupling": "Each IC should have nearby decoupling capacitors",
+      "ground_connections": "All components should connect to ground"
+    }
+  },
+  
+  "file_metadata": {
+    "created_by": "kicad_json_converter.py v1.0.0",
+    "source_files": [
+      "CADfiles/MasterOfMuppets/MasterOfMuppets.kicad_sch",
+      "CADfiles/MasterOfMuppets/dac_module.kicad_sch", 
+      "CADfiles/MasterOfMuppets/amp_module.kicad_sch",
+      "CADfiles/MasterOfMuppets/teensy_module.kicad_sch",
+      "CADfiles/MasterOfMuppets/jack_sheet.kicad_sch",
+      "CADfiles/MasterOfMuppets/unripple_module.kicad_sch"
+    ],
+    "conversion_date": "2025",
+    "completeness": "All KiCad data preserved in JSON format",
+    "dependencies": "None - all data self-contained in JSON files"
+  }
+}
