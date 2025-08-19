@@ -207,6 +207,36 @@
       "path": "claude/data_store/knowledge/master_of_muppets_project_structure.json",
       "keywords": ["project structure", "master of muppets", "organization", "architecture", "file layout", "development methodology", "ai-assisted development", "embedded systems", "kicad", "teensy", "midi cv", "knowledge management", "seasonal development", "claude ai", "firmware structure", "hardware structure", "workspace organization", "build system", "platformio", "arduino", "hierarchical design"],
       "description": "CRITICAL: Comprehensive documentation of Master of Muppets project structure, organization, development methodology, and file architecture"
+    },
+    "master_of_muppets_main_schematic": {
+      "path": "claude/data_store/schematics/master_of_muppets/complete_project/master_of_muppets.json",
+      "keywords": ["master of muppets", "main schematic", "hierarchical", "top level", "sheet instances", "power", "terminals", "screw terminal", "12 components", "15 nets", "connectivity", "kicad schematic", "json"],
+      "description": "Master of Muppets main/top-level hierarchical schematic with 12 components, 15 nets, and sheet instances for all modules"
+    },
+    "master_of_muppets_amp_module": {
+      "path": "claude/data_store/schematics/master_of_muppets/complete_project/amp_module.json",
+      "keywords": ["amp module", "amplifier", "output stage", "35 components", "20 nets", "audio", "signal conditioning", "operational amplifier", "resistors", "capacitors", "kicad schematic", "json"],
+      "description": "Master of Muppets amplifier module schematic with 35 components, 20 nets for CV output signal conditioning"
+    },
+    "master_of_muppets_dac_module": {
+      "path": "claude/data_store/schematics/master_of_muppets/complete_project/dac_module.json",
+      "keywords": ["dac module", "ad5593r", "digital to analog", "i2c", "6 components", "6 nets", "cv generation", "mixed signal", "12-bit", "configurable", "kicad schematic", "json"],
+      "description": "Master of Muppets DAC module schematic featuring AD5593R with 6 components, 6 nets for CV generation"
+    },
+    "master_of_muppets_teensy_module": {
+      "path": "claude/data_store/schematics/master_of_muppets/complete_project/teensy_module.json",
+      "keywords": ["teensy module", "teensy 4.1", "microcontroller", "5 components", "3 nets", "usb midi", "i2c", "control", "embedded", "kicad schematic", "json"],
+      "description": "Master of Muppets Teensy 4.1 module schematic with 5 components, 3 nets for microcontroller and USB MIDI interface"
+    },
+    "master_of_muppets_unripple_module": {
+      "path": "claude/data_store/schematics/master_of_muppets/complete_project/unripple_module.json",
+      "keywords": ["unripple module", "power filtering", "capacitor", "3 components", "2 nets", "noise reduction", "power supply", "decoupling", "kicad schematic", "json"],
+      "description": "Master of Muppets unripple/power filtering module schematic with 3 components, 2 nets for power supply noise reduction"
+    },
+    "master_of_muppets_jack_sheet": {
+      "path": "claude/data_store/schematics/master_of_muppets/complete_project/jack_sheet.json",
+      "keywords": ["jack sheet", "output jacks", "3.5mm", "mono", "switched", "16 components", "cv outputs", "audio jacks", "amphenol", "pj398sm", "kicad schematic", "json"],
+      "description": "Master of Muppets jack sheet schematic with 16 components for 3.5mm mono switched CV output jacks"
     }
   },
   "access_patterns": {
