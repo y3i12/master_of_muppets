@@ -246,7 +246,7 @@ graph TB
         end
         
         subgraph "Total System"
-            EFFICIENCY[System Efficiency<br/>Used: 7.23W (60%)<br/>Available: 4.77W (40%)]
+            EFFICIENCY["System Efficiency<br/>Used: 7.23W - 60%<br/>Available: 4.77W - 40%"]
         end
         
         INPUT --> TEENSY
