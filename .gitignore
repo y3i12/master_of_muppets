@@ -2,8 +2,6 @@ master_of_muppets-backups
 /data_sheets
 fp-info-cache
 *.lck
-.pio
 .vscode
 .claude
 *-bak
-litter_box.md
