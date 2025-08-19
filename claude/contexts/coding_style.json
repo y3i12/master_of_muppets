@@ -1,0 +1,209 @@
+{
+    "naming_conventions": {
+        "classes_and_types": {
+            "style": "snake_case",
+            "examples": ["electric_mayhem", "muppet_clock", "rob_tillaart_ad_5993r"]
+        },
+        "constants": {
+            "style": "k_prefix_snake_case",
+            "prefix": "k_",
+            "examples": ["k_dac_count", "k_channels_per_dac", "k_max_value"]
+        },
+        "variables_and_functions": {
+            "style": "snake_case",
+            "examples": ["input_buffer", "attention_please", "throw_muppet_in_the_mud"]
+        },
+        "static_members": {
+            "style": "snake_case",
+            "examples": ["global_time_f", "tick_time"]
+        },
+        "namespaces": {
+            "style": "snake_case",
+            "examples": ["drivers"]
+        }
+    },
+    "file_organization": {
+        "headers": {
+            "extension": ".h",
+            "guard": "#pragma once"
+        },
+        "implementations": {
+            "extension": ".cpp"
+        },
+        "driver_separation": {
+            "location": "drivers/",
+            "description": "Driver classes in subdirectory"
+        },
+        "include_order": [
+            "standard_libraries",
+            "project_headers"
+        ]
+    },
+    "code_structure": {
+        "template_definitions": "in_header_files_with_implementation",
+        "class_layout": {
+            "order": ["public", "protected", "private"],
+            "description": "Public members first, protected/private last"
+        },
+        "static_functions": "used_for_thread_workers_and_utilities",
+        "inline_functions": "small_utility_functions_marked_inline"
+    },
+    "formatting": {
+        "indentation": {
+            "size": 4,
+            "type": "spaces",
+            "tabs": "forbidden"
+        },
+        "braces": {
+            "functions_classes": "same_line",
+            "control_structures": "new_line"
+        },
+        "spacing": {
+            "operators": "space_around",
+            "commas": "space_after",
+            "template_brackets": "space_around"
+        },
+        "line_length": "reasonable_wrapping_for_readability",
+        "alignment": "function_parameters_and_array_initializers"
+    },
+    "vertical_alignment": {
+        "variable_declarations": {
+            "enabled": true,
+            "description": "Align variable types, names and assignment operators",
+            "example": "static constexpr uint8_t  k_dac_count                   = 2;"
+        },
+        "member_variable_declarations": {
+            "enabled": true,
+            "description": "Consistent spacing between type and variable name",
+            "example": "static float    global_time_f;"
+        },
+        "member_declarations": {
+            "enabled": true,
+            "description": "Align pointer/reference operators and member names",
+            "example": "dac_driver_t*    muppet;"
+        },
+        "array_declarations": {
+            "enabled": true,
+            "description": "Align brackets and array names",
+            "example": "static uint16_t           input_buffer[  k_total_channels ];"
+        },
+        "constructor_initialization": {
+            "enabled": true,
+            "description": "Align member initializers vertically",
+            "pattern": "member( value )"
+        },
+        "array_initializers": {
+            "enabled": true,
+            "description": "Align elements in multi-line array initialization"
+        },
+        "array_values": {
+            "enabled": true,
+            "description": "Align values in lookup tables and data arrays"
+        },
+        "template_declarations": {
+            "enabled": true,
+            "format": "template< typename T >",
+            "description": "Space between angle brackets and typename"
+        },
+        "function_parameters": {
+            "enabled": true,
+            "description": "Align parameters in multi-line function declarations"
+        },
+        "assignment_operators": {
+            "enabled": true,
+            "description": "Align = operators when declaring related constants or variables"
+        },
+        "closing_brackets": {
+            "enabled": true,
+            "description": "Align closing brackets, parentheses, and braces vertically",
+            "example": "k_heartbeat_lut[ index     ];"
+        }
+    },
+    "memory_management": {
+        "static_arrays": {
+            "usage": "required",
+            "description": "Used for buffers with compile-time sizes"
+        },
+        "stack_allocation": {
+            "usage": "preferred",
+            "description": "For small, temporary buffers"
+        },
+        "dynamic_allocation": {
+            "usage": "forbidden",
+            "description": "No dynamic allocation - embedded-friendly approach"
+        },
+        "const_correctness": {
+            "usage": "required",
+            "description": "Constants properly marked"
+        }
+    },
+    "types_and_constants": {
+        "explicit_types": {
+            "preferred": ["uint8_t", "uint16_t", "uint32_t"],
+            "avoid": ["int"],
+            "description": "Use explicit sized types"
+        },
+        "compile_time_constants": {
+            "style": "static constexpr",
+            "description": "For compile-time constants"
+        },
+        "typedef_usage": {
+            "purpose": "Type aliases for template parameters and value types"
+        },
+        "template_constraints": {
+            "description": "Explicit template parameter naming"
+        }
+    },
+    "arduino_embedded_specifics": {
+        "pin_configuration": {
+            "methods": ["pinMode", "digitalWrite"],
+            "description": "Explicit pin configuration calls"
+        },
+        "wire_interface": {
+            "description": "Standard I2C initialization patterns"
+        },
+        "thread_integration": {
+            "library": "TeensyThreads",
+            "description": "TeensyThreads library usage"
+        },
+        "hardware_abstraction": {
+            "pattern": "driver_wrapper_classes"
+        }
+    },
+    "comments_and_documentation": {
+        "philosophy": "minimal_comments_self_documenting_code",
+        "section_dividers": {
+            "pattern": "////////////////////////////////////////////////////////////////////////////////",
+            "usage": "Major sections"
+        },
+        "inline_explanations": {
+            "usage": "only_for_complex_logic_or_hardware_specific",
+            "avoid": "obvious_code"
+        }
+    },
+    "error_handling": {
+        "bounds_checking": {
+            "requirement": "required",
+            "description": "Explicit range validation before array access"
+        },
+        "retry_logic": {
+            "pattern": "hardware_initialization_with_retry_counters"
+        },
+        "graceful_degradation": {
+            "pattern": "return_early_on_invalid_inputs"
+        }
+    },
+    "template_usage": {
+        "generic_interfaces": {
+            "purpose": "Template classes for hardware abstraction"
+        },
+        "type_safety": {
+            "approach": "Strong typing with typedef aliases"
+        },
+        "polymorphism": {
+            "preferred": "compile_time",
+            "avoid": "runtime",
+            "description": "Compile-time polymorphism preferred over runtime"
+        }
+    }
+}

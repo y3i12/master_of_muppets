@@ -1,0 +1,345 @@
+{
+  "name": "Master of Muppets Complete Schematic Knowledge",
+  "version": "1.0.0",
+  "description": "Comprehensive knowledge base for Master of Muppets hierarchical schematic design including all modules and their electrical connectivity",
+  "keywords": [
+    "master of muppets",
+    "hierarchical schematic",
+    "kicad",
+    "electrical connectivity",
+    "circuit analysis",
+    "modular design",
+    "usb midi to cv",
+    "teensy 4.1",
+    "ad5593r",
+    "amplifier",
+    "power filtering",
+    "cv outputs",
+    "3.5mm jacks"
+  ],
+  "overview": {
+    "project_type": "USB MIDI to 16-channel CV converter",
+    "platform": "Teensy 4.1",
+    "architecture": "Hierarchical modular design",
+    "total_components": 77,
+    "total_nets": 46,
+    "total_wire_segments": 124,
+    "total_junctions": 28,
+    "module_count": 6,
+    "output_voltage_range": "0-10V",
+    "cv_channels": 16
+  },
+  "hierarchical_structure": {
+    "main_schematic": {
+      "file": "master_of_muppets.json",
+      "uuid": "01709e3c-d295-4eba-a9f6-77b38e73bd4a",
+      "role": "Top-level hierarchical coordinator",
+      "components": 12,
+      "nets": 15,
+      "wire_segments": 45,
+      "junctions": 5,
+      "key_components": [
+        {
+          "reference": "J1",
+          "value": "Screw_Terminal_01x03",
+          "footprint": "TerminalBlock:TerminalBlock_Xinya_XY308-2.54-3P_1x03_P2.54mm_Horizontal",
+          "purpose": "Power input terminal"
+        }
+      ],
+      "sheet_instances": [
+        "amp_module",
+        "dac_module", 
+        "teensy_module",
+        "unripple_module",
+        "jack_sheet"
+      ]
+    },
+    "modules": [
+      {
+        "name": "amp_module",
+        "file": "amp_module.json",
+        "uuid": "187e3c00-5c30-42c2-89ec-585912782641",
+        "purpose": "CV output signal conditioning and amplification",
+        "components": 35,
+        "nets": 20,
+        "wire_segments": 48,
+        "junctions": 14,
+        "key_components": [
+          {
+            "reference": "R18",
+            "value": "220Ω",
+            "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+            "purpose": "Current limiting/bias resistor"
+          }
+        ],
+        "circuit_functions": [
+          "Signal conditioning",
+          "Output stage amplification",
+          "Current limiting",
+          "Bias networks"
+        ]
+      },
+      {
+        "name": "dac_module", 
+        "file": "dac_module.json",
+        "uuid": "177cfd6a-1ed3-4511-a0a7-a5da522e26c3",
+        "purpose": "Digital to analog conversion for CV generation",
+        "components": 6,
+        "nets": 6,
+        "wire_segments": 22,
+        "junctions": 7,
+        "key_components": [
+          {
+            "reference": "DAC1",
+            "value": "AD5593R",
+            "footprint": "Package_SO:TSSOP-16_4.4x5mm_P0.65mm",
+            "datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/AD5593R.pdf",
+            "purpose": "8-channel 12-bit configurable ADC/DAC with I2C interface"
+          },
+          {
+            "reference": "R3",
+            "value": "4.7k",
+            "purpose": "I2C pull-up resistor"
+          }
+        ],
+        "circuit_functions": [
+          "12-bit D/A conversion",
+          "I2C communication interface", 
+          "Configurable GPIO/ADC/DAC channels",
+          "Internal voltage reference"
+        ]
+      },
+      {
+        "name": "teensy_module",
+        "file": "teensy_module.json", 
+        "uuid": "31e314f0-8bdb-4818-9294-5c02474fdafa",
+        "purpose": "Microcontroller and USB MIDI interface",
+        "components": 5,
+        "nets": 3,
+        "wire_segments": 5,
+        "junctions": 0,
+        "key_components": [
+          {
+            "reference": "T1",
+            "value": "Teensy4.1",
+            "footprint": "Teensy:Teensy41",
+            "purpose": "ARM Cortex-M7 microcontroller board"
+          }
+        ],
+        "circuit_functions": [
+          "USB MIDI communication",
+          "I2C master control",
+          "Real-time processing",
+          "Threading coordination"
+        ]
+      },
+      {
+        "name": "unripple_module",
+        "file": "unripple_module.json",
+        "uuid": "5d7da71d-c580-4c32-9092-b7aa9321dacb", 
+        "purpose": "Power supply filtering and noise reduction",
+        "components": 3,
+        "nets": 2,
+        "wire_segments": 4,
+        "junctions": 2,
+        "key_components": [
+          {
+            "reference": "C22",
+            "value": "10uF_0805_25V",
+            "footprint": "PCM_4ms_Capacitor:C_0805",
+            "manufacturer": "Murata",
+            "part_number": "GRM21BR61E106MA73L",
+            "purpose": "Power supply decoupling and filtering"
+          }
+        ],
+        "circuit_functions": [
+          "Power supply decoupling",
+          "High-frequency noise filtering",
+          "Ripple reduction"
+        ]
+      },
+      {
+        "name": "jack_sheet",
+        "file": "jack_sheet.json",
+        "uuid": "c681efea-34aa-4cf3-a425-8f978a6ae5f0",
+        "purpose": "CV output jacks and connections",
+        "components": 16,
+        "nets": 0,
+        "wire_segments": 0,
+        "junctions": 0,
+        "key_components": [
+          {
+            "reference": "J8",
+            "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+            "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+            "manufacturer": "Amphenol Sine Systems",
+            "part_number": "ACJM-MV35-2S",
+            "purpose": "3.5mm mono switched audio jack for CV output"
+          }
+        ],
+        "circuit_functions": [
+          "CV signal output interface",
+          "Switched jack sensing",
+          "Physical connector mounting"
+        ]
+      }
+    ]
+  },
+  "electrical_analysis": {
+    "power_distribution": {
+      "primary_rails": ["VCC", "GND"],
+      "vcc_description": "Main +5V power supply rail",
+      "gnd_description": "Reference ground (GNDREF) for all circuits",
+      "power_input": "Screw terminal J1 on main schematic"
+    },
+    "signal_flow": {
+      "input": "USB MIDI via Teensy 4.1",
+      "processing": "Real-time MIDI to CV conversion in firmware",
+      "dac_conversion": "AD5593R 12-bit I2C DACs",
+      "amplification": "Operational amplifier output stages",
+      "output": "16 channels of 0-10V CV via 3.5mm jacks"
+    },
+    "communication_interfaces": {
+      "usb": "USB MIDI communication to host computer",
+      "i2c": "Inter-module communication between Teensy and DACs"
+    },
+    "component_distribution": {
+      "active_components": [
+        "Teensy 4.1 microcontroller",
+        "AD5593R DAC/ADC",
+        "Operational amplifiers"
+      ],
+      "passive_components": [
+        "Resistors (bias, pull-up, current limiting)",
+        "Capacitors (decoupling, filtering)",
+        "Connectors (power, audio jacks)"
+      ]
+    }
+  },
+  "design_patterns": {
+    "hierarchical_organization": {
+      "benefits": [
+        "Modular design approach",
+        "Clear functional separation",
+        "Easier maintenance and modification",
+        "Parallel development capability"
+      ],
+      "structure": "Top-level coordinator with functional sub-modules"
+    },
+    "power_management": {
+      "strategy": "Centralized power distribution with local decoupling",
+      "filtering": "Dedicated unripple module for power supply quality",
+      "distribution": "Star topology from main power input"
+    },
+    "signal_integrity": {
+      "approaches": [
+        "Short I2C traces with proper pull-ups",
+        "Power supply decoupling at each module",
+        "Separated analog and digital sections",
+        "Proper grounding strategy"
+      ]
+    }
+  },
+  "connectivity_matrix": {
+    "inter_module_connections": {
+      "power": {
+        "source": "main_schematic (J1)",
+        "distribution": "All modules receive VCC and GND"
+      },
+      "i2c_bus": {
+        "master": "teensy_module (T1)",
+        "slaves": ["dac_module (DAC1)"],
+        "signals": ["SCL", "SDA"],
+        "pull_ups": "dac_module (R3, R4)"
+      },
+      "cv_outputs": {
+        "source": "dac_module and amp_module",
+        "destination": "jack_sheet (J2-J17)",
+        "signal_count": 16,
+        "voltage_range": "0-10V"
+      }
+    }
+  },
+  "component_analysis": {
+    "component_count_by_type": {
+      "power_symbols": 25,
+      "resistors": 20,
+      "capacitors": 8,
+      "integrated_circuits": 6,
+      "connectors": 18,
+      "total": 77
+    },
+    "critical_components": [
+      {
+        "component": "AD5593R DAC",
+        "criticality": "High",
+        "reason": "Primary CV generation component",
+        "backup_strategy": "Multiple DAC configuration possible"
+      },
+      {
+        "component": "Teensy 4.1",
+        "criticality": "High", 
+        "reason": "Central processing unit",
+        "backup_strategy": "Standard Arduino-compatible replacement"
+      },
+      {
+        "component": "3.5mm jacks",
+        "criticality": "Medium",
+        "reason": "User interface components",
+        "backup_strategy": "Standard audio industry components"
+      }
+    ]
+  },
+  "manufacturing_considerations": {
+    "pcb_complexity": "4-layer recommended for signal integrity",
+    "component_availability": "Standard electronic components",
+    "assembly_difficulty": "Moderate (SMD and through-hole mixed)",
+    "testing_requirements": [
+      "Power supply verification",
+      "I2C communication testing", 
+      "CV output accuracy measurement",
+      "USB MIDI functionality validation"
+    ]
+  },
+  "firmware_hardware_correlation": {
+    "i2c_addresses": {
+      "ad5593r_base": "0x10-0x17 (configurable)",
+      "communication": "Wire library on Teensy"
+    },
+    "pin_mappings": {
+      "teensy_i2c": "Pins 18 (SDA), 19 (SCL)",
+      "dac_outputs": "AD5593R pins IO0-IO7",
+      "power_pins": "VCC, GND distribution"
+    },
+    "real_time_constraints": {
+      "midi_latency": "Sub-millisecond response required",
+      "dac_update_rate": "Audio rate (48kHz+) capability",
+      "threading": "TeensyThreads for parallel processing"
+    }
+  },
+  "version_history": {
+    "1.0.0": {
+      "date": "2025-01-19",
+      "changes": [
+        "Initial complete schematic knowledge compilation",
+        "All 6 modules analyzed and documented",
+        "Electrical connectivity mapped",
+        "Component analysis completed",
+        "Design pattern documentation",
+        "Manufacturing and firmware correlation"
+      ]
+    }
+  },
+  "usage_instructions": {
+    "accessing_module_data": "Use Read tool with specific module JSON path",
+    "connectivity_analysis": "Parse net_connectivity sections for electrical analysis",
+    "component_lookup": "Search schematic_symbols arrays by reference or value",
+    "cross_referencing": "Use UUID fields to maintain component relationships"
+  },
+  "related_knowledge": [
+    "../firmware/master_of_muppets_firmware.json - Firmware implementation details",
+    "ad5593r.json - DAC component specifications",
+    "teensy_4_1.json - Microcontroller platform details",
+    "embedded_realtime_best_practices.json - Programming guidelines"
+  ]
+}

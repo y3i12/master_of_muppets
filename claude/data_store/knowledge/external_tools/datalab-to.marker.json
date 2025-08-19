@@ -1,0 +1,288 @@
+{
+"tool_name": "datalab-to/marker",
+"version": "1.8.3",
+"purpose": "High-accuracy document conversion tool for converting various document formats to markdown, JSON, HTML, and chunks",
+"github_url": "https://github.com/datalab-to/marker",
+"pypi_package": "marker-pdf",
+"installation": {
+"basic": "pip install marker-pdf",
+"full_support": "pip install marker-pdf[full]",
+"requirements": {
+"python": "3.10+",
+"pytorch": "required",
+"additional": "Extra dependencies needed for non-PDF documents"
+}
+},
+"supported_formats": {
+"input": [
+"PDF",
+"image",
+"PPTX",
+"DOCX",
+"XLSX",
+"HTML",
+"EPUB"
+],
+"output": [
+"markdown",
+"json",
+"html",
+"chunks"
+],
+"languages": "all languages supported"
+},
+"command_line_usage": {
+"single_file": {
+"command": "marker_single",
+"syntax": "marker_single /path/to/file.pdf [options]",
+"examples": [
+"marker_single document.pdf",
+"marker_single document.pdf --output_format json",
+"marker_single document.pdf --output_format html",
+"marker_single document.pdf --use_llm --force_ocr"
+]
+},
+"batch_processing": {
+"command": "marker",
+"syntax": "marker /path/to/input/folder [/path/to/output/folder] [options]",
+"examples": [
+"marker ./pdfs ./output",
+"marker ./documents --output_format json"
+]
+}
+},
+"key_options": {
+"output_format": {
+"flag": "--output_format",
+"values": [
+"markdown",
+"json",
+"html",
+"chunks"
+],
+"description": "Specify output format for conversion"
+},
+"ocr_options": {
+"force_ocr": {
+"flag": "--force_ocr",
+"description": "Force OCR on all lines"
+},
+"strip_existing_ocr": {
+"flag": "--strip_existing_ocr",
+"description": "Remove existing OCR text and re-OCR with surya"
+},
+"keep_chars": {
+"flag": "--keep_chars",
+"description": "Preserve all original characters in OCR mode"
+}
+},
+"llm_enhancement": {
+"use_llm": {
+"flag": "--use_llm",
+"description": "Use LLM for highest accuracy (merges tables, formats inline math, extracts forms)",
+"supported_services": [
+"Gemini",
+"Google Vertex",
+"Ollama",
+"Claude",
+"OpenAI",
+"Azure OpenAI"
+]
+},
+"redo_inline_math": {
+"flag": "--redo_inline_math",
+"description": "Highest quality inline math conversion (use with --use_llm)"
+},
+"block_correction_prompt": {
+"flag": "--block_correction_prompt",
+"description": "Custom prompt for formatting/logic in LLM mode"
+}
+},
+"processing_options": {
+"format_lines": {
+"flag": "--format_lines",
+"description": "Fix and format bad lines"
+},
+"disable_image_extraction": {
+"flag": "--disable_image_extraction",
+"description": "Don't extract images from documents"
+},
+"debug": {
+"flag": "--debug",
+"description": "Enable debug mode with additional logging"
+},
+"processors": {
+"flag": "--processors",
+"description": "Override default processors (comma-separated module paths)"
+},
+"config_json": {
+"flag": "--config_json",
+"description": "Path to JSON configuration file"
+}
+},
+"advanced_options": {
+"force_layout_block": {
+"flag": "--force_layout_block",
+"description": "Force specific block type extraction",
+"example": "--force_layout_block Table"
+},
+"converter_cls": {
+"flag": "--converter_cls",
+"description": "Specify custom converter class",
+"example": "--converter_cls marker.converters.table.TableConverter"
+},
+"block_relabel_str": {
+"flag": "--block_relabel_str",
+"description": "Relabel blocks based on rules",
+"format": "OriginalType:NewType:Confidence",
+"example": "--block_relabel_str \"Table:Picture:0.97,Form:Picture:1.0\""
+}
+}
+},
+"environment_variables": {
+"TORCH_DEVICE": {
+"description": "Override automatic torch device detection",
+"values": [
+"cuda",
+"cpu",
+"mps"
+],
+"example": "TORCH_DEVICE=cuda marker_single file.pdf"
+}
+},
+"output_structures": {
+"json": {
+"description": "Tree-like structure with leaf nodes as blocks",
+"structure": "List of pages, each containing block elements",
+"block_types": [
+"Line",
+"Span",
+"FigureGroup",
+"TableGroup",
+"ListGroup",
+"PictureGroup",
+"Page",
+"Caption",
+"Code",
+"Figure",
+"Footnote",
+"Form",
+"Equation",
+"Handwriting",
+"TextInlineMath",
+"ListItem",
+"PageFooter",
+"PageHeader",
+"Picture",
+"SectionHeader",
+"Table",
+"Text",
+"TableOfContents",
+"Document"
+]
+},
+"markdown": {
+"description": "Standard markdown with preserved formatting",
+"features": [
+"Tables",
+"Code blocks",
+"Links",
+"Equations",
+"Lists",
+"Headers"
+]
+},
+"html": {
+"description": "HTML output with embedded styles",
+"features": [
+"Structured markup",
+"Preserved formatting",
+"Image embedding"
+]
+},
+"chunks": {
+"description": "Segmented output for processing pipelines",
+"use_case": "Ideal for LLM processing and indexing"
+}
+},
+"specialized_use_cases": {
+"table_extraction": {
+"command": "marker_single FILENAME --use_llm --force_layout_block Table --converter_cls marker.converters.table.TableConverter --output_format json",
+"description": "Extract only tables in JSON format"
+},
+"ocr_only": {
+"command": "marker_single FILENAME --keep_chars --force_ocr --format_lines",
+"description": "OCR-only conversion with character preservation"
+},
+"form_extraction": {
+"command": "marker_single FILENAME --use_llm --force_layout_block Form --output_format json",
+"description": "Extract form data with LLM assistance"
+},
+"equation_extraction": {
+"command": "marker_single FILENAME --use_llm --redo_inline_math --output_format markdown",
+"description": "High-quality math equation extraction"
+}
+},
+"performance": {
+"single_file": "Optimized for quality",
+"batch_mode": "122 pages/second on H100",
+"gpu_acceleration": "Significant speedup with CUDA",
+"cpu_mode": "Supported but slower"
+},
+"features": {
+"formatting": [
+"Table formatting and merging across pages",
+"Equation and inline math conversion",
+"Code block detection and formatting",
+"List and hierarchy preservation",
+"Header and footer detection",
+"Reference and link preservation"
+],
+"extraction": [
+"Image extraction and saving",
+"Metadata extraction",
+"Form value extraction",
+"Table of contents detection"
+],
+"quality": [
+"Multi-language support",
+"High accuracy OCR with surya",
+"LLM enhancement for complex documents",
+"Customizable processing pipelines"
+]
+},
+"licensing": {
+"model_weights": "cc-by-nc-sa-4.0",
+"exemption": "Organizations under $2M revenue and funding",
+"commercial": "Separate licensing available",
+"software": "GPLv3+"
+},
+"practical_examples": {
+"research_papers": {
+"command": "marker_single paper.pdf --use_llm --redo_inline_math",
+"purpose": "Convert academic papers with equations and references"
+},
+"business_documents": {
+"command": "marker ./invoices --force_layout_block Table --output_format json",
+"purpose": "Extract structured data from business documents"
+},
+"technical_manuals": {
+"command": "marker_single manual.pdf --output_format markdown --disable_image_extraction",
+"purpose": "Convert technical documentation to markdown"
+},
+"scanned_documents": {
+"command": "marker_single scan.pdf --force_ocr --format_lines",
+"purpose": "Process scanned documents with OCR"
+}
+},
+"integration_notes": {
+"windows_path": "/Users/y3i12/AppData/Roaming/Python/Python313/Scripts/",
+"usage_in_project": "For reading hardware documentation, datasheets, and technical PDFs in the Master of Muppets project",
+"recommended_workflow": [
+"1. Use marker_single for individual datasheets",
+"2. Use --output_format markdown for documentation",
+"3. Use --output_format json for structured data extraction",
+"4. Enable --use_llm for complex technical documents with tables and equations"
+]
+}
+}

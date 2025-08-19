@@ -1,0 +1,330 @@
+{
+"name": "FunctionGenerator",
+"original_name": "functionGenerator (renamed for C++ compliance)",
+"author": "Rob Tillaart",
+"version": "0.3.0",
+"repository": "https://github.com/RobTillaart/FunctionGenerator",
+"modification_note": "Modified by y3i12 for standard C++ compliance and non-Arduino compatibility",
+"description": "Library for generating various waveforms and mathematical functions",
+"purpose": "Provides mathematical waveform generation functions for signal processing applications",
+"warning": "Use with care - computationally intensive functions",
+"core_features": {
+"waveform_generation": [
+"Sine waves",
+"Triangle waves",
+"Square waves",
+"Sawtooth waves",
+"Staircase waves",
+"Random signals",
+"Special waveforms (heartbeat, trapezium, rectified sine)"
+],
+"configurable_parameters": [
+"Frequency/Period",
+"Amplitude",
+"Phase shift",
+"Y-axis offset",
+"Duty cycle"
+]
+},
+"class_definition": {
+"class_name": "function_generator",
+"constructor": {
+"signature": "function_generator(float period = 1.0, float amplitude = 1.0, float phase = 0.0, float yShift = 0.0)",
+"parameters": {
+"period": "Waveform period (default 1.0 second)",
+"amplitude": "Peak amplitude (default 1.0)",
+"phase": "Phase shift in radians (default 0.0)",
+"yShift": "Y-axis offset (default 0.0)"
+},
+"default_duty_cycle": "50% (set internally)"
+}
+},
+"configuration_methods": {
+"period_frequency": {
+"setPeriod": {
+"signature": "void setPeriod(float period = 1.0)",
+"description": "Set waveform period in seconds",
+"side_effects": "Automatically calculates frequency derivatives (_freq0, _freq1, _freq2, _freq4)"
+},
+"getPeriod": "float getPeriod() - Get current period",
+"setFrequency": {
+"signature": "void setFrequency(float freq = 1.0)",
+"description": "Set frequency in Hz (calculates period = 1/freq)",
+"relationship": "Frequency = 1 / Period"
+},
+"getFrequency": "float getFrequency() - Get current frequency"
+},
+"amplitude_control": {
+"setAmplitude": "void setAmplitude(float ampl = 1.0) - Set peak amplitude",
+"getAmplitude": "float getAmplitude() - Get current amplitude"
+},
+"phase_control": {
+"setPhase": "void setPhase(float phase = 0.0) - Set phase shift in radians",
+"getPhase": "float getPhase() - Get current phase shift"
+},
+"offset_control": {
+"setYShift": "void setYShift(float yShift = 0.0) - Set Y-axis offset",
+"getYShift": "float getYShift() - Get current Y-axis offset"
+},
+"duty_cycle": {
+"setDutyCycle": {
+"signature": "void setDutyCycle(float dutyCycle)",
+"description": "Set duty cycle as percentage (0-100)",
+"bounds_checking": "Clamps to 0-100% range",
+"internal_storage": "Stored as 0.0-1.0 internally"
+},
+"getDutyCycle": "float getDutyCycle() - Get duty cycle as percentage"
+},
+"random_seed": {
+"setRandomSeed": {
+"signature": "void setRandomSeed(uint32_t a, uint32_t b = 314159265)",
+"description": "Initialize Marsaglia random number generator",
+"algorithm": "Uses Marsaglia multiply-with-carry method"
+}
+}
+},
+"waveform_functions": {
+"basic_functions": {
+"line": {
+"signature": "float line()",
+"description": "Constant amplitude (DC level)",
+"output": "Returns current amplitude setting"
+},
+"zero": {
+"signature": "float zero()",
+"description": "Constant zero for calibration purposes",
+"output": "Always returns 0.0"
+}
+},
+"standard_waveforms": {
+"sinus": {
+"signature": "float sinus(float t)",
+"description": "Sine wave generation",
+"formula": "amplitude * sin(2π * frequency * (t + phase)) + yShift",
+"parameter": "t = time variable"
+},
+"triangle": {
+"signature": "float triangle(float t)",
+"description": "Triangle wave generation",
+"characteristics": "Linear rise and fall, symmetric"
+},
+"square": {
+"signature": "float square(float t)",
+"description": "Square wave generation",
+"duty_cycle": "Uses configured duty cycle setting",
+"output": "High/low levels based on amplitude"
+},
+"sawtooth": {
+"signature": "float sawtooth(float t, uint8_t mode = 0)",
+"description": "Sawtooth wave generation",
+"modes": {
+"mode_0": "Rising sawtooth /|/|/|",
+"mode_1": "Falling sawtooth \\|\\|\\|"
+}
+},
+"stair": {
+"signature": "float stair(float t, uint16_t steps = 8, uint8_t mode = 0)",
+"description": "Staircase/step function",
+"parameters": {
+"steps": "Number of discrete steps (default 8)",
+"mode": "Step pattern variation"
+}
+}
+},
+"random_functions": {
+"random": {
+"signature": "float random()",
+"description": "Generate random values",
+"algorithm": "Marsaglia multiply-with-carry generator",
+"output": "Random values within amplitude range"
+},
+"random_DC": {
+"signature": "float random_DC()",
+"description": "Duty cycle variant of random function",
+"status": "Experimental",
+"behavior": "Random values influenced by duty cycle setting"
+}
+},
+"experimental_waveforms": {
+"sinusDiode": {
+"signature": "float sinusDiode(float t)",
+"description": "Diode-clipped sine wave",
+"characteristics": "Sine wave with diode-like clipping"
+},
+"sinusRectified": {
+"signature": "float sinusRectified(float t)",
+"description": "Rectified sine wave",
+"characteristics": "Absolute value of sine wave (full-wave rectification)"
+},
+"trapezium1": {
+"signature": "float trapezium1(float t)",
+"description": "Trapezoidal waveform variant 1",
+"characteristics": "Trapezoid with specific rise/fall/flat characteristics"
+},
+"trapezium2": {
+"signature": "float trapezium2(float t)",
+"description": "Trapezoidal waveform variant 2",
+"characteristics": "Alternative trapezoid pattern"
+},
+"heartBeat": {
+"signature": "float heartBeat(float t)",
+"description": "Heart beat pattern simulation",
+"characteristics": "Simulates ECG-like heartbeat waveform",
+"suggested_frequency": "72 BPM = 1.2 Hz (setFrequency(1.2))",
+"implementation": "Uses lookup table (HEARTBEAT_LUT)"
+}
+}
+},
+"internal_implementation": {
+"private_members": {
+"_period": "Current period setting",
+"_freq0": "2π × frequency (for sine calculations)",
+"_freq1": "Base frequency (1/period)",
+"_freq2": "2 × base frequency",
+"_freq4": "4 × base frequency",
+"_amplitude": "Peak amplitude",
+"_phase": "Phase shift in radians",
+"_yShift": "Y-axis offset",
+"_dutyCycle": "Duty cycle (0.0-1.0)"
+},
+"random_generator": {
+"algorithm": "Marsaglia multiply-with-carry",
+"state_variables": [
+"_m_w",
+"_m_z"
+],
+"private_function": "uint32_t _random()",
+"characteristics": "Good quality pseudorandom number generation"
+},
+"utility_functions": {
+"map": {
+"signature": "inline long map(long x, long in_min, long in_max, long out_min, long out_max)",
+"description": "Linear mapping function similar to Arduino map()",
+"usage": "Internal scaling and range conversions"
+}
+},
+"lookup_tables": {
+"HEARTBEAT_LUT": {
+"type": "static constexpr int16_t[]",
+"size": "32 elements",
+"description": "Lookup table for heartbeat waveform",
+"values": "Predefined heartbeat pattern data"
+}
+}
+},
+"mathematical_basis": {
+"frequency_relationships": {
+"fundamental": "_freq1 = 1 / period",
+"angular": "_freq0 = 2π × _freq1 (for sine calculations)",
+"harmonics": "_freq2 = 2 × _freq1, _freq4 = 4 × _freq1"
+},
+"waveform_equations": {
+"sine": "y = amplitude × sin(2π × frequency × (t + phase)) + yShift",
+"triangle": "Piecewise linear function with period normalization",
+"square": "Binary output based on duty cycle comparison",
+"sawtooth": "Linear ramp with period wrapping"
+}
+},
+"performance_considerations": {
+"computational_complexity": {
+"sine_functions": "Trigonometric functions are computationally expensive",
+"lookup_tables": "Heartbeat uses efficient lookup table",
+"linear_functions": "Triangle, sawtooth are computationally lighter",
+"random_functions": "Marsaglia algorithm is relatively fast"
+},
+"optimization_notes": {
+"precomputed_frequencies": "Multiple frequency values precomputed for efficiency",
+"inline_functions": "Small utility functions marked inline",
+"constexpr_data": "Lookup tables are compile-time constants"
+}
+},
+"usage_patterns": {
+"basic_sine_wave": {
+"example": [
+"function_generator gen(1.0, 100.0);  // 1Hz, amplitude 100",
+"gen.setPhase(0.5);  // Phase shift",
+"float time = 0.0;",
+"float value = gen.sinus(time);"
+]
+},
+"lfo_application": {
+"description": "Low Frequency Oscillator for modulation",
+"example": [
+"function_generator lfo;",
+"lfo.setFrequency(0.1);  // 0.1 Hz LFO",
+"lfo.setAmplitude(1000);  // Modulation depth",
+"float modulation = lfo.triangle(time);"
+]
+},
+"test_signal_generation": {
+"description": "Generate test signals for system validation",
+"example": [
+"function_generator test_gen(0.001, 500);  // 1kHz, 500 amplitude",
+"float test_signal = test_gen.square(time);"
+]
+}
+},
+"integration_with_firmware": {
+"in_master_of_muppets": {
+"usage": "Used in DENTAL_CHECK mode for LFO testing",
+"configuration": {
+"frequency": "Set via LFO_FREQUENCY define (in Hz × 10)",
+"amplitude": "Set to dr_teeth::k_audio_half_scale - 1",
+"waveform": "Selected via LFO_SHAPE define"
+},
+"supported_shapes": [
+"sinus",
+"triangle",
+"square",
+"stair",
+"sawtooth",
+"sinusRectified",
+"sinusDiode",
+"trapezium1",
+"trapezium2",
+"heartBeat"
+],
+"test_functionality": "Replaces MIDI input with generated waveforms for testing"
+}
+},
+"modifications_from_original": {
+"c_plus_plus_compliance": {
+"renamed_class": "function_generator (was functionGenerator)",
+"standard_includes": "Uses <cstdint> and <math.h>",
+"namespace_compatibility": "Can be used in non-Arduino projects"
+},
+"maintained_compatibility": "API remains identical to original Rob Tillaart version"
+},
+"best_practices": {
+"frequency_setting": {
+"use_setFrequency": "Prefer setFrequency() over setPeriod() for clarity",
+"reasonable_ranges": "Keep frequencies within reasonable ranges for application",
+"update_efficiency": "Minimize frequency changes during real-time operation"
+},
+"amplitude_scaling": {
+"match_system_range": "Set amplitude to match target system's input range",
+"avoid_clipping": "Ensure amplitude + yShift doesn't exceed system limits",
+"calibration": "Use zero() function for system calibration"
+},
+"time_parameter": {
+"monotonic_time": "Use monotonically increasing time values",
+"consistent_units": "Ensure time units match period/frequency units",
+"precision": "Use appropriate time resolution for desired accuracy"
+}
+},
+"limitations": {
+"computational_cost": "Trigonometric functions can be expensive on microcontrollers",
+"no_interpolation": "Lookup tables use simple indexing without interpolation",
+"fixed_precision": "Uses float precision (no double precision option)",
+"memory_usage": "Each instance maintains private state variables"
+},
+"future_enhancements": {
+"potential_improvements": [
+"Interpolated lookup tables for smoother curves",
+"Additional waveform types",
+"Frequency modulation capabilities",
+"Phase-locked loop functionality",
+"Fixed-point arithmetic option for embedded systems"
+]
+}
+}

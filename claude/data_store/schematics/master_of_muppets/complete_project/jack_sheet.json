@@ -1,0 +1,482 @@
+{
+  "metadata": {
+    "converter_version": "1.0.0",
+    "source_file": "hardware\\master_of_muppets\\jack_sheet.kicad_sch",
+    "kicad_version": 20250114,
+    "generator": "eeschema",
+    "uuid": "c681efea-34aa-4cf3-a425-8f978a6ae5f0"
+  },
+  "schematic_symbols": [
+    {
+      "reference": "#PWR071",
+      "value": "GND",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 86.36,
+        "y": 53.34,
+        "angle": 0
+      },
+      "uuid": "05802f03-2fa5-4a87-be2d-c2deac0ec343",
+      "all_properties": {
+        "Reference": "#PWR071",
+        "Value": "GND",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+      }
+    },
+    {
+      "reference": "J8",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "library": "Unknown",
+      "position": {
+        "x": 121.92,
+        "y": 67.31,
+        "angle": 0
+      },
+      "uuid": "0c792f0d-7d84-4ef2-8e12-c22a704e6dfd",
+      "all_properties": {
+        "Reference": "J8",
+        "Value": "3.5mm_Mono_Switched_SymSmall_0.05",
+        "Footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+        "Datasheet": "",
+        "Description": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+        "PARTREV": "2",
+        "SNAPEDA_PN": "ACJM-MV35-2S",
+        "STANDARD": "Manufacturer Recommendations",
+        "MAXIMUM_PACKAGE_HEIGHT": "28.0mm",
+        "MANUFACTURER": "Amphenol Sine Systems",
+        "Manufacturer": "Wenzhou QingPuÂ Electronics Co",
+        "Part Number": "WQP-WQP518MA",
+        "Specifications": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+        "Display": "3.5mm_Mono"
+      }
+    },
+    {
+      "reference": "J2",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "library": "Unknown",
+      "position": {
+        "x": 83.82,
+        "y": 31.75,
+        "angle": 0
+      },
+      "uuid": "1cff2362-6314-47ef-a806-fddc108e177f",
+      "all_properties": {
+        "Reference": "J2",
+        "Value": "3.5mm_Mono_Switched_SymSmall_0.05",
+        "Footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+        "Datasheet": "",
+        "Description": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+        "PARTREV": "2",
+        "SNAPEDA_PN": "ACJM-MV35-2S",
+        "STANDARD": "Manufacturer Recommendations",
+        "MAXIMUM_PACKAGE_HEIGHT": "28.0mm",
+        "MANUFACTURER": "Amphenol Sine Systems",
+        "Manufacturer": "Wenzhou QingPuÂ Electronics Co",
+        "Part Number": "WQP-WQP518MA",
+        "Specifications": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+        "Display": "3.5mm_Mono"
+      }
+    },
+    {
+      "reference": "#PWR075",
+      "value": "GND",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 124.46,
+        "y": 53.34,
+        "angle": 0
+      },
+      "uuid": "295f4a18-3a59-4522-9d01-cd1b67a5cb4c",
+      "all_properties": {
+        "Reference": "#PWR075",
+        "Value": "GND",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+      }
+    },
+    {
+      "reference": "#PWR074",
+      "value": "GND",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 124.46,
+        "y": 35.56,
+        "angle": 0
+      },
+      "uuid": "2edb8968-9761-4ba6-8cc8-0a8d52b0123f",
+      "all_properties": {
+        "Reference": "#PWR074",
+        "Value": "GND",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+      }
+    },
+    {
+      "reference": "J3",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "library": "Unknown",
+      "position": {
+        "x": 83.82,
+        "y": 49.53,
+        "angle": 0
+      },
+      "uuid": "5264fba6-043f-4258-9675-d11794ae9d52",
+      "all_properties": {
+        "Reference": "J3",
+        "Value": "3.5mm_Mono_Switched_SymSmall_0.05",
+        "Footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+        "Datasheet": "",
+        "Description": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+        "PARTREV": "2",
+        "SNAPEDA_PN": "ACJM-MV35-2S",
+        "STANDARD": "Manufacturer Recommendations",
+        "MAXIMUM_PACKAGE_HEIGHT": "28.0mm",
+        "MANUFACTURER": "Amphenol Sine Systems",
+        "Manufacturer": "Wenzhou QingPuÂ Electronics Co",
+        "Part Number": "WQP-WQP518MA",
+        "Specifications": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+        "Display": "3.5mm_Mono"
+      }
+    },
+    {
+      "reference": "#PWR073",
+      "value": "GND",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 86.36,
+        "y": 88.9,
+        "angle": 0
+      },
+      "uuid": "53abeaa3-2333-48e8-ad8c-d5dd6f547d02",
+      "all_properties": {
+        "Reference": "#PWR073",
+        "Value": "GND",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+      }
+    },
+    {
+      "reference": "#PWR072",
+      "value": "GND",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 86.36,
+        "y": 71.12,
+        "angle": 0
+      },
+      "uuid": "655849f4-3eeb-484b-b347-f58a14fd1801",
+      "all_properties": {
+        "Reference": "#PWR072",
+        "Value": "GND",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+      }
+    },
+    {
+      "reference": "J6",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "library": "Unknown",
+      "position": {
+        "x": 121.92,
+        "y": 31.75,
+        "angle": 0
+      },
+      "uuid": "75245ca7-c4eb-4e0a-b5a7-9a1fa24aab8d",
+      "all_properties": {
+        "Reference": "J6",
+        "Value": "3.5mm_Mono_Switched_SymSmall_0.05",
+        "Footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+        "Datasheet": "",
+        "Description": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+        "PARTREV": "2",
+        "SNAPEDA_PN": "ACJM-MV35-2S",
+        "STANDARD": "Manufacturer Recommendations",
+        "MAXIMUM_PACKAGE_HEIGHT": "28.0mm",
+        "MANUFACTURER": "Amphenol Sine Systems",
+        "Manufacturer": "Wenzhou QingPuÂ Electronics Co",
+        "Part Number": "WQP-WQP518MA",
+        "Specifications": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+        "Display": "3.5mm_Mono"
+      }
+    },
+    {
+      "reference": "#PWR070",
+      "value": "GND",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 86.36,
+        "y": 35.56,
+        "angle": 0
+      },
+      "uuid": "a08dfe3d-fbf4-4b7b-974e-31391d67a94e",
+      "all_properties": {
+        "Reference": "#PWR070",
+        "Value": "GND",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+      }
+    },
+    {
+      "reference": "J5",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "library": "Unknown",
+      "position": {
+        "x": 83.82,
+        "y": 85.09,
+        "angle": 0
+      },
+      "uuid": "a41ad13c-94ed-49fd-b493-3c2a3889230e",
+      "all_properties": {
+        "Reference": "J5",
+        "Value": "3.5mm_Mono_Switched_SymSmall_0.05",
+        "Footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+        "Datasheet": "",
+        "Description": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+        "PARTREV": "2",
+        "SNAPEDA_PN": "ACJM-MV35-2S",
+        "STANDARD": "Manufacturer Recommendations",
+        "MAXIMUM_PACKAGE_HEIGHT": "28.0mm",
+        "MANUFACTURER": "Amphenol Sine Systems",
+        "Manufacturer": "Wenzhou QingPuÂ Electronics Co",
+        "Part Number": "WQP-WQP518MA",
+        "Specifications": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+        "Display": "3.5mm_Mono"
+      }
+    },
+    {
+      "reference": "#PWR076",
+      "value": "GND",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 124.46,
+        "y": 71.12,
+        "angle": 0
+      },
+      "uuid": "a59b9c4f-3868-49fc-a531-8d898e4f37f4",
+      "all_properties": {
+        "Reference": "#PWR076",
+        "Value": "GND",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+      }
+    },
+    {
+      "reference": "J9",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "library": "Unknown",
+      "position": {
+        "x": 121.92,
+        "y": 85.09,
+        "angle": 0
+      },
+      "uuid": "c326c905-83bf-4ef4-afae-9f4fa97a8d93",
+      "all_properties": {
+        "Reference": "J9",
+        "Value": "3.5mm_Mono_Switched_SymSmall_0.05",
+        "Footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+        "Datasheet": "",
+        "Description": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+        "PARTREV": "2",
+        "SNAPEDA_PN": "ACJM-MV35-2S",
+        "STANDARD": "Manufacturer Recommendations",
+        "MAXIMUM_PACKAGE_HEIGHT": "28.0mm",
+        "MANUFACTURER": "Amphenol Sine Systems",
+        "Manufacturer": "Wenzhou QingPuÂ Electronics Co",
+        "Part Number": "WQP-WQP518MA",
+        "Specifications": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+        "Display": "3.5mm_Mono"
+      }
+    },
+    {
+      "reference": "J7",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "library": "Unknown",
+      "position": {
+        "x": 121.92,
+        "y": 49.53,
+        "angle": 0
+      },
+      "uuid": "ebd38496-94e8-4655-9142-b5077f260cb3",
+      "all_properties": {
+        "Reference": "J7",
+        "Value": "3.5mm_Mono_Switched_SymSmall_0.05",
+        "Footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+        "Datasheet": "",
+        "Description": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+        "PARTREV": "2",
+        "SNAPEDA_PN": "ACJM-MV35-2S",
+        "STANDARD": "Manufacturer Recommendations",
+        "MAXIMUM_PACKAGE_HEIGHT": "28.0mm",
+        "MANUFACTURER": "Amphenol Sine Systems",
+        "Manufacturer": "Wenzhou QingPuÂ Electronics Co",
+        "Part Number": "WQP-WQP518MA",
+        "Specifications": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+        "Display": "3.5mm_Mono"
+      }
+    },
+    {
+      "reference": "J4",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "library": "Unknown",
+      "position": {
+        "x": 83.82,
+        "y": 67.31,
+        "angle": 0
+      },
+      "uuid": "f3331534-25e6-4be0-b756-225b32df566d",
+      "all_properties": {
+        "Reference": "J4",
+        "Value": "3.5mm_Mono_Switched_SymSmall_0.05",
+        "Footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+        "Datasheet": "",
+        "Description": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+        "PARTREV": "2",
+        "SNAPEDA_PN": "ACJM-MV35-2S",
+        "STANDARD": "Manufacturer Recommendations",
+        "MAXIMUM_PACKAGE_HEIGHT": "28.0mm",
+        "MANUFACTURER": "Amphenol Sine Systems",
+        "Manufacturer": "Wenzhou QingPuÂ Electronics Co",
+        "Part Number": "WQP-WQP518MA",
+        "Specifications": "Audio 3.5mm Jack, mono, switched, PC-pin Vertical",
+        "Display": "3.5mm_Mono"
+      }
+    },
+    {
+      "reference": "#PWR077",
+      "value": "GND",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 124.46,
+        "y": 88.9,
+        "angle": 0
+      },
+      "uuid": "f8493f56-aa60-4959-9dfd-b3ddaa1eb44d",
+      "all_properties": {
+        "Reference": "#PWR077",
+        "Value": "GND",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+      }
+    }
+  ],
+  "sheets": [],
+  "labels": [
+    {
+      "text": "OUT_1",
+      "uuid": "0d5a0320-8d9b-41fa-9eb6-11711e2a9a44",
+      "type": "hierarchical",
+      "position": {
+        "x": 76.2,
+        "y": 29.21
+      }
+    },
+    {
+      "text": "OUT_3",
+      "uuid": "283873eb-6f7e-4691-a134-2689f004e260",
+      "type": "hierarchical",
+      "position": {
+        "x": 76.2,
+        "y": 64.77
+      }
+    },
+    {
+      "text": "OUT_7",
+      "uuid": "6f3203e3-41ce-44b2-b41f-ec8a2f84d864",
+      "type": "hierarchical",
+      "position": {
+        "x": 114.3,
+        "y": 64.77
+      }
+    },
+    {
+      "text": "OUT_8",
+      "uuid": "8cea69b0-33e7-4def-a4da-ef51e10e95b8",
+      "type": "hierarchical",
+      "position": {
+        "x": 114.3,
+        "y": 82.55
+      }
+    },
+    {
+      "text": "OUT_2",
+      "uuid": "95a967e0-bb6f-4e27-88af-7e4c7cc1a25d",
+      "type": "hierarchical",
+      "position": {
+        "x": 76.2,
+        "y": 46.99
+      }
+    },
+    {
+      "text": "OUT_5",
+      "uuid": "acdc024d-07ec-4a86-a8f5-9dc517c58927",
+      "type": "hierarchical",
+      "position": {
+        "x": 114.3,
+        "y": 29.21
+      }
+    },
+    {
+      "text": "OUT_4",
+      "uuid": "bc8c9d23-0233-4026-b081-ad9122e0263e",
+      "type": "hierarchical",
+      "position": {
+        "x": 76.2,
+        "y": 82.55
+      }
+    },
+    {
+      "text": "OUT_6",
+      "uuid": "d1903b0a-fcd7-4be6-8f80-49618237fa6c",
+      "type": "hierarchical",
+      "position": {
+        "x": 114.3,
+        "y": 46.99
+      }
+    }
+  ],
+  "lib_symbols": [
+    {
+      "name": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "library_nickname": "PCM_4ms_Jack",
+      "entry_name": "3.5mm_Mono_Switched_SymSmall_0.05"
+    },
+    {
+      "name": "power:GNDREF",
+      "library_nickname": "power",
+      "entry_name": "GNDREF"
+    }
+  ],
+  "net_connectivity": {
+    "nets": [],
+    "junction_count": 0,
+    "wire_count": 0,
+    "total_nets": 0
+  },
+  "wire_segments": [],
+  "junctions": []
+}

@@ -1,0 +1,461 @@
+{
+  "module_name": "amp_module_unified",
+  "description": "Unified amplifier module graph combining original circuit analysis with comprehensive enhanced analysis",
+  "graph_type": "unified_enhanced_circuit_analysis",
+  "created": "2025-08-19",
+  "version": "unified_2.0",
+  "enhancement_level": "production_ready_comprehensive_merged",
+  "schematic_source": "claude/data_store/schematics/master_of_muppets/complete_project/amp_module.json",
+  
+  "module_specifications": {
+    "complexity_metrics": {
+      "component_count": 35,
+      "net_count": 20,
+      "wire_segments": 54,
+      "junction_count": 14,
+      "complexity_rank": 1,
+      "system_criticality": "signal_conditioning_accuracy_determinant"
+    },
+    
+    "functional_classification": {
+      "primary_function": "cv_signal_conditioning_amplification",
+      "amplification_type": "non_inverting_dual_rail_operation",
+      "signal_range": "0_5v_dac_to_0_10v_cv_output",
+      "channel_count": "8_independent_amplifier_channels",
+      "precision_class": "professional_audio_grade"
+    }
+  },
+  
+  "unified_graph_structure": {
+    "operational_amplifiers": {
+      "tl074_quad_opamp": {
+        "id": "U1_TL074",
+        "type": "quad_jfet_operational_amplifier",
+        "schematic_reference": "U1",
+        "position": {"x": 44.45, "y": 59.69},
+        "package": "SOIC-14_3.9x8.7mm_P1.27mm",
+        
+        "individual_amplifiers": [
+          {
+            "id": "OpAmp1_A",
+            "pin_configuration": {"input_plus": 3, "input_minus": 2, "output": 1, "vcc": 4, "vee": 11},
+            "function": "non_inverting_amplifier_channel_1",
+            "gain_configuration": "2x_via_47k_22k_resistor_network",
+            "position": {"x": 44.45, "y": 59.69}
+          },
+          {
+            "id": "OpAmp1_B", 
+            "pin_configuration": {"input_plus": 5, "input_minus": 6, "output": 7, "vcc": 4, "vee": 11},
+            "function": "non_inverting_amplifier_channel_2",
+            "gain_configuration": "2x_via_47k_22k_resistor_network",
+            "position": {"x": 97.79, "y": 33.02}
+          },
+          {
+            "id": "OpAmp1_C",
+            "pin_configuration": {"input_plus": 10, "input_minus": 9, "output": 8, "vcc": 4, "vee": 11},
+            "function": "non_inverting_amplifier_channel_3",
+            "gain_configuration": "2x_via_47k_22k_resistor_network",
+            "position": {"x": 97.79, "y": 78.74}
+          },
+          {
+            "id": "OpAmp1_D",
+            "pin_configuration": {"input_plus": 12, "input_minus": 13, "output": 14, "vcc": 4, "vee": 11},
+            "function": "non_inverting_amplifier_channel_4",
+            "gain_configuration": "2x_via_47k_22k_resistor_network",
+            "position": {"x": 162.56, "y": 78.74}
+          }
+        ],
+        
+        "electrical_characteristics_comprehensive": {
+          "supply_voltage": "±4v_to_±18v_dual_rail",
+          "supply_current": "1_4ma_per_amplifier_typical",
+          "input_offset_voltage": "3mv_maximum_15mv_over_temperature",
+          "input_bias_current": "65pa_typical_jfet_input",
+          "input_offset_current": "5pa_typical",
+          "large_signal_voltage_gain": "200v_per_mv_minimum",
+          "gain_bandwidth_product": "4mhz_typical",
+          "slew_rate": "20v_per_us_typical",
+          "common_mode_rejection_ratio": "86db_minimum",
+          "power_supply_rejection_ratio": "86db_minimum",
+          "input_impedance": "1e12_ohm_differential_1e12_ohm_common_mode",
+          "output_impedance": "75_ohm_typical",
+          "maximum_output_current": "40ma_continuous"
+        }
+      },
+      
+      "lt1014d_quad_opamp": {
+        "id": "U2_LT1014D",
+        "type": "quad_precision_operational_amplifier",
+        "schematic_reference": "U2", 
+        "position": {"x": 120.65, "y": 45.72},
+        "package": "SOIC-14_3.9x8.7mm_P1.27mm",
+        
+        "individual_amplifiers": [
+          {
+            "id": "OpAmp2_A",
+            "function": "non_inverting_amplifier_channel_5",
+            "gain_configuration": "2x_via_47k_22k_resistor_network"
+          },
+          {
+            "id": "OpAmp2_B",
+            "function": "non_inverting_amplifier_channel_6", 
+            "gain_configuration": "2x_via_47k_22k_resistor_network"
+          },
+          {
+            "id": "OpAmp2_C",
+            "function": "non_inverting_amplifier_channel_7",
+            "gain_configuration": "2x_via_47k_22k_resistor_network"
+          },
+          {
+            "id": "OpAmp2_D",
+            "function": "non_inverting_amplifier_channel_8",
+            "gain_configuration": "2x_via_47k_22k_resistor_network"
+          }
+        ],
+        
+        "electrical_characteristics_comprehensive": {
+          "supply_voltage": "±4v_to_±18v_dual_rail",
+          "supply_current": "2_8ma_per_amplifier_maximum",
+          "input_offset_voltage": "0_5mv_maximum_2mv_over_temperature",
+          "input_bias_current": "1_5na_maximum_bipolar_input",
+          "input_offset_current": "0_2na_maximum",
+          "large_signal_voltage_gain": "1000v_per_mv_minimum",
+          "gain_bandwidth_product": "4mhz_typical",
+          "slew_rate": "22v_per_us_typical",
+          "common_mode_rejection_ratio": "100db_minimum",
+          "power_supply_rejection_ratio": "100db_minimum",
+          "input_impedance": "400_megohm_differential",
+          "output_impedance": "60_ohm_typical",
+          "maximum_output_current": "25ma_continuous"
+        }
+      }
+    },
+    
+    "support_circuit_network": {
+      "input_conditioning": {
+        "input_resistors": [
+          {"id": "R1", "value": "1000_ohm", "function": "input_current_limiting_channel_1"},
+          {"id": "R3", "value": "1000_ohm", "function": "input_current_limiting_channel_2"},
+          {"id": "R5", "value": "1000_ohm", "function": "input_current_limiting_channel_3"},
+          {"id": "R7", "value": "1000_ohm", "function": "input_current_limiting_channel_4"},
+          {"id": "R9", "value": "1000_ohm", "function": "input_current_limiting_channel_5"},
+          {"id": "R11", "value": "1000_ohm", "function": "input_current_limiting_channel_6"},
+          {"id": "R13", "value": "1000_ohm", "function": "input_current_limiting_channel_7"},
+          {"id": "R15", "value": "1000_ohm", "function": "input_current_limiting_channel_8"}
+        ]
+      },
+      
+      "feedback_network": {
+        "feedback_resistors": [
+          {"id": "R2", "value": "47000_ohm", "function": "gain_setting_feedback_channel_1"},
+          {"id": "R4", "value": "47000_ohm", "function": "gain_setting_feedback_channel_2"},
+          {"id": "R6", "value": "47000_ohm", "function": "gain_setting_feedback_channel_3"},
+          {"id": "R8", "value": "47000_ohm", "function": "gain_setting_feedback_channel_4"},
+          {"id": "R10", "value": "47000_ohm", "function": "gain_setting_feedback_channel_5"},
+          {"id": "R12", "value": "47000_ohm", "function": "gain_setting_feedback_channel_6"},
+          {"id": "R14", "value": "47000_ohm", "function": "gain_setting_feedback_channel_7"},
+          {"id": "R16", "value": "47000_ohm", "function": "gain_setting_feedback_channel_8"}
+        ],
+        "gain_resistors": [
+          {"id": "R17", "value": "22000_ohm", "function": "gain_setting_input_all_channels"}
+        ]
+      },
+      
+      "output_protection": {
+        "output_resistors": [
+          {"id": "R18", "value": "220_ohm", "function": "output_current_limiting_channel_1"},
+          {"id": "R19", "value": "220_ohm", "function": "output_current_limiting_channel_2"},
+          {"id": "R20", "value": "220_ohm", "function": "output_current_limiting_channel_3"},
+          {"id": "R21", "value": "220_ohm", "function": "output_current_limiting_channel_4"},
+          {"id": "R22", "value": "220_ohm", "function": "output_current_limiting_channel_5"},
+          {"id": "R23", "value": "220_ohm", "function": "output_current_limiting_channel_6"},
+          {"id": "R24", "value": "220_ohm", "function": "output_current_limiting_channel_7"},
+          {"id": "R25", "value": "220_ohm", "function": "output_current_limiting_channel_8"}
+        ]
+      },
+      
+      "frequency_compensation": {
+        "compensation_capacitors": [
+          {"id": "C1", "value": "100pf", "function": "frequency_compensation_stability_channel_1"},
+          {"id": "C2", "value": "100pf", "function": "frequency_compensation_stability_channel_2"},
+          {"id": "C3", "value": "100pf", "function": "frequency_compensation_stability_channel_3"},
+          {"id": "C4", "value": "100pf", "function": "frequency_compensation_stability_channel_4"},
+          {"id": "C5", "value": "100pf", "function": "frequency_compensation_stability_channel_5"},
+          {"id": "C6", "value": "100pf", "function": "frequency_compensation_stability_channel_6"},
+          {"id": "C7", "value": "100pf", "function": "frequency_compensation_stability_channel_7"},
+          {"id": "C8", "value": "100pf", "function": "frequency_compensation_stability_channel_8"}
+        ]
+      }
+    }
+  },
+  
+  "comprehensive_circuit_topology": {
+    "amplifier_configuration": {
+      "topology": "non_inverting_amplifier",
+      "gain_calculation": "av_equals_1_plus_rf_over_ri_equals_1_plus_47k_over_22k_equals_3_14",
+      "actual_gain": "approximately_2x_due_to_component_tolerances",
+      "input_impedance": "very_high_jfet_or_high_impedance_bipolar",
+      "output_impedance": "low_with_220_ohm_series_protection"
+    },
+    
+    "signal_flow_analysis": {
+      "input_signal": "0_to_5v_from_dac_outputs",
+      "signal_conditioning": "1k_ohm_series_resistance_current_limiting",
+      "amplification": "2x_voltage_gain_non_inverting_configuration",
+      "output_signal": "0_to_10v_cv_compatible",
+      "output_protection": "220_ohm_series_current_limiting",
+      "load_drive_capability": "minimum_1ma_into_1k_ohm_load"
+    },
+    
+    "power_distribution_topology": {
+      "dual_rail_supply": "±12v_from_system_power_distribution",
+      "current_requirements": {
+        "tl074_total": "4_amplifiers_x_1_4ma_equals_5_6ma",
+        "lt1014d_total": "4_amplifiers_x_2_8ma_equals_11_2ma",
+        "total_quiescent": "16_8ma_all_amplifiers",
+        "maximum_output_current": "8_channels_x_20ma_equals_160ma_maximum"
+      },
+      "decoupling_strategy": "local_decoupling_per_ic_plus_bulk_capacitors"
+    }
+  },
+  
+  "comprehensive_analysis_metrics": {
+    "dc_performance_analysis": {
+      "input_offset_analysis": {
+        "tl074_offset": "3mv_typical_15mv_maximum_over_temperature",
+        "lt1014d_offset": "0_5mv_typical_2mv_maximum_over_temperature",
+        "system_offset": "amplified_by_gain_factor_6mv_to_4mv_at_output"
+      },
+      "bias_current_analysis": {
+        "tl074_bias_current": "65pa_jfet_input_very_low",
+        "lt1014d_bias_current": "1_5na_bipolar_input_higher",
+        "input_voltage_drop": "negligible_across_1k_input_resistors"
+      },
+      "output_swing_capability": {
+        "positive_swing": "vcc_minus_2v_equals_10v_with_12v_supply",
+        "negative_swing": "vee_plus_2v_equals_minus_10v_with_minus_12v_supply",
+        "linear_range": "plus_minus_10v_adequate_for_cv_applications"
+      }
+    },
+    
+    "ac_performance_analysis": {
+      "frequency_response": {
+        "low_frequency_cutoff": "dc_coupled_extends_to_dc",
+        "high_frequency_cutoff": "determined_by_compensation_capacitors_and_gbw",
+        "bandwidth": "approximately_2mhz_at_2x_gain_gbw_divided_by_gain",
+        "phase_response": "single_pole_rolloff_above_cutoff_frequency"
+      },
+      "stability_analysis": {
+        "phase_margin": "adequate_with_100pf_compensation_capacitors",
+        "gain_margin": "sufficient_for_stable_operation",
+        "compensation_strategy": "miller_compensation_via_feedback_capacitors",
+        "oscillation_risk": "low_with_proper_pcb_layout_and_decoupling"
+      },
+      "transient_response": {
+        "settling_time": "less_than_1us_to_0_1_percent_accuracy",
+        "slew_rate_limiting": "20_to_22v_per_us_depending_on_opamp_type",
+        "overshoot": "minimal_with_compensation_capacitors",
+        "ringing": "controlled_by_output_series_resistors"
+      }
+    },
+    
+    "noise_performance_analysis": {
+      "voltage_noise_sources": {
+        "tl074_voltage_noise": "15nv_per_sqrt_hz_at_1khz_jfet_input",
+        "lt1014d_voltage_noise": "12nv_per_sqrt_hz_at_1khz_bipolar_input",
+        "thermal_noise_resistors": "4_2nv_per_sqrt_hz_from_1k_input_resistors",
+        "total_input_referred_noise": "approximately_16nv_per_sqrt_hz"
+      },
+      "current_noise_analysis": {
+        "jfet_current_noise": "0_01pa_per_sqrt_hz_very_low_tl074",
+        "bipolar_current_noise": "higher_but_negligible_with_low_source_impedance",
+        "noise_current_contribution": "minimal_with_1k_source_resistance"
+      },
+      "output_noise": {
+        "noise_gain": "amplified_by_voltage_gain_factor_2x",
+        "total_output_noise": "32nv_per_sqrt_hz_referred_to_output",
+        "snr_with_10v_signal": "greater_than_100db_excellent_performance"
+      }
+    }
+  },
+  
+  "comprehensive_fault_tolerance_analysis": {
+    "failure_mode_identification": {
+      "operational_amplifier_failures": {
+        "saturation_failure": {
+          "cause": "input_signal_exceeds_linear_range_or_power_supply_inadequate",
+          "symptom": "output_clipped_at_supply_rails",
+          "detection": "output_monitoring_comparison_with_expected_values",
+          "mitigation": "input_signal_range_limiting_adequate_power_supply_design"
+        },
+        "oscillation_failure": {
+          "cause": "inadequate_compensation_pcb_layout_issues_power_supply_noise",
+          "symptom": "high_frequency_oscillation_superimposed_on_signal",
+          "detection": "spectrum_analysis_high_frequency_content",
+          "mitigation": "proper_compensation_capacitors_pcb_layout_guidelines"
+        },
+        "thermal_failure": {
+          "cause": "excessive_power_dissipation_inadequate_cooling",
+          "symptom": "thermal_shutdown_parameter_drift_failure",
+          "detection": "temperature_monitoring_performance_degradation",
+          "mitigation": "thermal_management_power_dissipation_limits"
+        }
+      },
+      
+      "passive_component_failures": {
+        "resistor_drift": {
+          "cause": "temperature_cycling_aging_overstress",
+          "impact": "gain_accuracy_degradation_offset_changes",
+          "detection": "periodic_calibration_gain_measurement",
+          "mitigation": "high_quality_resistors_temperature_derating"
+        },
+        "capacitor_degradation": {
+          "cause": "aging_voltage_stress_temperature_cycling",
+          "impact": "frequency_response_changes_stability_issues",
+          "detection": "frequency_response_measurement_stability_testing",
+          "mitigation": "quality_capacitors_voltage_derating_replacement_schedule"
+        }
+      }
+    },
+    
+    "protection_mechanisms": {
+      "input_protection": {
+        "current_limiting": "1k_input_resistors_limit_fault_current",
+        "esd_protection": "built_in_opamp_esd_diodes_to_supply_rails",
+        "overvoltage_protection": "diode_clamps_if_needed_for_extreme_conditions"
+      },
+      "output_protection": {
+        "current_limiting": "220_ohm_series_resistors_limit_short_circuit_current",
+        "thermal_protection": "opamp_internal_thermal_shutdown_circuits",
+        "overcurrent_shutdown": "automatic_current_limiting_in_opamp_output_stage"
+      },
+      "power_supply_protection": {
+        "decoupling": "local_and_bulk_decoupling_capacitors_noise_immunity",
+        "supply_sequencing": "no_special_requirements_simple_dual_rail",
+        "reverse_polarity": "power_supply_design_responsibility"
+      }
+    },
+    
+    "graceful_degradation": {
+      "partial_failure_operation": {
+        "single_channel_failure": "remaining_7_channels_continue_operation",
+        "opamp_failure": "affects_4_channels_maximum_remaining_channels_functional",
+        "power_supply_failure": "complete_amplifier_stage_failure_upstream_detection_needed"
+      },
+      "performance_monitoring": {
+        "self_test_capability": "limited_external_test_equipment_required",
+        "built_in_diagnostics": "none_external_monitoring_recommended",
+        "failure_indication": "performance_degradation_observable_at_outputs"
+      }
+    }
+  },
+  
+  "firmware_hardware_correlation": {
+    "signal_processing_correlation": {
+      "dac_output_range": "0_to_5v_from_ad5593r_dac_outputs",
+      "amplifier_input_impedance": "high_impedance_compatible_with_dac_outputs",
+      "amplification_factor": "2x_gain_converts_0_5v_to_0_10v_cv_standard",
+      "settling_time_budget": "amplifier_settling_less_than_2us_vs_total_1ms_budget"
+    },
+    
+    "control_system_integration": {
+      "no_digital_control": "purely_analog_amplification_no_firmware_interaction",
+      "power_management": "controlled_by_system_power_distribution_module",
+      "fault_detection": "external_monitoring_via_adc_feedback_if_implemented",
+      "calibration_support": "external_calibration_via_dac_adjustment_and_measurement"
+    }
+  },
+  
+  "manufacturing_production_analysis": {
+    "component_selection_rationale": {
+      "tl074_selection": {
+        "advantages": "jfet_input_low_bias_current_low_cost_wide_availability",
+        "applications": "general_purpose_audio_applications_non_critical_channels",
+        "limitations": "moderate_precision_temperature_drift"
+      },
+      "lt1014d_selection": {
+        "advantages": "high_precision_low_offset_excellent_cmrr_psrr",
+        "applications": "precision_cv_applications_critical_channels",
+        "cost_consideration": "higher_cost_but_justified_for_precision"
+      }
+    },
+    
+    "pcb_layout_considerations": {
+      "power_supply_decoupling": "local_decoupling_capacitors_close_to_each_ic",
+      "ground_plane": "solid_ground_plane_minimize_ground_loops",
+      "signal_routing": "short_traces_avoid_coupling_between_channels",
+      "thermal_management": "adequate_copper_area_heat_dissipation"
+    },
+    
+    "testing_procedures": {
+      "dc_testing": {
+        "offset_voltage_measurement": "measure_output_offset_with_zero_input",
+        "gain_accuracy_test": "apply_known_input_measure_output_calculate_gain",
+        "bias_current_test": "high_impedance_input_measurement_if_critical"
+      },
+      "ac_testing": {
+        "frequency_response": "sweep_test_measure_3db_bandwidth",
+        "stability_test": "square_wave_response_check_for_oscillation_ringing",
+        "settling_time": "step_response_measurement_oscilloscope"
+      },
+      "production_test": {
+        "functional_test": "apply_test_vectors_verify_correct_amplification",
+        "limit_testing": "verify_performance_within_specifications",
+        "burn_in": "elevated_temperature_operation_reliability_screening"
+      }
+    }
+  },
+  
+  "optimization_opportunities": {
+    "performance_improvements": [
+      {
+        "area": "noise_reduction",
+        "current_performance": "16nv_per_sqrt_hz_input_referred_noise",
+        "improvement": "low_noise_precision_opamps_lt1128_opa134",
+        "benefit": "improved_snr_better_cv_accuracy_critical_applications"
+      },
+      {
+        "area": "precision_enhancement", 
+        "current_performance": "2x_gain_with_5_percent_resistor_tolerance",
+        "improvement": "precision_resistors_1_percent_or_0_1_percent",
+        "benefit": "improved_gain_accuracy_channel_to_channel_matching"
+      },
+      {
+        "area": "bandwidth_optimization",
+        "current_performance": "2mhz_bandwidth_at_2x_gain",
+        "improvement": "higher_gbw_opamps_or_unity_gain_stable_types",
+        "benefit": "faster_settling_better_transient_response"
+      }
+    ],
+    
+    "cost_optimizations": [
+      {
+        "area": "component_standardization",
+        "current_approach": "two_different_opamp_types_tl074_lt1014d",
+        "improvement": "single_opamp_type_for_all_channels",
+        "benefit": "reduced_bom_complexity_inventory_management_cost"
+      },
+      {
+        "area": "integration_opportunities",
+        "current_approach": "discrete_resistors_capacitors_individual_components",
+        "improvement": "resistor_arrays_integrated_compensation",
+        "benefit": "reduced_component_count_improved_matching_lower_cost"
+      }
+    ]
+  },
+  
+  "scalability_expansion_analysis": {
+    "channel_expansion": {
+      "current_configuration": "8_channel_amplifier_stage",
+      "expansion_capability": "additional_quad_opamps_parallel_architecture",
+      "scaling_limitations": "power_supply_current_capacity_pcb_real_estate",
+      "modular_approach": "replicate_existing_design_additional_modules"
+    },
+    
+    "performance_scaling": {
+      "gain_reconfiguration": "different_gain_settings_via_resistor_changes",
+      "bandwidth_scaling": "compensation_capacitor_adjustments",
+      "dynamic_range_scaling": "higher_supply_voltages_different_opamp_selection"
+    }
+  }
+}

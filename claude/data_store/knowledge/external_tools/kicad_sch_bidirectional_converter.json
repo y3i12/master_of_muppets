@@ -1,0 +1,406 @@
+{
+"name": "KiCad Schematic Bidirectional Converter",
+"version": "1.0.0",
+"description": "Bidirectional conversion tools for KiCad schematic files (.kicad_sch) to/from structured JSON format with net connectivity analysis",
+"keywords": [
+"kicad",
+"schematic",
+"conversion",
+"bidirectional",
+"json",
+"net connectivity",
+"electrical analysis",
+"circuit analysis",
+"kiutils",
+"s-expression",
+"eda",
+"electronic design",
+"component extraction",
+"wire analysis"
+],
+"tools": [
+{
+"name": "kicad_sch_to_json.py",
+"path": "claude/tools/kicad_sch_to_json.py",
+"direction": "kicad_sch -> json",
+"primary_function": "Convert KiCad .kicad_sch files to structured JSON"
+},
+{
+"name": "json_to_kicad_sch.py", 
+"path": "claude/tools/json_to_kicad_sch.py",
+"direction": "json -> kicad_sch",
+"primary_function": "Convert structured JSON back to KiCad .kicad_sch files"
+}
+],
+"purpose_and_functionality": {
+"overview": "Enables programmatic analysis and manipulation of KiCad schematic files through JSON intermediate format",
+"core_capabilities": [
+"Extract schematic components with properties, positions, and references",
+"Compute electrical net connectivity from wire geometry and junctions",
+"Preserve component relationships and hierarchical structure",
+"Maintain KiCad-specific metadata (UUIDs, versions, generators)",
+"Support round-trip conversion with minimal data loss",
+"Unify ground symbols into single electrical net for analysis",
+"Handle hierarchical sheets and multiple schematic instances",
+"Extract and preserve all label types (local, global, hierarchical)"
+],
+"net_connectivity_algorithm": {
+"method": "Geometric proximity analysis with junction-based connectivity",
+"steps": [
+"Extract junction positions from schematic.junctions",
+"Extract wire segments from graphicalItems (Connection type)",
+"Build connectivity graph using wire endpoints and junctions",
+"Group connected elements into electrical nets via graph traversal",
+"Match components to nets by position proximity to wire endpoints",
+"Unify multiple ground symbols into single unified ground net"
+],
+"tolerance": "Configurable distance tolerance for wire endpoint matching (default: 5.0mm)"
+}
+},
+"usage_instructions": {
+"installation": {
+"requirements": [
+"Python 3.7+",
+"pip install kiutils"
+]
+},
+"kicad_to_json_conversion": {
+"basic_usage": "python kicad_sch_to_json.py input.kicad_sch [output.json]",
+"parameters": {
+"input": "Path to input KiCad schematic file (.kicad_sch)",
+"output": "Optional output JSON file path (defaults to input name with .json extension)",
+"--tolerance": "Wire endpoint matching tolerance in mm (default: 5.0)",
+"--indent": "JSON indentation spaces (default: 2)",
+"--minify": "Output minified JSON without formatting"
+},
+"examples": [
+"python kicad_sch_to_json.py circuit.kicad_sch",
+"python kicad_sch_to_json.py circuit.kicad_sch analysis.json",
+"python kicad_sch_to_json.py --tolerance 2.5 precise_circuit.kicad_sch",
+"python kicad_sch_to_json.py --minify large_circuit.kicad_sch compressed.json"
+]
+},
+"json_to_kicad_conversion": {
+"basic_usage": "python json_to_kicad_sch.py input.json [output.kicad_sch]",
+"parameters": {
+"input": "Path to input JSON file",
+"output": "Optional output KiCad schematic file path (defaults to input name with .kicad_sch extension)",
+"--validate": "Validate JSON structure before conversion"
+},
+"examples": [
+"python json_to_kicad_sch.py analysis.json",
+"python json_to_kicad_sch.py analysis.json reconstructed.kicad_sch",
+"python json_to_kicad_sch.py --validate modified_circuit.json"
+]
+},
+"round_trip_workflow": [
+"Convert schematic to JSON: python kicad_sch_to_json.py original.kicad_sch",
+"Analyze/modify JSON data using external tools or scripts",
+"Convert back to schematic: python json_to_kicad_sch.py original.json modified.kicad_sch",
+"Open modified.kicad_sch in KiCad to verify results"
+]
+},
+"parameters_and_options": {
+"kicad_sch_to_json_parameters": {
+"tolerance": {
+"type": "float",
+"default": 5.0,
+"unit": "millimeters",
+"description": "Distance tolerance for matching component positions to wire endpoints",
+"usage": "Higher values catch more connections but may create false positives"
+},
+"indent": {
+"type": "int",
+"default": 2,
+"description": "Number of spaces for JSON indentation",
+"usage": "Set to 0 or use --minify for compact output"
+},
+"minify": {
+"type": "boolean",
+"default": false,
+"description": "Output compact JSON without formatting",
+"usage": "Reduces file size for storage or transmission"
+}
+},
+"json_to_kicad_parameters": {
+"validate": {
+"type": "boolean",
+"default": false,
+"description": "Validate JSON structure before conversion",
+"usage": "Helps catch format errors before attempting conversion"
+}
+}
+},
+"dependencies_and_requirements": {
+"python_version": "3.7+",
+"required_packages": {
+"kiutils": {
+"version": ">=1.4.0",
+"installation": "pip install kiutils",
+"purpose": "KiCad file parsing and S-expression handling"
+}
+},
+"optional_packages": {
+"argparse": "Built-in Python module for command-line interface",
+"pathlib": "Built-in Python module for path handling",
+"json": "Built-in Python module for JSON processing",
+"uuid": "Built-in Python module for UUID generation"
+},
+"system_requirements": [
+"UTF-8 text encoding support",
+"File system write permissions for output files"
+]
+},
+"integration_patterns": {
+"with_analysis_scripts": {
+"pattern": "Use JSON format as intermediate representation for circuit analysis",
+"workflow": [
+"Convert schematic to JSON",
+"Load JSON in analysis script",
+"Process net connectivity data",
+"Generate reports or modifications",
+"Optionally convert back to schematic"
+]
+},
+"with_git_workflows": {
+"pattern": "JSON format enables better version control and diff analysis",
+"benefits": [
+"Human-readable diffs of schematic changes",
+"Programmatic analysis of design evolution",
+"Automated validation in CI/CD pipelines"
+]
+},
+"with_batch_processing": {
+"pattern": "Process multiple schematic files programmatically",
+"example": [
+"for file in *.kicad_sch; do",
+"    python kicad_sch_to_json.py \"$file\"",
+"    # Process resulting JSON",
+"done"
+]
+},
+"with_external_tools": {
+"pattern": "JSON format enables integration with non-KiCad tools",
+"use_cases": [
+"Import circuit data into simulation tools",
+"Generate documentation from schematic data",
+"Create BOM (Bill of Materials) from component list",
+"Analyze electrical connectivity for testing"
+]
+}
+},
+"examples_and_workflows": {
+"basic_conversion_example": {
+"description": "Convert a simple schematic and examine the output",
+"steps": [
+"python kicad_sch_to_json.py simple_circuit.kicad_sch",
+"cat simple_circuit.json | jq '.schematic_symbols[0]'  # View first component",
+"cat simple_circuit.json | jq '.net_connectivity.nets'  # View net connectivity"
+]
+},
+"net_analysis_example": {
+"description": "Analyze electrical connectivity from JSON output",
+"python_code": [
+"import json",
+"with open('circuit.json') as f:",
+"    data = json.load(f)",
+"",
+"nets = data['net_connectivity']['nets']",
+"for net in nets:",
+"    print(f\"Net {net['id']}: {len(net['components'])} components\")",
+"    if net['is_ground']:",
+"        print(f\"  Ground net with {net['wire_count']} wires\")"
+]
+},
+"modification_example": {
+"description": "Modify component values in JSON and convert back",
+"steps": [
+"python kicad_sch_to_json.py original.kicad_sch",
+"# Edit original.json - change resistor values, component references, etc.",
+"python json_to_kicad_sch.py original.json modified.kicad_sch",
+"# Open modified.kicad_sch in KiCad to verify changes"
+]
+},
+"automation_example": {
+"description": "Automated batch processing of multiple schematics",
+"bash_script": [
+"#!/bin/bash",
+"for sch_file in projects/*/*.kicad_sch; do",
+"    echo \"Processing $sch_file\"",
+"    python kicad_sch_to_json.py \"$sch_file\"",
+"    json_file=\"${sch_file%.*}.json\"",
+"    # Run custom analysis on $json_file",
+"    python analyze_circuit.py \"$json_file\"",
+"done"
+]
+}
+},
+"json_data_structure": {
+"top_level_sections": {
+"metadata": {
+"converter_version": "Version of conversion tool",
+"source_file": "Path to original .kicad_sch file",
+"kicad_version": "KiCad version number",
+"generator": "KiCad generator string",
+"uuid": "Schematic UUID"
+},
+"schematic_symbols": {
+"description": "Array of component objects",
+"component_properties": [
+"reference (R1, U2, etc.)",
+"value (10k, LM358, etc.)",
+"footprint (package information)",
+"library (symbol library reference)",
+"position (x, y, angle coordinates)",
+"uuid (unique identifier)",
+"all_properties (complete property dictionary)"
+]
+},
+"net_connectivity": {
+"description": "Computed electrical connectivity information",
+"structure": {
+"nets": "Array of electrical net objects",
+"junction_count": "Total number of junctions",
+"wire_count": "Total number of wire segments",
+"total_nets": "Total number of electrical nets"
+},
+"net_object_properties": [
+"id (unique net identifier)",
+"wire_count (wires in this net)",
+"components (connected components)",
+"points (wire endpoint coordinates)",
+"is_ground (ground net flag)",
+"junction_count (junctions in this net)"
+]
+},
+"wire_segments": {
+"description": "Individual wire connection objects",
+"properties": [
+"start (start coordinate)",
+"end (end coordinate)",
+"uuid (wire identifier)",
+"points (detailed path coordinates)"
+]
+},
+"junctions": {
+"description": "Wire junction points",
+"properties": [
+"position (x, y coordinates)",
+"id (junction identifier)"
+]
+},
+"labels": {
+"description": "Net labels and annotations",
+"types": [
+"local (sheet-scoped labels)",
+"global (project-wide labels)",
+"hierarchical (sheet interface pins)"
+],
+"properties": [
+"text (label text)",
+"type (label type)",
+"position (coordinates)",
+"uuid (identifier)"
+]
+},
+"sheets": {
+"description": "Hierarchical sheet information",
+"properties": [
+"name (sheet name)",
+"file (sheet file path)",
+"position (coordinates)",
+"uuid (identifier)"
+]
+},
+"lib_symbols": {
+"description": "Referenced symbol library information",
+"properties": [
+"name (full symbol name)",
+"library_nickname (library reference)",
+"entry_name (symbol name within library)"
+]
+}
+}
+},
+"best_practices": {
+"file_handling": [
+"Always backup original .kicad_sch files before conversion",
+"Use absolute paths when scripting to avoid path resolution issues",
+"Verify output file existence and size after conversion",
+"Test round-trip conversion on sample files before production use"
+],
+"tolerance_tuning": [
+"Start with default 5.0mm tolerance for most circuits",
+"Reduce tolerance (2.0-3.0mm) for high-density circuits",
+"Increase tolerance (10.0mm+) for hand-drawn or imprecise schematics",
+"Validate connectivity results by examining net_connectivity output"
+],
+"json_processing": [
+"Use JSON validation before attempting conversion back to KiCad",
+"Preserve UUID fields when possible to maintain object relationships",
+"Be careful when modifying position coordinates - use KiCad grid units",
+"Validate component references follow KiCad naming conventions"
+],
+"integration": [
+"Use structured logging for batch processing workflows",
+"Implement error handling for malformed or corrupted schematic files",
+"Consider memory usage for large schematic files",
+"Test compatibility with target KiCad version before deployment"
+]
+},
+"troubleshooting": {
+"common_errors": [
+{
+"error": "kiutils ImportError",
+"solution": "Install kiutils: pip install kiutils",
+"note": "Ensure Python 3.7+ is being used"
+},
+{
+"error": "Failed to convert schematic",
+"solution": "Check that input file is valid KiCad schematic format",
+"note": "Try opening file in KiCad to verify format"
+},
+{
+"error": "No net connectivity found",
+"solution": "Adjust tolerance parameter or check for junction placement",
+"note": "Some schematics may not use junctions for connections"
+},
+{
+"error": "Missing components in nets",
+"solution": "Increase tolerance parameter for wire endpoint matching",
+"note": "Component pins must be within tolerance of wire endpoints"
+},
+{
+"error": "JSON validation failed",
+"solution": "Check JSON syntax and required sections (metadata, schematic_symbols)",
+"note": "Use --validate flag to identify specific issues"
+}
+],
+"performance_considerations": [
+"Large schematics (>1000 components) may take several seconds to process",
+"Net connectivity computation is O(n²) in worst case - consider hierarchical processing",
+"JSON output size scales with schematic complexity - use --minify for large files",
+"Memory usage increases with number of wire segments and junctions"
+]
+},
+"version_history": {
+"1.0.0": {
+"date": "2025-01-19",
+"changes": [
+"Initial implementation of bidirectional conversion",
+"Net connectivity analysis with junction support",
+"Ground symbol unification",
+"Comprehensive JSON format with metadata preservation",
+"Command-line interface with configurable parameters",
+"Round-trip conversion capability",
+"Support for hierarchical sheets and all label types"
+]
+}
+},
+"related_tools": [
+"claude/tools/minify_json.py - JSON compression for storage optimization",
+"claude/data_store/knowledge/coding/kicad/schematic.json - KiCad schematic structure reference",
+"claude/data_store/knowledge/coding/kicad/kiutils.json - Kiutils library reference",
+"claude/data_store/knowledge/coding/kicad/s_expressions.json - S-expression format reference"
+]
+}

@@ -1,0 +1,306 @@
+{
+"name": "Teensy 4.1",
+"manufacturer": "PJRC",
+"description": "High-performance ARM Cortex-M7 microcontroller development board",
+"official_url": "https://www.pjrc.com/store/teensy41.html",
+"version": "Rev B (manufactured after July 2021)",
+"core_specifications": {
+"processor": {
+"family": "ARM Cortex-M7",
+"part_number": "NXP iMXRT1062DVJ6B",
+"architecture": "32-bit",
+"frequency": "600 MHz",
+"instruction_execution": "Dual-issue superscalar (2 instructions per cycle)",
+"performance": "Ten times faster than Teensy 3.2"
+},
+"memory": {
+"ram": {
+"total": "1024KB (1MB)",
+"tightly_coupled": "512KB",
+"description": "Tightly coupled memory allows fast single-cycle access via 64-bit buses"
+},
+"flash": {
+"total": "8192KB (8MB)",
+"available": "~8128KB (64KB reserved for recovery & EEPROM emulation)",
+"comparison": "Four times larger than Teensy 4.0"
+},
+"expansion": {
+"additional_memory_pads": "Two locations on bottom for additional memory chips",
+"supported_types": [
+    "PSRAM",
+    "Flash memory"
+]
+}
+},
+"physical": {
+"form_factor": "2.4 x 0.7 inches",
+"compatibility": "Same size as Teensy 3.6",
+"mounting": "Breadboard compatible with 0.1 inch pin spacing"
+}
+},
+"advanced_features": {
+"floating_point_unit": {
+"description": "Hardware FPU supporting both 32-bit float and 64-bit double",
+"performance": "32-bit float operations at same speed as integer math",
+"precision": [
+"Single precision (32-bit)",
+"Double precision (64-bit)"
+]
+},
+"branch_prediction": {
+"description": "First ARM microcontroller with branch prediction",
+"benefit": "Eliminates loop overhead after initial iterations",
+"performance_impact": "Branch instructions execute in single clock cycle"
+},
+"dynamic_clock_scaling": {
+"description": "Change CPU frequency without affecting timing functions",
+"supported_frequencies": [
+"24MHz",
+"150MHz",
+"396MHz",
+"450MHz",
+"600MHz"
+],
+"overclocking": "Can be overclocked beyond 600MHz"
+},
+"power_management": {
+"on_off_control": "Hardware power switch via On/Off pin",
+"rtc_battery_backup": "VBAT pin for coin cell backup",
+"power_consumption": "~100mA at 600MHz"
+}
+},
+"io_capabilities": {
+"digital_pins": {
+"total": 55,
+"pwm_capable": 35,
+"voltage_levels": "3.3V logic",
+"current_capacity": "Up to 4mA per pin"
+},
+"analog_inputs": {
+"count": 18,
+"resolution": "12-bit (4096 levels)",
+"voltage_range": "0-3.3V",
+"adc_features": [
+"Programmable gain amplifier",
+"Differential inputs"
+]
+},
+"communication_interfaces": {
+"serial_ports": {
+"count": 8,
+"types": [
+    "UART",
+    "Hardware serial"
+],
+"features": [
+    "Hardware flow control",
+    "RS485 support"
+]
+},
+"spi": {
+"count": 3,
+"features": [
+    "DMA support",
+    "Up to 30MHz clock"
+]
+},
+"i2c": {
+"count": 3,
+"features": [
+    "Fast mode (400kHz)",
+    "Fast mode plus (1MHz)",
+    "DMA support"
+],
+"buses": [
+    "Wire",
+    "Wire1",
+    "Wire2"
+]
+},
+"can_bus": {
+"count": 3,
+"standard": "CAN 2.0B",
+"features": [
+    "Hardware filtering",
+    "Automatic retransmission"
+]
+},
+"usb": {
+"device": "USB 2.0 High Speed (480Mbps)",
+"host": "USB host port for connecting devices",
+"supported_classes": [
+    "MIDI",
+    "Audio",
+    "Serial",
+    "HID",
+    "Mass Storage"
+]
+}
+}
+},
+"specialized_peripherals": {
+"ethernet": {
+"controller": "100Mbps Ethernet PHY",
+"connector": "RJ45 jack",
+"features": [
+"Hardware MAC",
+"DMA support",
+"IPv4/IPv6 stack"
+]
+},
+"sd_card": {
+"interface": "SDIO (4-bit)",
+"supported_cards": [
+"SD",
+"SDHC",
+"SDXC"
+],
+"speed": "Up to 50MHz clock"
+},
+"audio": {
+"i2s": {
+"count": 3,
+"features": [
+    "Master/slave modes",
+    "DMA support"
+]
+},
+"spdif": "Optical/coaxial digital audio output",
+"features": [
+"16/24/32-bit audio",
+"Up to 192kHz sample rate"
+]
+},
+"timers": {
+"count": "Multiple hardware timers",
+"features": [
+"32-bit resolution",
+"Capture/compare",
+"PWM generation"
+]
+},
+"rtc": {
+"description": "Real-time clock with battery backup",
+"accuracy": "Crystal oscillator based",
+"backup": "VBAT pin for coin cell"
+}
+},
+"development_features": {
+"programming": {
+"interface": "USB (no external programmer needed)",
+"bootloader": "HalfKay bootloader",
+"recovery": "Hardware recovery button"
+},
+"debugging": {
+"methods": [
+"Serial output",
+"USB Serial",
+"SWD (with external debugger)"
+],
+"led": "Built-in LED on pin 13"
+},
+"compatibility": {
+"arduino_ide": "Full support via Teensyduino",
+"platformio": "Native support",
+"libraries": "Most Arduino libraries compatible"
+}
+},
+"pinout": {
+"power_pins": {
+"vin": "5-5.5V input",
+"3v3": "3.3V regulated output (250mA max)",
+"gnd": "Multiple ground pins",
+"vbat": "Battery backup for RTC",
+"on_off": "Power control pin"
+},
+"special_pins": {
+"program": "Bootloader activation",
+"on_off": "Power management",
+"led": "Pin 13 (built-in LED)"
+},
+"communication_pins": {
+"usb_dm": "USB D- signal",
+"usb_dp": "USB D+ signal",
+"ethernet": "Built-in RJ45 connector"
+}
+},
+"performance_characteristics": {
+"benchmarks": {
+"instruction_throughput": "Up to 2 instructions per clock cycle (40-50% typical)",
+"floating_point": "Hardware FPU provides near-integer performance",
+"memory_access": "Single-cycle access to 512KB tightly coupled memory"
+},
+"real_time_capabilities": {
+"interrupt_latency": "Very low (few clock cycles)",
+"deterministic_execution": "Suitable for hard real-time applications",
+"dma_channels": "Multiple channels for zero-CPU-overhead transfers"
+}
+},
+"power_specifications": {
+"operating_voltage": "3.3V logic",
+"input_voltage": "5-5.5V (via USB or Vin)",
+"current_consumption": {
+"active_600mhz": "~100mA",
+"sleep_modes": "Various low-power modes available",
+"per_pin": "Up to 4mA source/sink"
+},
+"power_management": {
+"sleep_modes": "Multiple power-saving modes",
+"wake_sources": "GPIO, timers, communication interfaces"
+}
+},
+"hardware_revisions": {
+"rev_a": {
+"part_number": "MIMXRT1062DVJ6A",
+"issues": "Obscure bugs with CAN bus and USB isochronous mode"
+},
+"rev_b": {
+"part_number": "MIMXRT1062DVJ6B",
+"manufactured": "After July 2021",
+"improvements": "Fixed CAN bus and USB device isochronous mode bugs"
+}
+},
+"comparison_with_other_teensy": {
+"vs_teensy_40": {
+"advantages": [
+"4x more flash memory (8MB vs 2MB)",
+"Ethernet port",
+"SD card socket",
+"USB host port",
+"More pins (55 vs 40)"
+]
+},
+"vs_teensy_36": {
+"advantages": [
+"10x faster processor (600MHz vs 180MHz)",
+"Better FPU (Cortex-M7 vs M4)",
+"More memory",
+"USB 2.0 High Speed",
+"Better real-time performance"
+]
+}
+},
+"typical_applications": [
+"High-speed data acquisition",
+"Real-time audio processing",
+"Motor control and robotics",
+"IoT gateways with Ethernet",
+"USB MIDI devices",
+"Digital signal processing",
+"High-frequency PWM generation",
+"Networked embedded systems"
+],
+"limitations": {
+"voltage_level": "3.3V only (not 5V tolerant on most pins)",
+"current_per_pin": "Limited to 4mA per pin",
+"total_current": "Limited total current across all pins",
+"heat_generation": "Can get warm at full 600MHz under load"
+},
+"best_practices": {
+"power_supply": "Use quality 5V supply for best performance",
+"heat_management": "Consider heatsink for continuous high-load operation",
+"pin_current": "Use external drivers for high-current loads",
+"grounding": "Proper grounding essential for high-frequency operation",
+"layout": "Keep high-speed signals short and well-routed"
+}
+}

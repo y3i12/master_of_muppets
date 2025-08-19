@@ -1,0 +1,50 @@
+{
+    "behavioral_rules": {
+        "documentation": {
+            "auto_create": "never",
+            "readme_files": "never_unless_explicit",
+            "only_when": "explicitly_requested"
+        },
+        "file_creation": {
+            "preference": "edit_existing_over_new",
+            "create_when": "absolutely_necessary_or_explicit"
+        },
+        "tool_knowledge_creation": {
+            "requirement": "MANDATORY",
+            "condition": "ALWAYS",
+            "when": "any_tool_or_script_created",
+            "location": "claude/data_store/knowledge/external_tools/",
+            "format": "structured_json",
+            "content_required": [
+                "purpose_and_functionality",
+                "usage_instructions", 
+                "parameters_and_options",
+                "dependencies_and_requirements",
+                "integration_patterns",
+                "examples_and_workflows"
+            ],
+            "update_data_store_context": "MANDATORY"
+        },
+        "git_operations": {
+            "commit": "never_without_explicit_request",
+            "push": "never_without_explicit_request",
+            "config_changes": "never"
+        },
+        "response_style": {
+            "verbosity": "concise",
+            "explanations": "minimal_unless_requested",
+            "focus": "specific_task_only"
+        },
+        "pdf_reading": {
+            "condition": "ALWAYS",
+            "tooling": "datalab-to.marker",
+            "location": "/Users/y3i12/AppData/Roaming/Python/Python313/Scripts/",
+            "knowledge": "claude/data_store/knowledge/external_tools/datalab-to.marker.json",
+            "output_path": "claude/tmp/"
+        }
+    },
+    "security": {
+        "code_type": "defensive_only",
+        "malicious_code": "refuse"
+    }
+}

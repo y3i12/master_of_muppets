@@ -1,0 +1,542 @@
+{
+"name": "Graph Theory",
+"description": "Mathematical study of graphs as mathematical structures used to model pairwise relations between objects",
+"field": "Mathematics, Computer Science, Discrete Mathematics",
+"applications": [
+"Computer networks",
+"Social networks",
+"Circuit analysis",
+"Route optimization",
+"Data structures",
+"Algorithm design"
+],
+"fundamental_concepts": {
+"graph_definition": {
+"description": "A graph G = (V, E) consists of a set of vertices V and a set of edges E",
+"components": {
+    "vertices": "Also called nodes or points - the fundamental units",
+    "edges": "Also called links or arcs - connections between vertices"
+},
+"notation": {
+    "vertex_set": "V = {v₁, v₂, ..., vₙ}",
+    "edge_set": "E = {e₁, e₂, ..., eₘ}",
+    "edge_notation": "e = (u, v) or e = {u, v}"
+}
+},
+"basic_terminology": {
+"order": "Number of vertices |V|",
+"size": "Number of edges |E|",
+"degree": "Number of edges incident to a vertex",
+"adjacent_vertices": "Vertices connected by an edge",
+"incident_edges": "Edges that share a common vertex",
+"path": "Sequence of vertices where each adjacent pair is connected by an edge",
+"cycle": "Path that starts and ends at the same vertex",
+"walk": "Sequence of vertices with repeated vertices/edges allowed"
+}
+},
+"graph_types": {
+"by_edge_direction": {
+"undirected_graph": {
+    "description": "Edges have no direction",
+    "edge_notation": "{u, v} - unordered pair",
+    "properties": [
+        "Symmetric adjacency",
+        "Bidirectional traversal"
+    ],
+    "examples": [
+        "Social friendships",
+        "Road networks",
+        "Molecular structures"
+    ]
+},
+"directed_graph": {
+    "description": "Edges have direction (digraph)",
+    "edge_notation": "(u, v) - ordered pair",
+    "properties": [
+        "Asymmetric adjacency",
+        "Unidirectional traversal"
+    ],
+    "terminology": {
+        "in_degree": "Number of incoming edges",
+        "out_degree": "Number of outgoing edges"
+    },
+    "examples": [
+        "Web links",
+        "Dependency graphs",
+        "State machines"
+    ]
+}
+},
+"by_edge_weights": {
+"unweighted_graph": {
+    "description": "All edges have equal importance",
+    "representation": "Boolean adjacency (connected or not)"
+},
+"weighted_graph": {
+    "description": "Edges have associated weights/costs",
+    "weight_function": "w: E → ℝ",
+    "applications": [
+        "Shortest path problems",
+        "Network flow",
+        "Cost optimization"
+    ]
+}
+},
+"by_structure": {
+"simple_graph": {
+    "description": "No self-loops, no multiple edges",
+    "constraints": [
+        "At most one edge between any pair of vertices",
+        "No vertex connects to itself"
+    ]
+},
+"multigraph": {
+    "description": "Multiple edges between same pair of vertices allowed",
+    "use_cases": [
+        "Multiple connections",
+        "Parallel routes"
+    ]
+},
+"pseudograph": {
+    "description": "Self-loops allowed",
+    "applications": [
+        "State diagrams",
+        "Recursive relationships"
+    ]
+}
+},
+"special_graphs": {
+"complete_graph": {
+    "notation": "Kₙ",
+    "description": "Every pair of vertices is connected",
+    "edge_count": "n(n-1)/2 for undirected, n(n-1) for directed"
+},
+"bipartite_graph": {
+    "description": "Vertices can be divided into two disjoint sets with edges only between sets",
+    "properties": [
+        "Two-colorable",
+        "No odd cycles"
+    ],
+    "applications": [
+        "Matching problems",
+        "Task assignment"
+    ]
+},
+"tree": {
+    "description": "Connected acyclic graph",
+    "properties": [
+        "n-1 edges for n vertices",
+        "Unique path between any two vertices"
+    ],
+    "types": [
+        "Rooted tree",
+        "Binary tree",
+        "Spanning tree"
+    ]
+},
+"forest": {
+    "description": "Disjoint union of trees",
+    "properties": [
+        "Acyclic",
+        "Multiple connected components"
+    ]
+}
+}
+},
+"graph_properties": {
+"connectivity": {
+"connected_graph": {
+    "description": "Path exists between every pair of vertices",
+    "undirected": "Single connected component",
+    "directed": "Strongly vs weakly connected"
+},
+"connected_components": {
+    "description": "Maximal connected subgraphs",
+    "algorithm": "DFS or BFS to find components"
+},
+"cut_vertex": "Vertex whose removal increases number of connected components",
+"bridge": "Edge whose removal increases number of connected components"
+},
+"cycles_and_paths": {
+"hamiltonian_path": "Path that visits every vertex exactly once",
+"hamiltonian_cycle": "Cycle that visits every vertex exactly once",
+"eulerian_path": "Path that uses every edge exactly once",
+"eulerian_cycle": "Cycle that uses every edge exactly once",
+"eulerian_conditions": {
+    "cycle": "All vertices have even degree",
+    "path": "Exactly two vertices have odd degree"
+}
+},
+"planarity": {
+"planar_graph": "Can be drawn in plane without edge crossings",
+"eulers_formula": "V - E + F = 2 (for connected planar graphs)",
+"kuratowski_theorem": "Non-planar if contains K₅ or K₃,₃ subdivision"
+},
+"coloring": {
+"vertex_coloring": "Assign colors so adjacent vertices have different colors",
+"chromatic_number": "Minimum number of colors needed",
+"edge_coloring": "Color edges so adjacent edges have different colors",
+"applications": [
+    "Scheduling",
+    "Register allocation",
+    "Map coloring"
+]
+}
+},
+"graph_representations": {
+"adjacency_matrix": {
+"description": "n×n matrix where A[i][j] = 1 if edge exists",
+"space_complexity": "O(V²)",
+"advantages": [
+    "Fast edge lookup O(1)",
+    "Simple implementation"
+],
+"disadvantages": [
+    "Space inefficient for sparse graphs",
+    "O(V²) to iterate edges"
+],
+"best_for": "Dense graphs, frequent edge queries"
+},
+"adjacency_list": {
+"description": "Array of lists, each list contains neighbors",
+"space_complexity": "O(V + E)",
+"advantages": [
+    "Space efficient for sparse graphs",
+    "Fast vertex iteration"
+],
+"disadvantages": [
+    "Slower edge lookup O(degree)",
+    "More complex implementation"
+],
+"best_for": "Sparse graphs, graph traversal algorithms"
+},
+"edge_list": {
+"description": "List of all edges as pairs",
+"space_complexity": "O(E)",
+"advantages": [
+    "Simple representation",
+    "Easy to add/remove edges"
+],
+"disadvantages": [
+    "Slow vertex operations",
+    "No vertex-centric queries"
+],
+"best_for": "Edge-centric algorithms, simple graphs"
+},
+"incidence_matrix": {
+"description": "V×E matrix where M[i][j] = 1 if vertex i incident to edge j",
+"space_complexity": "O(V×E)",
+"use_cases": [
+    "Theoretical analysis",
+    "Specific applications"
+]
+}
+},
+"fundamental_algorithms": {
+"graph_traversal": {
+"depth_first_search": {
+    "description": "Explore as far as possible before backtracking",
+    "data_structure": "Stack (explicit or recursion)",
+    "time_complexity": "O(V + E)",
+    "space_complexity": "O(V)",
+    "applications": [
+        "Topological sorting",
+        "Connected components",
+        "Cycle detection",
+        "Path finding"
+    ],
+    "implementation_notes": "Use visited array to avoid cycles"
+},
+"breadth_first_search": {
+    "description": "Explore all neighbors before going deeper",
+    "data_structure": "Queue",
+    "time_complexity": "O(V + E)",
+    "space_complexity": "O(V)",
+    "applications": [
+        "Shortest path (unweighted)",
+        "Level-order traversal",
+        "Bipartite testing",
+        "Connected components"
+    ],
+    "guarantees": "Finds shortest path in unweighted graphs"
+}
+},
+"shortest_path_algorithms": {
+"dijkstra_algorithm": {
+    "description": "Single-source shortest path for non-negative weights",
+    "time_complexity": "O((V + E) log V) with priority queue",
+    "space_complexity": "O(V)",
+    "constraints": "Non-negative edge weights",
+    "data_structures": "Priority queue, distance array",
+    "applications": [
+        "GPS navigation",
+        "Network routing",
+        "Social networks"
+    ]
+},
+"bellman_ford": {
+    "description": "Single-source shortest path, handles negative weights",
+    "time_complexity": "O(VE)",
+    "space_complexity": "O(V)",
+    "advantage": "Detects negative cycles",
+    "applications": [
+        "Currency arbitrage",
+        "Network protocols"
+    ]
+},
+"floyd_warshall": {
+    "description": "All-pairs shortest path",
+    "time_complexity": "O(V³)",
+    "space_complexity": "O(V²)",
+    "output": "Distance matrix between all pairs",
+    "applications": [
+        "Transitive closure",
+        "Graph analysis"
+    ]
+}
+},
+"minimum_spanning_tree": {
+"problem_definition": "Find minimum weight tree connecting all vertices",
+"kruskal_algorithm": {
+    "approach": "Edge-based, sort edges by weight",
+    "data_structure": "Union-Find for cycle detection",
+    "time_complexity": "O(E log E)",
+    "best_for": "Sparse graphs"
+},
+"prim_algorithm": {
+    "approach": "Vertex-based, grow tree from starting vertex",
+    "data_structure": "Priority queue",
+    "time_complexity": "O(E log V)",
+    "best_for": "Dense graphs"
+},
+"applications": [
+    "Network design",
+    "Clustering",
+    "Approximation algorithms"
+]
+},
+"topological_sorting": {
+"description": "Linear ordering of vertices respecting edge directions",
+"requirement": "Directed acyclic graph (DAG)",
+"algorithms": [
+    "DFS-based (reverse post-order)",
+    "Kahn's algorithm (in-degree based)"
+],
+"time_complexity": "O(V + E)",
+"applications": [
+    "Task scheduling",
+    "Build systems",
+    "Course prerequisites"
+]
+}
+},
+"advanced_topics": {
+"network_flow": {
+"max_flow_problem": "Maximum flow from source to sink",
+"ford_fulkerson": {
+    "description": "Augmenting path method",
+    "time_complexity": "O(E × max_flow)",
+    "edmonds_karp": "BFS-based implementation, O(VE²)"
+},
+"applications": [
+    "Traffic networks",
+    "Bipartite matching",
+    "Capacity planning"
+]
+},
+"matching": {
+"maximum_matching": "Largest set of edges with no common vertices",
+"bipartite_matching": {
+    "hungarian_algorithm": "O(V³) for maximum weight matching",
+    "applications": [
+        "Assignment problems",
+        "Job scheduling"
+    ]
+},
+"general_matching": {
+    "edmonds_blossom": "Polynomial time algorithm",
+    "complexity": "More complex than bipartite case"
+}
+},
+"graph_coloring": {
+"vertex_coloring_algorithms": [
+    "Greedy coloring",
+    "Welsh-Powell algorithm",
+    "Backtracking"
+],
+"np_completeness": "Optimal coloring is NP-complete",
+"approximation": "Greedy gives at most Δ+1 colors (Δ = max degree)"
+},
+"strongly_connected_components": {
+"definition": "Maximal sets where every vertex reaches every other",
+"tarjan_algorithm": {
+    "description": "Single DFS pass with stack",
+    "time_complexity": "O(V + E)",
+    "space_complexity": "O(V)"
+},
+"kosaraju_algorithm": {
+    "description": "Two DFS passes on original and transposed graph",
+    "time_complexity": "O(V + E)"
+},
+"applications": [
+    "Compiler optimization",
+    "Social network analysis"
+]
+}
+},
+"complexity_analysis": {
+"time_complexity_summary": {
+"graph_traversal": "O(V + E)",
+"shortest_path_single_source": "O(V log V + E) to O(VE)",
+"shortest_path_all_pairs": "O(V³)",
+"minimum_spanning_tree": "O(E log V)",
+"topological_sort": "O(V + E)",
+"strongly_connected_components": "O(V + E)"
+},
+"space_complexity": {
+"adjacency_matrix": "O(V²)",
+"adjacency_list": "O(V + E)",
+"algorithm_auxiliary": "Typically O(V) for visited arrays, queues, stacks"
+},
+"trade_offs": {
+"dense_vs_sparse": "Matrix vs list representation efficiency",
+"time_vs_space": "Preprocessing vs query time",
+"exact_vs_approximate": "Optimal solutions vs practical performance"
+}
+},
+"practical_applications": {
+"computer_networks": {
+"routing_protocols": "Shortest path algorithms for packet routing",
+"network_topology": "Graph structure analysis",
+"fault_tolerance": "Alternative path finding"
+},
+"social_networks": {
+"friend_recommendations": "Graph traversal and similarity",
+"influence_propagation": "BFS-like spreading models",
+"community_detection": "Graph clustering algorithms"
+},
+"transportation": {
+"gps_navigation": "Shortest path in road networks",
+"public_transit": "Multi-modal graph representations",
+"traffic_optimization": "Flow algorithms"
+},
+"compiler_design": {
+"dependency_analysis": "Topological sorting",
+"register_allocation": "Graph coloring",
+"control_flow_graphs": "Program analysis"
+},
+"bioinformatics": {
+"protein_structures": "Molecular graph analysis",
+"phylogenetic_trees": "Evolutionary relationships",
+"gene_networks": "Regulatory pathway analysis"
+},
+"embedded_systems": {
+"circuit_analysis": "Electrical networks as graphs",
+"state_machines": "Directed graphs for system states",
+"communication_networks": "I2C, SPI bus topologies",
+"task_scheduling": "Dependency graphs for real-time systems"
+}
+},
+"implementation_considerations": {
+"data_structure_choice": {
+"sparse_graphs": "Use adjacency lists (E << V²)",
+"dense_graphs": "Use adjacency matrix (E ≈ V²)",
+"dynamic_graphs": "Consider edge list for frequent modifications"
+},
+"algorithm_selection": {
+"unweighted_shortest_path": "BFS",
+"weighted_positive": "Dijkstra",
+"weighted_with_negatives": "Bellman-Ford",
+"all_pairs": "Floyd-Warshall for small graphs, Johnson for sparse"
+},
+"memory_optimization": {
+"large_graphs": "Consider external memory algorithms",
+"streaming": "Process graphs that don't fit in memory",
+"compression": "Exploit graph structure for compact representation"
+},
+"parallelization": {
+"embarrassingly_parallel": "Connected components, some traversals",
+"challenging": "Shortest paths, strongly connected components",
+"gpu_algorithms": "Parallel BFS, matrix operations"
+}
+},
+"common_pitfalls": {
+"algorithm_choice": [
+"Using DFS when BFS guarantees are needed",
+"Dijkstra on graphs with negative weights",
+"Forgetting to check for cycles in topological sort"
+],
+"implementation_errors": [
+"Not marking vertices as visited",
+"Off-by-one errors in matrix indexing",
+"Integer overflow in large graphs",
+"Memory leaks in dynamic representations"
+],
+"performance_issues": [
+"Wrong representation for graph density",
+"Not using appropriate data structures (priority queues, union-find)",
+"Redundant computations in repeated queries"
+]
+},
+"advanced_graph_types": {
+"hypergraphs": {
+"description": "Edges can connect more than two vertices",
+"applications": [
+    "Database relations",
+    "Circuit design"
+]
+},
+"temporal_graphs": {
+"description": "Edges have time information",
+"applications": [
+    "Social network evolution",
+    "Communication networks"
+]
+},
+"probabilistic_graphs": {
+"description": "Edges have probability of existence",
+"applications": [
+    "Uncertain networks",
+    "Risk analysis"
+]
+},
+"geometric_graphs": {
+"description": "Vertices have geometric coordinates",
+"applications": [
+    "Computational geometry",
+    "Wireless networks"
+]
+}
+},
+"research_frontiers": {
+"current_areas": [
+"Dynamic graph algorithms",
+"Streaming graph processing",
+"Approximate graph algorithms",
+"Graph neural networks",
+"Quantum graph algorithms"
+],
+"open_problems": [
+"Graph isomorphism complexity",
+"Improved approximations for NP-hard problems",
+"Parallel algorithms for hard problems"
+]
+},
+"learning_resources": {
+"foundational_books": [
+"Introduction to Algorithms (CLRS)",
+"Graph Theory by Diestel",
+"Algorithms on Graphs by Sedgewick"
+],
+"implementation_practice": [
+"LeetCode graph problems",
+"Competitive programming platforms",
+"Real-world graph datasets"
+],
+"visualization_tools": [
+"Graphviz for static visualization",
+"D3.js for interactive graphs",
+"NetworkX for Python analysis"
+]
+}
+}

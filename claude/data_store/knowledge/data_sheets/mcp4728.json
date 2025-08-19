@@ -1,0 +1,502 @@
+{
+"metadata": {
+"part_number": "MCP4728",
+"manufacturer": "Microchip Technology",
+"document_type": "quad_dac_datasheet",
+"ingestion_date": "2025-08-18",
+"revision": "E",
+"revision_date": "October 2010"
+},
+"overview": {
+"description": "12-Bit, Quad Digital-to-Analog Converter with EEPROM Memory",
+"type": "voltage_output_dac",
+"resolution": 12,
+"channels": 4,
+"technology": "R-2R_with_buffered_outputs",
+"nonvolatile_memory": "EEPROM"
+},
+"key_features": {
+"resolution": {
+"value": 12,
+"unit": "bits"
+},
+"channels": 4,
+"buffered_outputs": true,
+"nonvolatile_memory": {
+"type": "EEPROM",
+"stores": [
+"DAC_codes",
+"I2C_address_bits",
+"configuration_bits"
+]
+},
+"voltage_reference": {
+"internal": {
+"voltage": 2.048,
+"unit": "V"
+},
+"external": {
+"source": "VDD",
+"range": "0V to VDD"
+},
+"selectable_per_channel": true
+},
+"output_voltage_range": {
+"internal_vref_gain_1": {
+"min": 0.0,
+"max": 2.048,
+"unit": "V"
+},
+"internal_vref_gain_2": {
+"min": 0.0,
+"max": 4.096,
+"unit": "V"
+},
+"external_vref": {
+"min": 0.0,
+"max": "VDD",
+"unit": "V"
+}
+},
+"differential_nonlinearity": {
+"typical": 0.2,
+"unit": "LSB"
+},
+"settling_time": {
+"typical": 6,
+"unit": "μs"
+},
+"supply_voltage": {
+"min": 2.7,
+"max": 5.5,
+"unit": "V"
+},
+"operating_temperature": {
+"min": -40,
+"max": 125,
+"unit": "°C"
+},
+"package": "10-Lead MSOP"
+},
+"absolute_maximum_ratings": {
+"supply_voltage": {
+"max": 6.5,
+"unit": "V"
+},
+"input_voltage": {
+"min": -0.3,
+"max": "VDD + 0.3",
+"unit": "V"
+},
+"input_current": {
+"max": 2,
+"unit": "mA"
+},
+"output_current": {
+"max": 25,
+"unit": "mA"
+},
+"storage_temperature": {
+"min": -65,
+"max": 150,
+"unit": "°C"
+},
+"operating_temperature": {
+"min": -55,
+"max": 125,
+"unit": "°C"
+},
+"esd_protection": {
+"hbm": "≥4 kV",
+"mm": "≥400 V"
+},
+"junction_temperature": {
+"max": 150,
+"unit": "°C"
+}
+},
+"electrical_characteristics": {
+"test_conditions": {
+"supply_voltage": "2.7V to 5.5V",
+"load_resistance": "5 kΩ",
+"load_capacitance": "100 pF",
+"gain": 1,
+"temperature": "-40°C to +125°C"
+},
+"power_consumption": {
+"supply_current_external_ref": {
+"all_channels_normal": {
+"typical": 800,
+"max": 1400,
+"unit": "μA"
+},
+"3_channels_normal_1_pd": {
+"typical": 600,
+"unit": "μA"
+},
+"2_channels_normal_2_pd": {
+"typical": 400,
+"unit": "μA"
+},
+"1_channel_normal_3_pd": {
+"typical": 200,
+"unit": "μA"
+},
+"all_channels_powerdown": {
+"typical": 40,
+"unit": "nA"
+}
+},
+"supply_current_internal_ref": {
+"all_channels_normal": {
+"typical": 800,
+"max": 1400,
+"unit": "μA"
+},
+"all_channels_powerdown": {
+"typical": 45,
+"max": 60,
+"unit": "μA"
+}
+}
+},
+"power_on_reset": {
+"threshold_voltage": {
+"typical": 2.2,
+"unit": "V"
+},
+"power_up_ramp_rate": {
+"min": 1,
+"unit": "V/s"
+}
+},
+"dc_accuracy": {
+"resolution": {
+"value": 12,
+"unit": "bits"
+},
+"integral_nonlinearity": {
+"typical": 2,
+"max": 13,
+"unit": "LSB"
+},
+"differential_nonlinearity": {
+"min": -0.75,
+"typical": 0.2,
+"max": 0.75,
+"unit": "LSB"
+},
+"offset_error": {
+"typical": 5,
+"max": 20,
+"unit": "mV"
+},
+"gain_error": {
+"min": -1.25,
+"typical": 0.4,
+"max": 1.25,
+"unit": "% of FSR"
+}
+},
+"internal_voltage_reference": {
+"voltage": {
+"min": 2.007,
+"typical": 2.048,
+"max": 2.089,
+"unit": "V"
+},
+"temperature_coefficient": {
+"neg40_to_0C": {
+"typical": 125,
+"unit": "ppm/°C"
+},
+"0_to_125C": {
+"typical": 45,
+"unit": "ppm/°C"
+}
+},
+"output_noise": {
+"typical": 290,
+"unit": "μVp-p",
+"bandwidth": "0.1 - 10 Hz"
+}
+},
+"analog_output": {
+"settling_time": {
+"typical": 6,
+"unit": "μs"
+},
+"power_down_exit_delay": {
+"typical": 4.5,
+"unit": "μs"
+},
+"reference_switching_delay": {
+"external_to_internal": {
+"typical": 26,
+"unit": "μs"
+},
+"internal_to_external": {
+"typical": 44,
+"unit": "μs"
+}
+},
+"power_supply_rejection": {
+"typical": -57,
+"unit": "dB"
+},
+"capacitive_load_stability": {
+"max": 1000,
+"unit": "pF"
+},
+"slew_rate": {
+"typical": 0.55,
+"unit": "V/μs"
+},
+"short_circuit_current": {
+"typical": 15,
+"max": 24,
+"unit": "mA"
+},
+"output_impedance": {
+"normal_mode": {
+"typical": 1,
+"unit": "Ω"
+},
+"power_down_mode_1": {
+"typical": 1,
+"unit": "kΩ"
+},
+"power_down_mode_2": {
+"typical": 100,
+"unit": "kΩ"
+},
+"power_down_mode_3": {
+"typical": 500,
+"unit": "kΩ"
+}
+}
+}
+},
+"pinout": {
+"pin_1": {
+"name": "VDD",
+"type": "Power",
+"description": "Supply Voltage"
+},
+"pin_2": {
+"name": "SCL",
+"type": "Open-Drain Input",
+"description": "I2C Serial Clock Input"
+},
+"pin_3": {
+"name": "SDA",
+"type": "Open-Drain Input/Output",
+"description": "I2C Serial Data Input and Output"
+},
+"pin_4": {
+"name": "LDAC",
+"type": "Schmitt Trigger Input",
+"description": "Synchronization Input and I2C address selection"
+},
+"pin_5": {
+"name": "RDY/BSY",
+"type": "Open-Drain Output",
+"description": "EEPROM programming status indicator"
+},
+"pin_6": {
+"name": "VOUTA",
+"type": "Analog Output",
+"description": "Buffered analog voltage output of channel A"
+},
+"pin_7": {
+"name": "VOUTB",
+"type": "Analog Output",
+"description": "Buffered analog voltage output of channel B"
+},
+"pin_8": {
+"name": "VOUTC",
+"type": "Analog Output",
+"description": "Buffered analog voltage output of channel C"
+},
+"pin_9": {
+"name": "VOUTD",
+"type": "Analog Output",
+"description": "Buffered analog voltage output of channel D"
+},
+"pin_10": {
+"name": "VSS",
+"type": "Power",
+"description": "Ground reference"
+}
+},
+"i2c_interface": {
+"device_code": "1100",
+"address_bits": {
+"user_programmable": true,
+"bits": 3,
+"range": "A2, A1, A0"
+},
+"operating_modes": {
+"standard": {
+"speed": 100,
+"unit": "kbps"
+},
+"fast": {
+"speed": 400,
+"unit": "kbps"
+},
+"high_speed": {
+"speed": 3400,
+"unit": "kbps"
+}
+},
+"high_speed_activation": {
+"master_code": "00001XXX",
+"description": "Special address byte to activate HS mode"
+}
+},
+"write_commands": {
+"fast_write": {
+"command_bits": "C2=0, C1=0, C0=X",
+"description": "Update input DAC registers sequentially A to D",
+"updates": "Input registers only, not EEPROM",
+"data": "Power-down bits and 12-bit DAC data"
+},
+"multi_write_dac": {
+"command_bits": "C2=0, C1=1, C0=0; W1=0, W0=0",
+"description": "Write single DAC input register",
+"updates": "Selected channel input register only"
+},
+"multi_write_eeprom": {
+"command_bits": "C2=0, C1=1, C0=0; W1=1, W0=1",
+"description": "Write DAC input register and EEPROM",
+"updates": "Both input register and EEPROM"
+},
+"sequential_write": {
+"command_bits": "C2=0, C1=1, C0=1; W1=0, W0=0",
+"description": "Write multiple DAC input registers sequentially"
+},
+"select_vref": {
+"command_bits": "C2=1, C1=0, C0=0",
+"description": "Select voltage reference (internal/external)"
+},
+"select_power_down": {
+"command_bits": "C2=1, C1=0, C0=1",
+"description": "Select power-down mode"
+},
+"select_gain": {
+"command_bits": "C2=1, C1=1, C0=0",
+"description": "Select gain (1x or 2x)"
+},
+"write_i2c_address": {
+"command_bits": "C2=0, C1=1, C0=1",
+"description": "Write I2C address bits to EEPROM"
+}
+},
+"general_call_commands": {
+"reset": {
+"address": "0000000",
+"data": "0000011X",
+"description": "Software reset command"
+},
+"wake_up": {
+"address": "0000000",
+"data": "0000100X",
+"description": "Wake up from power-down mode"
+},
+"software_update": {
+"address": "0000000",
+"data": "0000101X",
+"description": "Update all DAC outputs simultaneously"
+},
+"read_address": {
+"address": "0000000",
+"data": "0000110X",
+"description": "Read current I2C address bits"
+}
+},
+"power_down_modes": {
+"mode_0": {
+"pd_bits": "00",
+"description": "Normal mode - output amplifier on"
+},
+"mode_1": {
+"pd_bits": "01",
+"description": "1kΩ pull-down to VSS"
+},
+"mode_2": {
+"pd_bits": "10",
+"description": "100kΩ pull-down to VSS"
+},
+"mode_3": {
+"pd_bits": "11",
+"description": "500kΩ pull-down to VSS"
+}
+},
+"eeprom_memory_map": {
+"dac_a": {
+"vref_bit": "Internal/External reference selection",
+"pd_bits": "Power-down mode selection",
+"gain_bit": "Gain selection (1x or 2x)",
+"dac_data": "12-bit DAC input code"
+},
+"dac_b": {
+"vref_bit": "Internal/External reference selection",
+"pd_bits": "Power-down mode selection",
+"gain_bit": "Gain selection (1x or 2x)",
+"dac_data": "12-bit DAC input code"
+},
+"dac_c": {
+"vref_bit": "Internal/External reference selection",
+"pd_bits": "Power-down mode selection",
+"gain_bit": "Gain selection (1x or 2x)",
+"dac_data": "12-bit DAC input code"
+},
+"dac_d": {
+"vref_bit": "Internal/External reference selection",
+"pd_bits": "Power-down mode selection",
+"gain_bit": "Gain selection (1x or 2x)",
+"dac_data": "12-bit DAC input code"
+}
+},
+"applications": [
+"Set Point or Offset Adjustment",
+"Sensor Calibration",
+"Closed-Loop Servo Control",
+"Low Power Portable Instrumentation",
+"PC Peripherals",
+"Programmable Voltage and Current Source",
+"Industrial Process Control",
+"Instrumentation",
+"Bias Voltage Adjustment for Power Amplifiers"
+],
+"design_considerations": {
+"power_supply_decoupling": {
+"ceramic_capacitor": "0.1 μF to ground",
+"tantalum_capacitor": "10 μF in parallel for noise reduction"
+},
+"pull_up_resistors": {
+"i2c_lines": "Required for SCL and SDA",
+"rdy_bsy": "~100 kΩ to VDD"
+},
+"ldac_control": {
+"synchronous_update": "Pull LDAC low to update all outputs simultaneously",
+"individual_update": "Use UDAC bit for individual channel updates"
+},
+"reference_selection": {
+"internal": "2.048V precision reference with gain options",
+"external": "Use VDD as reference for rail-to-rail output"
+},
+"nonvolatile_storage": {
+"power_on_state": "DAC outputs available immediately after power-up",
+"eeprom_programming": "Monitor RDY/BSY pin during write operations"
+}
+},
+"master_of_muppets_relevance": {
+"cv_output_generation": "Provides 4 channels of 12-bit CV outputs (0-10V with gain=2)",
+"i2c_communication": "Compatible with Teensy 4.1 I2C interface",
+"nonvolatile_memory": "Stores CV settings across power cycles",
+"midi_to_cv": "Ideal for converting MIDI control data to analog CV signals",
+"precision": "12-bit resolution provides 4096 steps across voltage range"
+}
+}

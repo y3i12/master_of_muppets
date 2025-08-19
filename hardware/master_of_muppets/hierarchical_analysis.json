@@ -1,0 +1,3300 @@
+{
+  "metadata": {
+    "project_path": "CADfiles\\MasterOfMuppets",
+    "version": "2.0.0",
+    "parser": "kicad_hierarchical_parser.py",
+    "author": "Claude Code (Anthropic) + y3i12",
+    "project_reference": "Master of Muppets - y3i12"
+  },
+  "schematics": {
+    "amp_module.kicad_sch": {
+      "file_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "file_name": "amp_module.kicad_sch",
+      "components": [
+        {
+          "reference": "R18",
+          "value": "220Ω",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            175.26,
+            33.02
+          ],
+          "rotation": 90.0,
+          "properties": {}
+        },
+        {
+          "reference": "R13",
+          "value": "1k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            140.97,
+            30.48
+          ],
+          "rotation": 90.0,
+          "properties": {}
+        },
+        {
+          "reference": "R12",
+          "value": "1k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            139.7,
+            76.2
+          ],
+          "rotation": 90.0,
+          "properties": {}
+        },
+        {
+          "reference": "OpAmp1",
+          "value": "TL074",
+          "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+          "lib_id": "Amplifier_Operational:TL074",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            162.56,
+            33.02
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "R6",
+          "value": "47k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            78.74,
+            87.63
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "C6",
+          "value": "100pF_0603_50V",
+          "footprint": "PCM_4ms_Capacitor:C_0603",
+          "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            80.01,
+            24.13
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "R19",
+          "value": "220Ω",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            175.26,
+            78.74
+          ],
+          "rotation": 90.0,
+          "properties": {}
+        },
+        {
+          "reference": "R7",
+          "value": "47k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            80.01,
+            41.91
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "R5",
+          "value": "1k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            76.2,
+            30.48
+          ],
+          "rotation": 90.0,
+          "properties": {}
+        },
+        {
+          "reference": "R11",
+          "value": "220Ω",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            110.49,
+            78.74
+          ],
+          "rotation": 90.0,
+          "properties": {}
+        },
+        {
+          "reference": "OpAmp1",
+          "value": "TL074",
+          "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+          "lib_id": "Amplifier_Operational:TL074",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            97.79,
+            78.74
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "R17",
+          "value": "47k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            165.1,
+            92.71
+          ],
+          "rotation": 90.0,
+          "properties": {}
+        },
+        {
+          "reference": "R16",
+          "value": "47k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            165.1,
+            46.99
+          ],
+          "rotation": 90.0,
+          "properties": {}
+        },
+        {
+          "reference": "OpAmp1",
+          "value": "TL074",
+          "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+          "lib_id": "Amplifier_Operational:TL074",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            44.45,
+            59.69
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "OpAmp1",
+          "value": "TL074",
+          "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+          "lib_id": "Amplifier_Operational:TL074",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            97.79,
+            33.02
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "R10",
+          "value": "220Ω",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            110.49,
+            33.02
+          ],
+          "rotation": 90.0,
+          "properties": {}
+        },
+        {
+          "reference": "C8",
+          "value": "100pF_0603_50V",
+          "footprint": "PCM_4ms_Capacitor:C_0603",
+          "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            144.78,
+            24.13
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "R8",
+          "value": "47k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            100.33,
+            46.99
+          ],
+          "rotation": 90.0,
+          "properties": {}
+        },
+        {
+          "reference": "C7",
+          "value": "100pF_0603_50V",
+          "footprint": "PCM_4ms_Capacitor:C_0603",
+          "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            143.51,
+            69.85
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "R4",
+          "value": "1k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            74.93,
+            76.2
+          ],
+          "rotation": 90.0,
+          "properties": {}
+        },
+        {
+          "reference": "R15",
+          "value": "47k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            144.78,
+            41.91
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "OpAmp1",
+          "value": "TL074",
+          "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+          "lib_id": "Amplifier_Operational:TL074",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            162.56,
+            78.74
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "C5",
+          "value": "100pF_0603_50V",
+          "footprint": "PCM_4ms_Capacitor:C_0603",
+          "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            78.74,
+            69.85
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "R9",
+          "value": "47k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            100.33,
+            92.71
+          ],
+          "rotation": 90.0,
+          "properties": {}
+        },
+        {
+          "reference": "R14",
+          "value": "47k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            143.51,
+            87.63
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        }
+      ],
+      "sheets": [
+        {
+          "name": "UNRIPPLE_MODULE2",
+          "file_path": "unripple_module.kicad_sch",
+          "uuid": "45d11efb-a1cc-46e8-9e3b-dcea3e8724d6",
+          "instance_path": "",
+          "parent_path": "",
+          "multiplicity": 1
+        },
+        {
+          "name": "UNRIPPLE_MODULE1",
+          "file_path": "unripple_module.kicad_sch",
+          "uuid": "eef141d8-f350-40f2-990d-9c18dcf6372d",
+          "instance_path": "",
+          "parent_path": "",
+          "multiplicity": 2
+        }
+      ]
+    },
+    "dac_module.kicad_sch": {
+      "file_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+      "file_name": "dac_module.kicad_sch",
+      "components": [
+        {
+          "reference": "DAC1",
+          "value": "AD5593R",
+          "footprint": "Package_SO:TSSOP-16_4.4x5mm_P0.65mm",
+          "lib_id": "Analog:AD5593R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            96.52,
+            76.2
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "R3",
+          "value": "4.7k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            81.28,
+            33.02
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "R1",
+          "value": "10k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            63.5,
+            33.02
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "R2",
+          "value": "4.7k",
+          "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+          "lib_id": "Device:R",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            72.39,
+            33.02
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        }
+      ],
+      "sheets": [
+        {
+          "name": "AMP_MODULE",
+          "file_path": "amp_module.kicad_sch",
+          "uuid": "02ed2e6d-b4fd-4f27-b067-e65a1933feb0",
+          "instance_path": "",
+          "parent_path": "",
+          "multiplicity": 1
+        },
+        {
+          "name": "UNRIPPLE_MODULE1",
+          "file_path": "unripple_module.kicad_sch",
+          "uuid": "1ebaab9f-3adf-4ab6-b6c9-964263e520cd",
+          "instance_path": "",
+          "parent_path": "",
+          "multiplicity": 1
+        },
+        {
+          "name": "AMP_MODULE1",
+          "file_path": "amp_module.kicad_sch",
+          "uuid": "415bd524-e348-40cf-853f-c7af6379b92b",
+          "instance_path": "",
+          "parent_path": "",
+          "multiplicity": 2
+        },
+        {
+          "name": "UNRIPPLE_MODULE2",
+          "file_path": "unripple_module.kicad_sch",
+          "uuid": "677b72c2-bf5a-4c5d-aefa-30b62731dc07",
+          "instance_path": "",
+          "parent_path": "",
+          "multiplicity": 2
+        },
+        {
+          "name": "UNRIPPLE_MODULE",
+          "file_path": "unripple_module.kicad_sch",
+          "uuid": "9b55f2e7-8956-440a-8522-8732ca051d63",
+          "instance_path": "",
+          "parent_path": "",
+          "multiplicity": 3
+        },
+        {
+          "name": "UNRIPPLE_MODULE3",
+          "file_path": "unripple_module.kicad_sch",
+          "uuid": "c23ed8e9-fd80-4ab9-a446-b909f916776c",
+          "instance_path": "",
+          "parent_path": "",
+          "multiplicity": 4
+        }
+      ]
+    },
+    "jack_sheet.kicad_sch": {
+      "file_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "file_name": "jack_sheet.kicad_sch",
+      "components": [
+        {
+          "reference": "J8",
+          "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+          "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+          "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "instance_path": "",
+          "position": [
+            121.92,
+            67.31
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "J2",
+          "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+          "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+          "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "instance_path": "",
+          "position": [
+            83.82,
+            31.75
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "J3",
+          "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+          "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+          "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "instance_path": "",
+          "position": [
+            83.82,
+            49.53
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "J6",
+          "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+          "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+          "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "instance_path": "",
+          "position": [
+            121.92,
+            31.75
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "J5",
+          "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+          "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+          "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "instance_path": "",
+          "position": [
+            83.82,
+            85.09
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "J9",
+          "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+          "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+          "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "instance_path": "",
+          "position": [
+            121.92,
+            85.09
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "J7",
+          "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+          "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+          "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "instance_path": "",
+          "position": [
+            121.92,
+            49.53
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "J4",
+          "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+          "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+          "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+          "instance_path": "",
+          "position": [
+            83.82,
+            67.31
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        }
+      ],
+      "sheets": []
+    },
+    "MasterOfMuppets.kicad_sch": {
+      "file_path": "CADfiles\\MasterOfMuppets\\MasterOfMuppets.kicad_sch",
+      "file_name": "MasterOfMuppets.kicad_sch",
+      "components": [
+        {
+          "reference": "J1",
+          "value": "Screw_Terminal_01x03",
+          "footprint": "TerminalBlock:TerminalBlock_Xinya_XY308-2.54-3P_1x03_P2.54mm_Horizontal",
+          "lib_id": "Connector:Screw_Terminal_01x03",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\MasterOfMuppets.kicad_sch",
+          "instance_path": "",
+          "position": [
+            85.09,
+            26.67
+          ],
+          "rotation": 90.0,
+          "properties": {}
+        },
+        {
+          "reference": "C1",
+          "value": "100nF ceramic",
+          "footprint": "PCM_4ms_Capacitor:C_0603",
+          "lib_id": "Device:C",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\MasterOfMuppets.kicad_sch",
+          "instance_path": "",
+          "position": [
+            127.0,
+            60.96
+          ],
+          "rotation": 90.0,
+          "properties": {}
+        },
+        {
+          "reference": "V_REG1",
+          "value": "LD1117V50",
+          "footprint": "PCM_4ms_Package_TO:TO-220-3_Vertical",
+          "lib_id": "Regulator_Linear:LD1117S50TR_SOT223",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\MasterOfMuppets.kicad_sch",
+          "instance_path": "",
+          "position": [
+            144.78,
+            60.96
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "C3",
+          "value": "100nF ceramic",
+          "footprint": "PCM_4ms_Capacitor:C_0603",
+          "lib_id": "Device:C",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\MasterOfMuppets.kicad_sch",
+          "instance_path": "",
+          "position": [
+            154.94,
+            69.85
+          ],
+          "rotation": 180.0,
+          "properties": {}
+        },
+        {
+          "reference": "C2",
+          "value": "10µF ceramic",
+          "footprint": "PCM_4ms_Capacitor:C_0805",
+          "lib_id": "Device:C",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\MasterOfMuppets.kicad_sch",
+          "instance_path": "",
+          "position": [
+            133.35,
+            69.85
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "C4",
+          "value": "22uF_0603_16V",
+          "footprint": "PCM_4ms_Capacitor:C_0805",
+          "lib_id": "PCM_4ms_Capacitor:22uF_0603_16V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\MasterOfMuppets.kicad_sch",
+          "instance_path": "",
+          "position": [
+            160.02,
+            60.96
+          ],
+          "rotation": 90.0,
+          "properties": {}
+        }
+      ],
+      "sheets": [
+        {
+          "name": "DAC_MODULE1",
+          "file_path": "dac_module.kicad_sch",
+          "uuid": "2605ff3f-ff92-4fa9-a945-25b3be4a890c",
+          "instance_path": "",
+          "parent_path": "",
+          "multiplicity": 1
+        },
+        {
+          "name": "DAC_MODULE",
+          "file_path": "dac_module.kicad_sch",
+          "uuid": "60709206-8158-4f80-9acc-4f76df38190b",
+          "instance_path": "",
+          "parent_path": "",
+          "multiplicity": 2
+        },
+        {
+          "name": "TEENSY_MODULE",
+          "file_path": "teensy_module.kicad_sch",
+          "uuid": "9146edb4-d9ec-4eb9-99ec-c7182bcc31c9",
+          "instance_path": "",
+          "parent_path": "",
+          "multiplicity": 1
+        },
+        {
+          "name": "JACK_SHEET1",
+          "file_path": "jack_sheet.kicad_sch",
+          "uuid": "e69f2e4f-b554-4083-9f69-ae83ad0071c6",
+          "instance_path": "",
+          "parent_path": "",
+          "multiplicity": 1
+        },
+        {
+          "name": "JACK_SHEET",
+          "file_path": "jack_sheet.kicad_sch",
+          "uuid": "e6c67076-e350-448f-bd1d-4e535db93c1a",
+          "instance_path": "",
+          "parent_path": "",
+          "multiplicity": 2
+        }
+      ]
+    },
+    "teensy_module.kicad_sch": {
+      "file_path": "CADfiles\\MasterOfMuppets\\teensy_module.kicad_sch",
+      "file_name": "teensy_module.kicad_sch",
+      "components": [
+        {
+          "reference": "T1",
+          "value": "Teensy4.1",
+          "footprint": "Teensy:Teensy41",
+          "lib_id": "teensy:Teensy4.1",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\teensy_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            76.2,
+            107.95
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        }
+      ],
+      "sheets": []
+    },
+    "unripple_module.kicad_sch": {
+      "file_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "file_name": "unripple_module.kicad_sch",
+      "components": [
+        {
+          "reference": "C22",
+          "value": "10uF_0805_25V",
+          "footprint": "PCM_4ms_Capacitor:C_0805",
+          "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            104.14,
+            67.31
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        },
+        {
+          "reference": "C21",
+          "value": "100nF_0603_16V",
+          "footprint": "PCM_4ms_Capacitor:C_0603",
+          "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+          "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+          "instance_path": "",
+          "position": [
+            90.17,
+            67.31
+          ],
+          "rotation": 0.0,
+          "properties": {}
+        }
+      ],
+      "sheets": []
+    }
+  },
+  "hierarchy": {
+    "sheet_file": "MasterOfMuppets.kicad_sch",
+    "instance_path": "/",
+    "component_count": 6,
+    "total_multiplicity": 1,
+    "children": [
+      {
+        "sheet_file": "dac_module.kicad_sch",
+        "instance_path": "/DAC_MODULE1#1/",
+        "component_count": 4,
+        "total_multiplicity": 1,
+        "children": [
+          {
+            "sheet_file": "amp_module.kicad_sch",
+            "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/",
+            "component_count": 25,
+            "total_multiplicity": 1,
+            "children": [
+              {
+                "sheet_file": "unripple_module.kicad_sch",
+                "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/UNRIPPLE_MODULE2#1/",
+                "component_count": 2,
+                "total_multiplicity": 1,
+                "children": []
+              },
+              {
+                "sheet_file": "unripple_module.kicad_sch",
+                "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/UNRIPPLE_MODULE1#2/",
+                "component_count": 2,
+                "total_multiplicity": 1,
+                "children": []
+              }
+            ]
+          },
+          {
+            "sheet_file": "amp_module.kicad_sch",
+            "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/",
+            "component_count": 25,
+            "total_multiplicity": 1,
+            "children": [
+              {
+                "sheet_file": "unripple_module.kicad_sch",
+                "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/UNRIPPLE_MODULE2#1/",
+                "component_count": 2,
+                "total_multiplicity": 1,
+                "children": []
+              },
+              {
+                "sheet_file": "unripple_module.kicad_sch",
+                "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/UNRIPPLE_MODULE1#2/",
+                "component_count": 2,
+                "total_multiplicity": 1,
+                "children": []
+              }
+            ]
+          },
+          {
+            "sheet_file": "unripple_module.kicad_sch",
+            "instance_path": "/DAC_MODULE1#1/UNRIPPLE_MODULE1#1/",
+            "component_count": 2,
+            "total_multiplicity": 1,
+            "children": []
+          },
+          {
+            "sheet_file": "unripple_module.kicad_sch",
+            "instance_path": "/DAC_MODULE1#1/UNRIPPLE_MODULE2#2/",
+            "component_count": 2,
+            "total_multiplicity": 1,
+            "children": []
+          },
+          {
+            "sheet_file": "unripple_module.kicad_sch",
+            "instance_path": "/DAC_MODULE1#1/UNRIPPLE_MODULE#3/",
+            "component_count": 2,
+            "total_multiplicity": 1,
+            "children": []
+          },
+          {
+            "sheet_file": "unripple_module.kicad_sch",
+            "instance_path": "/DAC_MODULE1#1/UNRIPPLE_MODULE3#4/",
+            "component_count": 2,
+            "total_multiplicity": 1,
+            "children": []
+          }
+        ]
+      },
+      {
+        "sheet_file": "dac_module.kicad_sch",
+        "instance_path": "/DAC_MODULE#2/",
+        "component_count": 4,
+        "total_multiplicity": 1,
+        "children": [
+          {
+            "sheet_file": "amp_module.kicad_sch",
+            "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/",
+            "component_count": 25,
+            "total_multiplicity": 1,
+            "children": [
+              {
+                "sheet_file": "unripple_module.kicad_sch",
+                "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/UNRIPPLE_MODULE2#1/",
+                "component_count": 2,
+                "total_multiplicity": 1,
+                "children": []
+              },
+              {
+                "sheet_file": "unripple_module.kicad_sch",
+                "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/UNRIPPLE_MODULE1#2/",
+                "component_count": 2,
+                "total_multiplicity": 1,
+                "children": []
+              }
+            ]
+          },
+          {
+            "sheet_file": "amp_module.kicad_sch",
+            "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/",
+            "component_count": 25,
+            "total_multiplicity": 1,
+            "children": [
+              {
+                "sheet_file": "unripple_module.kicad_sch",
+                "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/UNRIPPLE_MODULE2#1/",
+                "component_count": 2,
+                "total_multiplicity": 1,
+                "children": []
+              },
+              {
+                "sheet_file": "unripple_module.kicad_sch",
+                "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/UNRIPPLE_MODULE1#2/",
+                "component_count": 2,
+                "total_multiplicity": 1,
+                "children": []
+              }
+            ]
+          },
+          {
+            "sheet_file": "unripple_module.kicad_sch",
+            "instance_path": "/DAC_MODULE#2/UNRIPPLE_MODULE1#1/",
+            "component_count": 2,
+            "total_multiplicity": 1,
+            "children": []
+          },
+          {
+            "sheet_file": "unripple_module.kicad_sch",
+            "instance_path": "/DAC_MODULE#2/UNRIPPLE_MODULE2#2/",
+            "component_count": 2,
+            "total_multiplicity": 1,
+            "children": []
+          },
+          {
+            "sheet_file": "unripple_module.kicad_sch",
+            "instance_path": "/DAC_MODULE#2/UNRIPPLE_MODULE#3/",
+            "component_count": 2,
+            "total_multiplicity": 1,
+            "children": []
+          },
+          {
+            "sheet_file": "unripple_module.kicad_sch",
+            "instance_path": "/DAC_MODULE#2/UNRIPPLE_MODULE3#4/",
+            "component_count": 2,
+            "total_multiplicity": 1,
+            "children": []
+          }
+        ]
+      },
+      {
+        "sheet_file": "teensy_module.kicad_sch",
+        "instance_path": "/TEENSY_MODULE#1/",
+        "component_count": 1,
+        "total_multiplicity": 1,
+        "children": []
+      },
+      {
+        "sheet_file": "jack_sheet.kicad_sch",
+        "instance_path": "/JACK_SHEET1#1/",
+        "component_count": 8,
+        "total_multiplicity": 1,
+        "children": []
+      },
+      {
+        "sheet_file": "jack_sheet.kicad_sch",
+        "instance_path": "/JACK_SHEET#2/",
+        "component_count": 8,
+        "total_multiplicity": 1,
+        "children": []
+      }
+    ]
+  },
+  "flattened_components": [
+    {
+      "reference": "J1___1",
+      "value": "Screw_Terminal_01x03",
+      "footprint": "TerminalBlock:TerminalBlock_Xinya_XY308-2.54-3P_1x03_P2.54mm_Horizontal",
+      "lib_id": "Connector:Screw_Terminal_01x03",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\MasterOfMuppets.kicad_sch",
+      "instance_path": "/[1]",
+      "position": [
+        85.09,
+        26.67
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "C1___1",
+      "value": "100nF ceramic",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "Device:C",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\MasterOfMuppets.kicad_sch",
+      "instance_path": "/[1]",
+      "position": [
+        127.0,
+        60.96
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "V_REG1___1",
+      "value": "LD1117V50",
+      "footprint": "PCM_4ms_Package_TO:TO-220-3_Vertical",
+      "lib_id": "Regulator_Linear:LD1117S50TR_SOT223",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\MasterOfMuppets.kicad_sch",
+      "instance_path": "/[1]",
+      "position": [
+        144.78,
+        60.96
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C3___1",
+      "value": "100nF ceramic",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "Device:C",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\MasterOfMuppets.kicad_sch",
+      "instance_path": "/[1]",
+      "position": [
+        154.94,
+        69.85
+      ],
+      "rotation": 180.0,
+      "properties": {}
+    },
+    {
+      "reference": "C2___1",
+      "value": "10µF ceramic",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "Device:C",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\MasterOfMuppets.kicad_sch",
+      "instance_path": "/[1]",
+      "position": [
+        133.35,
+        69.85
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C4___1",
+      "value": "22uF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:22uF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\MasterOfMuppets.kicad_sch",
+      "instance_path": "/[1]",
+      "position": [
+        160.02,
+        60.96
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "DAC1__DAC_MODULE1#1__1",
+      "value": "AD5593R",
+      "footprint": "Package_SO:TSSOP-16_4.4x5mm_P0.65mm",
+      "lib_id": "Analog:AD5593R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/[1]",
+      "position": [
+        96.52,
+        76.2
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R3__DAC_MODULE1#1__1",
+      "value": "4.7k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/[1]",
+      "position": [
+        81.28,
+        33.02
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R1__DAC_MODULE1#1__1",
+      "value": "10k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/[1]",
+      "position": [
+        63.5,
+        33.02
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R2__DAC_MODULE1#1__1",
+      "value": "4.7k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/[1]",
+      "position": [
+        72.39,
+        33.02
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R18__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "220Ω",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        175.26,
+        33.02
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R13__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "1k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        140.97,
+        30.48
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R12__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "1k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        139.7,
+        76.2
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        162.56,
+        33.02
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R6__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        78.74,
+        87.63
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C6__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "100pF_0603_50V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        80.01,
+        24.13
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R19__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "220Ω",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        175.26,
+        78.74
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R7__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        80.01,
+        41.91
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R5__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "1k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        76.2,
+        30.48
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R11__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "220Ω",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        110.49,
+        78.74
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        97.79,
+        78.74
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R17__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        165.1,
+        92.71
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R16__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        165.1,
+        46.99
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        44.45,
+        59.69
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        97.79,
+        33.02
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R10__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "220Ω",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        110.49,
+        33.02
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "C8__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "100pF_0603_50V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        144.78,
+        24.13
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R8__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        100.33,
+        46.99
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "C7__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "100pF_0603_50V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        143.51,
+        69.85
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R4__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "1k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        74.93,
+        76.2
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R15__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        144.78,
+        41.91
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        162.56,
+        78.74
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C5__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "100pF_0603_50V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        78.74,
+        69.85
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R9__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        100.33,
+        92.71
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R14__DAC_MODULE1#1_AMP_MODULE#1__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/[1]",
+      "position": [
+        143.51,
+        87.63
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C22__DAC_MODULE1#1_AMP_MODULE#1_UNRIPPLE_MODULE2#1__1",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/UNRIPPLE_MODULE2#1/[1]",
+      "position": [
+        104.14,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C21__DAC_MODULE1#1_AMP_MODULE#1_UNRIPPLE_MODULE2#1__1",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/UNRIPPLE_MODULE2#1/[1]",
+      "position": [
+        90.17,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C22__DAC_MODULE1#1_AMP_MODULE#1_UNRIPPLE_MODULE1#2__1",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/UNRIPPLE_MODULE1#2/[1]",
+      "position": [
+        104.14,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C21__DAC_MODULE1#1_AMP_MODULE#1_UNRIPPLE_MODULE1#2__1",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE#1/UNRIPPLE_MODULE1#2/[1]",
+      "position": [
+        90.17,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R18__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "220Ω",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        175.26,
+        33.02
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R13__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "1k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        140.97,
+        30.48
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R12__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "1k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        139.7,
+        76.2
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        162.56,
+        33.02
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R6__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        78.74,
+        87.63
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C6__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "100pF_0603_50V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        80.01,
+        24.13
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R19__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "220Ω",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        175.26,
+        78.74
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R7__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        80.01,
+        41.91
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R5__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "1k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        76.2,
+        30.48
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R11__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "220Ω",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        110.49,
+        78.74
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        97.79,
+        78.74
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R17__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        165.1,
+        92.71
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R16__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        165.1,
+        46.99
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        44.45,
+        59.69
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        97.79,
+        33.02
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R10__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "220Ω",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        110.49,
+        33.02
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "C8__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "100pF_0603_50V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        144.78,
+        24.13
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R8__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        100.33,
+        46.99
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "C7__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "100pF_0603_50V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        143.51,
+        69.85
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R4__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "1k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        74.93,
+        76.2
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R15__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        144.78,
+        41.91
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        162.56,
+        78.74
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C5__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "100pF_0603_50V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        78.74,
+        69.85
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R9__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        100.33,
+        92.71
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R14__DAC_MODULE1#1_AMP_MODULE1#2__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/[1]",
+      "position": [
+        143.51,
+        87.63
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C22__DAC_MODULE1#1_AMP_MODULE1#2_UNRIPPLE_MODULE2#1__1",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/UNRIPPLE_MODULE2#1/[1]",
+      "position": [
+        104.14,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C21__DAC_MODULE1#1_AMP_MODULE1#2_UNRIPPLE_MODULE2#1__1",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/UNRIPPLE_MODULE2#1/[1]",
+      "position": [
+        90.17,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C22__DAC_MODULE1#1_AMP_MODULE1#2_UNRIPPLE_MODULE1#2__1",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/UNRIPPLE_MODULE1#2/[1]",
+      "position": [
+        104.14,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C21__DAC_MODULE1#1_AMP_MODULE1#2_UNRIPPLE_MODULE1#2__1",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/AMP_MODULE1#2/UNRIPPLE_MODULE1#2/[1]",
+      "position": [
+        90.17,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C22__DAC_MODULE1#1_UNRIPPLE_MODULE1#1__1",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/UNRIPPLE_MODULE1#1/[1]",
+      "position": [
+        104.14,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C21__DAC_MODULE1#1_UNRIPPLE_MODULE1#1__1",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/UNRIPPLE_MODULE1#1/[1]",
+      "position": [
+        90.17,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C22__DAC_MODULE1#1_UNRIPPLE_MODULE2#2__1",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/UNRIPPLE_MODULE2#2/[1]",
+      "position": [
+        104.14,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C21__DAC_MODULE1#1_UNRIPPLE_MODULE2#2__1",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/UNRIPPLE_MODULE2#2/[1]",
+      "position": [
+        90.17,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C22__DAC_MODULE1#1_UNRIPPLE_MODULE#3__1",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/UNRIPPLE_MODULE#3/[1]",
+      "position": [
+        104.14,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C21__DAC_MODULE1#1_UNRIPPLE_MODULE#3__1",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/UNRIPPLE_MODULE#3/[1]",
+      "position": [
+        90.17,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C22__DAC_MODULE1#1_UNRIPPLE_MODULE3#4__1",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/UNRIPPLE_MODULE3#4/[1]",
+      "position": [
+        104.14,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C21__DAC_MODULE1#1_UNRIPPLE_MODULE3#4__1",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE1#1/UNRIPPLE_MODULE3#4/[1]",
+      "position": [
+        90.17,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "DAC1__DAC_MODULE#2__1",
+      "value": "AD5593R",
+      "footprint": "Package_SO:TSSOP-16_4.4x5mm_P0.65mm",
+      "lib_id": "Analog:AD5593R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/[1]",
+      "position": [
+        96.52,
+        76.2
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R3__DAC_MODULE#2__1",
+      "value": "4.7k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/[1]",
+      "position": [
+        81.28,
+        33.02
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R1__DAC_MODULE#2__1",
+      "value": "10k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/[1]",
+      "position": [
+        63.5,
+        33.02
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R2__DAC_MODULE#2__1",
+      "value": "4.7k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\dac_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/[1]",
+      "position": [
+        72.39,
+        33.02
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R18__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "220Ω",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        175.26,
+        33.02
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R13__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "1k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        140.97,
+        30.48
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R12__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "1k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        139.7,
+        76.2
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        162.56,
+        33.02
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R6__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        78.74,
+        87.63
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C6__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "100pF_0603_50V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        80.01,
+        24.13
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R19__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "220Ω",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        175.26,
+        78.74
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R7__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        80.01,
+        41.91
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R5__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "1k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        76.2,
+        30.48
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R11__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "220Ω",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        110.49,
+        78.74
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        97.79,
+        78.74
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R17__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        165.1,
+        92.71
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R16__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        165.1,
+        46.99
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        44.45,
+        59.69
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        97.79,
+        33.02
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R10__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "220Ω",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        110.49,
+        33.02
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "C8__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "100pF_0603_50V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        144.78,
+        24.13
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R8__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        100.33,
+        46.99
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "C7__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "100pF_0603_50V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        143.51,
+        69.85
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R4__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "1k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        74.93,
+        76.2
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R15__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        144.78,
+        41.91
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        162.56,
+        78.74
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C5__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "100pF_0603_50V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        78.74,
+        69.85
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R9__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        100.33,
+        92.71
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R14__DAC_MODULE#2_AMP_MODULE#1__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/[1]",
+      "position": [
+        143.51,
+        87.63
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C22__DAC_MODULE#2_AMP_MODULE#1_UNRIPPLE_MODULE2#1__1",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/UNRIPPLE_MODULE2#1/[1]",
+      "position": [
+        104.14,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C21__DAC_MODULE#2_AMP_MODULE#1_UNRIPPLE_MODULE2#1__1",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/UNRIPPLE_MODULE2#1/[1]",
+      "position": [
+        90.17,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C22__DAC_MODULE#2_AMP_MODULE#1_UNRIPPLE_MODULE1#2__1",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/UNRIPPLE_MODULE1#2/[1]",
+      "position": [
+        104.14,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C21__DAC_MODULE#2_AMP_MODULE#1_UNRIPPLE_MODULE1#2__1",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE#1/UNRIPPLE_MODULE1#2/[1]",
+      "position": [
+        90.17,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R18__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "220Ω",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        175.26,
+        33.02
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R13__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "1k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        140.97,
+        30.48
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R12__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "1k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        139.7,
+        76.2
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        162.56,
+        33.02
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R6__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        78.74,
+        87.63
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C6__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "100pF_0603_50V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        80.01,
+        24.13
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R19__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "220Ω",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        175.26,
+        78.74
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R7__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        80.01,
+        41.91
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R5__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "1k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        76.2,
+        30.48
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R11__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "220Ω",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        110.49,
+        78.74
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        97.79,
+        78.74
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R17__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        165.1,
+        92.71
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R16__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        165.1,
+        46.99
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        44.45,
+        59.69
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        97.79,
+        33.02
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R10__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "220Ω",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        110.49,
+        33.02
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "C8__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "100pF_0603_50V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        144.78,
+        24.13
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R8__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        100.33,
+        46.99
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "C7__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "100pF_0603_50V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        143.51,
+        69.85
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R4__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "1k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        74.93,
+        76.2
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R15__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        144.78,
+        41.91
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "OpAmp1__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "TL074",
+      "footprint": "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",
+      "lib_id": "Amplifier_Operational:TL074",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        162.56,
+        78.74
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C5__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "100pF_0603_50V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100pF_0603_50V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        78.74,
+        69.85
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "R9__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        100.33,
+        92.71
+      ],
+      "rotation": 90.0,
+      "properties": {}
+    },
+    {
+      "reference": "R14__DAC_MODULE#2_AMP_MODULE1#2__1",
+      "value": "47k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "lib_id": "Device:R",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\amp_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/[1]",
+      "position": [
+        143.51,
+        87.63
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C22__DAC_MODULE#2_AMP_MODULE1#2_UNRIPPLE_MODULE2#1__1",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/UNRIPPLE_MODULE2#1/[1]",
+      "position": [
+        104.14,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C21__DAC_MODULE#2_AMP_MODULE1#2_UNRIPPLE_MODULE2#1__1",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/UNRIPPLE_MODULE2#1/[1]",
+      "position": [
+        90.17,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C22__DAC_MODULE#2_AMP_MODULE1#2_UNRIPPLE_MODULE1#2__1",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/UNRIPPLE_MODULE1#2/[1]",
+      "position": [
+        104.14,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C21__DAC_MODULE#2_AMP_MODULE1#2_UNRIPPLE_MODULE1#2__1",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/AMP_MODULE1#2/UNRIPPLE_MODULE1#2/[1]",
+      "position": [
+        90.17,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C22__DAC_MODULE#2_UNRIPPLE_MODULE1#1__1",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/UNRIPPLE_MODULE1#1/[1]",
+      "position": [
+        104.14,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C21__DAC_MODULE#2_UNRIPPLE_MODULE1#1__1",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/UNRIPPLE_MODULE1#1/[1]",
+      "position": [
+        90.17,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C22__DAC_MODULE#2_UNRIPPLE_MODULE2#2__1",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/UNRIPPLE_MODULE2#2/[1]",
+      "position": [
+        104.14,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C21__DAC_MODULE#2_UNRIPPLE_MODULE2#2__1",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/UNRIPPLE_MODULE2#2/[1]",
+      "position": [
+        90.17,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C22__DAC_MODULE#2_UNRIPPLE_MODULE#3__1",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/UNRIPPLE_MODULE#3/[1]",
+      "position": [
+        104.14,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C21__DAC_MODULE#2_UNRIPPLE_MODULE#3__1",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/UNRIPPLE_MODULE#3/[1]",
+      "position": [
+        90.17,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C22__DAC_MODULE#2_UNRIPPLE_MODULE3#4__1",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "lib_id": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/UNRIPPLE_MODULE3#4/[1]",
+      "position": [
+        104.14,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "C21__DAC_MODULE#2_UNRIPPLE_MODULE3#4__1",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "lib_id": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\unripple_module.kicad_sch",
+      "instance_path": "/DAC_MODULE#2/UNRIPPLE_MODULE3#4/[1]",
+      "position": [
+        90.17,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "T1__TEENSY_MODULE#1__1",
+      "value": "Teensy4.1",
+      "footprint": "Teensy:Teensy41",
+      "lib_id": "teensy:Teensy4.1",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\teensy_module.kicad_sch",
+      "instance_path": "/TEENSY_MODULE#1/[1]",
+      "position": [
+        76.2,
+        107.95
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "J8__JACK_SHEET1#1__1",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "instance_path": "/JACK_SHEET1#1/[1]",
+      "position": [
+        121.92,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "J2__JACK_SHEET1#1__1",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "instance_path": "/JACK_SHEET1#1/[1]",
+      "position": [
+        83.82,
+        31.75
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "J3__JACK_SHEET1#1__1",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "instance_path": "/JACK_SHEET1#1/[1]",
+      "position": [
+        83.82,
+        49.53
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "J6__JACK_SHEET1#1__1",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "instance_path": "/JACK_SHEET1#1/[1]",
+      "position": [
+        121.92,
+        31.75
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "J5__JACK_SHEET1#1__1",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "instance_path": "/JACK_SHEET1#1/[1]",
+      "position": [
+        83.82,
+        85.09
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "J9__JACK_SHEET1#1__1",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "instance_path": "/JACK_SHEET1#1/[1]",
+      "position": [
+        121.92,
+        85.09
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "J7__JACK_SHEET1#1__1",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "instance_path": "/JACK_SHEET1#1/[1]",
+      "position": [
+        121.92,
+        49.53
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "J4__JACK_SHEET1#1__1",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "instance_path": "/JACK_SHEET1#1/[1]",
+      "position": [
+        83.82,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "J8__JACK_SHEET#2__1",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "instance_path": "/JACK_SHEET#2/[1]",
+      "position": [
+        121.92,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "J2__JACK_SHEET#2__1",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "instance_path": "/JACK_SHEET#2/[1]",
+      "position": [
+        83.82,
+        31.75
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "J3__JACK_SHEET#2__1",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "instance_path": "/JACK_SHEET#2/[1]",
+      "position": [
+        83.82,
+        49.53
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "J6__JACK_SHEET#2__1",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "instance_path": "/JACK_SHEET#2/[1]",
+      "position": [
+        121.92,
+        31.75
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "J5__JACK_SHEET#2__1",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "instance_path": "/JACK_SHEET#2/[1]",
+      "position": [
+        83.82,
+        85.09
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "J9__JACK_SHEET#2__1",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "instance_path": "/JACK_SHEET#2/[1]",
+      "position": [
+        121.92,
+        85.09
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "J7__JACK_SHEET#2__1",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "instance_path": "/JACK_SHEET#2/[1]",
+      "position": [
+        121.92,
+        49.53
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    },
+    {
+      "reference": "J4__JACK_SHEET#2__1",
+      "value": "3.5mm_Mono_Switched_SymSmall_0.05",
+      "footprint": "PCM_4ms_Jack:EighthInch_PJ398SM",
+      "lib_id": "PCM_4ms_Jack:3.5mm_Mono_Switched_SymSmall_0.05",
+      "sheet_path": "CADfiles\\MasterOfMuppets\\jack_sheet.kicad_sch",
+      "instance_path": "/JACK_SHEET#2/[1]",
+      "position": [
+        83.82,
+        67.31
+      ],
+      "rotation": 0.0,
+      "properties": {}
+    }
+  ],
+  "summary": {
+    "total_components": 163,
+    "component_types": {
+      "Connector": 1,
+      "Device": 73,
+      "Regulator_Linear": 1,
+      "PCM_4ms_Capacitor": 49,
+      "Analog": 2,
+      "Amplifier_Operational": 20,
+      "teensy": 1,
+      "PCM_4ms_Jack": 16
+    },
+    "hierarchy_depth": 4,
+    "total_instances": {
+      "MasterOfMuppets.kicad_sch": 6,
+      "dac_module.kicad_sch": 8,
+      "amp_module.kicad_sch": 100,
+      "unripple_module.kicad_sch": 32,
+      "teensy_module.kicad_sch": 1,
+      "jack_sheet.kicad_sch": 16
+    },
+    "sheet_multiplicity": {}
+  }
+}

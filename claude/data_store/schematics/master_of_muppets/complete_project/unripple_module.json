@@ -1,0 +1,285 @@
+{
+  "metadata": {
+    "converter_version": "1.0.0",
+    "source_file": "hardware\\master_of_muppets\\unripple_module.kicad_sch",
+    "kicad_version": 20250114,
+    "generator": "eeschema",
+    "uuid": "5d7da71d-c580-4c32-9092-b7aa9321dacb"
+  },
+  "schematic_symbols": [
+    {
+      "reference": "C22",
+      "value": "10uF_0805_25V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "library": "Unknown",
+      "position": {
+        "x": 104.14,
+        "y": 67.31,
+        "angle": 0
+      },
+      "uuid": "6f491d23-495e-4089-bcb8-3d4d5fd86416",
+      "all_properties": {
+        "Reference": "C22",
+        "Value": "10uF_0805_25V",
+        "Footprint": "PCM_4ms_Capacitor:C_0805",
+        "Datasheet": "",
+        "Description": "10uF, Min. 25V, X5R/X6S/X7R/X7S, 0805, MLCC",
+        "Specifications": "10uF, Min. 25V, X5R/X6S/X7R/X7S, 0805, MLCC",
+        "Manufacturer": "Murata",
+        "Part Number": "GRM21BR61E106MA73L",
+        "Display": "10uF/25V",
+        "JLCPCB ID": "C15850"
+      }
+    },
+    {
+      "reference": "#PWR055",
+      "value": "GND",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 78.74,
+        "y": 69.85,
+        "angle": 0
+      },
+      "uuid": "c2b1a2a9-f133-4171-8ebe-d8ee996eba9a",
+      "all_properties": {
+        "Reference": "#PWR055",
+        "Value": "GND",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+      }
+    },
+    {
+      "reference": "C21",
+      "value": "100nF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "library": "Unknown",
+      "position": {
+        "x": 90.17,
+        "y": 67.31,
+        "angle": 0
+      },
+      "uuid": "d3f0dc9c-ce37-4e26-a1f1-bbeaaa178a11",
+      "all_properties": {
+        "Reference": "C21",
+        "Value": "100nF_0603_16V",
+        "Footprint": "PCM_4ms_Capacitor:C_0603",
+        "Datasheet": "",
+        "Description": "0.1uF, Min. 16V 10%, X7R or X5R or similar",
+        "Specifications": "0.1uF, Min. 16V 10%, X7R or X5R or similar",
+        "Manufacturer": "AVX Corporation",
+        "Part Number": "0603YC104KAT2A",
+        "Display": "0.1uF",
+        "JLCPCB ID": "C14663"
+      }
+    }
+  ],
+  "sheets": [],
+  "labels": [
+    {
+      "text": "UNRIPPLE",
+      "uuid": "2dca0d94-b7ca-4ac3-90d0-5ba682f8d9de",
+      "type": "hierarchical",
+      "position": {
+        "x": 78.74,
+        "y": 64.77
+      }
+    }
+  ],
+  "lib_symbols": [
+    {
+      "name": "PCM_4ms_Capacitor:100nF_0603_16V",
+      "library_nickname": "PCM_4ms_Capacitor",
+      "entry_name": "100nF_0603_16V"
+    },
+    {
+      "name": "PCM_4ms_Capacitor:10uF_0805_25V",
+      "library_nickname": "PCM_4ms_Capacitor",
+      "entry_name": "10uF_0805_25V"
+    },
+    {
+      "name": "power:GNDREF",
+      "library_nickname": "power",
+      "entry_name": "GNDREF"
+    }
+  ],
+  "net_connectivity": {
+    "nets": [
+      {
+        "id": "net_0",
+        "wire_count": 2,
+        "components": [
+          {
+            "reference": "C22",
+            "value": "10uF_0805_25V",
+            "library": "Unknown"
+          },
+          {
+            "reference": "C21",
+            "value": "100nF_0603_16V",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 78.74,
+            "y": 64.77
+          },
+          {
+            "x": 104.14,
+            "y": 64.77
+          },
+          {
+            "x": 90.17,
+            "y": 64.77
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 1
+      },
+      {
+        "id": "net_1",
+        "wire_count": 2,
+        "components": [
+          {
+            "reference": "C22",
+            "value": "10uF_0805_25V",
+            "library": "Unknown"
+          },
+          {
+            "reference": "#PWR055",
+            "value": "GND",
+            "library": "Unknown"
+          },
+          {
+            "reference": "C21",
+            "value": "100nF_0603_16V",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 90.17,
+            "y": 69.85
+          },
+          {
+            "x": 104.14,
+            "y": 69.85
+          },
+          {
+            "x": 78.74,
+            "y": 69.85
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 1
+      }
+    ],
+    "junction_count": 2,
+    "wire_count": 4,
+    "total_nets": 2
+  },
+  "wire_segments": [
+    {
+      "start": [
+        78.74,
+        69.85
+      ],
+      "end": [
+        90.17,
+        69.85
+      ],
+      "uuid": "49e02d1d-57a8-4025-bb72-92b56023a2ba",
+      "points": [
+        [
+          78.74,
+          69.85
+        ],
+        [
+          90.17,
+          69.85
+        ]
+      ]
+    },
+    {
+      "start": [
+        90.17,
+        69.85
+      ],
+      "end": [
+        104.14,
+        69.85
+      ],
+      "uuid": "a700e8bb-c490-4b17-ad2b-f731b87e75e1",
+      "points": [
+        [
+          90.17,
+          69.85
+        ],
+        [
+          104.14,
+          69.85
+        ]
+      ]
+    },
+    {
+      "start": [
+        78.74,
+        64.77
+      ],
+      "end": [
+        90.17,
+        64.77
+      ],
+      "uuid": "c3f4945d-bc1a-4f69-9661-7d87115fbba7",
+      "points": [
+        [
+          78.74,
+          64.77
+        ],
+        [
+          90.17,
+          64.77
+        ]
+      ]
+    },
+    {
+      "start": [
+        90.17,
+        64.77
+      ],
+      "end": [
+        104.14,
+        64.77
+      ],
+      "uuid": "e8d843ad-d42d-471c-9c70-27ea566b58b6",
+      "points": [
+        [
+          90.17,
+          64.77
+        ],
+        [
+          104.14,
+          64.77
+        ]
+      ]
+    }
+  ],
+  "junctions": [
+    {
+      "position": {
+        "x": 90.17,
+        "y": 69.85
+      },
+      "id": "junction_0"
+    },
+    {
+      "position": {
+        "x": 90.17,
+        "y": 64.77
+      },
+      "id": "junction_1"
+    }
+  ]
+}

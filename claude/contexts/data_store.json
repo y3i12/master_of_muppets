@@ -1,0 +1,417 @@
+{
+  "description": "Context for accessing and managing JSON knowledge files in claude/data_store",
+  "purpose": "Provides keywords and instructions for loading condensed knowledge about components, circuits, and project data",
+  "auto_update_instructions": {
+    "when_to_update": [
+      "New JSON files added to data_store",
+      "Existing files restructured",
+      "New categories or types of knowledge created",
+      "Keywords become outdated or insufficient"
+    ],
+    "how_to_update": [
+      "Add new file paths to knowledge_files section",
+      "Update keywords arrays with relevant search terms",
+      "Add new categories to file_categories",
+      "Update access_patterns for new data structures"
+    ]
+  },
+  "file_categories": {
+    "data_sheets": {
+      "location": "claude/data_store/knowledge/data_sheets/",
+      "description": "Component datasheets in structured JSON format",
+      "keywords": ["datasheet", "component", "specs", "electrical", "pinout", "pin", "register", "voltage", "current", "power", "timing", "i2c", "spi", "interface", "reference", "resolution", "adc", "dac", "temperature"]
+    },
+    "kicad_knowledge": {
+      "location": "claude/data_store/knowledge/coding/kicad/",
+      "description": "KiCad file structure and parsing knowledge",
+      "keywords": ["kicad", "pcb", "schematic", "footprint", "symbol", "layer", "net", "track", "via", "component", "routing", "kiutils", "parser", "board", "circuit"]
+    },
+    "pcb_data": {
+      "location": "claude/data_store/pcb/",
+      "description": "Parsed PCB project data with component placement and routing",
+      "keywords": ["pcb", "placement", "routing", "footprint", "coordinate", "position", "layer", "track", "via", "drill", "board", "outline", "manufacturing"]
+    },
+    "schematic_data": {
+      "location": "claude/data_store/schematics/",
+      "description": "Parsed schematic project data with connectivity and components",
+      "keywords": ["schematic", "connectivity", "net", "wire", "junction", "component", "symbol", "reference", "value", "electrical", "connection", "hierarchy", "sheet"]
+    },
+    "external_tools": {
+      "location": "claude/data_store/knowledge/external_tools/",
+      "description": "Knowledge about external tools and integrations",
+      "keywords": ["tool", "integration", "external", "api", "interface", "workflow", "automation"]
+    },
+    "firmware": {
+      "location": "claude/data_store/knowledge/firmware/",
+      "description": "Firmware-related knowledge and patterns",
+      "keywords": ["firmware", "embedded", "teensy", "microcontroller", "code", "programming", "platform", "midi", "cv", "dac", "threading", "real-time"]
+    },
+    "hardware": {
+      "location": "claude/data_store/knowledge/hardware/",
+      "description": "Hardware design knowledge and patterns",
+      "keywords": ["hardware", "design", "circuit", "analog", "digital", "power", "signal"]
+    },
+    "algorithms": {
+      "location": "claude/data_store/knowledge/algorithms/",
+      "description": "Computer science algorithms and mathematical concepts",
+      "keywords": ["algorithm", "data structure", "complexity", "optimization", "graph", "tree", "sorting", "searching"]
+    },
+    "master_of_muppets_knowledge": {
+      "location": "claude/data_store/knowledge/master_of_muppets/",
+      "description": "Organized Master of Muppets project knowledge in structured subfolders",
+      "keywords": ["master of muppets", "organized knowledge", "correlations", "schematics", "graphs", "project structure", "cross-domain analysis"]
+    },
+    "master_of_muppets_correlations": {
+      "location": "claude/data_store/knowledge/master_of_muppets/correlations/",
+      "description": "Cross-domain correlation analyses for Master of Muppets project",
+      "keywords": ["correlations", "cross-domain", "multi-domain", "integration", "hardware software", "unified correlation", "comprehensive analysis"]
+    },
+    "master_of_muppets_schematics_knowledge": {
+      "location": "claude/data_store/knowledge/master_of_muppets/schematics/",
+      "description": "Schematic analysis and connectivity knowledge for Master of Muppets",
+      "keywords": ["schematics knowledge", "enhanced schematics", "net connectivity", "circuit topology", "component analysis", "design verification"]
+    },
+    "master_of_muppets_graphs_knowledge": {
+      "location": "claude/data_store/knowledge/master_of_muppets/graphs/",
+      "description": "Graph theory and circuit analysis knowledge for Master of Muppets hardware",
+      "keywords": ["graphs knowledge", "circuit analysis", "graph theory", "network topology", "unified graphs", "hardware analysis", "optimization algorithms"]
+    },
+    "master_of_muppets_project_knowledge": {
+      "location": "claude/data_store/knowledge/master_of_muppets/project_structure/",
+      "description": "Project structure and organization knowledge for Master of Muppets",
+      "keywords": ["project knowledge", "project structure", "organization", "development methodology", "file architecture", "workspace organization"]
+    }
+  },
+  "knowledge_files": {
+    "ad5593r": {
+      "path": "claude/data_store/knowledge/data_sheets/ad5593r.json",
+      "keywords": ["ad5593r", "analog devices", "adc", "dac", "12-bit", "i2c", "configurable", "gpio", "reference", "temperature sensor", "mixed signal"],
+      "description": "8-Channel, 12-Bit, Configurable ADC/DAC with On-Chip Reference, I2C Interface"
+    },
+    "ld1117": {
+      "path": "claude/data_store/knowledge/data_sheets/ld1117.json",
+      "keywords": ["ld1117", "voltage regulator", "linear", "ldo", "power supply", "3.3v", "adjustable", "current limit"],
+      "description": "Low dropout voltage regulator datasheet"
+    },
+    "lt1014d": {
+      "path": "claude/data_store/knowledge/data_sheets/lt1014d.json",
+      "keywords": ["lt1014d", "operational amplifier", "opamp", "quad", "precision", "low noise", "audio", "analog"],
+      "description": "Quad precision operational amplifier datasheet"
+    },
+    "mcp4728": {
+      "path": "claude/data_store/knowledge/data_sheets/mcp4728.json",
+      "keywords": ["mcp4728", "dac", "12-bit", "quad", "i2c", "microchip", "voltage output", "eeprom", "non-volatile"],
+      "description": "Quad 12-bit DAC with I2C interface and EEPROM"
+    },
+    "tl074": {
+      "path": "claude/data_store/knowledge/data_sheets/tl074.json",
+      "keywords": ["tl074", "operational amplifier", "opamp", "quad", "jfet", "low noise", "audio", "general purpose"],
+      "description": "Quad JFET-input operational amplifier datasheet"
+    },
+    "pcb_structure": {
+      "path": "claude/data_store/knowledge/coding/kicad/pcb.json",
+      "keywords": ["pcb", "kicad", "board", "footprint", "track", "via", "layer", "net", "routing", "kiutils", "parser", "coordinate", "position"],
+      "description": "KiCad PCB file structure and parsing reference"
+    },
+    "schematic_structure": {
+      "path": "claude/data_store/knowledge/coding/kicad/schematic.json",
+      "keywords": ["schematic", "kicad", "symbol", "component", "wire", "junction", "net", "connectivity", "kiutils", "parser", "hierarchy"],
+      "description": "KiCad schematic file structure and parsing reference"
+    },
+    "datalab_to_marker": {
+      "path": "claude/data_store/knowledge/external_tools/datalab-to.marker.json",
+      "keywords": ["datalab", "marker", "external tool", "integration", "api", "workflow"],
+      "description": "External tool integration knowledge"
+    },
+    "minify_json_tool": {
+      "path": "claude/data_store/knowledge/external_tools/minify_json.json",
+      "keywords": ["minify", "json", "batch", "processing", "knowledge", "compression", "storage", "python", "script", "automation", "file processing", "claude tools"],
+      "description": "Python script for batch minification of JSON files in the knowledge base"
+    },
+    "kicad_sch_bidirectional_converter": {
+      "path": "claude/data_store/knowledge/external_tools/kicad_sch_bidirectional_converter.json",
+      "keywords": ["kicad", "schematic", "conversion", "bidirectional", "json", "net connectivity", "electrical analysis", "circuit analysis", "kiutils", "s-expression", "eda", "electronic design", "component extraction", "wire analysis", "round-trip", "batch processing", "automation", "claude tools"],
+      "description": "Bidirectional conversion tools for KiCad schematic files (.kicad_sch) to/from structured JSON format with net connectivity analysis"
+    },
+    "knowledge_management": {
+      "path": "claude/data_store/knowledge/managing.json",
+      "keywords": ["knowledge", "managing", "create knowledge", "update knowledge", "knowledge file", "bootstrap", "instructions", "data_store", "categorization", "research", "documentation"],
+      "description": "CRITICAL: Bootstrap instructions for creating and managing knowledge files"
+    },
+    "correlation_knowledge_creation": {
+      "path": "claude/data_store/knowledge/correlation_knowledge_creation.json",
+      "keywords": ["correlation", "cross-domain", "multi-domain", "integration", "combination", "co-design", "unified", "hardware software", "circuit code", "pcb firmware", "system-level", "bootstrap", "synthesis", "embedded system", "real-time", "fault analysis", "optimization", "verification"],
+      "description": "CRITICAL: Bootstrap instructions for creating cross-domain correlation knowledge files that combine multiple knowledge domains"
+    },
+    "s_expressions": {
+      "path": "claude/data_store/knowledge/coding/kicad/s_expressions.json",
+      "keywords": ["s-expression", "sexpr", "kicad", "parsing", "lisp", "syntax", "grammar", "kicad_sch", "kicad_pcb", "kicad_mod", "kicad_sym", "file format", "tokenizer", "lexer", "parser", "atom", "list", "parenthesis"],
+      "description": "KiCad S-expressions format reference for parsing and generating KiCad files"
+    },
+    "schematic_testing_insights": {
+      "path": "claude/data_store/knowledge/coding/kicad/schematic_testing_insights.json",
+      "keywords": ["kicad schematic testing", "kiutils implementation", "property object handling", "hierarchical schematics", "json serialization", "real-world validation", "error handling", "production guidelines", "testing methodology", "amplifier board", "master of muppets", "77 components"],
+      "description": "CRITICAL: Real-world testing insights from KiCad schematic conversion tools validation on production circuits"
+    },
+    "production_best_practices": {
+      "path": "claude/data_store/knowledge/coding/kicad/production_best_practices.json", 
+      "keywords": ["kicad best practices", "schematic processing", "production guidelines", "error handling", "kiutils patterns", "property object handling", "json serialization", "hierarchical schematics", "safe functions", "defensive programming", "code review"],
+      "description": "CRITICAL: Production-ready best practices for robust KiCad schematic processing based on real-world testing"
+    },
+    "kiutils": {
+      "path": "claude/data_store/knowledge/coding/kicad/kiutils.json",
+      "keywords": ["kiutils", "kicad", "parser", "python", "board", "schematic", "footprint", "symbol", "pcb", "sexpr", "s-expression", "api", "library", "from_file", "to_file", "create_new", "dataclass", "kicad_pcb", "kicad_sch", "kicad_mod", "kicad_sym"],
+      "description": "Python library for parsing and manipulating KiCad files (boards, schematics, symbols, footprints)"
+    },
+    "master_of_muppets_firmware": {
+      "path": "claude/data_store/knowledge/firmware/master_of_muppets_firmware.json",
+      "keywords": ["master of muppets", "firmware", "teensy", "teensy 4.1", "midi", "cv", "converter", "dac", "ad5593r", "mcp4728", "usb midi", "threading", "teensythreads", "real-time", "dr_teeth", "electric_mayhem", "muppet", "platformio", "arduino", "embedded", "multi-threaded", "i2c", "pitch bend", "16 channel", "0-10v", "advanced threading", "sequence based updates", "mutex synchronization", "production ready", "cooperative multitasking", "hardware abstraction", "template polymorphism", "static allocation", "reliability features", "debugging infrastructure", "arm cortex-m7", "optimization", "sub-millisecond latency", "thread safety", "defensive programming"],
+      "description": "ENHANCED: Professional-grade firmware architecture with advanced threading, comprehensive synchronization, and production-ready optimizations for Master of Muppets USB MIDI to CV converter"
+    },
+    "embedded_realtime_best_practices": {
+      "path": "claude/data_store/knowledge/firmware/embedded_realtime_best_practices.json",
+      "keywords": ["embedded", "real-time", "realtime", "best practices", "optimization", "threading", "mutex", "atomic", "memory management", "static allocation", "determinism", "watchdog", "error handling", "teensy", "arduino", "microcontroller", "interrupt", "dma", "i2c", "timing", "scheduling", "cooperative", "multitasking", "thread safety", "critical section", "stack", "heap", "volatile", "inline", "template"],
+      "description": "Comprehensive guide for embedded real-time programming with specific improvements for the firmware"
+    },
+    "teensy_4_1": {
+      "path": "claude/data_store/knowledge/hardware/teensy_4_1.json",
+      "keywords": ["teensy", "teensy 4.1", "arm", "cortex-m7", "imxrt1062", "600mhz", "microcontroller", "development board", "usb", "ethernet", "i2c", "spi", "uart", "adc", "dac", "pwm", "gpio", "floating point", "fpu", "tightly coupled memory", "branch prediction", "pjrc"],
+      "description": "Complete specifications and features of Teensy 4.1 development board"
+    },
+    "arduino_framework": {
+      "path": "claude/data_store/knowledge/firmware/arduino_framework.json",
+      "keywords": ["arduino", "framework", "embedded", "c++", "digitalWrite", "analogRead", "serial", "wire", "i2c", "spi", "setup", "loop", "interrupts", "pwm", "timing", "delay", "millis", "micros", "pinMode"],
+      "description": "Arduino C++ framework for embedded microcontroller development"
+    },
+    "adafruit_busio": {
+      "path": "claude/data_store/knowledge/firmware/adafruit_busio.json",
+      "keywords": ["adafruit", "busio", "i2c", "spi", "uart", "abstraction", "transport", "register", "device", "communication", "protocol", "bus", "sensor", "library"],
+      "description": "Adafruit BusIO library for I2C/SPI/UART abstraction and register management"
+    },
+    "adafruit_mcp4728": {
+      "path": "claude/data_store/knowledge/firmware/adafruit_mcp4728.json",
+      "keywords": ["adafruit", "mcp4728", "dac", "4-channel", "12-bit", "i2c", "microchip", "analog", "voltage", "output", "eeprom", "reference", "gain", "power down"],
+      "description": "Arduino library for MCP4728 4-channel 12-bit I2C DAC"
+    },
+    "ad5593r": {
+      "path": "claude/data_store/knowledge/firmware/ad5593r.json",
+      "keywords": ["ad5593r", "analog devices", "adc", "dac", "gpio", "i2c", "8-channel", "12-bit", "configurable", "mixed signal", "rob tillaart", "temperature sensor", "voltage reference"],
+      "description": "Arduino library for AD5593R 8-channel configurable ADC/DAC/GPIO device"
+    },
+    "teensy_threads": {
+      "path": "claude/data_store/knowledge/firmware/teensy_threads.json",
+      "keywords": ["teensy", "threads", "multithreading", "cooperative", "mutex", "synchronization", "threading", "parallel", "concurrent", "yield", "context switch", "fernando trias", "c++11"],
+      "description": "TeensyThreads library for cooperative multithreading on Teensy microcontrollers"
+    },
+    "function_generator": {
+      "path": "claude/data_store/knowledge/firmware/function_generator.json",
+      "keywords": ["function generator", "waveform", "sine", "triangle", "square", "sawtooth", "lfo", "signal generation", "rob tillaart", "oscillator", "frequency", "amplitude", "phase", "test signal"],
+      "description": "Library for generating various waveforms and mathematical functions for signal processing"
+    },
+    "graph_theory": {
+      "path": "claude/data_store/knowledge/algorithms/graph_theory.json",
+      "keywords": ["graph", "theory", "vertex", "edge", "algorithm", "traversal", "shortest path", "spanning tree", "network", "topology", "dijkstra", "bfs", "dfs", "connectivity", "cycle", "tree", "dag", "complexity", "data structure"],
+      "description": "Comprehensive guide to graph theory concepts, algorithms, and applications in computer science"
+    },
+    "circuit_analysis_graphs": {
+      "path": "claude/data_store/knowledge/algorithms/circuit_analysis_graphs.json",
+      "keywords": ["circuit", "analysis", "electrical", "graph", "network", "node", "branch", "kcl", "kvl", "nodal", "mesh", "spice", "topology", "tree", "cotree", "impedance", "admittance", "pcb", "simulation"],
+      "description": "Application of graph theory to electrical circuit analysis, modeling, and design"
+    },
+    "code_analysis_graphs": {
+      "path": "claude/data_store/knowledge/algorithms/code_analysis_graphs.json", 
+      "keywords": ["code", "analysis", "program", "software", "control flow", "data flow", "call graph", "dependency", "static analysis", "dynamic analysis", "compiler", "optimization", "cfg", "ast", "refactoring", "testing"],
+      "description": "Application of graph theory to software analysis, optimization, and understanding"
+    },
+    "master_of_muppets_complete_correlation": {
+      "path": "claude/data_store/knowledge/master_of_muppets/correlations/master_of_muppets_complete_correlation.json",
+      "keywords": ["master of muppets", "correlation", "cross-domain", "multi-domain", "integration", "hardware software", "circuit firmware", "pcb code", "system-level", "co-design", "embedded system", "real-time", "teensy", "midi", "cv", "dac", "ad5593r", "mcp4728", "threading", "teensythreads", "graph theory", "circuit analysis", "code analysis", "kicad", "performance", "optimization", "fault tolerance", "reliability", "timing analysis"],
+      "description": "CRITICAL: Comprehensive cross-domain correlation of all Master of Muppets knowledge domains including hardware, firmware, algorithms, and design methodologies"
+    },
+    "master_of_muppets_project_structure": {
+      "path": "claude/data_store/knowledge/master_of_muppets/project_structure/master_of_muppets_project_structure.json",
+      "keywords": ["project structure", "master of muppets", "organization", "architecture", "file layout", "development methodology", "ai-assisted development", "embedded systems", "kicad", "teensy", "midi cv", "knowledge management", "seasonal development", "claude ai", "firmware structure", "hardware structure", "workspace organization", "build system", "platformio", "arduino", "hierarchical design"],
+      "description": "CRITICAL: Comprehensive documentation of Master of Muppets project structure, organization, development methodology, and file architecture"
+    },
+    "master_of_muppets_main_schematic": {
+      "path": "claude/data_store/schematics/master_of_muppets/complete_project/master_of_muppets.json",
+      "keywords": ["master of muppets", "main schematic", "hierarchical", "top level", "sheet instances", "power", "terminals", "screw terminal", "12 components", "15 nets", "connectivity", "kicad schematic", "json"],
+      "description": "Master of Muppets main/top-level hierarchical schematic with 12 components, 15 nets, and sheet instances for all modules"
+    },
+    "master_of_muppets_amp_module": {
+      "path": "claude/data_store/schematics/master_of_muppets/complete_project/amp_module.json",
+      "keywords": ["amp module", "amplifier", "output stage", "35 components", "20 nets", "audio", "signal conditioning", "operational amplifier", "resistors", "capacitors", "kicad schematic", "json"],
+      "description": "Master of Muppets amplifier module schematic with 35 components, 20 nets for CV output signal conditioning"
+    },
+    "master_of_muppets_dac_module": {
+      "path": "claude/data_store/schematics/master_of_muppets/complete_project/dac_module.json",
+      "keywords": ["dac module", "ad5593r", "digital to analog", "i2c", "6 components", "6 nets", "cv generation", "mixed signal", "12-bit", "configurable", "kicad schematic", "json"],
+      "description": "Master of Muppets DAC module schematic featuring AD5593R with 6 components, 6 nets for CV generation"
+    },
+    "master_of_muppets_teensy_module": {
+      "path": "claude/data_store/schematics/master_of_muppets/complete_project/teensy_module.json",
+      "keywords": ["teensy module", "teensy 4.1", "microcontroller", "5 components", "3 nets", "usb midi", "i2c", "control", "embedded", "kicad schematic", "json"],
+      "description": "Master of Muppets Teensy 4.1 module schematic with 5 components, 3 nets for microcontroller and USB MIDI interface"
+    },
+    "master_of_muppets_unripple_module": {
+      "path": "claude/data_store/schematics/master_of_muppets/complete_project/unripple_module.json",
+      "keywords": ["unripple module", "power filtering", "capacitor", "3 components", "2 nets", "noise reduction", "power supply", "decoupling", "kicad schematic", "json"],
+      "description": "Master of Muppets unripple/power filtering module schematic with 3 components, 2 nets for power supply noise reduction"
+    },
+    "master_of_muppets_jack_sheet": {
+      "path": "claude/data_store/schematics/master_of_muppets/complete_project/jack_sheet.json",
+      "keywords": ["jack sheet", "output jacks", "3.5mm", "mono", "switched", "16 components", "cv outputs", "audio jacks", "amphenol", "pj398sm", "kicad schematic", "json"],
+      "description": "Master of Muppets jack sheet schematic with 16 components for 3.5mm mono switched CV output jacks"
+    },
+    "master_of_muppets_unified_correlation": {
+      "path": "claude/data_store/knowledge/master_of_muppets/correlations/master_of_muppets_unified_correlation.json",
+      "keywords": ["unified correlation", "cross-domain", "system integration", "complete system", "hardware firmware", "circuit code", "performance optimization", "fault tolerance", "real-time", "embedded", "teensy", "midi cv", "dac", "threading", "kicad", "development methodology", "ai assisted", "production ready", "season 04", "comprehensive analysis", "multi domain", "correlation matrix", "integration points", "optimization opportunities"],
+      "description": "CRITICAL: Complete unified correlation of all Master of Muppets knowledge domains with comprehensive cross-domain relationship analysis, system integration points, and optimization strategies"
+    },
+    "master_of_muppets_unified_correlation_v5": {
+      "path": "claude/data_store/knowledge/master_of_muppets/correlations/master_of_muppets_unified_correlation_v5.json",
+      "keywords": ["unified correlation v5", "enhanced schematics", "circuit graphs", "regenerated analysis", "production ready", "comprehensive correlation", "cross-domain integration", "hardware firmware", "graph theory", "net connectivity", "component analysis", "system optimization", "fault tolerance", "real-time constraints", "manufacturing support", "field deployment"],
+      "description": "CRITICAL: Enhanced unified correlation v5.0 with regenerated schematic analysis, circuit graph integration, and comprehensive cross-domain correlations for production deployment"
+    },
+    "master_of_muppets_ultimate_comprehensive_correlation_v6": {
+      "path": "claude/data_store/knowledge/master_of_muppets/correlations/master_of_muppets_ultimate_comprehensive_correlation_v6.json",
+      "keywords": ["ultimate correlation v6", "complete system integration", "deepest ever analysis", "all domains integrated", "hardware firmware algorithms", "production deployment", "commercial ready", "ai assisted development", "seasonal methodology", "comprehensive optimization", "fault tolerance unified", "manufacturing deployment", "ultimate paradigm achievement", "19 knowledge files analyzed", "correlation depth maximum"],
+      "description": "ULTIMATE: The most comprehensive cross-domain correlation analysis ever achieved integrating ALL knowledge domains in the Master of Muppets project with ultimate production-ready deployment capabilities"
+    },
+    "master_of_muppets_enhanced_schematics": {
+      "path": "claude/data_store/knowledge/master_of_muppets/schematics/master_of_muppets_enhanced_schematics.json",
+      "keywords": ["enhanced schematics", "regenerated analysis", "net connectivity", "circuit topology", "component relationships", "graph analysis", "production ready", "schematic v2.0", "comprehensive analysis", "cross-domain correlation", "module complexity", "signal flow", "power distribution", "manufacturing support", "design verification"],
+      "description": "CRITICAL: Enhanced schematic analysis v2.0 with comprehensive net connectivity, circuit topology, and cross-domain correlations for production-ready design verification"
+    },
+    "master_of_muppets_schematics_complete": {
+      "path": "claude/data_store/knowledge/master_of_muppets/schematics/master_of_muppets_schematics_complete.json",
+      "keywords": ["schematics complete", "complete analysis", "hierarchical schematics", "module connectivity", "component specifications", "net analysis", "wire segments", "junction analysis", "electrical connectivity", "design validation", "system integration"],
+      "description": "CRITICAL: Complete schematic analysis with hierarchical module connectivity, component specifications, and electrical connectivity validation"
+    },
+    "master_of_muppets_circuit_analysis_graphs": {
+      "path": "claude/data_store/knowledge/master_of_muppets/graphs/master_of_muppets_circuit_analysis_graphs.json",
+      "keywords": ["circuit analysis graphs", "graph theory", "network topology", "electrical analysis", "component relationships", "signal flow", "power distribution", "fault analysis", "optimization", "performance prediction", "design validation", "system integration", "multi-domain analysis", "advanced analytics"],
+      "description": "CRITICAL: Comprehensive circuit analysis graphs applying graph theory to electronic circuit design for advanced system analysis and optimization"
+    },
+    "master_of_muppets_regenerated_graphs_analysis": {
+      "path": "claude/data_store/knowledge/master_of_muppets/graphs/master_of_muppets_regenerated_graphs_analysis.json",
+      "keywords": ["regenerated graphs", "enhanced analysis", "production ready", "graph theory application", "network topology", "centrality analysis", "optimization algorithms", "machine learning integration", "fault tolerance modeling", "performance optimization", "scalability analysis", "manufacturing considerations", "cross-domain correlation", "comprehensive analysis", "version 2.0"],
+      "description": "CRITICAL: Complete analysis documentation for regenerated enhanced circuit graphs with production-ready comprehensive analysis framework"
+    },
+    "master_graph_index_enhanced": {
+      "path": "claude/data_store/graphs/master_of_muppets/master_graph_index_enhanced.json", 
+      "keywords": ["master graph index", "enhanced graphs", "graph registry", "version 2.0", "production ready", "comprehensive analysis", "cross-domain correlations", "analysis framework", "machine learning integration", "optimization algorithms", "usage guidelines", "knowledge base integration"],
+      "description": "CRITICAL: Enhanced master index of all circuit analysis graphs with comprehensive cross-domain correlations and production-ready analysis framework"
+    },
+    "master_of_muppets_unified_graphs_analysis": {
+      "path": "claude/data_store/knowledge/master_of_muppets/graphs/master_of_muppets_unified_graphs_analysis.json",
+      "keywords": ["unified graphs", "merged analysis", "original plus enhanced", "comprehensive integration", "production ready unified", "cross-domain correlation", "hardware firmware integration", "manufacturing deployment", "optimization framework", "fault tolerance unified", "scalability analysis", "unified 2.0", "complete system understanding"],
+      "description": "CRITICAL: Comprehensive analysis documentation for unified circuit graphs merging original and enhanced analysis with complete production-ready integration"
+    },
+    "master_graph_index_unified": {
+      "path": "claude/data_store/graphs/master_of_muppets/hardware/master_graph_index_unified.json",
+      "keywords": ["master graph index unified", "merged graphs registry", "unified 2.0", "production ready comprehensive merged", "original plus enhanced integration", "unified analysis framework", "cross-domain correlations unified", "manufacturing framework", "deployment framework", "advanced capabilities unified", "hardware subdirectory"],
+      "description": "CRITICAL: Unified master index of all merged circuit analysis graphs combining original and enhanced analysis with production-ready comprehensive framework, organized in hardware subdirectory"
+    },
+    "component_relationships_graph": {
+      "path": "claude/data_store/graphs/master_of_muppets/hardware/component_relationships_graph.json",
+      "keywords": ["component relationships", "component dependencies", "system component analysis", "interaction patterns", "component hierarchy", "upgrade compatibility", "obsolescence risk", "component selection rationale", "interface compatibility", "dependency analysis"],
+      "description": "CRITICAL: Component interaction and dependency graph for Master of Muppets system design with comprehensive component analysis and upgrade pathways"
+    },
+    "hardware_graphs": {
+      "location": "claude/data_store/graphs/master_of_muppets/hardware/",
+      "description": "Unified hardware analysis graphs combining original circuit topology with enhanced comprehensive analysis, including component relationships and master index",
+      "keywords": ["hardware graphs", "unified analysis", "circuit topology", "comprehensive specifications", "amp module", "dac module", "teensy module", "system connectivity", "power distribution", "network analysis", "component relationships", "master graph index", "production ready", "manufacturing", "firmware correlation"]
+    },
+    "master_of_muppets_hardware_graphs_structure": {
+      "path": "claude/data_store/knowledge/master_of_muppets/graphs/master_of_muppets_hardware_graphs_structure.json",
+      "keywords": ["hardware graphs structure", "reorganization", "directory structure", "unified graphs organization", "file structure optimization", "hardware subdirectory", "obsolete files removed", "access patterns updated", "migration impact", "structure validation"],
+      "description": "CRITICAL: Documentation of reorganized hardware graphs structure with unified analysis capabilities organized in dedicated hardware subdirectory"
+    },
+    "master_of_muppets_knowledge_organization": {
+      "path": "claude/data_store/knowledge/master_of_muppets/master_of_muppets_knowledge_organization.json",
+      "keywords": ["knowledge organization", "subfolder structure", "domain categorization", "knowledge navigation", "structured organization", "correlations", "schematics", "graphs", "project structure", "access patterns"],
+      "description": "CRITICAL: Documentation of organized Master of Muppets knowledge structure with subfolder categorization by domain for improved navigation and maintainability"
+    }
+  },
+  "access_patterns": {
+    "component_lookup": {
+      "trigger_keywords": ["component", "datasheet", "spec", "pin", "electrical", "voltage", "current"],
+      "action": "Search knowledge_files for component name or part number, load corresponding datasheet JSON",
+      "example": "For AD5593R questions, load claude/data_store/knowledge/data_sheets/ad5593r.json"
+    },
+    "kicad_parsing": {
+      "trigger_keywords": ["kicad", "parse", "pcb", "schematic", "symbol", "footprint", "net", "connectivity"],
+      "action": "Load appropriate KiCad structure reference from claude/data_store/knowledge/coding/kicad/",
+      "example": "For PCB analysis, load claude/data_store/knowledge/coding/kicad/pcb.json"
+    },
+    "project_data": {
+      "trigger_keywords": ["project", "master of muppets", "amplifier board", "placement", "routing", "component list"],
+      "action": "Load project-specific data from claude/data_store/pcb/ or claude/data_store/schematics/",
+      "example": "For Master of Muppets PCB data, load claude/data_store/pcb/master_of_muppets/complete_project/MasterOfMuppets.json"
+    },
+    "master_of_muppets_correlations": {
+      "trigger_keywords": ["correlation", "cross-domain", "multi-domain", "unified correlation", "hardware software", "comprehensive analysis"],
+      "action": "Load correlation files from claude/data_store/knowledge/master_of_muppets/correlations/",
+      "example": "For correlation analysis, load claude/data_store/knowledge/master_of_muppets/correlations/master_of_muppets_unified_correlation_v5.json"
+    },
+    "master_of_muppets_schematics_analysis": {
+      "trigger_keywords": ["enhanced schematics", "schematic analysis", "net connectivity", "circuit topology", "component relationships"],
+      "action": "Load schematic analysis from claude/data_store/knowledge/master_of_muppets/schematics/",
+      "example": "For schematic analysis, load claude/data_store/knowledge/master_of_muppets/schematics/master_of_muppets_enhanced_schematics.json"
+    },
+    "master_of_muppets_graphs_analysis": {
+      "trigger_keywords": ["graph analysis", "circuit graphs", "network topology", "unified graphs", "hardware analysis", "optimization algorithms"],
+      "action": "Load graph analysis from claude/data_store/knowledge/master_of_muppets/graphs/",
+      "example": "For graph analysis, load claude/data_store/knowledge/master_of_muppets/graphs/master_of_muppets_unified_graphs_analysis.json"
+    },
+    "master_of_muppets_project_structure": {
+      "trigger_keywords": ["project structure", "organization", "development methodology", "file architecture", "workspace organization"],
+      "action": "Load project structure knowledge from claude/data_store/knowledge/master_of_muppets/project_structure/",
+      "example": "For project structure, load claude/data_store/knowledge/master_of_muppets/project_structure/master_of_muppets_project_structure.json"
+    }
+  },
+  "usage_instructions": {
+    "file_loading": {
+      "method": "Use Read tool with absolute path",
+      "encoding": "UTF-8",
+      "error_handling": "Check file existence before loading"
+    },
+    "keyword_matching": {
+      "method": "Case-insensitive substring matching",
+      "priority": "Exact matches first, then partial matches",
+      "fallback": "Search multiple categories if initial match fails"
+    },
+    "data_extraction": {
+      "method": "Parse JSON structure according to document type",
+      "validation": "Verify expected structure exists before accessing",
+      "safe_access": "Use get() methods for optional fields"
+    }
+  },
+  "common_queries": {
+    "component_specs": {
+      "pattern": "What are the specifications of [component]?",
+      "action": "Load component datasheet JSON and extract electrical_specifications section"
+    },
+    "pin_configuration": {
+      "pattern": "What is the pinout of [component]?",
+      "action": "Load component datasheet JSON and extract pin_configuration section"
+    },
+    "circuit_analysis": {
+      "pattern": "Analyze the [project] circuit",
+      "action": "Load project schematic and PCB data, cross-reference with component datasheets"
+    },
+    "kicad_structure": {
+      "pattern": "How to parse KiCad [file_type]?",
+      "action": "Load appropriate KiCad structure reference (pcb.json or schematic.json)"
+    }
+  },
+  "update_triggers": [
+    "new component added to project",
+    "new datasheet processed",
+    "new KiCad version support",
+    "new project analysis created",
+    "new external tool integration",
+    "keywords become insufficient for matching"
+  ]
+}

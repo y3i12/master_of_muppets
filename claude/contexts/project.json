@@ -1,0 +1,27 @@
+{
+    "name": "Master of Muppets",
+    "description": "USB MIDI to 16ch CV (0-10V) on Teensy 4.1",
+    "platform": "Teensy 4.1",
+    "type": "embedded_audio",
+    "dependencies": {
+        "threading": "TeensyThreads",
+        "i2c": "Wire",
+        "hardware": "Arduino/Teensy"
+    },
+    "project_folders": {
+        "hardware": {
+            "location": "hardware/master_of_muppets/",
+            "keywords": [ "shcematics", "pcb", "hardware", "components", "circuits", "cad" ]
+        },
+        "firmware": {
+            "location": "firmware/",
+            "language": "c++",
+            "folder_structure":{
+                "header_files": "include",
+                "source_files": "src",
+                "third_party_code": "lib",
+                "tests": "test"
+            }
+        }
+    }
+}

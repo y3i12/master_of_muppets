@@ -1,0 +1,424 @@
+{
+"name": "Embedded Real-Time Programming Best Practices",
+"description": "Comprehensive guide for developing robust embedded real-time applications with focus on Teensy/Arduino platforms",
+"version": "1.0",
+"last_updated": "2025-01-19",
+"core_principles": {
+"determinism": {
+"description": "Code execution time must be predictable and bounded",
+"practices": [
+"Avoid dynamic memory allocation (malloc/new)",
+"Use fixed-size buffers and arrays",
+"Prefer compile-time constants over runtime calculations",
+"Avoid unbounded loops",
+"Use static or stack allocation"
+],
+"firmware_implementation": "✅ All buffers are statically allocated with compile-time sizes"
+},
+"responsiveness": {
+"description": "System must respond to events within specified time constraints",
+"practices": [
+"Use interrupt-driven or polling-based I/O",
+"Implement priority-based task scheduling",
+"Minimize interrupt disable time",
+"Use DMA where available",
+"Implement watchdog timers"
+],
+"firmware_implementation": "⚠️ No watchdog timer implemented, could add for robustness"
+},
+"resource_efficiency": {
+"description": "Optimize use of limited CPU, memory, and power resources",
+"practices": [
+"Use appropriate data types (uint8_t vs int)",
+"Implement zero-copy techniques where possible",
+"Optimize hot paths with inline functions",
+"Use compiler optimization flags",
+"Profile and measure resource usage"
+],
+"firmware_implementation": "✅ Uses sized types, inline functions, and -O3 optimization"
+}
+},
+"memory_management": {
+"static_allocation": {
+"description": "All memory allocated at compile time",
+"benefits": [
+"No fragmentation",
+"Predictable memory usage",
+"No allocation failures"
+],
+"patterns": [
+"Static arrays for buffers",
+"Compile-time sized containers",
+"Object pools for dynamic-like behavior"
+],
+"example": "static uint16_t buffer[K_SIZE];"
+},
+"stack_management": {
+"description": "Careful management of stack usage",
+"practices": [
+"Minimize stack frame size",
+"Avoid deep recursion",
+"Use static for large local variables",
+"Monitor stack usage in threads"
+],
+"improvement_opportunity": "Add stack overflow detection in threads"
+},
+"memory_alignment": {
+"description": "Proper alignment for efficient access",
+"practices": [
+"Align data structures to cache lines",
+"Use packed attributes carefully",
+"Consider DMA alignment requirements"
+]
+}
+},
+"threading_and_concurrency": {
+"thread_safety": {
+"description": "Protecting shared resources in multi-threaded environment",
+"mechanisms": {
+"mutexes": {
+    "use_case": "Protecting critical sections",
+    "firmware_implementation": "✅ Uses Threads::Mutex for buffer protection",
+    "best_practices": [
+        "Keep critical sections short",
+        "Avoid nested locks to prevent deadlock",
+        "Use RAII lock guards where available"
+    ]
+},
+"atomic_operations": {
+    "use_case": "Lock-free synchronization for simple variables",
+    "improvement_opportunity": "Could use atomics for simple flags instead of mutex"
+},
+"sequence_numbers": {
+    "use_case": "Detecting updates without blocking",
+    "firmware_implementation": "✅ Uses update_sequence for non-blocking updates"
+}
+}
+},
+"thread_design_patterns": {
+"worker_threads": {
+"description": "Dedicated threads for specific tasks",
+"firmware_implementation": "✅ Separate worker thread per DAC",
+"benefits": [
+    "Isolation",
+    "Parallel processing",
+    "Simplified logic"
+]
+},
+"producer_consumer": {
+"description": "Decoupled data flow between threads",
+"firmware_implementation": "✅ MIDI thread produces, DAC threads consume"
+},
+"periodic_tasks": {
+"description": "Regular maintenance operations",
+"firmware_implementation": "✅ party_pooper thread for periodic refresh"
+}
+},
+"thread_priorities": {
+"description": "Assigning priorities based on real-time requirements",
+"improvement_opportunity": "Add thread priorities - MIDI input should be highest"
+}
+},
+"timing_and_scheduling": {
+"time_management": {
+"microsecond_precision": {
+"description": "Use microsecond timers for precise timing",
+"firmware_implementation": "✅ Uses micros() for timing",
+"best_practices": [
+    "Handle timer overflow gracefully",
+    "Use monotonic clocks",
+    "Avoid floating point in time-critical paths"
+]
+},
+"periodic_execution": {
+"description": "Regular task execution patterns",
+"patterns": [
+    "Timer interrupts",
+    "Polling with time checks",
+    "Thread delays"
+]
+}
+},
+"cooperative_multitasking": {
+"description": "Threads voluntarily yield control",
+"firmware_implementation": "✅ Uses threads.yield()",
+"benefits": [
+"Predictable scheduling",
+"Lower overhead than preemptive"
+],
+"requirements": [
+"Threads must yield regularly",
+"Avoid blocking operations"
+]
+},
+"real_time_constraints": {
+"hard_real_time": "Missing deadline causes system failure",
+"soft_real_time": "Missing deadline degrades performance",
+"firmware_classification": "Soft real-time - delayed CV updates acceptable"
+}
+},
+"hardware_abstraction": {
+"driver_interfaces": {
+"description": "Abstract hardware details behind common interface",
+"firmware_implementation": "✅ Template-based driver abstraction",
+"benefits": [
+"Hardware independence",
+"Easy to swap implementations",
+"Testability"
+],
+"patterns": [
+"Template polymorphism (compile-time)",
+"Virtual functions (runtime)",
+"Function pointers"
+]
+},
+"initialization_patterns": {
+"description": "Robust hardware initialization",
+"firmware_implementation": "✅ Retry logic for I2C devices",
+"best_practices": [
+"Implement retry mechanisms",
+"Verify hardware presence",
+"Configure before use",
+"Handle initialization failures gracefully"
+],
+"improvement_opportunity": "Add error reporting for failed initialization"
+}
+},
+"error_handling": {
+"defensive_programming": {
+"description": "Anticipate and handle errors gracefully",
+"techniques": [
+"Parameter validation",
+"Bounds checking",
+"Null pointer checks",
+"Return status codes"
+],
+"firmware_implementation": "⚠️ Limited error handling, mostly silent failures"
+},
+"error_recovery": {
+"description": "Strategies for recovering from errors",
+"patterns": [
+"Retry with backoff",
+"Fallback to safe state",
+"Watchdog reset",
+"Error logging"
+],
+"improvement_opportunities": [
+"Add watchdog timer",
+"Implement error counters",
+"Add diagnostic LED patterns",
+"Log errors to EEPROM or serial"
+]
+},
+"assertions": {
+"description": "Debug-time error detection",
+"improvement_opportunity": "Add debug assertions for invariants"
+}
+},
+"optimization_techniques": {
+"compiler_optimizations": {
+"description": "Leverage compiler capabilities",
+"firmware_flags": [
+"-O3: Maximum optimization",
+"-ffast-math: Fast floating point",
+"-funroll-loops: Loop unrolling",
+"-fomit-frame-pointer: Reduce overhead"
+],
+"considerations": [
+"Profile before and after",
+"Verify correctness",
+"Consider code size impact"
+]
+},
+"code_optimizations": {
+"hot_path_optimization": {
+"description": "Optimize frequently executed code",
+"techniques": [
+    "Inline small functions",
+    "Minimize function calls",
+    "Cache frequently used values",
+    "Unroll critical loops"
+]
+},
+"data_structure_optimization": {
+"description": "Choose efficient data structures",
+"techniques": [
+    "Array instead of linked list",
+    "Power-of-2 sizes for modulo",
+    "Structure packing",
+    "Cache-friendly layouts"
+]
+}
+},
+"algorithm_selection": {
+"description": "Choose algorithms appropriate for embedded systems",
+"considerations": [
+"O(1) or O(log n) preferred",
+"Minimize memory usage",
+"Consider lookup tables vs computation",
+"Fixed-point vs floating-point math"
+],
+"improvement_opportunity": "Consider fixed-point math for time calculations"
+}
+},
+"communication_protocols": {
+"i2c_best_practices": {
+"description": "Robust I2C communication",
+"practices": [
+"Set appropriate clock speed",
+"Implement timeouts",
+"Handle bus errors",
+"Add pull-up resistors"
+],
+"firmware_implementation": "✅ 400kHz clock, retry logic"
+},
+"usb_considerations": {
+"description": "USB communication patterns",
+"practices": [
+"Buffer incoming data",
+"Handle disconnections",
+"Implement flow control"
+],
+"firmware_implementation": "✅ USB MIDI with callbacks"
+}
+},
+"power_management": {
+"description": "Techniques for reducing power consumption",
+"techniques": [
+"Sleep modes when idle",
+"Clock gating unused peripherals",
+"Dynamic frequency scaling",
+"Efficient polling intervals"
+],
+"improvement_opportunity": "Add idle sleep mode between updates"
+},
+"testing_and_debugging": {
+"debug_features": {
+"compile_time_switches": {
+"description": "Conditional compilation for debug features",
+"firmware_implementation": "✅ DENTAL_CHECK, DEBUG_LED flags",
+"best_practices": [
+    "Zero overhead when disabled",
+    "Clear naming conventions",
+    "Document debug modes"
+]
+},
+"diagnostic_output": {
+"description": "Runtime diagnostics",
+"techniques": [
+    "LED patterns",
+    "Serial output",
+    "Logic analyzer triggers",
+    "Performance counters"
+]
+}
+},
+"unit_testing": {
+"description": "Testing individual components",
+"improvement_opportunity": "Add unit tests for critical functions"
+}
+},
+"safety_and_reliability": {
+"fail_safe_design": {
+"description": "System remains safe even when failures occur",
+"techniques": [
+"Default to safe values",
+"Bounds limiting",
+"Timeout mechanisms",
+"Redundancy"
+]
+},
+"code_quality": {
+"static_analysis": "Use tools to detect issues at compile time",
+"code_reviews": "Peer review for critical sections",
+"standards_compliance": "Follow MISRA-C or similar guidelines"
+}
+},
+"specific_improvements_for_firmware": {
+"high_priority": [
+{
+"issue": "No watchdog timer",
+"solution": "Implement watchdog with periodic reset in main loop",
+"benefit": "Automatic recovery from hangs"
+},
+{
+"issue": "Silent initialization failures",
+"solution": "Add error reporting via LED or serial",
+"benefit": "Easier debugging and field diagnostics"
+},
+{
+"issue": "No thread priorities",
+"solution": "Set MIDI input thread to highest priority",
+"benefit": "Improved real-time response"
+}
+],
+"medium_priority": [
+{
+"issue": "Floating point time calculations",
+"solution": "Consider fixed-point arithmetic",
+"benefit": "Faster execution, deterministic timing"
+},
+{
+"issue": "No stack overflow detection",
+"solution": "Add stack canaries or monitor stack usage",
+"benefit": "Prevent mysterious crashes"
+},
+{
+"issue": "Unlimited while(1) loops",
+"solution": "Add iteration limits or timeouts",
+"benefit": "Prevent infinite loops"
+}
+],
+"low_priority": [
+{
+"issue": "No performance metrics",
+"solution": "Add timing measurements and counters",
+"benefit": "Performance optimization guidance"
+},
+{
+"issue": "No power management",
+"solution": "Add sleep modes when idle",
+"benefit": "Reduced power consumption"
+},
+{
+"issue": "Limited diagnostics",
+"solution": "Add comprehensive LED patterns for states",
+"benefit": "Better field debugging"
+}
+]
+},
+"code_patterns_to_adopt": {
+"raii_pattern": {
+"description": "Resource Acquisition Is Initialization",
+"example": "Lock guard that automatically unlocks",
+"benefit": "Prevents resource leaks"
+},
+"state_machines": {
+"description": "Explicit state management",
+"benefit": "Predictable behavior, easier debugging"
+},
+"ring_buffers": {
+"description": "Circular buffers for data streams",
+"benefit": "Efficient, lock-free in single producer/consumer"
+},
+"debouncing": {
+"description": "Filter noisy inputs",
+"benefit": "Reliable input handling"
+}
+},
+"teensy_specific": {
+"features_to_leverage": [
+"DMA for I2C/SPI transfers",
+"Hardware floating point unit",
+"Multiple I2C/SPI buses",
+"RTC for accurate timing",
+"EEPROM for configuration storage"
+],
+"considerations": [
+"600MHz CPU allows more complex processing",
+"Large RAM enables bigger buffers",
+"Multiple hardware timers available",
+"USB stack handled by hardware"
+]
+}
+}
