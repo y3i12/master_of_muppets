@@ -237,6 +237,11 @@
       "path": "claude/data_store/schematics/master_of_muppets/complete_project/jack_sheet.json",
       "keywords": ["jack sheet", "output jacks", "3.5mm", "mono", "switched", "16 components", "cv outputs", "audio jacks", "amphenol", "pj398sm", "kicad schematic", "json"],
       "description": "Master of Muppets jack sheet schematic with 16 components for 3.5mm mono switched CV output jacks"
+    },
+    "master_of_muppets_unified_correlation": {
+      "path": "claude/data_store/knowledge/master_of_muppets_unified_correlation.json",
+      "keywords": ["unified correlation", "cross-domain", "system integration", "complete system", "hardware firmware", "circuit code", "performance optimization", "fault tolerance", "real-time", "embedded", "teensy", "midi cv", "dac", "threading", "kicad", "development methodology", "ai assisted", "production ready", "season 04", "comprehensive analysis", "multi domain", "correlation matrix", "integration points", "optimization opportunities"],
+      "description": "CRITICAL: Complete unified correlation of all Master of Muppets knowledge domains with comprehensive cross-domain relationship analysis, system integration points, and optimization strategies"
     }
   },
   "access_patterns": {
