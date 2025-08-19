@@ -1,0 +1,144 @@
+{
+  "title": "Knowledge File Management Instructions",
+  "version": "1.0.0",
+  "critical": true,
+  "purpose": "Bootstrap instructions for creating, updating, and managing knowledge files in the Master of Muppets project",
+  
+  "creation_rules": {
+    "location": {
+      "base_path": "claude/data_store/knowledge/",
+      "requirement": "MUST be in base_path or its subdirectories",
+      "categorization": "Use subdirectories for logical grouping (e.g., data_sheets/, firmware/, hardware/, coding/)"
+    },
+    "file_structure": {
+      "format": "JSON",
+      "encoding": "UTF-8",
+      "naming": "lowercase with underscores (e.g., component_name.json, tool_name.json)",
+      "size_recommendation": "Split large knowledge into multiple files for better organization"
+    },
+    "content_requirements": {
+      "mandatory_fields": [
+        "title - Clear descriptive name",
+        "description - Purpose and scope of knowledge",
+        "keywords - Array of searchable terms",
+        "content - Main knowledge data"
+      ],
+      "optional_fields": [
+        "version - Semantic versioning",
+        "source - Origin of information",
+        "last_updated - ISO 8601 date",
+        "related_files - Cross-references to other knowledge files"
+      ]
+    }
+  },
+  
+  "update_process": {
+    "step_1": {
+      "action": "Create or modify knowledge file",
+      "location": "claude/data_store/knowledge/{category}/",
+      "validation": "Ensure JSON is valid and well-formatted"
+    },
+    "step_2": {
+      "action": "Update claude/contexts/data_store.json",
+      "required_updates": [
+        "Add file entry to knowledge_files section",
+        "Include path, keywords, and description",
+        "Update file_categories if new category created"
+      ],
+      "trigger": "Keywords become insufficient for matching"
+    },
+    "step_3": {
+      "action": "Test knowledge accessibility",
+      "method": "Verify file loads correctly with Read tool",
+      "validation": "Confirm keywords trigger appropriate file loading"
+    }
+  },
+  
+  "categorization_guidelines": {
+    "existing_categories": {
+      "data_sheets": "Component specifications and electrical characteristics",
+      "coding": "Programming languages, frameworks, and development tools",
+      "firmware": "Embedded systems, microcontroller programming, drivers",
+      "hardware": "Circuit design, PCB layout, analog/digital electronics",
+      "external_tools": "Third-party integrations and APIs"
+    },
+    "new_category_creation": {
+      "when": "Existing categories don't fit the knowledge domain",
+      "naming": "Use clear, descriptive names in lowercase",
+      "documentation": "Update file_categories in data_store.json"
+    }
+  },
+  
+  "research_guidelines": {
+    "internet_research": {
+      "allowed": true,
+      "tools": ["WebSearch", "WebFetch"],
+      "best_practices": [
+        "Verify information from multiple sources",
+        "Prefer official documentation",
+        "Include source references in knowledge file"
+      ]
+    },
+    "internal_research": {
+      "tools": ["Grep", "Glob", "Read"],
+      "purpose": "Extract patterns and knowledge from existing codebase"
+    }
+  },
+  
+  "knowledge_file_template": {
+    "example": {
+      "title": "Component/Tool/Concept Name",
+      "description": "Comprehensive description of the knowledge domain",
+      "version": "1.0.0",
+      "keywords": ["primary_keyword", "secondary_keyword", "related_terms"],
+      "source": "Official documentation, research findings, or codebase analysis",
+      "last_updated": "2025-01-19",
+      "content": {
+        "overview": "High-level description",
+        "specifications": {},
+        "usage": {},
+        "examples": [],
+        "references": []
+      },
+      "related_files": ["path/to/related/knowledge.json"]
+    }
+  },
+  
+  "data_store_json_update_template": {
+    "knowledge_files_entry": {
+      "unique_key": {
+        "path": "claude/data_store/knowledge/category/filename.json",
+        "keywords": ["list", "of", "searchable", "terms"],
+        "description": "Clear description of knowledge content"
+      }
+    },
+    "trigger_keywords": [
+      "keywords become insufficient for matching",
+      "new knowledge domain added",
+      "existing knowledge significantly updated"
+    ]
+  },
+  
+  "critical_reminders": [
+    "ALWAYS update data_store.json when creating new knowledge files",
+    "NEVER create knowledge files outside of claude/data_store/knowledge/",
+    "ALWAYS validate JSON syntax before saving",
+    "PREFER multiple focused files over single large files",
+    "ALWAYS include comprehensive keywords for searchability",
+    "DOCUMENT sources when using external research"
+  ],
+  
+  "bootstrap_instructions": {
+    "for_new_sessions": [
+      "Load this file when managing knowledge files",
+      "Follow creation_rules strictly",
+      "Update data_store.json immediately after file creation",
+      "Verify accessibility through keyword matching"
+    ],
+    "automation_hints": [
+      "Use TodoWrite to track multi-file knowledge creation",
+      "Batch related knowledge updates together",
+      "Test keyword triggers after updates"
+    ]
+  }
+}

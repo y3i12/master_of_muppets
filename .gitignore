@@ -1,14 +1,9 @@
-
-MasterOfMuppets-backups
-/CADfiles/MasterOfMuppets R2/MasterOfMuppets-backups
-/DataSheets
-/MasterOfMuppets/Builds/VisualStudio2022/.vs
-/MasterOfMuppets/Builds/VisualStudio2022/x64
-/CADfiles/MasterOfMuppets/MasterOfMuppets-backups
-CADfiles/MasterOfMuppets/fp-info-cache
+master_of_muppets-backups
+/data_sheets
+fp-info-cache
 *.lck
 .pio
 .vscode
 .claude
 *-bak
-LITTER_BOX.md
+litter_box.md

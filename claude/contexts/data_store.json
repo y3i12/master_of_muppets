@@ -22,7 +22,7 @@
       "keywords": ["datasheet", "component", "specs", "electrical", "pinout", "pin", "register", "voltage", "current", "power", "timing", "i2c", "spi", "interface", "reference", "resolution", "adc", "dac", "temperature"]
     },
     "kicad_knowledge": {
-      "location": "claude/data_store/knowledge/kicad/",
+      "location": "claude/data_store/knowledge/coding/kicad/",
       "description": "KiCad file structure and parsing knowledge",
       "keywords": ["kicad", "pcb", "schematic", "footprint", "symbol", "layer", "net", "track", "via", "component", "routing", "kiutils", "parser", "board", "circuit"]
     },
@@ -79,12 +79,12 @@
       "description": "Quad JFET-input operational amplifier datasheet"
     },
     "pcb_structure": {
-      "path": "claude/data_store/knowledge/kicad/pcb.json",
+      "path": "claude/data_store/knowledge/coding/kicad/pcb.json",
       "keywords": ["pcb", "kicad", "board", "footprint", "track", "via", "layer", "net", "routing", "kiutils", "parser", "coordinate", "position"],
       "description": "KiCad PCB file structure and parsing reference"
     },
     "schematic_structure": {
-      "path": "claude/data_store/knowledge/kicad/schematic.json",
+      "path": "claude/data_store/knowledge/coding/kicad/schematic.json",
       "keywords": ["schematic", "kicad", "symbol", "component", "wire", "junction", "net", "connectivity", "kiutils", "parser", "hierarchy"],
       "description": "KiCad schematic file structure and parsing reference"
     },
@@ -92,6 +92,11 @@
       "path": "claude/data_store/knowledge/external_tools/datalab-to.marker.json",
       "keywords": ["datalab", "marker", "external tool", "integration", "api", "workflow"],
       "description": "External tool integration knowledge"
+    },
+    "knowledge_management": {
+      "path": "claude/data_store/knowledge/managing.json",
+      "keywords": ["knowledge", "managing", "create knowledge", "update knowledge", "knowledge file", "bootstrap", "instructions", "data_store", "categorization", "research", "documentation"],
+      "description": "CRITICAL: Bootstrap instructions for creating and managing knowledge files"
     }
   },
   "access_patterns": {
@@ -102,8 +107,8 @@
     },
     "kicad_parsing": {
       "trigger_keywords": ["kicad", "parse", "pcb", "schematic", "symbol", "footprint", "net", "connectivity"],
-      "action": "Load appropriate KiCad structure reference from claude/data_store/knowledge/kicad/",
-      "example": "For PCB analysis, load claude/data_store/knowledge/kicad/pcb.json"
+      "action": "Load appropriate KiCad structure reference from claude/data_store/knowledge/coding/kicad/",
+      "example": "For PCB analysis, load claude/data_store/knowledge/coding/kicad/pcb.json"
     },
     "project_data": {
       "trigger_keywords": ["project", "master of muppets", "amplifier board", "placement", "routing", "component list"],
