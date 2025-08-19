@@ -1,0 +1,425 @@
+{
+  "metadata": {
+    "converter_version": "1.0.0",
+    "source_file": "hardware\\master_of_muppets\\teensy_module.kicad_sch",
+    "kicad_version": 20250114,
+    "generator": "eeschema",
+    "uuid": "31e314f0-8bdb-4818-9294-5c02474fdafa"
+  },
+  "schematic_symbols": [
+    {
+      "reference": "#PWR09",
+      "value": "GND",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 119.38,
+        "y": 55.88,
+        "angle": 90
+      },
+      "uuid": "0b44478b-bd95-4af2-8813-caa2e59e47b4",
+      "all_properties": {
+        "Reference": "#PWR09",
+        "Value": "GND",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+      }
+    },
+    {
+      "reference": "T1",
+      "value": "Teensy4.1",
+      "footprint": "Teensy:Teensy41",
+      "library": "Unknown",
+      "position": {
+        "x": 76.2,
+        "y": 107.95,
+        "angle": 0
+      },
+      "uuid": "0da430a4-d06d-410e-8694-a30fae779c42",
+      "all_properties": {
+        "Reference": "T1",
+        "Value": "Teensy4.1",
+        "Footprint": "Teensy:Teensy41",
+        "Datasheet": "",
+        "Description": "",
+        "Manufacturer": "",
+        "Part Number": "",
+        "Specifications": ""
+      }
+    },
+    {
+      "reference": "#PWR010",
+      "value": "GND",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 107.95,
+        "y": 90.17,
+        "angle": 0
+      },
+      "uuid": "38347def-e2e1-4c96-9027-90cbf00f7822",
+      "all_properties": {
+        "Reference": "#PWR010",
+        "Value": "GND",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+      }
+    },
+    {
+      "reference": "#PWR07",
+      "value": "VCC",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 107.95,
+        "y": 52.07,
+        "angle": 0
+      },
+      "uuid": "c022862b-034b-43b4-aafe-16d60da4b0e1",
+      "all_properties": {
+        "Reference": "#PWR07",
+        "Value": "VCC",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"+5V\""
+      }
+    },
+    {
+      "reference": "#PWR08",
+      "value": "GND",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 48.26,
+        "y": 53.34,
+        "angle": 270
+      },
+      "uuid": "c8b3758d-408a-4057-8c35-34ce410d927c",
+      "all_properties": {
+        "Reference": "#PWR08",
+        "Value": "GND",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+      }
+    }
+  ],
+  "sheets": [],
+  "labels": [
+    {
+      "text": "SDA0",
+      "uuid": "023e0011-ed48-43e1-b66a-8cce09b76a9c",
+      "type": "hierarchical",
+      "position": {
+        "x": 104.14,
+        "y": 73.66
+      }
+    },
+    {
+      "text": "~{RESET}",
+      "uuid": "103db767-ff74-4f11-baf9-837c44e292f1",
+      "type": "hierarchical",
+      "position": {
+        "x": 104.14,
+        "y": 60.96
+      }
+    },
+    {
+      "text": "VLOGIC",
+      "uuid": "62eacba3-9e52-4d32-8312-83be55acb5c2",
+      "type": "hierarchical",
+      "position": {
+        "x": 104.14,
+        "y": 58.42
+      }
+    },
+    {
+      "text": "SCL0",
+      "uuid": "8420d360-e66d-44a9-8d42-ca7c9b4f6268",
+      "type": "hierarchical",
+      "position": {
+        "x": 104.14,
+        "y": 71.12
+      }
+    },
+    {
+      "text": "SDA1",
+      "uuid": "87ee6341-ddf9-4bdb-aa08-f93eb23f7e92",
+      "type": "hierarchical",
+      "position": {
+        "x": 104.14,
+        "y": 76.2
+      }
+    },
+    {
+      "text": "SDA2",
+      "uuid": "8d115dd5-0f34-47b9-b5e7-eaa74a3dba49",
+      "type": "hierarchical",
+      "position": {
+        "x": 48.26,
+        "y": 93.98
+      }
+    },
+    {
+      "text": "SCL2",
+      "uuid": "9377fee8-551b-4626-bb30-95b18ce381b1",
+      "type": "hierarchical",
+      "position": {
+        "x": 48.26,
+        "y": 91.44
+      }
+    },
+    {
+      "text": "~{CHIP_SELECT_1}",
+      "uuid": "9d78dbec-24ec-4b98-89fe-588fbc33312f",
+      "type": "hierarchical",
+      "position": {
+        "x": 104.14,
+        "y": 81.28
+      }
+    },
+    {
+      "text": "~{CHIP_SELECT_0}",
+      "uuid": "9d78dbec-24ec-4b98-89fe-588fbc333130",
+      "type": "hierarchical",
+      "position": {
+        "x": 104.14,
+        "y": 68.58
+      }
+    },
+    {
+      "text": "~{CHIP_SELECT_2}",
+      "uuid": "b1095024-a597-4a6d-b300-ad27a92639d2",
+      "type": "hierarchical",
+      "position": {
+        "x": 48.26,
+        "y": 78.74
+      }
+    },
+    {
+      "text": "SCL1",
+      "uuid": "cb4512bf-714c-465c-a26c-23dfd9a2d872",
+      "type": "hierarchical",
+      "position": {
+        "x": 104.14,
+        "y": 78.74
+      }
+    }
+  ],
+  "lib_symbols": [
+    {
+      "name": "power:+5V",
+      "library_nickname": "power",
+      "entry_name": "+5V"
+    },
+    {
+      "name": "power:GNDREF",
+      "library_nickname": "power",
+      "entry_name": "GNDREF"
+    },
+    {
+      "name": "teensy:Teensy4.1",
+      "library_nickname": "teensy",
+      "entry_name": "Teensy4.1"
+    }
+  ],
+  "net_connectivity": {
+    "nets": [
+      {
+        "id": "net_0",
+        "wire_count": 3,
+        "components": [
+          {
+            "reference": "#PWR09",
+            "value": "GND",
+            "library": "Unknown"
+          },
+          {
+            "reference": "#PWR07",
+            "value": "VCC",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 119.38,
+            "y": 55.88
+          },
+          {
+            "x": 104.14,
+            "y": 55.88
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 0
+      },
+      {
+        "id": "net_1",
+        "wire_count": 3,
+        "components": [
+          {
+            "reference": "#PWR07",
+            "value": "VCC",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 107.95,
+            "y": 52.07
+          },
+          {
+            "x": 107.95,
+            "y": 53.34
+          },
+          {
+            "x": 104.14,
+            "y": 53.34
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 0
+      },
+      {
+        "id": "net_2",
+        "wire_count": 2,
+        "components": [
+          {
+            "reference": "#PWR010",
+            "value": "GND",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 107.95,
+            "y": 88.9
+          },
+          {
+            "x": 104.14,
+            "y": 88.9
+          },
+          {
+            "x": 107.95,
+            "y": 90.17
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 0
+      }
+    ],
+    "junction_count": 0,
+    "wire_count": 5,
+    "total_nets": 3
+  },
+  "wire_segments": [
+    {
+      "start": [
+        107.95,
+        53.34
+      ],
+      "end": [
+        104.14,
+        53.34
+      ],
+      "uuid": "20e5d0c3-24e1-43bf-a058-7c3dd731fbd3",
+      "points": [
+        [
+          107.95,
+          53.34
+        ],
+        [
+          104.14,
+          53.34
+        ]
+      ]
+    },
+    {
+      "start": [
+        119.38,
+        55.88
+      ],
+      "end": [
+        104.14,
+        55.88
+      ],
+      "uuid": "37f2519b-c1a4-4eb4-a208-db5d2f04234e",
+      "points": [
+        [
+          119.38,
+          55.88
+        ],
+        [
+          104.14,
+          55.88
+        ]
+      ]
+    },
+    {
+      "start": [
+        107.95,
+        88.9
+      ],
+      "end": [
+        107.95,
+        90.17
+      ],
+      "uuid": "54a20b39-c225-4506-80d8-4f73d4e8698c",
+      "points": [
+        [
+          107.95,
+          88.9
+        ],
+        [
+          107.95,
+          90.17
+        ]
+      ]
+    },
+    {
+      "start": [
+        104.14,
+        88.9
+      ],
+      "end": [
+        107.95,
+        88.9
+      ],
+      "uuid": "574f05e4-bec6-41f1-bda8-8dd0d4b11cab",
+      "points": [
+        [
+          104.14,
+          88.9
+        ],
+        [
+          107.95,
+          88.9
+        ]
+      ]
+    },
+    {
+      "start": [
+        107.95,
+        52.07
+      ],
+      "end": [
+        107.95,
+        53.34
+      ],
+      "uuid": "ffc526fe-6236-4a74-892a-545a5f36d6f2",
+      "points": [
+        [
+          107.95,
+          52.07
+        ],
+        [
+          107.95,
+          53.34
+        ]
+      ]
+    }
+  ],
+  "junctions": []
+}

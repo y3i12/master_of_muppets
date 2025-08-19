@@ -1,0 +1,1062 @@
+{
+  "metadata": {
+    "converter_version": "1.0.0",
+    "source_file": "hardware\\master_of_muppets\\dac_module.kicad_sch",
+    "kicad_version": 20250114,
+    "generator": "eeschema",
+    "uuid": "177cfd6a-1ed3-4511-a0a7-a5da522e26c3"
+  },
+  "schematic_symbols": [
+    {
+      "reference": "DAC1",
+      "value": "AD5593R",
+      "footprint": "Package_SO:TSSOP-16_4.4x5mm_P0.65mm",
+      "library": "Unknown",
+      "position": {
+        "x": 96.52,
+        "y": 76.2,
+        "angle": 0
+      },
+      "uuid": "147647cf-30b1-4924-a56e-588ddf6855c4",
+      "all_properties": {
+        "Reference": "DAC1",
+        "Value": "AD5593R",
+        "Footprint": "Package_SO:TSSOP-16_4.4x5mm_P0.65mm",
+        "Datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/AD5593R.pdf",
+        "Description": "8-channel 12bits configurable ADC/DAC/GPIO Internal Reference, I2C interface Integrated temperature sensor,Single Supply, TSSOP-16"
+      }
+    },
+    {
+      "reference": "#PWR011",
+      "value": "VCC",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 93.98,
+        "y": 38.1,
+        "angle": 0
+      },
+      "uuid": "3ca8fc4e-61b3-4f17-b155-a5c3707b21ae",
+      "all_properties": {
+        "Reference": "#PWR011",
+        "Value": "VCC",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"+5V\""
+      }
+    },
+    {
+      "reference": "R3",
+      "value": "4.7k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "library": "Unknown",
+      "position": {
+        "x": 81.28,
+        "y": 33.02,
+        "angle": 0
+      },
+      "uuid": "6cf5d3ec-637d-421c-9421-56b76ea492dd",
+      "all_properties": {
+        "Reference": "R3",
+        "Value": "4.7k",
+        "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+        "Datasheet": "~",
+        "Description": "Resistor",
+        "Manufacturer": "",
+        "Part Number": "",
+        "Specifications": ""
+      }
+    },
+    {
+      "reference": "#PWR012",
+      "value": "GND",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 96.52,
+        "y": 91.44,
+        "angle": 0
+      },
+      "uuid": "b780d003-b2a2-44ba-8330-41c4906521b0",
+      "all_properties": {
+        "Reference": "#PWR012",
+        "Value": "GND",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+      }
+    },
+    {
+      "reference": "R1",
+      "value": "10k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "library": "Unknown",
+      "position": {
+        "x": 63.5,
+        "y": 33.02,
+        "angle": 0
+      },
+      "uuid": "c8f03f70-0a54-4982-8479-ef7c38d53a37",
+      "all_properties": {
+        "Reference": "R1",
+        "Value": "10k",
+        "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+        "Datasheet": "~",
+        "Description": "Resistor",
+        "Manufacturer": "",
+        "Part Number": "",
+        "Specifications": ""
+      }
+    },
+    {
+      "reference": "R2",
+      "value": "4.7k",
+      "footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+      "library": "Unknown",
+      "position": {
+        "x": 72.39,
+        "y": 33.02,
+        "angle": 0
+      },
+      "uuid": "d8bc3281-a640-46a6-9cec-08ec30b6881f",
+      "all_properties": {
+        "Reference": "R2",
+        "Value": "4.7k",
+        "Footprint": "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder",
+        "Datasheet": "~",
+        "Description": "Resistor",
+        "Manufacturer": "",
+        "Part Number": "",
+        "Specifications": ""
+      }
+    }
+  ],
+  "sheets": [
+    {
+      "name": "AMP_MODULE",
+      "file": "amp_module.kicad_sch",
+      "uuid": "02ed2e6d-b4fd-4f27-b067-e65a1933feb0",
+      "position": {
+        "x": 109.22,
+        "y": 64.77
+      }
+    },
+    {
+      "name": "UNRIPPLE_MODULE1",
+      "file": "unripple_module.kicad_sch",
+      "uuid": "1ebaab9f-3adf-4ab6-b6c9-964263e520cd",
+      "position": {
+        "x": 69.85,
+        "y": 71.755
+      }
+    },
+    {
+      "name": "AMP_MODULE1",
+      "file": "amp_module.kicad_sch",
+      "uuid": "415bd524-e348-40cf-853f-c7af6379b92b",
+      "position": {
+        "x": 109.22,
+        "y": 74.93
+      }
+    },
+    {
+      "name": "UNRIPPLE_MODULE2",
+      "file": "unripple_module.kicad_sch",
+      "uuid": "677b72c2-bf5a-4c5d-aefa-30b62731dc07",
+      "position": {
+        "x": 69.85,
+        "y": 79.375
+      }
+    },
+    {
+      "name": "UNRIPPLE_MODULE",
+      "file": "unripple_module.kicad_sch",
+      "uuid": "9b55f2e7-8956-440a-8522-8732ca051d63",
+      "position": {
+        "x": 101.6,
+        "y": 56.515
+      }
+    },
+    {
+      "name": "UNRIPPLE_MODULE3",
+      "file": "unripple_module.kicad_sch",
+      "uuid": "c23ed8e9-fd80-4ab9-a446-b909f916776c",
+      "position": {
+        "x": 69.85,
+        "y": 84.455
+      }
+    }
+  ],
+  "labels": [
+    {
+      "text": "~{RESET}",
+      "uuid": "26873781-f403-4051-884c-25bb549b1948",
+      "type": "hierarchical",
+      "position": {
+        "x": 63.5,
+        "y": 78.74
+      }
+    },
+    {
+      "text": "SCL",
+      "uuid": "6a8c31b5-9ac1-4661-bc6c-ca117a525ce0",
+      "type": "hierarchical",
+      "position": {
+        "x": 81.28,
+        "y": 66.04
+      }
+    },
+    {
+      "text": "VLOGIC",
+      "uuid": "96d4899e-c0e9-461f-9431-0710e5914e28",
+      "type": "hierarchical",
+      "position": {
+        "x": 99.06,
+        "y": 57.15
+      }
+    },
+    {
+      "text": "OUTPUT_1",
+      "uuid": "ba2636b7-61f8-481f-b682-1906bf759714",
+      "type": "hierarchical",
+      "position": {
+        "x": 139.7,
+        "y": 66.04
+      }
+    },
+    {
+      "text": "OUTPUT_6",
+      "uuid": "def2d8b3-3300-48e4-a041-7fb417638b77",
+      "type": "hierarchical",
+      "position": {
+        "x": 139.7,
+        "y": 78.74
+      }
+    },
+    {
+      "text": "OUTPUT_8",
+      "uuid": "def2d8b3-3300-48e4-a041-7fb417638b78",
+      "type": "hierarchical",
+      "position": {
+        "x": 139.7,
+        "y": 83.82
+      }
+    },
+    {
+      "text": "OUTPUT_7",
+      "uuid": "def2d8b3-3300-48e4-a041-7fb417638b79",
+      "type": "hierarchical",
+      "position": {
+        "x": 139.7,
+        "y": 81.28
+      }
+    },
+    {
+      "text": "OUTPUT_5",
+      "uuid": "def2d8b3-3300-48e4-a041-7fb417638b7a",
+      "type": "hierarchical",
+      "position": {
+        "x": 139.7,
+        "y": 76.2
+      }
+    },
+    {
+      "text": "OUTPUT_2",
+      "uuid": "def2d8b3-3300-48e4-a041-7fb417638b7b",
+      "type": "hierarchical",
+      "position": {
+        "x": 139.7,
+        "y": 68.58
+      }
+    },
+    {
+      "text": "OUTPUT_3",
+      "uuid": "def2d8b3-3300-48e4-a041-7fb417638b7c",
+      "type": "hierarchical",
+      "position": {
+        "x": 139.7,
+        "y": 71.12
+      }
+    },
+    {
+      "text": "OUTPUT_4",
+      "uuid": "def2d8b3-3300-48e4-a041-7fb417638b7d",
+      "type": "hierarchical",
+      "position": {
+        "x": 139.7,
+        "y": 73.66
+      }
+    },
+    {
+      "text": "~{CHIP_SELECT}",
+      "uuid": "e1947231-c1d3-4d93-bea8-e54e2e0f3b0e",
+      "type": "hierarchical",
+      "position": {
+        "x": 63.5,
+        "y": 83.82
+      }
+    },
+    {
+      "text": "SDA",
+      "uuid": "fc90f730-4079-40f5-bce5-fe536dd806f5",
+      "type": "hierarchical",
+      "position": {
+        "x": 71.12,
+        "y": 68.58
+      }
+    }
+  ],
+  "lib_symbols": [
+    {
+      "name": "Analog:AD5593R",
+      "library_nickname": "Analog",
+      "entry_name": "AD5593R"
+    },
+    {
+      "name": "Device:R",
+      "library_nickname": "Device",
+      "entry_name": "R"
+    },
+    {
+      "name": "power:+5V",
+      "library_nickname": "power",
+      "entry_name": "+5V"
+    },
+    {
+      "name": "power:GNDREF",
+      "library_nickname": "power",
+      "entry_name": "GNDREF"
+    }
+  ],
+  "net_connectivity": {
+    "nets": [
+      {
+        "id": "net_0",
+        "wire_count": 5,
+        "components": [
+          {
+            "reference": "R2",
+            "value": "4.7k",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 71.12,
+            "y": 68.58
+          },
+          {
+            "x": 72.39,
+            "y": 68.58
+          },
+          {
+            "x": 83.82,
+            "y": 68.58
+          },
+          {
+            "x": 72.39,
+            "y": 36.83
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 1
+      },
+      {
+        "id": "net_1",
+        "wire_count": 7,
+        "components": [
+          {
+            "reference": "#PWR011",
+            "value": "VCC",
+            "library": "Unknown"
+          },
+          {
+            "reference": "R3",
+            "value": "4.7k",
+            "library": "Unknown"
+          },
+          {
+            "reference": "R1",
+            "value": "10k",
+            "library": "Unknown"
+          },
+          {
+            "reference": "R2",
+            "value": "4.7k",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 81.28,
+            "y": 29.21
+          },
+          {
+            "x": 93.98,
+            "y": 38.1
+          },
+          {
+            "x": 93.98,
+            "y": 53.34
+          },
+          {
+            "x": 93.98,
+            "y": 58.42
+          },
+          {
+            "x": 88.9,
+            "y": 53.34
+          },
+          {
+            "x": 63.5,
+            "y": 29.21
+          },
+          {
+            "x": 72.39,
+            "y": 29.21
+          },
+          {
+            "x": 88.9,
+            "y": 29.21
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 3
+      },
+      {
+        "id": "net_2",
+        "wire_count": 7,
+        "components": [
+          {
+            "reference": "R1",
+            "value": "10k",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 83.82,
+            "y": 81.28
+          },
+          {
+            "x": 83.82,
+            "y": 83.82
+          },
+          {
+            "x": 63.5,
+            "y": 36.83
+          },
+          {
+            "x": 83.82,
+            "y": 86.36
+          },
+          {
+            "x": 82.55,
+            "y": 81.28
+          },
+          {
+            "x": 63.5,
+            "y": 78.74
+          },
+          {
+            "x": 82.55,
+            "y": 86.36
+          },
+          {
+            "x": 63.5,
+            "y": 83.82
+          },
+          {
+            "x": 83.82,
+            "y": 78.74
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 2
+      },
+      {
+        "id": "net_3",
+        "wire_count": 1,
+        "components": [],
+        "points": [
+          {
+            "x": 82.55,
+            "y": 73.66
+          },
+          {
+            "x": 83.82,
+            "y": 73.66
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 0
+      },
+      {
+        "id": "net_4",
+        "wire_count": 2,
+        "components": [],
+        "points": [
+          {
+            "x": 99.06,
+            "y": 58.42
+          },
+          {
+            "x": 99.06,
+            "y": 57.15
+          },
+          {
+            "x": 101.6,
+            "y": 58.42
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 1
+      },
+      {
+        "id": "net_5",
+        "wire_count": 3,
+        "components": [
+          {
+            "reference": "R3",
+            "value": "4.7k",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 81.28,
+            "y": 66.04
+          },
+          {
+            "x": 83.82,
+            "y": 66.04
+          },
+          {
+            "x": 81.28,
+            "y": 36.83
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 0
+      }
+    ],
+    "junction_count": 7,
+    "wire_count": 22,
+    "total_nets": 6
+  },
+  "wire_segments": [
+    {
+      "start": [
+        99.06,
+        58.42
+      ],
+      "end": [
+        101.6,
+        58.42
+      ],
+      "uuid": "0101a41d-b4a3-4bc1-900a-36c3ed6bb22c",
+      "points": [
+        [
+          99.06,
+          58.42
+        ],
+        [
+          101.6,
+          58.42
+        ]
+      ]
+    },
+    {
+      "start": [
+        83.82,
+        78.74
+      ],
+      "end": [
+        83.82,
+        81.28
+      ],
+      "uuid": "020f735c-cb8e-46a1-9870-99bf383b44b8",
+      "points": [
+        [
+          83.82,
+          78.74
+        ],
+        [
+          83.82,
+          81.28
+        ]
+      ]
+    },
+    {
+      "start": [
+        81.28,
+        66.04
+      ],
+      "end": [
+        83.82,
+        66.04
+      ],
+      "uuid": "02d8ee30-268e-4ae6-93f0-c9df520f1eb7",
+      "points": [
+        [
+          81.28,
+          66.04
+        ],
+        [
+          83.82,
+          66.04
+        ]
+      ]
+    },
+    {
+      "start": [
+        83.82,
+        68.58
+      ],
+      "end": [
+        72.39,
+        68.58
+      ],
+      "uuid": "0a3d425e-0be4-47d1-a2ba-79a4b618e6f6",
+      "points": [
+        [
+          83.82,
+          68.58
+        ],
+        [
+          72.39,
+          68.58
+        ]
+      ]
+    },
+    {
+      "start": [
+        72.39,
+        29.21
+      ],
+      "end": [
+        81.28,
+        29.21
+      ],
+      "uuid": "1135c7aa-eee4-432e-b5cb-50bdda761b3f",
+      "points": [
+        [
+          72.39,
+          29.21
+        ],
+        [
+          81.28,
+          29.21
+        ]
+      ]
+    },
+    {
+      "start": [
+        99.06,
+        57.15
+      ],
+      "end": [
+        99.06,
+        58.42
+      ],
+      "uuid": "13bd6be4-4849-4547-8009-a7f51455a0d1",
+      "points": [
+        [
+          99.06,
+          57.15
+        ],
+        [
+          99.06,
+          58.42
+        ]
+      ]
+    },
+    {
+      "start": [
+        63.5,
+        29.21
+      ],
+      "end": [
+        72.39,
+        29.21
+      ],
+      "uuid": "148f886a-31d4-42c5-bad9-4b9dc57177eb",
+      "points": [
+        [
+          63.5,
+          29.21
+        ],
+        [
+          72.39,
+          29.21
+        ]
+      ]
+    },
+    {
+      "start": [
+        81.28,
+        29.21
+      ],
+      "end": [
+        88.9,
+        29.21
+      ],
+      "uuid": "1d6f4659-c325-4b63-acb3-13abb1aece50",
+      "points": [
+        [
+          81.28,
+          29.21
+        ],
+        [
+          88.9,
+          29.21
+        ]
+      ]
+    },
+    {
+      "start": [
+        83.82,
+        86.36
+      ],
+      "end": [
+        82.55,
+        86.36
+      ],
+      "uuid": "1eed190d-9b94-4c89-a3b4-de095fbcdd4b",
+      "points": [
+        [
+          83.82,
+          86.36
+        ],
+        [
+          82.55,
+          86.36
+        ]
+      ]
+    },
+    {
+      "start": [
+        81.28,
+        36.83
+      ],
+      "end": [
+        81.28,
+        66.04
+      ],
+      "uuid": "33e45a1d-1ac7-4e3e-9e74-fbc6e2aa7c03",
+      "points": [
+        [
+          81.28,
+          36.83
+        ],
+        [
+          81.28,
+          66.04
+        ]
+      ]
+    },
+    {
+      "start": [
+        82.55,
+        81.28
+      ],
+      "end": [
+        83.82,
+        81.28
+      ],
+      "uuid": "4cfbf56f-b46c-4eb9-a807-a81a491ccf56",
+      "points": [
+        [
+          82.55,
+          81.28
+        ],
+        [
+          83.82,
+          81.28
+        ]
+      ]
+    },
+    {
+      "start": [
+        71.12,
+        68.58
+      ],
+      "end": [
+        72.39,
+        68.58
+      ],
+      "uuid": "5554e6f1-26ff-4060-ab2f-7aaf8286dbf5",
+      "points": [
+        [
+          71.12,
+          68.58
+        ],
+        [
+          72.39,
+          68.58
+        ]
+      ]
+    },
+    {
+      "start": [
+        88.9,
+        53.34
+      ],
+      "end": [
+        93.98,
+        53.34
+      ],
+      "uuid": "63f8f33b-900d-44cc-b9a1-738a24b040a4",
+      "points": [
+        [
+          88.9,
+          53.34
+        ],
+        [
+          93.98,
+          53.34
+        ]
+      ]
+    },
+    {
+      "start": [
+        63.5,
+        83.82
+      ],
+      "end": [
+        83.82,
+        83.82
+      ],
+      "uuid": "9735647c-d4c5-4a30-b291-d76959571bbb",
+      "points": [
+        [
+          63.5,
+          83.82
+        ],
+        [
+          83.82,
+          83.82
+        ]
+      ]
+    },
+    {
+      "start": [
+        88.9,
+        29.21
+      ],
+      "end": [
+        88.9,
+        53.34
+      ],
+      "uuid": "994ab917-bd20-491f-9fa1-26349f593cd8",
+      "points": [
+        [
+          88.9,
+          29.21
+        ],
+        [
+          88.9,
+          53.34
+        ]
+      ]
+    },
+    {
+      "start": [
+        72.39,
+        68.58
+      ],
+      "end": [
+        72.39,
+        36.83
+      ],
+      "uuid": "9ae85006-486b-46a2-84fa-ba0e70e1f65e",
+      "points": [
+        [
+          72.39,
+          68.58
+        ],
+        [
+          72.39,
+          36.83
+        ]
+      ]
+    },
+    {
+      "start": [
+        83.82,
+        83.82
+      ],
+      "end": [
+        83.82,
+        86.36
+      ],
+      "uuid": "b15b7ff3-9934-427d-a4c6-a03766b455ac",
+      "points": [
+        [
+          83.82,
+          83.82
+        ],
+        [
+          83.82,
+          86.36
+        ]
+      ]
+    },
+    {
+      "start": [
+        93.98,
+        53.34
+      ],
+      "end": [
+        93.98,
+        58.42
+      ],
+      "uuid": "c7d0eabf-560a-412c-830f-a3ab9391ba47",
+      "points": [
+        [
+          93.98,
+          53.34
+        ],
+        [
+          93.98,
+          58.42
+        ]
+      ]
+    },
+    {
+      "start": [
+        63.5,
+        78.74
+      ],
+      "end": [
+        83.82,
+        78.74
+      ],
+      "uuid": "db514bed-ef1a-4aa9-b5b2-8640a1b75dce",
+      "points": [
+        [
+          63.5,
+          78.74
+        ],
+        [
+          83.82,
+          78.74
+        ]
+      ]
+    },
+    {
+      "start": [
+        82.55,
+        73.66
+      ],
+      "end": [
+        83.82,
+        73.66
+      ],
+      "uuid": "e02ba008-7971-4fa6-9a22-0d8759bb466a",
+      "points": [
+        [
+          82.55,
+          73.66
+        ],
+        [
+          83.82,
+          73.66
+        ]
+      ]
+    },
+    {
+      "start": [
+        63.5,
+        36.83
+      ],
+      "end": [
+        63.5,
+        78.74
+      ],
+      "uuid": "f46e86c3-b0d1-4858-8e3d-37fab0732c22",
+      "points": [
+        [
+          63.5,
+          36.83
+        ],
+        [
+          63.5,
+          78.74
+        ]
+      ]
+    },
+    {
+      "start": [
+        93.98,
+        38.1
+      ],
+      "end": [
+        93.98,
+        53.34
+      ],
+      "uuid": "ff6b0b03-da2e-4666-8cb4-f851611448d3",
+      "points": [
+        [
+          93.98,
+          38.1
+        ],
+        [
+          93.98,
+          53.34
+        ]
+      ]
+    }
+  ],
+  "junctions": [
+    {
+      "position": {
+        "x": 93.98,
+        "y": 53.34
+      },
+      "id": "junction_0"
+    },
+    {
+      "position": {
+        "x": 99.06,
+        "y": 58.42
+      },
+      "id": "junction_1"
+    },
+    {
+      "position": {
+        "x": 83.82,
+        "y": 78.74
+      },
+      "id": "junction_2"
+    },
+    {
+      "position": {
+        "x": 72.39,
+        "y": 68.58
+      },
+      "id": "junction_3"
+    },
+    {
+      "position": {
+        "x": 81.28,
+        "y": 29.21
+      },
+      "id": "junction_4"
+    },
+    {
+      "position": {
+        "x": 83.82,
+        "y": 83.82
+      },
+      "id": "junction_5"
+    },
+    {
+      "position": {
+        "x": 72.39,
+        "y": 29.21
+      },
+      "id": "junction_6"
+    }
+  ]
+}

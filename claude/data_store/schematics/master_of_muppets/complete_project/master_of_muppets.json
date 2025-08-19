@@ -1,0 +1,1784 @@
+{
+  "metadata": {
+    "converter_version": "1.0.0",
+    "source_file": "hardware\\master_of_muppets\\master_of_muppets.kicad_sch",
+    "kicad_version": 20250114,
+    "generator": "eeschema",
+    "uuid": "01709e3c-d295-4eba-a9f6-77b38e73bd4a"
+  },
+  "schematic_symbols": [
+    {
+      "reference": "J1",
+      "value": "Screw_Terminal_01x03",
+      "footprint": "TerminalBlock:TerminalBlock_Xinya_XY308-2.54-3P_1x03_P2.54mm_Horizontal",
+      "library": "Unknown",
+      "position": {
+        "x": 85.09,
+        "y": 26.67,
+        "angle": 90
+      },
+      "uuid": "10ff8e58-c63a-4505-97f9-f455b82daeb2",
+      "all_properties": {
+        "Reference": "J1",
+        "Value": "Screw_Terminal_01x03",
+        "Footprint": "TerminalBlock:TerminalBlock_Xinya_XY308-2.54-3P_1x03_P2.54mm_Horizontal",
+        "Datasheet": "~",
+        "Description": "Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+      }
+    },
+    {
+      "reference": "#PWR06",
+      "value": "VCC",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 171.45,
+        "y": 49.53,
+        "angle": 0
+      },
+      "uuid": "16fbdc30-ed3e-4d90-96d0-cfff6dfb24c2",
+      "all_properties": {
+        "Reference": "#PWR06",
+        "Value": "VCC",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"+5V\""
+      }
+    },
+    {
+      "reference": "#PWR01",
+      "value": "GND",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 82.55,
+        "y": 39.37,
+        "angle": 0
+      },
+      "uuid": "3df14669-f404-478f-8e6f-404d21e3d7d4",
+      "all_properties": {
+        "Reference": "#PWR01",
+        "Value": "GND",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+      }
+    },
+    {
+      "reference": "#PWR02",
+      "value": "+12V",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 85.09,
+        "y": 46.99,
+        "angle": 180
+      },
+      "uuid": "505e027c-f46e-46d6-8eff-0fa905b0fae0",
+      "all_properties": {
+        "Reference": "#PWR02",
+        "Value": "+12V",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"+12V\""
+      }
+    },
+    {
+      "reference": "#PWR03",
+      "value": "-12V",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 87.63,
+        "y": 54.61,
+        "angle": 180
+      },
+      "uuid": "6d308f1a-593f-4a25-855a-63514647b125",
+      "all_properties": {
+        "Reference": "#PWR03",
+        "Value": "-12V",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"-12V\""
+      }
+    },
+    {
+      "reference": "#PWR04",
+      "value": "+12V",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 115.57,
+        "y": 49.53,
+        "angle": 0
+      },
+      "uuid": "700df7a7-bca4-4d15-a553-ab0c103a34eb",
+      "all_properties": {
+        "Reference": "#PWR04",
+        "Value": "+12V",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"+12V\""
+      }
+    },
+    {
+      "reference": "C1",
+      "value": "100nF ceramic",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "library": "Unknown",
+      "position": {
+        "x": 127,
+        "y": 60.96,
+        "angle": 90
+      },
+      "uuid": "9905d6d1-5f1d-4e5b-a175-3057f03605e7",
+      "all_properties": {
+        "Reference": "C1",
+        "Value": "100nF ceramic",
+        "Footprint": "PCM_4ms_Capacitor:C_0603",
+        "Datasheet": "~",
+        "Description": "Unpolarized capacitor"
+      }
+    },
+    {
+      "reference": "V_REG1",
+      "value": "LD1117V50",
+      "footprint": "PCM_4ms_Package_TO:TO-220-3_Vertical",
+      "library": "Unknown",
+      "position": {
+        "x": 144.78,
+        "y": 60.96,
+        "angle": 0
+      },
+      "uuid": "b0d24aaa-71fd-42f0-a484-2cae1453b7a2",
+      "all_properties": {
+        "Reference": "V_REG1",
+        "Value": "LD1117V50",
+        "Footprint": "PCM_4ms_Package_TO:TO-220-3_Vertical",
+        "Datasheet": "http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00000544.pdf",
+        "Description": "800mA Fixed Low Drop Positive Voltage Regulator, Fixed Output 5.0V, SOT-223",
+        "Manufacturer": "",
+        "Part Number": "",
+        "Specifications": ""
+      }
+    },
+    {
+      "reference": "C3",
+      "value": "100nF ceramic",
+      "footprint": "PCM_4ms_Capacitor:C_0603",
+      "library": "Unknown",
+      "position": {
+        "x": 154.94,
+        "y": 69.85,
+        "angle": 180
+      },
+      "uuid": "b1e0e6a7-28ac-4d28-b770-92aaa729df38",
+      "all_properties": {
+        "Reference": "C3",
+        "Value": "100nF ceramic",
+        "Footprint": "PCM_4ms_Capacitor:C_0603",
+        "Datasheet": "~",
+        "Description": "Unpolarized capacitor"
+      }
+    },
+    {
+      "reference": "C2",
+      "value": "10ÂµF ceramic",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "library": "Unknown",
+      "position": {
+        "x": 133.35,
+        "y": 69.85,
+        "angle": 0
+      },
+      "uuid": "cd765f9f-e836-48ce-aae7-a1770e6687d1",
+      "all_properties": {
+        "Reference": "C2",
+        "Value": "10ÂµF ceramic",
+        "Footprint": "PCM_4ms_Capacitor:C_0805",
+        "Datasheet": "~",
+        "Description": "Unpolarized capacitor"
+      }
+    },
+    {
+      "reference": "#PWR05",
+      "value": "GND",
+      "footprint": "",
+      "library": "Unknown",
+      "position": {
+        "x": 144.78,
+        "y": 76.2,
+        "angle": 0
+      },
+      "uuid": "dfd267c9-d561-4737-a9cb-77dbca2746da",
+      "all_properties": {
+        "Reference": "#PWR05",
+        "Value": "GND",
+        "Footprint": "",
+        "Datasheet": "",
+        "Description": "Power symbol creates a global label with name \"GNDREF\" , reference supply ground"
+      }
+    },
+    {
+      "reference": "C4",
+      "value": "22uF_0603_16V",
+      "footprint": "PCM_4ms_Capacitor:C_0805",
+      "library": "Unknown",
+      "position": {
+        "x": 160.02,
+        "y": 60.96,
+        "angle": 90
+      },
+      "uuid": "e69b191e-28ca-411a-a265-1ff9056e53f6",
+      "all_properties": {
+        "Reference": "C4",
+        "Value": "22uF_0603_16V",
+        "Footprint": "PCM_4ms_Capacitor:C_0805",
+        "Datasheet": "",
+        "Description": "22uF, 16V,10%,X5R or X7R,0603",
+        "Specifications": "22uF, 16V,10%,X5R or X7R,0603",
+        "Manufacturer": "Murata",
+        "Part Number": "GRM219R61C226ME15K",
+        "Display": "22uF/16V"
+      }
+    }
+  ],
+  "sheets": [
+    {
+      "name": "DAC_MODULE1",
+      "file": "dac_module.kicad_sch",
+      "uuid": "2605ff3f-ff92-4fa9-a945-25b3be4a890c",
+      "position": {
+        "x": 60.325,
+        "y": 71.755
+      }
+    },
+    {
+      "name": "DAC_MODULE",
+      "file": "dac_module.kicad_sch",
+      "uuid": "60709206-8158-4f80-9acc-4f76df38190b",
+      "position": {
+        "x": 20.32,
+        "y": 71.12
+      }
+    },
+    {
+      "name": "TEENSY_MODULE",
+      "file": "teensy_module.kicad_sch",
+      "uuid": "9146edb4-d9ec-4eb9-99ec-c7182bcc31c9",
+      "position": {
+        "x": 31.115,
+        "y": 24.13
+      }
+    },
+    {
+      "name": "JACK_SHEET1",
+      "file": "jack_sheet.kicad_sch",
+      "uuid": "e69f2e4f-b554-4083-9f69-ae83ad0071c6",
+      "position": {
+        "x": 73.025,
+        "y": 71.755
+      }
+    },
+    {
+      "name": "JACK_SHEET",
+      "file": "jack_sheet.kicad_sch",
+      "uuid": "e6c67076-e350-448f-bd1d-4e535db93c1a",
+      "position": {
+        "x": 33.02,
+        "y": 71.12
+      }
+    }
+  ],
+  "labels": [],
+  "lib_symbols": [
+    {
+      "name": "Connector:Screw_Terminal_01x03",
+      "library_nickname": "Connector",
+      "entry_name": "Screw_Terminal_01x03"
+    },
+    {
+      "name": "Device:C",
+      "library_nickname": "Device",
+      "entry_name": "C"
+    },
+    {
+      "name": "PCM_4ms_Capacitor:22uF_0603_16V",
+      "library_nickname": "PCM_4ms_Capacitor",
+      "entry_name": "22uF_0603_16V"
+    },
+    {
+      "name": "Regulator_Linear:LD1117S50TR_SOT223",
+      "library_nickname": "Regulator_Linear",
+      "entry_name": "LD1117S50TR_SOT223"
+    },
+    {
+      "name": "power:+12V",
+      "library_nickname": "power",
+      "entry_name": "+12V"
+    },
+    {
+      "name": "power:+5V",
+      "library_nickname": "power",
+      "entry_name": "+5V"
+    },
+    {
+      "name": "power:-12V",
+      "library_nickname": "power",
+      "entry_name": "-12V"
+    },
+    {
+      "name": "power:GNDREF",
+      "library_nickname": "power",
+      "entry_name": "GNDREF"
+    }
+  ],
+  "net_connectivity": {
+    "nets": [
+      {
+        "id": "net_0",
+        "wire_count": 9,
+        "components": [],
+        "points": [
+          {
+            "x": 35.56,
+            "y": 40.64
+          },
+          {
+            "x": 35.56,
+            "y": 54.61
+          },
+          {
+            "x": 24.13,
+            "y": 71.12
+          },
+          {
+            "x": 24.13,
+            "y": 54.61
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 0
+      },
+      {
+        "id": "net_1",
+        "wire_count": 3,
+        "components": [
+          {
+            "reference": "C3",
+            "value": "100nF ceramic",
+            "library": "Unknown"
+          },
+          {
+            "reference": "C4",
+            "value": "22uF_0603_16V",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 152.4,
+            "y": 60.96
+          },
+          {
+            "x": 154.94,
+            "y": 66.04
+          },
+          {
+            "x": 154.94,
+            "y": 60.96
+          },
+          {
+            "x": 157.48,
+            "y": 60.96
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 1
+      },
+      {
+        "id": "net_2",
+        "wire_count": 3,
+        "components": [
+          {
+            "reference": "#PWR02",
+            "value": "+12V",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 85.09,
+            "y": 31.75
+          },
+          {
+            "x": 85.09,
+            "y": 46.99
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 0
+      },
+      {
+        "id": "net_3",
+        "wire_count": 4,
+        "components": [
+          {
+            "reference": "C3",
+            "value": "100nF ceramic",
+            "library": "Unknown"
+          },
+          {
+            "reference": "C2",
+            "value": "10ÂµF ceramic",
+            "library": "Unknown"
+          },
+          {
+            "reference": "#PWR05",
+            "value": "GND",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 144.78,
+            "y": 76.2
+          },
+          {
+            "x": 144.78,
+            "y": 68.58
+          },
+          {
+            "x": 144.78,
+            "y": 73.66
+          },
+          {
+            "x": 154.94,
+            "y": 73.66
+          },
+          {
+            "x": 133.35,
+            "y": 73.66
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 1
+      },
+      {
+        "id": "net_4",
+        "wire_count": 13,
+        "components": [],
+        "points": [
+          {
+            "x": 29.21,
+            "y": 59.69
+          },
+          {
+            "x": 69.215,
+            "y": 71.755
+          },
+          {
+            "x": 48.26,
+            "y": 59.69
+          },
+          {
+            "x": 69.215,
+            "y": 59.69
+          },
+          {
+            "x": 71.755,
+            "y": 62.23
+          },
+          {
+            "x": 31.75,
+            "y": 71.12
+          },
+          {
+            "x": 29.21,
+            "y": 71.12
+          },
+          {
+            "x": 31.75,
+            "y": 62.23
+          },
+          {
+            "x": 48.26,
+            "y": 40.64
+          },
+          {
+            "x": 71.755,
+            "y": 71.755
+          },
+          {
+            "x": 45.72,
+            "y": 62.23
+          },
+          {
+            "x": 45.72,
+            "y": 40.64
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 2
+      },
+      {
+        "id": "net_5",
+        "wire_count": 2,
+        "components": [
+          {
+            "reference": "#PWR04",
+            "value": "+12V",
+            "library": "Unknown"
+          },
+          {
+            "reference": "C1",
+            "value": "100nF ceramic",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 123.19,
+            "y": 60.96
+          },
+          {
+            "x": 115.57,
+            "y": 49.53
+          },
+          {
+            "x": 115.57,
+            "y": 60.96
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 0
+      },
+      {
+        "id": "net_6",
+        "wire_count": 8,
+        "components": [],
+        "points": [
+          {
+            "x": 38.1,
+            "y": 57.15
+          },
+          {
+            "x": 26.67,
+            "y": 57.15
+          },
+          {
+            "x": 26.67,
+            "y": 71.12
+          },
+          {
+            "x": 38.1,
+            "y": 40.64
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 0
+      },
+      {
+        "id": "net_7",
+        "wire_count": 7,
+        "components": [],
+        "points": [
+          {
+            "x": 59.69,
+            "y": 52.07
+          },
+          {
+            "x": 66.675,
+            "y": 71.755
+          },
+          {
+            "x": 66.675,
+            "y": 52.07
+          },
+          {
+            "x": 59.69,
+            "y": 40.64
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 0
+      },
+      {
+        "id": "net_8",
+        "wire_count": 9,
+        "components": [],
+        "points": [
+          {
+            "x": 57.15,
+            "y": 54.61
+          },
+          {
+            "x": 64.135,
+            "y": 54.61
+          },
+          {
+            "x": 57.15,
+            "y": 40.64
+          },
+          {
+            "x": 64.135,
+            "y": 71.755
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 0
+      },
+      {
+        "id": "net_9",
+        "wire_count": 6,
+        "components": [],
+        "points": [
+          {
+            "x": 21.59,
+            "y": 52.07
+          },
+          {
+            "x": 33.02,
+            "y": 40.64
+          },
+          {
+            "x": 33.02,
+            "y": 52.07
+          },
+          {
+            "x": 21.59,
+            "y": 71.12
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 0
+      },
+      {
+        "id": "net_10",
+        "wire_count": 6,
+        "components": [],
+        "points": [
+          {
+            "x": 61.595,
+            "y": 71.755
+          },
+          {
+            "x": 54.61,
+            "y": 57.15
+          },
+          {
+            "x": 61.595,
+            "y": 57.15
+          },
+          {
+            "x": 54.61,
+            "y": 40.64
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 0
+      },
+      {
+        "id": "net_11",
+        "wire_count": 2,
+        "components": [
+          {
+            "reference": "#PWR01",
+            "value": "GND",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 82.55,
+            "y": 39.37
+          },
+          {
+            "x": 82.55,
+            "y": 31.75
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 0
+      },
+      {
+        "id": "net_12",
+        "wire_count": 2,
+        "components": [
+          {
+            "reference": "#PWR03",
+            "value": "-12V",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 87.63,
+            "y": 31.75
+          },
+          {
+            "x": 87.63,
+            "y": 54.61
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 0
+      },
+      {
+        "id": "net_13",
+        "wire_count": 3,
+        "components": [
+          {
+            "reference": "C1",
+            "value": "100nF ceramic",
+            "library": "Unknown"
+          },
+          {
+            "reference": "C2",
+            "value": "10ÂµF ceramic",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 130.81,
+            "y": 60.96
+          },
+          {
+            "x": 137.16,
+            "y": 60.96
+          },
+          {
+            "x": 133.35,
+            "y": 66.04
+          },
+          {
+            "x": 133.35,
+            "y": 60.96
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 1
+      },
+      {
+        "id": "net_14",
+        "wire_count": 2,
+        "components": [
+          {
+            "reference": "#PWR06",
+            "value": "VCC",
+            "library": "Unknown"
+          },
+          {
+            "reference": "C4",
+            "value": "22uF_0603_16V",
+            "library": "Unknown"
+          }
+        ],
+        "points": [
+          {
+            "x": 171.45,
+            "y": 49.53
+          },
+          {
+            "x": 171.45,
+            "y": 60.96
+          },
+          {
+            "x": 162.56,
+            "y": 60.96
+          }
+        ],
+        "is_ground": false,
+        "junction_count": 0
+      }
+    ],
+    "junction_count": 5,
+    "wire_count": 45,
+    "total_nets": 15
+  },
+  "wire_segments": [
+    {
+      "start": [
+        152.4,
+        60.96
+      ],
+      "end": [
+        154.94,
+        60.96
+      ],
+      "uuid": "0a6e105e-6ec1-4938-a61f-fcd8594175bf",
+      "points": [
+        [
+          152.4,
+          60.96
+        ],
+        [
+          154.94,
+          60.96
+        ]
+      ]
+    },
+    {
+      "start": [
+        57.15,
+        40.64
+      ],
+      "end": [
+        57.15,
+        54.61
+      ],
+      "uuid": "0c5ad592-8e11-4f17-9821-8606f95ef1f8",
+      "points": [
+        [
+          57.15,
+          40.64
+        ],
+        [
+          57.15,
+          54.61
+        ]
+      ]
+    },
+    {
+      "start": [
+        45.72,
+        62.23
+      ],
+      "end": [
+        31.75,
+        62.23
+      ],
+      "uuid": "0cd88707-e340-418a-b6fa-417485897359",
+      "points": [
+        [
+          45.72,
+          62.23
+        ],
+        [
+          31.75,
+          62.23
+        ]
+      ]
+    },
+    {
+      "start": [
+        115.57,
+        60.96
+      ],
+      "end": [
+        123.19,
+        60.96
+      ],
+      "uuid": "17f546cf-bf5e-4326-adfa-8b6a0d422122",
+      "points": [
+        [
+          115.57,
+          60.96
+        ],
+        [
+          123.19,
+          60.96
+        ]
+      ]
+    },
+    {
+      "start": [
+        54.61,
+        57.15
+      ],
+      "end": [
+        61.595,
+        57.15
+      ],
+      "uuid": "1a27621b-6cc5-4957-9d29-84731d735730",
+      "points": [
+        [
+          54.61,
+          57.15
+        ],
+        [
+          61.595,
+          57.15
+        ]
+      ]
+    },
+    {
+      "start": [
+        38.1,
+        40.64
+      ],
+      "end": [
+        38.1,
+        57.15
+      ],
+      "uuid": "1b5eaa08-b621-46e6-8b72-17d772381972",
+      "points": [
+        [
+          38.1,
+          40.64
+        ],
+        [
+          38.1,
+          57.15
+        ]
+      ]
+    },
+    {
+      "start": [
+        54.61,
+        40.64
+      ],
+      "end": [
+        54.61,
+        57.15
+      ],
+      "uuid": "22a7c69d-01f2-4fc5-89f9-992e7843a5f6",
+      "points": [
+        [
+          54.61,
+          40.64
+        ],
+        [
+          54.61,
+          57.15
+        ]
+      ]
+    },
+    {
+      "start": [
+        33.02,
+        52.07
+      ],
+      "end": [
+        21.59,
+        52.07
+      ],
+      "uuid": "235075d9-902e-4103-82f7-f1db75da0a83",
+      "points": [
+        [
+          33.02,
+          52.07
+        ],
+        [
+          21.59,
+          52.07
+        ]
+      ]
+    },
+    {
+      "start": [
+        87.63,
+        31.75
+      ],
+      "end": [
+        87.63,
+        54.61
+      ],
+      "uuid": "24b2af9d-154a-462e-a88f-aee00e044f97",
+      "points": [
+        [
+          87.63,
+          31.75
+        ],
+        [
+          87.63,
+          54.61
+        ]
+      ]
+    },
+    {
+      "start": [
+        61.595,
+        57.15
+      ],
+      "end": [
+        61.595,
+        71.755
+      ],
+      "uuid": "25c97b64-eea3-422d-8827-354f842a692b",
+      "points": [
+        [
+          61.595,
+          57.15
+        ],
+        [
+          61.595,
+          71.755
+        ]
+      ]
+    },
+    {
+      "start": [
+        133.35,
+        60.96
+      ],
+      "end": [
+        133.35,
+        66.04
+      ],
+      "uuid": "2b19e183-1882-4cac-a463-6aded9b7ce09",
+      "points": [
+        [
+          133.35,
+          60.96
+        ],
+        [
+          133.35,
+          66.04
+        ]
+      ]
+    },
+    {
+      "start": [
+        38.1,
+        57.15
+      ],
+      "end": [
+        26.67,
+        57.15
+      ],
+      "uuid": "2c00f071-c87a-4ff9-aa60-4e0754601bbc",
+      "points": [
+        [
+          38.1,
+          57.15
+        ],
+        [
+          26.67,
+          57.15
+        ]
+      ]
+    },
+    {
+      "start": [
+        48.26,
+        59.69
+      ],
+      "end": [
+        29.21,
+        59.69
+      ],
+      "uuid": "2e11ccbe-e9e2-46c2-a615-b868a603f2ca",
+      "points": [
+        [
+          48.26,
+          59.69
+        ],
+        [
+          29.21,
+          59.69
+        ]
+      ]
+    },
+    {
+      "start": [
+        144.78,
+        68.58
+      ],
+      "end": [
+        144.78,
+        73.66
+      ],
+      "uuid": "369cba67-454e-4a70-97a8-51c53b4306bf",
+      "points": [
+        [
+          144.78,
+          68.58
+        ],
+        [
+          144.78,
+          73.66
+        ]
+      ]
+    },
+    {
+      "start": [
+        71.755,
+        62.23
+      ],
+      "end": [
+        45.72,
+        62.23
+      ],
+      "uuid": "3d7822c5-37e0-4bb3-899a-e714835cc183",
+      "points": [
+        [
+          71.755,
+          62.23
+        ],
+        [
+          45.72,
+          62.23
+        ]
+      ]
+    },
+    {
+      "start": [
+        85.09,
+        31.75
+      ],
+      "end": [
+        85.09,
+        46.99
+      ],
+      "uuid": "3da2817f-8c21-47e6-8f3d-53b2c9f2b173",
+      "points": [
+        [
+          85.09,
+          31.75
+        ],
+        [
+          85.09,
+          46.99
+        ]
+      ]
+    },
+    {
+      "start": [
+        35.56,
+        40.64
+      ],
+      "end": [
+        35.56,
+        54.61
+      ],
+      "uuid": "4510e7b0-bb9d-4405-9f0d-9f67a0144951",
+      "points": [
+        [
+          35.56,
+          40.64
+        ],
+        [
+          35.56,
+          54.61
+        ]
+      ]
+    },
+    {
+      "start": [
+        48.26,
+        40.64
+      ],
+      "end": [
+        48.26,
+        59.69
+      ],
+      "uuid": "4911f367-c62e-49c7-a233-26ef52e66116",
+      "points": [
+        [
+          48.26,
+          40.64
+        ],
+        [
+          48.26,
+          59.69
+        ]
+      ]
+    },
+    {
+      "start": [
+        154.94,
+        60.96
+      ],
+      "end": [
+        157.48,
+        60.96
+      ],
+      "uuid": "503391d0-da8a-4519-886d-15632e90b7aa",
+      "points": [
+        [
+          154.94,
+          60.96
+        ],
+        [
+          157.48,
+          60.96
+        ]
+      ]
+    },
+    {
+      "start": [
+        144.78,
+        73.66
+      ],
+      "end": [
+        154.94,
+        73.66
+      ],
+      "uuid": "55e66cb8-c2f2-4cbc-ad94-4a09bfc60319",
+      "points": [
+        [
+          144.78,
+          73.66
+        ],
+        [
+          154.94,
+          73.66
+        ]
+      ]
+    },
+    {
+      "start": [
+        144.78,
+        73.66
+      ],
+      "end": [
+        144.78,
+        76.2
+      ],
+      "uuid": "5ad71490-ed8f-4729-a936-2cc1c3d404f7",
+      "points": [
+        [
+          144.78,
+          73.66
+        ],
+        [
+          144.78,
+          76.2
+        ]
+      ]
+    },
+    {
+      "start": [
+        171.45,
+        49.53
+      ],
+      "end": [
+        171.45,
+        60.96
+      ],
+      "uuid": "5cd96a11-3224-4dfc-af30-47be52ceba33",
+      "points": [
+        [
+          171.45,
+          49.53
+        ],
+        [
+          171.45,
+          60.96
+        ]
+      ]
+    },
+    {
+      "start": [
+        33.02,
+        40.64
+      ],
+      "end": [
+        33.02,
+        52.07
+      ],
+      "uuid": "60973e9f-ec57-4344-9759-d155c9c99ba3",
+      "points": [
+        [
+          33.02,
+          40.64
+        ],
+        [
+          33.02,
+          52.07
+        ]
+      ]
+    },
+    {
+      "start": [
+        45.72,
+        40.64
+      ],
+      "end": [
+        45.72,
+        62.23
+      ],
+      "uuid": "7ee86b3b-2674-42f2-9017-aa4b9083ce3e",
+      "points": [
+        [
+          45.72,
+          40.64
+        ],
+        [
+          45.72,
+          62.23
+        ]
+      ]
+    },
+    {
+      "start": [
+        71.755,
+        71.755
+      ],
+      "end": [
+        71.755,
+        62.23
+      ],
+      "uuid": "8a2ed5b4-7865-4650-bdb0-7b0eb749437c",
+      "points": [
+        [
+          71.755,
+          71.755
+        ],
+        [
+          71.755,
+          62.23
+        ]
+      ]
+    },
+    {
+      "start": [
+        133.35,
+        60.96
+      ],
+      "end": [
+        137.16,
+        60.96
+      ],
+      "uuid": "912819fe-6c28-43a3-8c4a-ce6a7ac61c27",
+      "points": [
+        [
+          133.35,
+          60.96
+        ],
+        [
+          137.16,
+          60.96
+        ]
+      ]
+    },
+    {
+      "start": [
+        21.59,
+        52.07
+      ],
+      "end": [
+        21.59,
+        71.12
+      ],
+      "uuid": "96162fbc-a47b-453c-a2ba-b287aca6e768",
+      "points": [
+        [
+          21.59,
+          52.07
+        ],
+        [
+          21.59,
+          71.12
+        ]
+      ]
+    },
+    {
+      "start": [
+        115.57,
+        49.53
+      ],
+      "end": [
+        115.57,
+        60.96
+      ],
+      "uuid": "963f4a18-3556-49e2-9506-cc12fc0c62f4",
+      "points": [
+        [
+          115.57,
+          49.53
+        ],
+        [
+          115.57,
+          60.96
+        ]
+      ]
+    },
+    {
+      "start": [
+        82.55,
+        31.75
+      ],
+      "end": [
+        82.55,
+        39.37
+      ],
+      "uuid": "9dfbc8e7-bbe2-413e-a844-7e7d0b5e416a",
+      "points": [
+        [
+          82.55,
+          31.75
+        ],
+        [
+          82.55,
+          39.37
+        ]
+      ]
+    },
+    {
+      "start": [
+        64.135,
+        54.61
+      ],
+      "end": [
+        64.135,
+        71.755
+      ],
+      "uuid": "adfefe9a-e981-443a-b8ba-0d78ba23695d",
+      "points": [
+        [
+          64.135,
+          54.61
+        ],
+        [
+          64.135,
+          71.755
+        ]
+      ]
+    },
+    {
+      "start": [
+        24.13,
+        54.61
+      ],
+      "end": [
+        24.13,
+        71.12
+      ],
+      "uuid": "b3fc8112-f056-45a6-bf33-96c2f378f5c9",
+      "points": [
+        [
+          24.13,
+          54.61
+        ],
+        [
+          24.13,
+          71.12
+        ]
+      ]
+    },
+    {
+      "start": [
+        29.21,
+        59.69
+      ],
+      "end": [
+        29.21,
+        71.12
+      ],
+      "uuid": "b446b59e-90a2-4411-9678-f2c965a7fe94",
+      "points": [
+        [
+          29.21,
+          59.69
+        ],
+        [
+          29.21,
+          71.12
+        ]
+      ]
+    },
+    {
+      "start": [
+        130.81,
+        60.96
+      ],
+      "end": [
+        133.35,
+        60.96
+      ],
+      "uuid": "b56da911-12fd-4731-9ece-abcce512d1cb",
+      "points": [
+        [
+          130.81,
+          60.96
+        ],
+        [
+          133.35,
+          60.96
+        ]
+      ]
+    },
+    {
+      "start": [
+        59.69,
+        52.07
+      ],
+      "end": [
+        66.675,
+        52.07
+      ],
+      "uuid": "b8bd8c1c-3876-418c-97f4-5e0ebc6b0466",
+      "points": [
+        [
+          59.69,
+          52.07
+        ],
+        [
+          66.675,
+          52.07
+        ]
+      ]
+    },
+    {
+      "start": [
+        69.215,
+        59.69
+      ],
+      "end": [
+        48.26,
+        59.69
+      ],
+      "uuid": "bc59b165-d5b5-4248-9412-38b23e4a9e6e",
+      "points": [
+        [
+          69.215,
+          59.69
+        ],
+        [
+          48.26,
+          59.69
+        ]
+      ]
+    },
+    {
+      "start": [
+        66.675,
+        52.07
+      ],
+      "end": [
+        66.675,
+        71.755
+      ],
+      "uuid": "c61d83c0-6f78-4f9b-9fe4-274befb2c4f5",
+      "points": [
+        [
+          66.675,
+          52.07
+        ],
+        [
+          66.675,
+          71.755
+        ]
+      ]
+    },
+    {
+      "start": [
+        59.69,
+        40.64
+      ],
+      "end": [
+        59.69,
+        52.07
+      ],
+      "uuid": "c6a4ee68-1cf5-4543-bae6-a97c00d95e5c",
+      "points": [
+        [
+          59.69,
+          40.64
+        ],
+        [
+          59.69,
+          52.07
+        ]
+      ]
+    },
+    {
+      "start": [
+        26.67,
+        57.15
+      ],
+      "end": [
+        26.67,
+        71.12
+      ],
+      "uuid": "ccc922e7-a774-4f43-b1b4-0470792edabe",
+      "points": [
+        [
+          26.67,
+          57.15
+        ],
+        [
+          26.67,
+          71.12
+        ]
+      ]
+    },
+    {
+      "start": [
+        57.15,
+        54.61
+      ],
+      "end": [
+        64.135,
+        54.61
+      ],
+      "uuid": "ccfad445-a844-4bb9-b5ff-53c9660660b8",
+      "points": [
+        [
+          57.15,
+          54.61
+        ],
+        [
+          64.135,
+          54.61
+        ]
+      ]
+    },
+    {
+      "start": [
+        133.35,
+        73.66
+      ],
+      "end": [
+        144.78,
+        73.66
+      ],
+      "uuid": "ce0aeccf-2923-4d26-9b81-717ba1ebcfc5",
+      "points": [
+        [
+          133.35,
+          73.66
+        ],
+        [
+          144.78,
+          73.66
+        ]
+      ]
+    },
+    {
+      "start": [
+        162.56,
+        60.96
+      ],
+      "end": [
+        171.45,
+        60.96
+      ],
+      "uuid": "cf762821-0443-494a-bc1f-d123e4ddd84e",
+      "points": [
+        [
+          162.56,
+          60.96
+        ],
+        [
+          171.45,
+          60.96
+        ]
+      ]
+    },
+    {
+      "start": [
+        154.94,
+        66.04
+      ],
+      "end": [
+        154.94,
+        60.96
+      ],
+      "uuid": "d9c59c5d-3584-44d0-b21b-1de991accb1f",
+      "points": [
+        [
+          154.94,
+          66.04
+        ],
+        [
+          154.94,
+          60.96
+        ]
+      ]
+    },
+    {
+      "start": [
+        69.215,
+        71.755
+      ],
+      "end": [
+        69.215,
+        59.69
+      ],
+      "uuid": "e4e07b6f-2ad0-49aa-91d3-e0be8a4e3479",
+      "points": [
+        [
+          69.215,
+          71.755
+        ],
+        [
+          69.215,
+          59.69
+        ]
+      ]
+    },
+    {
+      "start": [
+        31.75,
+        62.23
+      ],
+      "end": [
+        31.75,
+        71.12
+      ],
+      "uuid": "ee991428-1552-499f-8d87-c6320484bb69",
+      "points": [
+        [
+          31.75,
+          62.23
+        ],
+        [
+          31.75,
+          71.12
+        ]
+      ]
+    },
+    {
+      "start": [
+        35.56,
+        54.61
+      ],
+      "end": [
+        24.13,
+        54.61
+      ],
+      "uuid": "fc5d1773-eaa5-4ea2-97f8-827d269d7cce",
+      "points": [
+        [
+          35.56,
+          54.61
+        ],
+        [
+          24.13,
+          54.61
+        ]
+      ]
+    }
+  ],
+  "junctions": [
+    {
+      "position": {
+        "x": 133.35,
+        "y": 60.96
+      },
+      "id": "junction_0"
+    },
+    {
+      "position": {
+        "x": 154.94,
+        "y": 60.96
+      },
+      "id": "junction_1"
+    },
+    {
+      "position": {
+        "x": 45.72,
+        "y": 62.23
+      },
+      "id": "junction_2"
+    },
+    {
+      "position": {
+        "x": 48.26,
+        "y": 59.69
+      },
+      "id": "junction_3"
+    },
+    {
+      "position": {
+        "x": 144.78,
+        "y": 73.66
+      },
+      "id": "junction_4"
+    }
+  ]
+}
