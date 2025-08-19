@@ -1,0 +1,185 @@
+{
+  "module_name": "system_connectivity",
+  "description": "Complete Master of Muppets system connectivity graph showing inter-module relationships",
+  "graph_type": "system_level_analysis", 
+  "created": "2025-08-19",
+  "total_components": 61,
+  "total_nets": 29,
+  "total_junctions": 21,
+  
+  "system_architecture": {
+    "signal_flow": {
+      "input_stage": {
+        "source": "USB_MIDI_HOST",
+        "interface": "teensy_usb_native",
+        "protocol": "midi_pitch_bend_14bit",
+        "latency": "<100us_usb_stack"
+      },
+      
+      "processing_stage": {
+        "controller": "teensy_4_1_arm_cortex_m7",
+        "processing": "multi_threaded_cooperative",
+        "buffer_management": "mutex_protected_dual_buffers",
+        "conversion": "14bit_midi_to_12bit_dac"
+      },
+      
+      "output_stage": {
+        "dac_control": "i2c_multiple_bus_architecture",
+        "dac_devices": "ad5593r_configurable_8ch_12bit", 
+        "amplification": "tl074_non_inverting_2x_gain",
+        "output_format": "0_to_10v_cv_on_3_5mm_jacks"
+      }
+    },
+    
+    "power_distribution": {
+      "input_power": "5v_usb_or_external",
+      "regulation": "ld1117_linear_regulators",
+      "rails": [
+        {"voltage": 5.0, "current": "500ma", "loads": ["teensy", "dacs", "logic"]},
+        {"voltage": 3.3, "current": "100ma", "loads": ["logic_levels"]},
+        {"voltage": 12.0, "current": "100ma", "loads": ["opamp_positive_rail"]},
+        {"voltage": -12.0, "current": "100ma", "loads": ["opamp_negative_rail"]},
+        {"voltage": 0.0, "current": "return", "loads": ["system_ground_reference"]}
+      ]
+    }
+  },
+  
+  "inter_module_connections": {
+    "teensy_to_dac_modules": {
+      "i2c_bus_0": {
+        "pins": ["SDA0_pin18", "SCL0_pin19"],
+        "connected_devices": ["DAC1_AD5593R_addr0x10"],
+        "speed": "400khz",
+        "channels": "8_cv_outputs_1_through_8"
+      },
+      
+      "i2c_bus_1": {
+        "pins": ["SDA1_pin17", "SCL1_pin16"], 
+        "connected_devices": ["DAC2_AD5593R_addr0x11"],
+        "speed": "400khz",
+        "channels": "8_cv_outputs_9_through_16"
+      },
+      
+      "control_signals": {
+        "chip_select_0": {"pin": 11, "target": "DAC1_addr_select"},
+        "chip_select_1": {"pin": 37, "target": "DAC2_addr_select"},
+        "reset": {"pin": "shared", "target": "all_dacs_hardware_reset"}
+      }
+    },
+    
+    "dac_to_amplifier_modules": {
+      "dac1_outputs": [
+        {"ch0": "AMP_MODULE_INPUT_1", "scaling": "0_2_5v_to_0_5v_for_2x_gain"},
+        {"ch1": "AMP_MODULE_INPUT_2", "scaling": "0_2_5v_to_0_5v_for_2x_gain"},
+        {"ch2": "AMP_MODULE_INPUT_3", "scaling": "0_2_5v_to_0_5v_for_2x_gain"},
+        {"ch3": "AMP_MODULE_INPUT_4", "scaling": "0_2_5v_to_0_5v_for_2x_gain"},
+        {"ch4": "AMP_MODULE_INPUT_5", "scaling": "0_2_5v_to_0_5v_for_2x_gain"},
+        {"ch5": "AMP_MODULE_INPUT_6", "scaling": "0_2_5v_to_0_5v_for_2x_gain"},
+        {"ch6": "AMP_MODULE_INPUT_7", "scaling": "0_2_5v_to_0_5v_for_2x_gain"},
+        {"ch7": "AMP_MODULE_INPUT_8", "scaling": "0_2_5v_to_0_5v_for_2x_gain"}
+      ]
+    },
+    
+    "amplifier_to_output_jacks": {
+      "cv_outputs": [
+        {"amp1_out": "J2_jack_output_1", "impedance": "220ohm_series_protection"},
+        {"amp2_out": "J3_jack_output_2", "impedance": "220ohm_series_protection"},
+        {"amp3_out": "J4_jack_output_3", "impedance": "220ohm_series_protection"},
+        {"amp4_out": "J5_jack_output_4", "impedance": "220ohm_series_protection"},
+        {"amp5_out": "J6_jack_output_5", "impedance": "220ohm_series_protection"},
+        {"amp6_out": "J7_jack_output_6", "impedance": "220ohm_series_protection"},
+        {"amp7_out": "J8_jack_output_7", "impedance": "220ohm_series_protection"},
+        {"amp8_out": "J9_jack_output_8", "impedance": "220ohm_series_protection"}
+      ]
+    }
+  },
+  
+  "graph_analysis": {
+    "critical_paths": [
+      {
+        "path": "USB_MIDI → Teensy → I2C → DAC → Amplifier → Jack",
+        "latency": "<1ms_total_system",
+        "bottlenecks": ["i2c_transaction_time", "dac_settling_time"],
+        "optimization": "parallel_i2c_buses_concurrent_updates"
+      }
+    ],
+    
+    "failure_modes": [
+      {
+        "component": "teensy_microcontroller",
+        "failure": "software_hang_infinite_loop",
+        "impact": "complete_system_failure",
+        "mitigation": "watchdog_timer_automatic_reset"
+      },
+      {
+        "component": "i2c_bus",
+        "failure": "bus_lockup_sda_stuck_low", 
+        "impact": "affected_dacs_no_update",
+        "mitigation": "bus_recovery_sequence_timeout_retry"
+      },
+      {
+        "component": "power_supply",
+        "failure": "regulator_thermal_shutdown",
+        "impact": "system_power_loss", 
+        "mitigation": "thermal_management_current_limiting"
+      }
+    ],
+    
+    "performance_bottlenecks": [
+      {
+        "location": "i2c_transactions",
+        "limitation": "~20us_per_channel_update",
+        "total_time": "320us_for_16_channels_sequential",
+        "improvement": "parallel_buses_reduce_to_160us"
+      },
+      {
+        "location": "usb_midi_stack", 
+        "limitation": "1khz_update_rate_windows_limitation",
+        "total_time": "1ms_between_midi_messages",
+        "improvement": "linux_mac_can_achieve_higher_rates"
+      }
+    ]
+  },
+  
+  "system_specifications": {
+    "audio_performance": {
+      "channels": 16,
+      "resolution": "12_bit_4096_levels_per_channel",
+      "voltage_range": "0_to_10v_cv_standard",
+      "accuracy": "±2_lsb_plus_amplifier_offset",
+      "latency": "<1ms_midi_to_cv",
+      "update_rate": "1khz_limited_by_usb_host"
+    },
+    
+    "electrical_specifications": {
+      "power_consumption": "500ma_at_5v_2_5w_total",
+      "output_impedance": "<1ohm_plus_220ohm_protection",
+      "input_impedance": ">1mohm_high_z_compatible", 
+      "noise_floor": "thermal_limited_low_noise_design",
+      "emc_compatibility": "fcc_ce_compliant_design_practices"
+    },
+    
+    "mechanical_specifications": {
+      "form_factor": "eurorack_compatible_size",
+      "connectors": "3_5mm_mono_jacks_standard",
+      "mounting": "panel_mount_or_desktop_enclosure",
+      "thermal": "natural_convection_adequate_cooling"
+    }
+  },
+  
+  "scalability_analysis": {
+    "channel_expansion": {
+      "current_channels": 16,
+      "max_theoretical": "24_with_3_ad5593r_devices",
+      "limitation": "i2c_address_space_physical_pins",
+      "expansion_method": "additional_dac_modules_i2c_multiplexing"
+    },
+    
+    "performance_scaling": {
+      "cpu_headroom": ">90_percent_available",
+      "memory_headroom": ">95_percent_available", 
+      "i2c_bandwidth": "underutilized_can_support_faster_updates",
+      "power_budget": "adequate_for_additional_modules"
+    }
+  }
+}

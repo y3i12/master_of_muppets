@@ -5,7 +5,7 @@
 	(uuid "5d7da71d-c580-4c32-9092-b7aa9321dacb")
 	(paper "A5")
 	(title_block
-		(title "MasterOfMuppets")
+		(title "master_of_muppets")
 		(rev "0.0.0")
 		(company "y3i12")
 	)
@@ -700,7 +700,7 @@
 			(uuid "ea16f0cc-c0b0-422d-99f7-7a75aa8e307c")
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c/1ebaab9f-3adf-4ab6-b6c9-964263e520cd"
 					(reference "C26")
 					(unit 1)
@@ -826,7 +826,7 @@
 			(uuid "a287b0f0-7c0b-4e56-bf76-a609b2bf7da7")
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c/1ebaab9f-3adf-4ab6-b6c9-964263e520cd"
 					(reference "#PWR057")
 					(unit 1)
@@ -1005,7 +1005,7 @@
 			(uuid "a555f0ba-a86e-470a-9f56-748b5ea06e09")
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c/1ebaab9f-3adf-4ab6-b6c9-964263e520cd"
 					(reference "C25")
 					(unit 1)

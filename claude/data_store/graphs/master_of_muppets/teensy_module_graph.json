@@ -1,0 +1,250 @@
+{
+  "module_name": "teensy_module",
+  "description": "Teensy 4.1 microcontroller module graph for system control and I2C communication",
+  "graph_type": "microcontroller_system",
+  "created": "2025-08-19", 
+  "component_count": 5,
+  "net_count": 3,
+  "junction_count": 0,
+  
+  "graph_structure": {
+    "nodes": [
+      {
+        "id": "T1",
+        "type": "microcontroller",
+        "component": "Teensy4.1",
+        "function": "system_controller_usb_midi_i2c_master",
+        "position": {"x": 76.2, "y": 107.95},
+        "characteristics": {
+          "processor": "arm_cortex_m7_imxrt1062",
+          "clock_speed": "600mhz_dual_issue_superscalar",
+          "memory": "1mb_ram_8mb_flash_tightly_coupled",
+          "fpu": "32bit_hardware_floating_point",
+          "usb": "native_high_speed_480mbps",
+          "i2c_buses": 3,
+          "gpio_pins": "42_digital_14_analog",
+          "operating_voltage": "3_3v_5v_tolerant_inputs"
+        }
+      }
+    ],
+    
+    "edges": [
+      {
+        "id": "usb_connection",
+        "source": "USB_HOST",
+        "target": "T1",
+        "type": "high_speed_communication",
+        "protocol": "usb_midi_480mbps",
+        "latency": "<100us_usb_stack"
+      },
+      {
+        "id": "i2c0_master",
+        "source": "T1",
+        "target": "DAC_MODULES",
+        "type": "i2c_communication",
+        "pins": ["SDA0", "SCL0"],
+        "speed": "400khz_standard",
+        "function": "primary_dac_control"
+      },
+      {
+        "id": "i2c1_master", 
+        "source": "T1",
+        "target": "DAC_MODULES",
+        "type": "i2c_communication",
+        "pins": ["SDA1", "SCL1"], 
+        "speed": "400khz_standard",
+        "function": "secondary_dac_control"
+      },
+      {
+        "id": "i2c2_master",
+        "source": "T1", 
+        "target": "DAC_MODULES",
+        "type": "i2c_communication",
+        "pins": ["SDA2", "SCL2"],
+        "speed": "400khz_standard", 
+        "function": "tertiary_dac_control"
+      },
+      {
+        "id": "chip_select_controls",
+        "source": "T1",
+        "target": "DAC_MODULES",
+        "type": "digital_control",
+        "pins": ["~{CHIP_SELECT_0}", "~{CHIP_SELECT_1}", "~{CHIP_SELECT_2}"],
+        "function": "i2c_address_selection"
+      },
+      {
+        "id": "reset_control",
+        "source": "T1", 
+        "target": "DAC_MODULES",
+        "type": "digital_control",
+        "pins": ["~{RESET}"],
+        "function": "hardware_reset_dacs"
+      }
+    ],
+    
+    "nets": [
+      {
+        "id": "net_vcc",
+        "name": "VCC",
+        "type": "power_supply", 
+        "voltage": 5.0,
+        "connections": ["T1"],
+        "current_budget": "200ma_teensy_plus_peripherals"
+      },
+      {
+        "id": "net_3v3",
+        "name": "VLOGIC",
+        "type": "logic_supply",
+        "voltage": 3.3, 
+        "connections": ["T1"],
+        "current_budget": "100ma_logic_level"
+      },
+      {
+        "id": "net_gnd",
+        "name": "GND",
+        "type": "ground",
+        "voltage": 0.0,
+        "connections": ["T1"],
+        "reference": "system_ground"
+      }
+    ]
+  },
+  
+  "pin_assignments": {
+    "i2c_interfaces": {
+      "i2c0": {
+        "sda_pin": 18,
+        "scl_pin": 19, 
+        "wire_instance": "Wire",
+        "dac_assignment": "primary_ad5593r"
+      },
+      "i2c1": {
+        "sda_pin": 17,
+        "scl_pin": 16,
+        "wire_instance": "Wire1", 
+        "dac_assignment": "secondary_ad5593r"
+      },
+      "i2c2": {
+        "sda_pin": 25,
+        "scl_pin": 24,
+        "wire_instance": "Wire2",
+        "dac_assignment": "tertiary_ad5593r"
+      }
+    },
+    
+    "control_pins": {
+      "chip_select_0": {
+        "pin": 11,
+        "function": "dac_0_address_select",
+        "polarity": "active_low"
+      },
+      "chip_select_1": {
+        "pin": 37, 
+        "function": "dac_1_address_select", 
+        "polarity": "active_low"
+      },
+      "chip_select_2": {
+        "pin": "tbd",
+        "function": "dac_2_address_select",
+        "polarity": "active_low"
+      },
+      "reset": {
+        "pin": "tbd",
+        "function": "hardware_reset_all_dacs",
+        "polarity": "active_low"
+      }
+    },
+    
+    "power_pins": {
+      "vin": "5v_usb_or_external",
+      "3v3": "internal_regulator_250ma",
+      "gnd": "multiple_pins_low_impedance"
+    }
+  },
+  
+  "firmware_architecture": {
+    "threading_model": {
+      "library": "teensy_threads_cooperative",
+      "time_slice": "10_microseconds",
+      "threads": [
+        "the_muppet_show_main_coordination",
+        "the_voice_from_beyond_midi_input",
+        "muppet_worker_0_dac_0_output", 
+        "muppet_worker_1_dac_1_output",
+        "party_pooper_periodic_refresh"
+      ]
+    },
+    
+    "memory_management": {
+      "allocation": "static_only_no_dynamic",
+      "buffers": {
+        "input_buffer": "16_channels_uint16",
+        "output_buffer": "16_channels_uint16" 
+      },
+      "stack_per_thread": "default_teensy_threads_allocation"
+    },
+    
+    "real_time_constraints": {
+      "midi_latency": "<1ms_target",
+      "dac_update_rate": "limited_by_i2c_speed",
+      "thread_scheduling": "cooperative_yield_based",
+      "critical_sections": "mutex_protected_buffers"
+    }
+  },
+  
+  "system_interfaces": {
+    "usb_midi": {
+      "class": "midi_device_class_compliant",
+      "channels": "16_midi_channels",
+      "messages": "pitch_bend_primary_control_change_secondary",
+      "latency": "<1ms_including_usb_stack",
+      "callback": "set_channel_value_direct_buffer_update"
+    },
+    
+    "i2c_master": {
+      "buses": 3,
+      "speed": "400khz_per_bus",
+      "addressing": "7_bit_address_space",
+      "error_handling": "timeout_retry_backoff",
+      "dma_capable": "yes_for_zero_cpu_overhead"
+    }
+  },
+  
+  "performance_characteristics": {
+    "cpu_utilization": {
+      "idle_percentage": ">90_percent_typical",
+      "thread_overhead": "<10_percent_context_switching",
+      "i2c_overhead": "dma_offloaded_minimal_cpu",
+      "usb_overhead": "hardware_assisted_low_cpu"
+    },
+    
+    "timing_analysis": {
+      "worst_case_latency": "<1ms_midi_to_dac",
+      "typical_latency": "<141us_measured",
+      "jitter": "<10us_thread_scheduling",
+      "determinism": "bounded_execution_time"
+    },
+    
+    "power_consumption": {
+      "active_current": "100_200ma_at_600mhz",
+      "idle_current": "reduced_with_clock_scaling",
+      "thermal_management": "natural_convection_adequate"
+    }
+  },
+  
+  "fault_tolerance": {
+    "error_detection": [
+      "i2c_timeout_detection",
+      "midi_message_validation", 
+      "buffer_overflow_protection",
+      "thread_deadlock_detection"
+    ],
+    
+    "recovery_mechanisms": [
+      "automatic_i2c_retry_with_backoff",
+      "graceful_degradation_partial_channels",
+      "watchdog_timer_system_reset",
+      "error_reporting_via_led_or_midi"
+    ]
+  }
+}

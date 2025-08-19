@@ -7376,7 +7376,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/cd765f9f-e836-48ce-aae7-a1770e6687d1")
 		(sheetname "/")
-		(sheetfile "MasterOfMuppets.kicad_sch")
+		(sheetfile "master_of_muppets.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.254 0.5588)
@@ -15617,7 +15617,7 @@
 		(property ki_fp_filters "TerminalBlock*:*")
 		(path "/10ff8e58-c63a-4505-97f9-f455b82daeb2")
 		(sheetname "/")
-		(sheetfile "MasterOfMuppets.kicad_sch")
+		(sheetfile "master_of_muppets.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.64 -3.22)
@@ -20696,7 +20696,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/b1e0e6a7-28ac-4d28-b770-92aaa729df38")
 		(sheetname "/")
-		(sheetfile "MasterOfMuppets.kicad_sch")
+		(sheetfile "master_of_muppets.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.15 -0.75)
@@ -21529,7 +21529,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/e69b191e-28ca-411a-a265-1ff9056e53f6")
 		(sheetname "/")
-		(sheetfile "MasterOfMuppets.kicad_sch")
+		(sheetfile "master_of_muppets.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.254 0.5588)
@@ -21675,7 +21675,7 @@
 		(property ki_fp_filters "C_*")
 		(path "/9905d6d1-5f1d-4e5b-a175-3057f03605e7")
 		(sheetname "/")
-		(sheetfile "MasterOfMuppets.kicad_sch")
+		(sheetfile "master_of_muppets.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start -0.15 -0.75)
@@ -36234,7 +36234,7 @@
 		(property ki_fp_filters "SOT?223*TabPin2*")
 		(path "/b0d24aaa-71fd-42f0-a484-2cae1453b7a2")
 		(sheetname "/")
-		(sheetfile "MasterOfMuppets.kicad_sch")
+		(sheetfile "master_of_muppets.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -5.12 -2.62)

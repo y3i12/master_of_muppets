@@ -1,0 +1,240 @@
+{
+  "module_name": "power_distribution",
+  "description": "Power distribution network graph for Master of Muppets system power management", 
+  "graph_type": "power_system_analysis",
+  "created": "2025-08-19",
+  "voltage_rails": 5,
+  "total_power": "2.5w_typical_5w_maximum",
+  
+  "power_tree": {
+    "input_power": {
+      "source": "USB_5V_or_external_wall_adapter",
+      "voltage": 5.0,
+      "current_capability": "1a_usb3_3a_external",
+      "protection": "usb_current_limiting_polyfuse",
+      "connector": "usb_micro_or_barrel_jack"
+    },
+    
+    "primary_rail_5v": {
+      "voltage": 5.0,
+      "current_budget": "500ma_typical_1a_maximum",
+      "regulation": "usb_direct_or_linear_regulator",
+      "loads": [
+        {
+          "name": "teensy_4_1",
+          "current": "100ma_active_50ma_idle",
+          "function": "microcontroller_system"
+        },
+        {
+          "name": "ad5593r_dacs",
+          "current": "3_2ma_per_device_times_3",
+          "function": "digital_analog_converters"
+        },
+        {
+          "name": "i2c_pullups",
+          "current": "2ma_total_all_buses",
+          "function": "i2c_bus_pullup_resistors"
+        }
+      ]
+    },
+    
+    "logic_rail_3v3": {
+      "voltage": 3.3,
+      "current_budget": "100ma_maximum",
+      "regulation": "teensy_onboard_regulator",
+      "loads": [
+        {
+          "name": "logic_level_translation",
+          "current": "minimal_static",
+          "function": "5v_to_3v3_interface_if_needed"
+        }
+      ]
+    },
+    
+    "analog_positive_rail_12v": {
+      "voltage": 12.0,
+      "current_budget": "100ma_maximum",
+      "regulation": "ld1117_linear_boost_converter",
+      "ripple": "<10mv_rms_low_noise",
+      "loads": [
+        {
+          "name": "tl074_opamps",
+          "current": "8ma_per_opamp_times_8_opamps",
+          "function": "cv_amplifier_positive_rail"
+        }
+      ]
+    },
+    
+    "analog_negative_rail_minus_12v": {
+      "voltage": -12.0,
+      "current_budget": "100ma_maximum", 
+      "regulation": "charge_pump_or_switching_converter",
+      "ripple": "<10mv_rms_low_noise",
+      "loads": [
+        {
+          "name": "tl074_opamps",
+          "current": "8ma_per_opamp_times_8_opamps",
+          "function": "cv_amplifier_negative_rail"
+        }
+      ]
+    },
+    
+    "ground_reference": {
+      "voltage": 0.0,
+      "function": "system_ground_reference",
+      "topology": "star_grounding_low_impedance",
+      "connections": "all_modules_common_reference"
+    }
+  },
+  
+  "power_sequencing": {
+    "startup_sequence": [
+      {"step": 1, "rail": "5v_primary", "delay": "0ms", "notes": "immediate_usb_power"},
+      {"step": 2, "rail": "3v3_logic", "delay": "10ms", "notes": "teensy_regulator_startup"},
+      {"step": 3, "rail": "12v_positive", "delay": "50ms", "notes": "boost_converter_soft_start"},
+      {"step": 4, "rail": "minus_12v_negative", "delay": "100ms", "notes": "charge_pump_stabilization"},
+      {"step": 5, "system": "dac_initialization", "delay": "200ms", "notes": "i2c_communication_ready"}
+    ],
+    
+    "shutdown_sequence": [
+      {"step": 1, "action": "disable_dac_outputs", "notes": "prevent_output_glitches"},
+      {"step": 2, "action": "disable_analog_rails", "notes": "opamp_power_removal"},
+      {"step": 3, "action": "teensy_shutdown", "notes": "controlled_processor_halt"},
+      {"step": 4, "action": "remove_primary_5v", "notes": "complete_power_removal"}
+    ]
+  },
+  
+  "decoupling_network": {
+    "bulk_capacitors": [
+      {
+        "location": "5v_input",
+        "value": "1000uf_low_esr_electrolytic",
+        "function": "bulk_energy_storage_transient_response"
+      },
+      {
+        "location": "12v_rails",
+        "value": "100uf_per_rail_tantalum_or_ceramic",
+        "function": "analog_supply_decoupling"
+      }
+    ],
+    
+    "local_decoupling": [
+      {
+        "location": "each_ic",
+        "values": ["100nf_ceramic", "10uf_tantalum"],
+        "placement": "close_to_power_pins",
+        "function": "high_frequency_bypass_bulk_local"
+      }
+    ],
+    
+    "ferrite_beads": [
+      {
+        "location": "analog_digital_isolation",
+        "impedance": "100_ohm_at_100mhz",
+        "function": "prevent_digital_noise_coupling"
+      }
+    ]
+  },
+  
+  "thermal_management": {
+    "heat_sources": [
+      {
+        "component": "teensy_4_1",
+        "power": "0_5w_typical",
+        "mitigation": "natural_convection_thermal_pad_if_needed"
+      },
+      {
+        "component": "linear_regulators",
+        "power": "1w_maximum_dropout_dependent",
+        "mitigation": "proper_heatsinking_thermal_design"
+      },
+      {
+        "component": "opamps",
+        "power": "0_3w_total_all_devices",
+        "mitigation": "pcb_copper_pour_heat_spreading"
+      }
+    ],
+    
+    "thermal_design": {
+      "ambient_temperature": "25c_typical_40c_maximum",
+      "component_temperatures": "<85c_junction_max",
+      "airflow": "natural_convection_adequate",
+      "thermal_interface": "thermal_pads_copper_pours"
+    }
+  },
+  
+  "power_integrity": {
+    "voltage_regulation": {
+      "5v_rail": "±2_percent_under_load",
+      "3v3_rail": "±3_percent_teensy_regulator",
+      "12v_rails": "±5_percent_analog_acceptable",
+      "ripple": "<10mv_pp_all_rails"
+    },
+    
+    "current_sharing": {
+      "parallel_regulators": "not_used_single_point_regulation",
+      "load_balancing": "natural_impedance_based",
+      "fault_isolation": "per_rail_protection"
+    },
+    
+    "noise_coupling": {
+      "digital_analog_isolation": "separate_supply_paths_ferrite_isolation",
+      "ground_loops": "prevented_by_star_grounding",
+      "switching_noise": "minimized_by_linear_post_regulation"
+    }
+  },
+  
+  "fault_protection": {
+    "overcurrent_protection": [
+      {
+        "location": "usb_input",
+        "method": "usb_current_limiting_polyfuse_or_host",
+        "threshold": "500ma_usb2_1a_usb3"
+      },
+      {
+        "location": "each_rail",
+        "method": "regulator_current_limiting", 
+        "threshold": "per_regulator_specification"
+      }
+    ],
+    
+    "overvoltage_protection": [
+      {
+        "location": "analog_rails",
+        "method": "regulator_shutdown_crowbar_if_needed",
+        "threshold": "15v_maximum_opamp_rating"
+      }
+    ],
+    
+    "thermal_protection": [
+      {
+        "location": "linear_regulators",
+        "method": "thermal_shutdown_built_in",
+        "threshold": "150c_junction_temperature"
+      }
+    ],
+    
+    "reverse_polarity_protection": [
+      {
+        "location": "external_power_input",
+        "method": "schottky_diode_or_mosfet",
+        "voltage_drop": "<0_5v_efficiency_consideration"
+      }
+    ]
+  },
+  
+  "efficiency_analysis": {
+    "power_conversion_efficiency": {
+      "5v_direct": "95_percent_usb_input_minimal_loss",
+      "3v3_regulation": "80_percent_linear_dropout_loss",
+      "12v_boost": "85_percent_switching_converter",
+      "minus_12v_charge_pump": "75_percent_typical_charge_pump"
+    },
+    
+    "total_system_efficiency": {
+      "typical_load": "75_percent_overall",
+      "light_load": "60_percent_quiescent_current_dominates",
+      "full_load": "80_percent_better_efficiency_at_full_power"
+    }
+  }
+}

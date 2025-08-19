@@ -1,0 +1,184 @@
+{
+  "module_name": "amp_module",
+  "description": "Amplifier module graph for CV signal conditioning and output scaling",
+  "graph_type": "circuit_analysis",
+  "created": "2025-08-19",
+  "component_count": 35,
+  "net_count": 20,
+  "junction_count": 14,
+  
+  "graph_structure": {
+    "nodes": [
+      {
+        "id": "OpAmp1_A",
+        "type": "operational_amplifier",
+        "component": "TL074",
+        "function": "non_inverting_amplifier",
+        "position": {"x": 44.45, "y": 59.69},
+        "characteristics": {
+          "gain": "2x",
+          "input_impedance": "high_jfet",
+          "bandwidth": "4mhz",
+          "slew_rate": "20v_per_us"
+        }
+      },
+      {
+        "id": "OpAmp1_B", 
+        "type": "operational_amplifier",
+        "component": "TL074",
+        "function": "non_inverting_amplifier", 
+        "position": {"x": 97.79, "y": 33.02},
+        "characteristics": {
+          "gain": "2x",
+          "input_impedance": "high_jfet",
+          "bandwidth": "4mhz", 
+          "slew_rate": "20v_per_us"
+        }
+      },
+      {
+        "id": "OpAmp1_C",
+        "type": "operational_amplifier", 
+        "component": "TL074",
+        "function": "non_inverting_amplifier",
+        "position": {"x": 97.79, "y": 78.74},
+        "characteristics": {
+          "gain": "2x",
+          "input_impedance": "high_jfet", 
+          "bandwidth": "4mhz",
+          "slew_rate": "20v_per_us"
+        }
+      },
+      {
+        "id": "OpAmp1_D",
+        "type": "operational_amplifier",
+        "component": "TL074", 
+        "function": "non_inverting_amplifier",
+        "position": {"x": 162.56, "y": 78.74},
+        "characteristics": {
+          "gain": "2x",
+          "input_impedance": "high_jfet",
+          "bandwidth": "4mhz",
+          "slew_rate": "20v_per_us"
+        }
+      }
+    ],
+    
+    "edges": [
+      {
+        "id": "input_to_opamp_a",
+        "source": "INPUT_1",
+        "target": "OpAmp1_A",
+        "type": "signal_path",
+        "impedance": "1k_series",
+        "bandwidth": "audio_range"
+      },
+      {
+        "id": "opamp_a_to_output",
+        "source": "OpAmp1_A", 
+        "target": "OUTPUT_1",
+        "type": "signal_path",
+        "impedance": "220_ohm_series",
+        "current_limit": "13ma_max"
+      },
+      {
+        "id": "feedback_a",
+        "source": "OpAmp1_A",
+        "target": "OpAmp1_A",
+        "type": "negative_feedback",
+        "impedance": "47k_feedback",
+        "gain_setting": "2x_non_inverting"
+      }
+    ],
+    
+    "nets": [
+      {
+        "id": "net_power_pos",
+        "name": "+12V",
+        "type": "power_supply",
+        "voltage": 12.0,
+        "connections": ["OpAmp1_A", "OpAmp1_B", "OpAmp1_C", "OpAmp1_D"],
+        "current_budget": "100ma_total"
+      },
+      {
+        "id": "net_power_neg", 
+        "name": "-12V",
+        "type": "power_supply",
+        "voltage": -12.0,
+        "connections": ["OpAmp1_A", "OpAmp1_B", "OpAmp1_C", "OpAmp1_D"],
+        "current_budget": "100ma_total"
+      },
+      {
+        "id": "net_gnd",
+        "name": "GND", 
+        "type": "ground",
+        "voltage": 0.0,
+        "connections": ["all_components"],
+        "reference": "system_ground"
+      }
+    ]
+  },
+  
+  "circuit_topology": {
+    "amplifier_stages": [
+      {
+        "stage": 1,
+        "input": "DAC_OUTPUT_0_5V",
+        "output": "CV_OUTPUT_0_10V", 
+        "gain": 2,
+        "topology": "non_inverting",
+        "components": ["TL074", "1k_input", "47k_feedback", "220_ohm_output"],
+        "frequency_response": "dc_to_4mhz"
+      }
+    ],
+    
+    "power_distribution": {
+      "dual_rail": "±12V",
+      "decoupling": "local_per_opamp",
+      "current_path": "star_topology",
+      "noise_filtering": "100pf_compensation_caps"
+    },
+    
+    "signal_integrity": {
+      "input_impedance": ">1mohm_jfet",
+      "output_impedance": "<1ohm_with_220ohm_series",
+      "noise_sources": ["thermal_resistor", "opamp_voltage_current"],
+      "bandwidth_limit": "compensation_capacitors"
+    }
+  },
+  
+  "analysis_metrics": {
+    "dc_analysis": {
+      "quiescent_current": "8ma_per_opamp",
+      "input_offset": "<5mv_typ",
+      "output_swing": "rail_to_rail_minus_2v"
+    },
+    
+    "ac_analysis": {
+      "gain_bandwidth_product": "4mhz_typ", 
+      "phase_margin": ">45deg_stable",
+      "slew_rate": "20v_per_us",
+      "settling_time": "<1us_to_0_1_percent"
+    },
+    
+    "noise_analysis": {
+      "input_voltage_noise": "15nv_per_sqrt_hz_at_1khz",
+      "input_current_noise": "0_01pa_per_sqrt_hz",
+      "total_noise": "dominated_by_thermal_resistor"
+    }
+  },
+  
+  "fault_analysis": {
+    "failure_modes": [
+      "opamp_saturation_rail_limits",
+      "oscillation_high_frequency_feedback", 
+      "thermal_shutdown_overcurrent",
+      "power_supply_rejection_inadequate"
+    ],
+    
+    "protection": [
+      "series_output_resistor_current_limit",
+      "compensation_capacitor_stability",
+      "power_supply_decoupling"
+    ]
+  }
+}

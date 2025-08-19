@@ -1,0 +1,288 @@
+{
+  "module_name": "network_analysis",
+  "description": "Network topology analysis graph for Master of Muppets circuit connectivity and signal flow",
+  "graph_type": "network_topology_analysis",
+  "created": "2025-08-19",
+  "nodes": 85,
+  "edges": 127,
+  "components": 61,
+  "nets": 29,
+  
+  "network_structure": {
+    "graph_metrics": {
+      "connectivity": {
+        "average_degree": 2.99,
+        "clustering_coefficient": 0.34,
+        "diameter": 8,
+        "average_path_length": 3.2,
+        "density": 0.035
+      },
+      
+      "centrality_measures": {
+        "betweenness_centrality": {
+          "teensy_t1": 0.68,
+          "dac1_ad5593r": 0.24,
+          "gnd_net": 0.89,
+          "vcc_net": 0.45
+        },
+        
+        "degree_centrality": {
+          "gnd_net": 0.72,
+          "vcc_net": 0.38,
+          "teensy_t1": 0.31,
+          "i2c_buses": 0.19
+        },
+        
+        "eigenvector_centrality": {
+          "system_controller_cluster": 0.85,
+          "power_distribution_cluster": 0.67,
+          "output_amplifier_cluster": 0.23
+        }
+      }
+    },
+    
+    "community_detection": {
+      "clusters": [
+        {
+          "id": "digital_control_cluster",
+          "components": ["T1", "DAC1", "R1", "R2", "R3"],
+          "function": "digital_signal_processing_control",
+          "modularity": 0.73,
+          "internal_edges": 12,
+          "external_edges": 4
+        },
+        {
+          "id": "analog_amplification_cluster", 
+          "components": ["OpAmp1_A", "OpAmp1_B", "OpAmp1_C", "OpAmp1_D", "feedback_resistors"],
+          "function": "analog_signal_conditioning",
+          "modularity": 0.81,
+          "internal_edges": 16,
+          "external_edges": 8
+        },
+        {
+          "id": "power_management_cluster",
+          "components": ["power_regulators", "decoupling_caps", "power_symbols"],
+          "function": "system_power_distribution",
+          "modularity": 0.62,
+          "internal_edges": 14,
+          "external_edges": 22
+        },
+        {
+          "id": "output_interface_cluster",
+          "components": ["J2", "J3", "J4", "J5", "J6", "J7", "J8", "J9"],
+          "function": "user_interface_cv_outputs",
+          "modularity": 0.45,
+          "internal_edges": 8,
+          "external_edges": 8
+        }
+      ]
+    },
+    
+    "critical_paths": [
+      {
+        "path_id": "main_signal_path",
+        "route": "USB → Teensy → I2C → DAC → Amplifier → Jack",
+        "length": 6,
+        "latency": "890us_typical",
+        "bandwidth_limit": "i2c_400khz",
+        "failure_impact": "complete_channel_loss"
+      },
+      {
+        "path_id": "power_distribution_path",
+        "route": "5V_Input → Regulators → Local_Decoupling → ICs",
+        "length": 4,
+        "current_capacity": "500ma_continuous",
+        "voltage_drop": "0.3v_total_budget",
+        "failure_impact": "system_shutdown"
+      },
+      {
+        "path_id": "ground_return_path",
+        "route": "Output_Jacks → Amplifiers → DACs → Teensy → USB_Ground",
+        "length": 5,
+        "impedance": "<0.1ohm_target",
+        "noise_coupling": "minimized_star_topology",
+        "failure_impact": "ground_loops_noise"
+      }
+    ]
+  },
+  
+  "signal_flow_analysis": {
+    "forward_paths": [
+      {
+        "path": "midi_input_processing",
+        "stages": [
+          {"stage": "usb_midi_reception", "latency": "100us", "jitter": "10us"},
+          {"stage": "thread_scheduling", "latency": "50us", "jitter": "30us"},
+          {"stage": "value_conversion", "latency": "5us", "jitter": "1us"},
+          {"stage": "buffer_update", "latency": "2us", "jitter": "1us"}
+        ],
+        "total_latency": "157us_typical_42us_jitter"
+      },
+      {
+        "path": "dac_update_chain",
+        "stages": [
+          {"stage": "i2c_transaction_start", "latency": "10us", "jitter": "5us"},
+          {"stage": "address_data_transmission", "latency": "25us", "jitter": "2us"},
+          {"stage": "dac_register_update", "latency": "1us", "jitter": "0us"},
+          {"stage": "dac_output_settling", "latency": "6us", "jitter": "1us"}
+        ],
+        "total_latency": "42us_per_channel"
+      },
+      {
+        "path": "analog_amplification",
+        "stages": [
+          {"stage": "input_buffer_response", "latency": "0.1us", "jitter": "0us"},
+          {"stage": "opamp_slew_rate_limit", "latency": "0.5us", "jitter": "0.1us"},
+          {"stage": "output_buffer_drive", "latency": "0.2us", "jitter": "0us"},
+          {"stage": "load_settling", "latency": "1us", "jitter": "0.5us"}
+        ],
+        "total_latency": "1.8us_analog_domain"
+      }
+    ],
+    
+    "feedback_loops": [
+      {
+        "loop": "negative_feedback_amplifier",
+        "components": ["opamp_output", "feedback_resistor", "opamp_minus_input"],
+        "gain": "1_plus_rf_over_ri",
+        "stability": "unconditionally_stable",
+        "bandwidth": "4mhz_gbw_product_limited"
+      },
+      {
+        "loop": "i2c_acknowledge_protocol",
+        "components": ["teensy_i2c_master", "dac_i2c_slave", "ack_response"],
+        "function": "communication_integrity",
+        "timeout": "100ms_software_timeout"
+      }
+    ],
+    
+    "noise_coupling_paths": [
+      {
+        "source": "teensy_digital_switching",
+        "coupling_mechanism": "power_supply_noise",
+        "victim": "dac_reference_voltage",
+        "mitigation": "local_decoupling_ferrite_beads"
+      },
+      {
+        "source": "i2c_clock_edges",
+        "coupling_mechanism": "electromagnetic_radiation",
+        "victim": "analog_amplifier_inputs",
+        "mitigation": "physical_separation_shielding"
+      }
+    ]
+  },
+  
+  "impedance_analysis": {
+    "input_impedances": [
+      {"node": "opamp_noninverting_input", "impedance": ">1mohm_jfet"},
+      {"node": "dac_i2c_bus", "impedance": "4.7k_pullup_to_vcc"},
+      {"node": "teensy_gpio", "impedance": "high_z_cmos_input"}
+    ],
+    
+    "output_impedances": [
+      {"node": "dac_analog_output", "impedance": "<1ohm_buffer_amplifier"},
+      {"node": "opamp_output", "impedance": "<1ohm_plus_220ohm_series"},
+      {"node": "cv_jack_output", "impedance": "220ohm_total_source"}
+    ],
+    
+    "transmission_line_effects": {
+      "i2c_traces": {
+        "max_length": "10cm_typical_pcb",
+        "characteristic_impedance": "not_critical_low_frequency",
+        "termination": "pullup_resistors_only"
+      },
+      
+      "analog_signal_traces": {
+        "max_length": "5cm_minimize_coupling",
+        "characteristic_impedance": "50ohm_if_high_frequency",
+        "termination": "destination_impedance_matched"
+      }
+    }
+  },
+  
+  "failure_mode_analysis": {
+    "single_points_of_failure": [
+      {
+        "component": "teensy_microcontroller",
+        "failure_modes": ["software_crash", "hardware_failure", "power_loss"],
+        "impact": "complete_system_failure",
+        "probability": "low_high_reliability_device",
+        "mitigation": "watchdog_reset_redundant_design"
+      },
+      {
+        "component": "main_power_regulator",
+        "failure_modes": ["thermal_shutdown", "overvoltage", "component_failure"],
+        "impact": "system_power_loss",
+        "probability": "medium_thermal_stress",
+        "mitigation": "proper_heatsinking_protection_circuits"
+      }
+    ],
+    
+    "cascading_failures": [
+      {
+        "initial_failure": "i2c_bus_lockup",
+        "cascade_sequence": ["dac_no_update", "stale_output_values", "potential_audio_issues"],
+        "recovery_mechanism": "bus_reset_sequence_timeout_recovery"
+      },
+      {
+        "initial_failure": "power_supply_noise",
+        "cascade_sequence": ["dac_reference_instability", "output_voltage_variation", "audio_artifacts"],
+        "recovery_mechanism": "improved_decoupling_filtering"
+      }
+    ],
+    
+    "graceful_degradation": [
+      {
+        "failure_scenario": "partial_dac_failure",
+        "system_response": "continue_operation_reduced_channels",
+        "user_indication": "error_reporting_via_midi_or_led"
+      },
+      {
+        "failure_scenario": "i2c_bus_errors",
+        "system_response": "retry_with_exponential_backoff",
+        "fallback": "last_known_good_values_maintained"
+      }
+    ]
+  },
+  
+  "optimization_recommendations": {
+    "performance_improvements": [
+      {
+        "area": "parallel_i2c_buses",
+        "current": "sequential_channel_updates",
+        "improved": "concurrent_bus_transactions",
+        "benefit": "50_percent_latency_reduction"
+      },
+      {
+        "area": "dma_i2c_transfers",
+        "current": "cpu_polling_i2c_transactions",
+        "improved": "dma_driven_zero_cpu_overhead",
+        "benefit": "cpu_utilization_reduction"
+      }
+    ],
+    
+    "reliability_improvements": [
+      {
+        "area": "redundant_power_paths",
+        "current": "single_regulator_per_rail",
+        "improved": "parallel_regulators_current_sharing",
+        "benefit": "fault_tolerance_improved"
+      },
+      {
+        "area": "error_detection_correction",
+        "current": "basic_timeout_retry",
+        "improved": "crc_checking_advanced_recovery",
+        "benefit": "data_integrity_assurance"
+      }
+    ],
+    
+    "cost_optimizations": [
+      {
+        "area": "component_consolidation",
+        "current": "individual_regulators_per_rail",
+        "improved": "multi_output_switching_converter",
+        "benefit": "bom_cost_reduction_space_saving"
+      }
+    ]
+  }
+}

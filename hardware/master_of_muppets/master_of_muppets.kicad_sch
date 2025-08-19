@@ -5,7 +5,7 @@
 	(uuid "01709e3c-d295-4eba-a9f6-77b38e73bd4a")
 	(paper "A5")
 	(title_block
-		(title "MasterOfMuppets")
+		(title "master_of_muppets")
 		(date "localtime();")
 		(rev "0.0.0")
 		(company "y3i12")
@@ -1744,7 +1744,7 @@
 			(uuid "c76021aa-1edb-4a23-a1ad-15f7ce94d39f")
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(reference "J1")
 					(unit 1)
@@ -1811,7 +1811,7 @@
 			(uuid "2157fe4e-445a-48de-9468-8851d775f0a6")
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(reference "#PWR06")
 					(unit 1)
@@ -1877,7 +1877,7 @@
 			(uuid "8eade5dd-e612-4d57-b500-bd3a3a343e56")
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(reference "#PWR01")
 					(unit 1)
@@ -1943,7 +1943,7 @@
 			(uuid "d35644d5-10f6-4e39-88eb-b4eb0071e2f1")
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(reference "#PWR02")
 					(unit 1)
@@ -2009,7 +2009,7 @@
 			(uuid "1b28bbd4-a67c-433b-afd8-0f9abbfc2033")
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(reference "#PWR03")
 					(unit 1)
@@ -2075,7 +2075,7 @@
 			(uuid "ad16cd6c-b3db-4555-84a6-16d31868f0dd")
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(reference "#PWR04")
 					(unit 1)
@@ -2143,7 +2143,7 @@
 			(uuid "3728b14b-11e8-461c-9c50-6c48024841e9")
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(reference "C1")
 					(unit 1)
@@ -2240,7 +2240,7 @@
 			(uuid "7fe298b7-fbb2-4f9a-a8ed-5753fe28d6a1")
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(reference "V_REG1")
 					(unit 1)
@@ -2310,7 +2310,7 @@
 			(uuid "200f3edd-47e3-4ab8-a760-d2ee1709888b")
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(reference "C3")
 					(unit 1)
@@ -2380,7 +2380,7 @@
 			(uuid "9942b507-9e83-4e2c-93a7-9d75e350fbc9")
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(reference "C2")
 					(unit 1)
@@ -2446,7 +2446,7 @@
 			(uuid "9568ecb9-f46b-42a7-a4b8-97e87c0cb33b")
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(reference "#PWR05")
 					(unit 1)
@@ -2554,7 +2554,7 @@
 			(uuid "f29d888e-5f93-4e5a-8160-d4a0fba53850")
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(reference "C4")
 					(unit 1)
@@ -2727,7 +2727,7 @@
 			)
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(page "5")
 				)
@@ -2899,7 +2899,7 @@
 			)
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(page "2")
 				)
@@ -3022,7 +3022,7 @@
 			)
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(page "1")
 				)
@@ -3145,7 +3145,7 @@
 			)
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(page "23")
 				)
@@ -3268,7 +3268,7 @@
 			)
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a"
 					(page "25")
 				)

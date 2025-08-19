@@ -1,0 +1,285 @@
+{
+  "module_name": "component_relationships",
+  "description": "Component interaction and dependency graph for Master of Muppets system design",
+  "graph_type": "component_dependency_analysis",
+  "created": "2025-08-19",
+  "total_components": 61,
+  "relationship_types": 8,
+  "dependency_depth": 4,
+  
+  "component_hierarchy": {
+    "system_level": {
+      "primary_controller": {
+        "component": "Teensy4.1",
+        "role": "system_coordinator",
+        "dependencies": ["USB_power", "crystal_oscillator", "reset_circuit"],
+        "dependents": ["all_dac_modules", "i2c_buses", "control_signals"],
+        "criticality": "single_point_of_failure"
+      }
+    },
+    
+    "subsystem_level": {
+      "dac_subsystem": {
+        "primary_components": ["AD5593R_DAC1", "AD5593R_DAC2", "AD5593R_DAC3"],
+        "support_components": ["i2c_pullup_resistors", "decoupling_capacitors", "reset_logic"],
+        "interfaces": ["i2c_communication", "analog_outputs", "power_rails"],
+        "redundancy": "parallel_devices_independent_failure"
+      },
+      
+      "amplifier_subsystem": {
+        "primary_components": ["TL074_quad_opamps"],
+        "support_components": ["feedback_resistors", "input_resistors", "compensation_caps"],
+        "interfaces": ["dac_analog_inputs", "cv_jack_outputs", "dual_rail_power"],
+        "redundancy": "independent_amplifier_channels"
+      },
+      
+      "power_subsystem": {
+        "primary_components": ["switching_regulators", "linear_regulators"],
+        "support_components": ["bulk_capacitors", "ceramic_decoupling", "protection_diodes"],
+        "interfaces": ["input_power", "regulated_outputs", "fault_signals"],
+        "redundancy": "over_designed_current_capacity"
+      }
+    }
+  },
+  
+  "interaction_patterns": {
+    "control_relationships": [
+      {
+        "controller": "Teensy4.1",
+        "controlled": "AD5593R_DACs",
+        "mechanism": "i2c_protocol",
+        "data_flow": "bidirectional_command_status",
+        "timing": "asynchronous_event_driven",
+        "fault_handling": "timeout_retry_mechanism"
+      },
+      {
+        "controller": "Teensy4.1",
+        "controlled": "chip_select_lines",
+        "mechanism": "gpio_digital_output",
+        "data_flow": "unidirectional_control",
+        "timing": "synchronous_setup_hold",
+        "fault_handling": "software_state_machine"
+      }
+    ],
+    
+    "signal_flow_relationships": [
+      {
+        "source": "AD5593R_analog_outputs",
+        "destination": "TL074_noninverting_inputs",
+        "signal_type": "analog_voltage_dc_to_audio",
+        "coupling": "direct_connection",
+        "impedance_matching": "high_z_input_low_z_source",
+        "noise_considerations": "minimize_trace_length_shielding"
+      },
+      {
+        "source": "TL074_outputs",
+        "destination": "CV_output_jacks",
+        "signal_type": "amplified_cv_0_to_10v",
+        "coupling": "series_resistor_protection",
+        "load_driving": "low_impedance_cable_drive",
+        "fault_protection": "current_limiting_thermal_shutdown"
+      }
+    ],
+    
+    "power_relationships": [
+      {
+        "supplier": "5V_primary_rail",
+        "consumers": ["Teensy4.1", "AD5593R_DACs", "i2c_pullups"],
+        "distribution": "star_topology_low_impedance",
+        "regulation": "tight_tolerance_low_noise",
+        "fault_isolation": "individual_current_limiting"
+      },
+      {
+        "supplier": "dual_12V_rails",
+        "consumers": ["TL074_opamps"],
+        "distribution": "parallel_connection_decoupled",
+        "regulation": "moderate_tolerance_audio_grade",
+        "fault_isolation": "thermal_protection_only"
+      }
+    ]
+  },
+  
+  "dependency_analysis": {
+    "critical_dependencies": [
+      {
+        "dependent": "system_functionality",
+        "dependency": "Teensy4.1_operation",
+        "failure_impact": "complete_system_failure",
+        "mitigation": "watchdog_reset_redundancy_consideration"
+      },
+      {
+        "dependent": "analog_output_accuracy",
+        "dependency": "DAC_reference_voltage_stability",
+        "failure_impact": "output_voltage_drift",
+        "mitigation": "precision_reference_thermal_compensation"
+      },
+      {
+        "dependent": "i2c_communication_integrity",
+        "dependency": "pullup_resistor_values",
+        "failure_impact": "communication_failure_unreliable_operation",
+        "mitigation": "proper_resistor_selection_bus_analysis"
+      }
+    ],
+    
+    "circular_dependencies": [
+      {
+        "components": ["opamp_output", "feedback_resistor", "opamp_minus_input"],
+        "type": "negative_feedback_loop",
+        "stability_analysis": "gain_phase_margin_adequate",
+        "break_condition": "power_down_or_saturation"
+      }
+    ],
+    
+    "optional_dependencies": [
+      {
+        "component": "compensation_capacitors",
+        "purpose": "high_frequency_stability_margin",
+        "required_for": "fast_transient_response",
+        "omit_impact": "potential_oscillation_ringing"
+      },
+      {
+        "component": "series_output_resistors",
+        "purpose": "short_circuit_protection",
+        "required_for": "fault_tolerance",
+        "omit_impact": "potential_output_damage"
+      }
+    ]
+  },
+  
+  "interface_compatibility": {
+    "voltage_level_matching": [
+      {
+        "interface": "Teensy_to_DAC_i2c",
+        "teensy_levels": "3.3V_logic_5V_tolerant",
+        "dac_levels": "5V_logic_3.3V_compatible",
+        "compatibility": "direct_connection_safe",
+        "level_translation": "not_required"
+      },
+      {
+        "interface": "DAC_to_Amplifier_analog",
+        "dac_output": "0_to_2.5V_or_0_to_5V_range",
+        "amplifier_input": "±15V_maximum_rating",
+        "compatibility": "direct_connection_safe",
+        "scaling": "2x_gain_for_0_to_10V_cv_standard"
+      }
+    ],
+    
+    "timing_compatibility": [
+      {
+        "interface": "i2c_bus_timing",
+        "master_capability": "400kHz_standard_1MHz_fast_mode",
+        "slave_capability": "400kHz_standard_1MHz_fast_mode",
+        "compatibility": "fully_compatible",
+        "optimization": "use_faster_speed_if_trace_length_permits"
+      }
+    ],
+    
+    "mechanical_compatibility": [
+      {
+        "interface": "pcb_mounting",
+        "connector_types": "3.5mm_mono_jacks",
+        "panel_compatibility": "eurorack_standard_spacing",
+        "mechanical_stress": "connector_insertion_force_adequate_support"
+      }
+    ]
+  },
+  
+  "component_selection_rationale": {
+    "microcontroller_selection": {
+      "chosen": "Teensy4.1",
+      "alternatives": ["Arduino_Due", "STM32F4", "ESP32"],
+      "selection_criteria": [
+        "native_usb_high_speed",
+        "multiple_i2c_buses",
+        "sufficient_processing_power",
+        "arduino_compatible_ecosystem",
+        "proven_reliability_audio_applications"
+      ],
+      "trade_offs": "cost_vs_performance_overkill_for_application_but_future_proof"
+    },
+    
+    "dac_selection": {
+      "chosen": "AD5593R",
+      "alternatives": ["MCP4728", "DAC8568", "AD5664"],
+      "selection_criteria": [
+        "configurable_channels_adc_dac",
+        "12_bit_resolution_adequate",
+        "i2c_interface_simple",
+        "single_supply_operation",
+        "integrated_reference"
+      ],
+      "trade_offs": "versatility_vs_dedicated_dac_performance"
+    },
+    
+    "opamp_selection": {
+      "chosen": "TL074",
+      "alternatives": ["LM324", "OPA4134", "TL084"],
+      "selection_criteria": [
+        "jfet_input_high_impedance",
+        "adequate_bandwidth_audio",
+        "dual_supply_operation",
+        "low_cost_availability",
+        "proven_audio_performance"
+      ],
+      "trade_offs": "cost_vs_premium_audio_opamps"
+    }
+  },
+  
+  "upgrade_compatibility": {
+    "component_substitution": [
+      {
+        "original": "TL074",
+        "upgrade": "OPA4134",
+        "benefits": "lower_noise_higher_slew_rate",
+        "compatibility": "pin_compatible_direct_replacement",
+        "cost_impact": "2x_cost_increase"
+      },
+      {
+        "original": "AD5593R",
+        "upgrade": "AD5593R_with_external_reference",
+        "benefits": "improved_accuracy_temperature_stability",
+        "compatibility": "requires_pcb_modification",
+        "cost_impact": "additional_precision_reference_cost"
+      }
+    ],
+    
+    "system_expansion": [
+      {
+        "expansion": "additional_dac_channels",
+        "method": "add_more_ad5593r_devices",
+        "limitation": "i2c_address_space_teensy_pin_availability",
+        "maximum_expansion": "24_channels_with_3_devices"
+      },
+      {
+        "expansion": "higher_resolution",
+        "method": "replace_with_16_bit_dacs",
+        "limitation": "firmware_modification_required",
+        "benefits": "increased_cv_precision"
+      }
+    ]
+  },
+  
+  "obsolescence_risk": {
+    "low_risk_components": [
+      {"component": "TL074", "reason": "industry_standard_multiple_sources"},
+      {"component": "resistors_capacitors", "reason": "commodity_parts_widely_available"}
+    ],
+    
+    "medium_risk_components": [
+      {"component": "Teensy4.1", "reason": "single_source_but_active_development"},
+      {"component": "3.5mm_jacks", "reason": "specific_footprint_but_standard_interface"}
+    ],
+    
+    "high_risk_components": [
+      {"component": "AD5593R", "reason": "analog_devices_may_discontinue_specialty_part"},
+      {"component": "custom_pcb", "reason": "design_specific_would_require_redesign"}
+    ],
+    
+    "mitigation_strategies": [
+      "maintain_alternate_source_list",
+      "design_for_pin_compatible_substitutes",
+      "consider_form_fit_function_replacements",
+      "maintain_design_files_for_reproduction"
+    ]
+  }
+}

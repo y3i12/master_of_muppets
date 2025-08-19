@@ -1,0 +1,205 @@
+{
+  "module_name": "dac_module", 
+  "description": "DAC module graph for AD5593R digital-to-analog conversion and I2C control",
+  "graph_type": "mixed_signal_analysis",
+  "created": "2025-08-19",
+  "component_count": 6,
+  "net_count": 6, 
+  "junction_count": 7,
+  
+  "graph_structure": {
+    "nodes": [
+      {
+        "id": "DAC1",
+        "type": "mixed_signal_ic",
+        "component": "AD5593R", 
+        "function": "8_channel_configurable_adc_dac",
+        "position": {"x": 96.52, "y": 76.2},
+        "characteristics": {
+          "resolution": "12_bit_4096_levels",
+          "channels": 8,
+          "interface": "i2c_400khz_1mhz_capable",
+          "reference_voltage": "internal_2_5v_external_capable",
+          "output_range": "0_to_vref_or_0_to_2x_vref",
+          "conversion_time": "2us_adc_6us_dac_settling"
+        }
+      },
+      {
+        "id": "R1",
+        "type": "resistor",
+        "value": "10k",
+        "function": "reset_pullup",
+        "position": {"x": 63.5, "y": 33.02}
+      },
+      {
+        "id": "R2", 
+        "type": "resistor",
+        "value": "4.7k",
+        "function": "i2c_sda_pullup", 
+        "position": {"x": 72.39, "y": 33.02}
+      },
+      {
+        "id": "R3",
+        "type": "resistor", 
+        "value": "4.7k",
+        "function": "i2c_scl_pullup",
+        "position": {"x": 81.28, "y": 33.02}
+      }
+    ],
+    
+    "edges": [
+      {
+        "id": "i2c_sda_connection",
+        "source": "SDA",
+        "target": "DAC1",
+        "type": "digital_communication",
+        "protocol": "i2c_data", 
+        "pullup": "4.7k_to_vcc",
+        "speed": "400khz_standard_1mhz_fast_plus"
+      },
+      {
+        "id": "i2c_scl_connection", 
+        "source": "SCL",
+        "target": "DAC1",
+        "type": "digital_communication",
+        "protocol": "i2c_clock",
+        "pullup": "4.7k_to_vcc",
+        "speed": "400khz_standard_1mhz_fast_plus"
+      },
+      {
+        "id": "reset_connection",
+        "source": "~{RESET}",
+        "target": "DAC1", 
+        "type": "control_signal",
+        "pullup": "10k_to_vcc",
+        "function": "active_low_hardware_reset"
+      },
+      {
+        "id": "chip_select_connection",
+        "source": "~{CHIP_SELECT}",
+        "target": "DAC1",
+        "type": "control_signal", 
+        "function": "i2c_address_select_a0_pin"
+      }
+    ],
+    
+    "nets": [
+      {
+        "id": "net_vcc",
+        "name": "VCC",
+        "type": "power_supply",
+        "voltage": 5.0,
+        "connections": ["DAC1", "R1", "R2", "R3"],
+        "current_budget": "3_2ma_dac_plus_pullups"
+      },
+      {
+        "id": "net_gnd", 
+        "name": "GND",
+        "type": "ground",
+        "voltage": 0.0,
+        "connections": ["DAC1"],
+        "reference": "analog_digital_common"
+      },
+      {
+        "id": "net_i2c_sda",
+        "name": "SDA", 
+        "type": "digital_communication",
+        "protocol": "i2c_data",
+        "connections": ["DAC1", "R2", "external_controller"],
+        "electrical": "open_drain_with_pullup"
+      },
+      {
+        "id": "net_i2c_scl",
+        "name": "SCL",
+        "type": "digital_communication", 
+        "protocol": "i2c_clock",
+        "connections": ["DAC1", "R3", "external_controller"],
+        "electrical": "open_drain_with_pullup"
+      }
+    ]
+  },
+  
+  "dac_configuration": {
+    "channel_assignment": {
+      "ch0": "OUTPUT_1", 
+      "ch1": "OUTPUT_2",
+      "ch2": "OUTPUT_3",
+      "ch3": "OUTPUT_4", 
+      "ch4": "OUTPUT_5",
+      "ch5": "OUTPUT_6",
+      "ch6": "OUTPUT_7",
+      "ch7": "OUTPUT_8"
+    },
+    
+    "register_configuration": {
+      "dac_mode": "all_pins_configured_as_dac_output",
+      "reference": "internal_2_5v_or_external_vref",
+      "range": "2x_gain_for_0_to_5v_output", 
+      "ldac_mode": "direct_update_no_ldac_pin"
+    },
+    
+    "i2c_addressing": {
+      "base_address": "0x10",
+      "a0_pin_control": "chip_select_for_address_selection",
+      "address_range": "0x10_to_0x17_via_a0_a1_a2"
+    }
+  },
+  
+  "signal_integrity": {
+    "digital_domain": {
+      "i2c_timing": "400khz_standard_1mhz_capable",
+      "logic_levels": "3_3v_5v_compatible",
+      "noise_immunity": "schmitt_trigger_inputs"
+    },
+    
+    "analog_domain": { 
+      "dac_linearity": "±2_lsb_inl_±1_lsb_dnl",
+      "output_impedance": "low_impedance_buffer",
+      "settling_time": "6us_to_0_1_percent",
+      "noise": "dominated_by_quantization_thermal"
+    },
+    
+    "power_integrity": {
+      "supply_rejection": "psrr_specification_in_datasheet",
+      "decoupling": "local_ceramic_capacitors_recommended", 
+      "current_consumption": "1_6ma_typ_all_dacs_active"
+    }
+  },
+  
+  "firmware_interface": {
+    "driver_abstraction": {
+      "library": "rob_tillaart_ad5593r", 
+      "initialization": "configure_all_pins_as_dac",
+      "write_methods": ["single_channel", "multiple_channels", "all_channels"],
+      "error_handling": "i2c_timeout_retry_logic"
+    },
+    
+    "real_time_constraints": {
+      "i2c_transaction_time": "~20us_per_channel_update",
+      "thread_safety": "mutex_protected_in_electric_mayhem_class",
+      "update_rate": "limited_by_i2c_speed_not_dac_settling"
+    }
+  },
+  
+  "analysis_metrics": {
+    "dc_accuracy": {
+      "resolution": "12_bit_0_024_percent_fsr",
+      "linearity": "±2_lsb_inl_maximum", 
+      "offset_error": "±4_lsb_maximum",
+      "gain_error": "±0_1_percent_maximum"
+    },
+    
+    "dynamic_performance": {
+      "settling_time": "6us_to_0_1_percent_1k_load",
+      "slew_rate": "limited_by_output_buffer",
+      "bandwidth": "dc_response_only_not_ac_optimized", 
+      "noise": "quantization_plus_thermal_plus_reference"
+    },
+    
+    "digital_interface": {
+      "i2c_speed": "400khz_standard_1mhz_fast_mode_plus",
+      "setup_hold_times": "per_i2c_specification",
+      "timeout_handling": "firmware_retry_with_backoff"
+    }
+  }
+}
