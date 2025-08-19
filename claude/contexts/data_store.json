@@ -98,6 +98,11 @@
       "keywords": ["datalab", "marker", "external tool", "integration", "api", "workflow"],
       "description": "External tool integration knowledge"
     },
+    "minify_json_tool": {
+      "path": "claude/data_store/knowledge/external_tools/minify_json.json",
+      "keywords": ["minify", "json", "batch", "processing", "knowledge", "compression", "storage", "python", "script", "automation", "file processing", "claude tools"],
+      "description": "Python script for batch minification of JSON files in the knowledge base"
+    },
     "knowledge_management": {
       "path": "claude/data_store/knowledge/managing.json",
       "keywords": ["knowledge", "managing", "create knowledge", "update knowledge", "knowledge file", "bootstrap", "instructions", "data_store", "categorization", "research", "documentation"],

@@ -1,10 +1,4 @@
 {
-    "project": {
-        "name": "Master of Muppets",
-        "description": "USB MIDI to 16ch CV (0-10V) on Teensy 4.1",
-        "platform": "Teensy 4.1",
-        "type": "embedded_audio"
-    },
     "contexts": {
         "core":{
             "CRITICAL": true,
