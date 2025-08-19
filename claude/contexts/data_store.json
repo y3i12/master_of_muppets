@@ -182,6 +182,11 @@
       "path": "claude/data_store/knowledge/algorithms/code_analysis_graphs.json", 
       "keywords": ["code", "analysis", "program", "software", "control flow", "data flow", "call graph", "dependency", "static analysis", "dynamic analysis", "compiler", "optimization", "cfg", "ast", "refactoring", "testing"],
       "description": "Application of graph theory to software analysis, optimization, and understanding"
+    },
+    "master_of_muppets_complete_correlation": {
+      "path": "claude/data_store/knowledge/master_of_muppets_complete_correlation.json",
+      "keywords": ["master of muppets", "correlation", "cross-domain", "multi-domain", "integration", "hardware software", "circuit firmware", "pcb code", "system-level", "co-design", "embedded system", "real-time", "teensy", "midi", "cv", "dac", "ad5593r", "mcp4728", "threading", "teensythreads", "graph theory", "circuit analysis", "code analysis", "kicad", "performance", "optimization", "fault tolerance", "reliability", "timing analysis"],
+      "description": "CRITICAL: Comprehensive cross-domain correlation of all Master of Muppets knowledge domains including hardware, firmware, algorithms, and design methodologies"
     }
   },
   "access_patterns": {
