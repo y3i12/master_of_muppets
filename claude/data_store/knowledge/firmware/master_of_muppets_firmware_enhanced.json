@@ -1,0 +1,537 @@
+{
+  "name": "Master of Muppets Firmware - Enhanced Architecture",
+  "description": "Advanced multi-threaded USB MIDI to 16-channel CV converter firmware for Teensy 4.1 with sophisticated threading model and production-ready optimizations",
+  "version": "Season 04",
+  "platform": {
+    "hardware": "Teensy 4.1 (ARM Cortex-M7)",
+    "framework": "Arduino",
+    "build_system": "PlatformIO",
+    "clock_speed": "600MHz",
+    "fpu": "Hardware FPU (fpv4-sp-d16)"
+  },
+  "project_structure": {
+    "firmware/": {
+      "description": "Main firmware directory",
+      "subdirectories": {
+        "include/": {
+          "description": "Core header files and driver interfaces",
+          "files": {
+            "dr_teeth.h": {
+              "purpose": "Global configuration constants and buffer management struct",
+              "key_features": ["Static buffer allocation", "Template-based DAC operations", "System-wide constants"]
+            },
+            "electric_mayhem.h": {
+              "purpose": "Template-based multi-threaded DAC controller with advanced synchronization",
+              "key_features": ["Thread-safe state management", "Sequence-based updates", "Worker thread orchestration"]
+            },
+            "muppet_clock.h": {
+              "purpose": "Global timing system with microsecond precision",
+              "key_features": ["Float-based global time", "Overflow protection", "Template time queries"]
+            },
+            "drivers/": {
+              "description": "Hardware abstraction layer for DAC drivers",
+              "files": {
+                "rob_tillaart_ad_5993r.h": "AD5593R 8-channel 12-bit DAC driver interface",
+                "adafruit_mcp_4728.h": "MCP4728 4-channel 12-bit DAC driver interface"
+              }
+            }
+          }
+        },
+        "src/": {
+          "description": "Implementation files",
+          "files": {
+            "main.cpp": {
+              "purpose": "Main application entry point with threading setup",
+              "key_features": ["Thread initialization", "MIDI callback setup", "LFO test mode", "LED debugging"]
+            },
+            "muppet_clock.cpp": {
+              "purpose": "Clock implementation with overflow protection",
+              "key_features": ["Microsecond precision timing", "Automatic overflow handling at 1000 seconds"]
+            },
+            "master_of_muppets.hpp": {
+              "purpose": "Global buffer instantiation",
+              "key_features": ["Static buffer declarations", "System-wide data structures"]
+            },
+            "drivers/": {
+              "description": "Driver implementations",
+              "files": {
+                "rob_tillaart_ad_5993r.cpp": "AD5593R driver with retry logic and hardware configuration",
+                "adafruit_mcp_4728.cpp": "MCP4728 driver implementation"
+              }
+            }
+          }
+        },
+        "lib/": {
+          "description": "Third-party libraries",
+          "libraries": {
+            "AD5593R": {
+              "source": "Rob Tillaart",
+              "purpose": "AD5593R DAC communication library"
+            },
+            "Adafruit BusIO": {
+              "source": "Adafruit",
+              "purpose": "I2C/SPI abstraction layer"
+            },
+            "Adafruit MCP4728": {
+              "source": "Adafruit", 
+              "purpose": "MCP4728 DAC library"
+            },
+            "TeensyThreads": {
+              "source": "Community",
+              "purpose": "Cooperative threading library for Teensy"
+            },
+            "FunctionGenerator": {
+              "source": "Custom",
+              "purpose": "LFO and waveform generation for testing"
+            }
+          }
+        },
+        "platformio.ini": {
+          "purpose": "Build configuration with aggressive optimizations",
+          "key_features": ["Maximum optimization flags", "ARM Cortex-M7 specific optimizations", "Hardware FPU configuration"]
+        }
+      }
+    }
+  },
+  "core_architecture": {
+    "overview": "Template-based multi-threaded real-time system with hardware abstraction and advanced synchronization",
+    "design_patterns": [
+      "Template-based polymorphism for compile-time DAC driver selection",
+      "Thread-safe buffer management with mutex protection",
+      "Sequence-based update tracking to prevent redundant operations",
+      "Hardware abstraction layer with standardized driver interface",
+      "Static memory allocation throughout (zero dynamic allocation)"
+    ],
+    "threading_model": {
+      "library": "TeensyThreads",
+      "scheduling": "Cooperative multitasking",
+      "thread_slice": "10 microseconds",
+      "total_threads": "5 (2 system + 2 DAC workers + 1 periodic)",
+      "threads": {
+        "the_voice_from_beyond": {
+          "type": "Input Processing Thread",
+          "purpose": "MIDI input processing with timing updates",
+          "synchronization": "Global inspiration mutex",
+          "operations": ["USB MIDI reading", "Clock tick updates", "Input buffer updates"]
+        },
+        "the_muppet_show": {
+          "type": "Main Buffer Copy Thread",
+          "purpose": "Copies input_buffer to output_buffer with DAC worker coordination",
+          "synchronization": "Global inspiration mutex + per-DAC mutexes",
+          "operations": ["Buffer copying", "DAC worker triggering", "Mutex management"]
+        },
+        "muppet_worker[0]": {
+          "type": "DAC Worker Thread",
+          "purpose": "Dedicated worker for DAC 0 (AD5593R on Wire2, pin 11)",
+          "synchronization": "Per-DAC state mutex + data mutex",
+          "operations": ["Local buffer copying", "Hardware DAC updates", "Sequence tracking"]
+        },
+        "muppet_worker[1]": {
+          "type": "DAC Worker Thread", 
+          "purpose": "Dedicated worker for DAC 1 (AD5593R on Wire1, pin 37)",
+          "synchronization": "Per-DAC state mutex + data mutex",
+          "operations": ["Local buffer copying", "Hardware DAC updates", "Sequence tracking"]
+        },
+        "party_pooper": {
+          "type": "Periodic Maintenance Thread",
+          "purpose": "Force refresh all DACs every 100ms to prevent stuck states",
+          "synchronization": "Thread-safe DAC update requests",
+          "operations": ["Periodic force refresh", "System reliability maintenance"]
+        }
+      }
+    }
+  },
+  "system_constants": {
+    "dr_teeth_constants": {
+      "k_dac_count": {
+        "value": 2,
+        "description": "Number of DAC chips in system"
+      },
+      "k_channels_per_dac": {
+        "value": 8,
+        "description": "Channels per DAC (AD5593R has 8 configurable I/O)"
+      },
+      "k_total_channels": {
+        "value": 16,
+        "description": "Total CV output channels (2 DACs × 8 channels)"
+      },
+      "k_max_value": {
+        "value": 65535,
+        "description": "Maximum 16-bit internal value (64K - 1)"
+      },
+      "k_thread_slice_micros": {
+        "value": 10,
+        "description": "Thread slice duration in microseconds for low-latency"
+      },
+      "k_force_refresh_every_millis": {
+        "value": 100,
+        "description": "Periodic force refresh interval to prevent stuck states"
+      },
+      "k_audio_half_scale": {
+        "value": 32768,
+        "description": "Half-scale value for bipolar audio signals"
+      },
+      "k_midi_pitch_zero_offset": {
+        "value": 8192,
+        "description": "MIDI pitch bend center point (14-bit)"
+      },
+      "k_midi_pitch_14_bit_max": {
+        "value": 16383,
+        "description": "Maximum 14-bit MIDI value (0x3FFF)"
+      },
+      "k_midi_to_framework_scale": {
+        "value": 4,
+        "description": "Scaling factor from 14-bit MIDI to 16-bit framework"
+      }
+    }
+  },
+  "advanced_threading_features": {
+    "muppet_state": {
+      "type": "Thread-safe state management structure",
+      "purpose": "Per-DAC worker thread state with sequence-based synchronization",
+      "fields": {
+        "update_requested": {
+          "type": "volatile bool",
+          "purpose": "Atomic flag for update requests"
+        },
+        "update_in_progress": {
+          "type": "volatile bool", 
+          "purpose": "Atomic flag preventing concurrent updates"
+        },
+        "update_sequence": {
+          "type": "volatile uint32_t",
+          "purpose": "Sequence number for update tracking and duplicate prevention"
+        },
+        "state_mutex": {
+          "type": "Threads::Mutex",
+          "purpose": "Mutex protecting state variables"
+        }
+      }
+    },
+    "orientation_guide": {
+      "type": "Worker thread context structure",
+      "purpose": "Passes references to worker threads for DAC operations",
+      "fields": {
+        "muppet": "Pointer to DAC driver instance",
+        "lock": "Pointer to data protection mutex",
+        "state": "Pointer to thread state management",
+        "output_buffer": "Pointer to DAC-specific output buffer section"
+      }
+    },
+    "sequence_based_updates": {
+      "description": "Advanced update tracking system",
+      "mechanism": "Each DAC worker tracks last processed sequence number",
+      "benefits": [
+        "Prevents redundant DAC writes",
+        "Ensures updates are processed exactly once",
+        "Maintains consistency during high-frequency updates",
+        "Enables lock-free update detection"
+      ]
+    },
+    "double_mutex_protection": {
+      "description": "Two-level mutex system for maximum thread safety",
+      "levels": {
+        "inspiration_mutex": {
+          "scope": "Global",
+          "protects": ["Input buffer access", "Main buffer copy operations"],
+          "used_by": ["the_voice_from_beyond", "the_muppet_show"]
+        },
+        "per_dac_mutexes": {
+          "scope": "Per-DAC",
+          "protects": ["Output buffer sections", "DAC-specific data"],
+          "used_by": ["the_muppet_show", "individual muppet_workers"]
+        }
+      }
+    }
+  },
+  "data_flow_architecture": {
+    "input_stage": {
+      "source": "USB MIDI pitch bend messages",
+      "processing": "14-bit MIDI to 16-bit internal conversion with offset correction",
+      "storage": "dr_teeth::input_buffer[16]",
+      "thread": "the_voice_from_beyond",
+      "callback": "set_channel_value(channel, pitch)",
+      "conversion_formula": "min(pitch + k_midi_pitch_zero_offset, k_midi_pitch_14_bit_max) * k_midi_to_framework_scale"
+    },
+    "buffer_copy_stage": {
+      "operation": "Copy input_buffer sections to output_buffer sections per DAC",
+      "thread": "the_muppet_show",
+      "synchronization": "Global inspiration mutex + per-DAC mutexes",
+      "method": "dr_teeth::go_muppets() template function",
+      "optimization": "Direct memcpy for efficient block transfers"
+    },
+    "hardware_output_stage": {
+      "threads": "Individual muppet_worker threads (one per DAC)",
+      "local_buffers": "Thread-local copies for atomic hardware updates",
+      "conversion": "16-bit framework values to 12-bit DAC values via scaling",
+      "hardware_operations": ["enable()", "set_values()", "disable()"],
+      "scaling_formula": "(value * DAC_MAX_VAL) / dr_teeth::k_max_value"
+    }
+  },
+  "hardware_configuration": {
+    "dac_0": {
+      "chip": "AD5593R",
+      "i2c_address": "0x10",
+      "i2c_bus": "Wire2",
+      "control_pin": 11,
+      "channels": 8,
+      "resolution": "12-bit",
+      "output_range": "0-10V (with 2x gain)",
+      "reference": "Internal 2.5V",
+      "ldac_mode": "Direct (immediate update)"
+    },
+    "dac_1": {
+      "chip": "AD5593R", 
+      "i2c_address": "0x10",
+      "i2c_bus": "Wire1",
+      "control_pin": 37,
+      "channels": 8,
+      "resolution": "12-bit",
+      "output_range": "0-10V (with 2x gain)",
+      "reference": "Internal 2.5V",
+      "ldac_mode": "Direct (immediate update)"
+    },
+    "i2c_configuration": {
+      "clock_speed": "400kHz (fast mode)",
+      "initialization": "Separate initialization per bus",
+      "retry_logic": "Up to 100 attempts with 10ms delays"
+    }
+  },
+  "driver_abstraction_layer": {
+    "interface_requirements": {
+      "types": {
+        "value_t": "uint16_t - Standard value type",
+        "initialization_struct_t": "Driver-specific initialization data"
+      },
+      "constants": {
+        "k_channels": "Number of channels supported by driver",
+        "k_max_val": "Maximum DAC value (typically 4095 for 12-bit)",
+        "k_wire_clock": "Recommended I2C clock speed"
+      },
+      "methods": {
+        "initialize()": "Hardware initialization and configuration",
+        "enable()": "Enable DAC for updates (typically sets control pin LOW)", 
+        "disable()": "Disable DAC after updates (typically sets control pin HIGH)",
+        "set_channel_value()": "Update single channel",
+        "set_all_channels_same_value()": "Set all channels to same value",
+        "set_values()": "Bulk update all channels (preferred for efficiency)"
+      }
+    },
+    "polymorphic_design": {
+      "mechanism": "C++ templates for compile-time driver selection",
+      "benefits": [
+        "Zero runtime overhead",
+        "Type safety at compile time",
+        "Easy driver swapping via typedef",
+        "Optimized code generation"
+      ],
+      "usage": "electric_mayhem<dac_driver_t> where dac_driver_t is the chosen driver"
+    }
+  },
+  "performance_optimizations": {
+    "compiler_optimizations": {
+      "optimization_level": "-O3 (maximum optimization)",
+      "flags": {
+        "-ffast-math": "Aggressive floating-point optimizations",
+        "-funroll-loops": "Loop unrolling for performance",
+        "-fomit-frame-pointer": "Remove frame pointers for more registers",
+        "-march=armv7e-m": "Target ARM Cortex-M7 architecture",
+        "-mfpu=fpv4-sp-d16": "Use hardware FPU",
+        "-mfloat-abi=hard": "Hardware floating-point ABI"
+      },
+      "disabled_optimizations": {
+        "-flto": "Link-time optimization disabled (conflicts with TeensyThreads)"
+      }
+    },
+    "code_patterns": {
+      "static_allocation": "All buffers and structures statically allocated",
+      "template_polymorphism": "Compile-time polymorphism for zero runtime cost",
+      "inline_functions": "Small functions inlined for performance",
+      "direct_memory_copies": "memcpy used for efficient bulk transfers",
+      "compile_time_constants": "constexpr used throughout for compile-time evaluation"
+    },
+    "threading_optimizations": {
+      "cooperative_multitasking": "No preemption overhead",
+      "short_thread_slices": "10μs slices for low latency",
+      "dedicated_workers": "Separate thread per DAC for parallel processing",
+      "lock_free_techniques": "Sequence numbers reduce lock contention"
+    }
+  },
+  "real_time_characteristics": {
+    "latency_targets": {
+      "thread_slice": "10 microseconds maximum",
+      "midi_to_cv": "Sub-millisecond MIDI to CV conversion",
+      "dac_update": "Direct hardware updates without buffering delays"
+    },
+    "jitter_reduction": {
+      "dedicated_threads": "Separate threads prevent processing interference",
+      "static_allocation": "No garbage collection or dynamic allocation delays", 
+      "hardware_fpu": "Hardware floating-point for consistent timing",
+      "optimized_compilation": "Maximum compiler optimizations"
+    },
+    "reliability_features": {
+      "retry_logic": "Hardware initialization with retry loops",
+      "periodic_refresh": "Force refresh every 100ms prevents stuck states",
+      "overflow_protection": "Clock overflow handling at 1000 seconds",
+      "thread_safety": "Comprehensive mutex protection"
+    }
+  },
+  "testing_and_debug_features": {
+    "compile_time_flags": {
+      "DENTAL_CHECK": {
+        "purpose": "Enable comprehensive test mode",
+        "enables": ["LFO testing", "LED debugging", "Serial output"]
+      },
+      "LFO_FREQUENCY": {
+        "purpose": "Set LFO frequency for testing (Hz)",
+        "example": "1000 // 1kHz test frequency"
+      },
+      "LFO_SHAPE": {
+        "purpose": "Select LFO waveform",
+        "options": ["sinus", "triangle", "square", "sawtooth", "trapezium1", "trapezium2", "heartBeat"]
+      },
+      "LFO_CHANNEL": {
+        "purpose": "Restrict LFO to single channel",
+        "usage": "Uncommented applies LFO to all channels"
+      },
+      "DEBUG_LED": {
+        "purpose": "Enable LED debugging output",
+        "typical_value": "LED_BUILTIN"
+      },
+      "DEBUG_LED_BLINK": {
+        "purpose": "LED blinking for activity indication"
+      },
+      "DEBUG_CHANNEL": {
+        "purpose": "Channel to display on LED as intensity"
+      }
+    },
+    "runtime_monitoring": {
+      "led_intensity": "LED brightness shows channel value",
+      "led_blinking": "Blinking indicates MIDI activity",
+      "timing_functions": "LED blink timing uses global clock",
+      "activity_tracking": "Visual feedback for debugging"
+    },
+    "lfo_test_mode": {
+      "purpose": "Replace MIDI input with generated LFO signals",
+      "waveforms": "Multiple waveform options via FunctionGenerator library",
+      "frequency_control": "Configurable frequency via compile-time define",
+      "channel_selection": "Single channel or all channels",
+      "amplitude": "Scaled to framework range (±32767)"
+    }
+  },
+  "operational_modes": {
+    "production_mode": {
+      "description": "Normal USB MIDI to CV operation",
+      "input": "USB MIDI pitch bend messages on channels 1-16",
+      "output": "0-10V CV signals on 16 channels",
+      "processing": "Real-time conversion with <1ms latency",
+      "defines": "No test defines enabled"
+    },
+    "test_mode": {
+      "description": "LFO testing mode for development and verification",
+      "activation": "#define DENTAL_CHECK",
+      "input": "Generated LFO signals replace MIDI",
+      "output": "Synchronized CV signals on selected channels",
+      "debugging": "LED feedback and timing visualization"
+    }
+  },
+  "build_and_deployment": {
+    "platform_io_commands": {
+      "build": "platformio run",
+      "upload": "platformio run --target upload", 
+      "monitor": "platformio device monitor",
+      "clean": "platformio run --target clean"
+    },
+    "dependencies": [
+      "PlatformIO Core",
+      "Teensy platform package",
+      "USB drivers for Teensy 4.1",
+      "Required libraries (auto-installed via lib_deps)"
+    ],
+    "build_targets": {
+      "teensy41": {
+        "platform": "teensy",
+        "board": "teensy41",
+        "framework": "arduino"
+      }
+    }
+  },
+  "system_reliability": {
+    "error_handling": {
+      "hardware_initialization": {
+        "retry_mechanism": "Up to 100 attempts with 10ms delays",
+        "fallback_behavior": "Continue operation if DAC fails to initialize",
+        "status_indication": "LED patterns for debugging"
+      },
+      "thread_synchronization": {
+        "deadlock_prevention": "Consistent lock ordering",
+        "timeout_handling": "Non-blocking locks where appropriate",
+        "state_consistency": "Atomic operations for critical flags"
+      }
+    },
+    "maintenance_operations": {
+      "periodic_refresh": {
+        "frequency": "Every 100ms via party_pooper thread",
+        "purpose": "Prevent DAC register corruption or stuck states",
+        "mechanism": "Force update all channels"
+      },
+      "clock_overflow": {
+        "detection": "Global time > 1,000,000,000ms (~16.7 minutes)",
+        "handling": "Subtract overflow amount to prevent float precision loss",
+        "impact": "Seamless operation without interruption"
+      }
+    }
+  },
+  "naming_conventions": {
+    "theme": "Muppets characters and references throughout codebase",
+    "rationale": "Memorable names that reflect system behavior and relationships",
+    "examples": {
+      "system_components": {
+        "dr_teeth": "Band leader - core system configuration and coordination",
+        "electric_mayhem": "The band - orchestrates multiple DAC 'musicians'",
+        "muppet_clock": "Timekeeper - global timing system"
+      },
+      "thread_names": {
+        "the_muppet_show": "Main performance thread - coordinates the show",
+        "the_voice_from_beyond": "Input thread - mysterious voice (MIDI input)",
+        "muppet_worker": "Individual performers - DAC worker threads",
+        "party_pooper": "Maintenance thread - keeps things running smoothly"
+      },
+      "method_names": {
+        "go_muppets": "Start the performance - trigger DAC updates",
+        "attention_please": "Non-blocking request for attention (trylock)",
+        "hey_you": "Demanding attention (blocking lock)",
+        "thanks": "Polite dismissal (unlock)",
+        "throw_muppet_in_the_mud": "Request DAC update (colorful but descriptive)",
+        "shit_storm": "Force update all DACs (dramatic but memorable)",
+        "put_muppet_to_work": "Start a worker thread"
+      }
+    }
+  },
+  "key_innovations": {
+    "architectural": [
+      "Sequence-based update tracking eliminates redundant DAC writes",
+      "Double-mutex system balances performance and thread safety",
+      "Template-based driver abstraction with zero runtime overhead",
+      "Dedicated worker threads per DAC for true parallelism"
+    ],
+    "performance": [
+      "Static allocation throughout eliminates garbage collection",
+      "10μs thread slices provide excellent real-time characteristics",
+      "Hardware FPU utilization for consistent floating-point timing",
+      "Compile-time optimizations with aggressive compiler flags"
+    ],
+    "reliability": [
+      "Comprehensive retry logic for hardware initialization",
+      "Periodic maintenance thread prevents stuck states",
+      "Clock overflow protection for long-running operation",
+      "Thread-safe state management with atomic operations"
+    ],
+    "maintainability": [
+      "Hardware abstraction layer enables easy DAC driver swapping",
+      "Comprehensive debug and test infrastructure",
+      "Self-documenting code with thematic naming conventions",
+      "Modular architecture with clear separation of concerns"
+    ]
+  }
+}
