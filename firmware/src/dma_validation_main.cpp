@@ -6,7 +6,13 @@
  * DMA automatic validation system with the Master of Muppets firmware.
  * 
  * Based on Season 04 DMA Hardware Testing Plan Knowledge Base.
+ * 
+ * Note: This file is compiled but functions are only used when
+ * STANDALONE_VALIDATION is defined to avoid multiple definition conflicts.
  */
+
+// Only compile this if in standalone validation mode
+#ifdef STANDALONE_VALIDATION
 
 #include <Arduino.h>
 #include "dma_automatic_validation.h"
@@ -40,11 +46,11 @@ void initialize_dma_validation_system() {
     
     // Initialize error handler
     dma_diagnostics::dma_error_handler::error_config_t error_config;
-    error_config.enable_led_diagnostics = true;
-    error_config.enable_serial_logging = true;
-    error_config.enable_automatic_recovery = true;
-    error_config.max_retry_count = 3;
-    error_config.retry_delay_ms = 10;
+    error_config.max_retry_attempts = 3;
+    error_config.retry_delay_base_ms = 1;
+    error_config.retry_delay_max_ms = 10;
+    error_config.enable_peripheral_reset = true;
+    error_config.enable_sync_fallback = true;
     
     g_error_handler = new dma_diagnostics::dma_error_handler(error_config);
     
@@ -465,5 +471,12 @@ void setup() {
 void loop() {
     validation_loop();
 }
+
+#endif // STANDALONE_VALIDATION
+
+#else
+
+// Note: Stub implementations are not needed when not in standalone mode
+// because main.cpp provides the actual implementations when ENABLE_DMA_VALIDATION is defined
 
 #endif // STANDALONE_VALIDATION

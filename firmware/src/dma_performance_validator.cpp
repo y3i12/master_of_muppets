@@ -682,13 +682,15 @@ bool dma_realtime_monitor::is_performance_acceptable() const {
 dma_realtime_monitor::alert_level_t dma_realtime_monitor::get_highest_alert_level() const {
     alert_level_t highest = alert_level_t::NONE;
     
-    monitor_mutex_.lock();
+    // Cast away const for mutex - this is acceptable for monitoring
+    Threads::Mutex& mutex = const_cast<Threads::Mutex&>(monitor_mutex_);
+    mutex.lock();
     for (uint8_t i = 0; i < alert_count_; ++i) {
         if (recent_alerts_[i].level > highest) {
             highest = recent_alerts_[i].level;
         }
     }
-    monitor_mutex_.unlock();
+    mutex.unlock();
     
     return highest;
 }
@@ -699,6 +701,59 @@ void dma_realtime_monitor::clear_alerts() {
     alert_index_ = 0;
     memset(recent_alerts_, 0, sizeof(recent_alerts_));
     monitor_mutex_.unlock();
+}
+
+const dma_realtime_monitor::performance_alert_t* dma_realtime_monitor::get_recent_alerts(uint8_t& count) const {
+    Threads::Mutex& mutex = const_cast<Threads::Mutex&>(monitor_mutex_);
+    mutex.lock();
+    count = alert_count_;
+    mutex.unlock();
+    return recent_alerts_;
+}
+
+// Additional benchmark method implementations
+void dma_performance_validator::benchmark_concurrent_operations(uint32_t concurrent_count) {
+    // Placeholder implementation for concurrent operations benchmark
+    uint32_t start_time = micros();
+    
+    // Simulate concurrent operations
+    for (uint32_t i = 0; i < concurrent_count * 10; ++i) {
+        delay(1); // Simulate concurrent operation
+    }
+    
+    uint32_t end_time = micros();
+    
+    // Update metrics
+    metrics_.concurrent_operations = concurrent_count;
+    metrics_.operations_per_second = (concurrent_count * 10 * 1000000) / (end_time - start_time);
+}
+
+void dma_performance_validator::benchmark_high_frequency_updates(uint32_t frequency_hz) {
+    // Placeholder implementation for high frequency updates
+    uint32_t operations = frequency_hz / 10; // Run for 100ms worth
+    uint32_t start_time = micros();
+    
+    for (uint32_t i = 0; i < operations; ++i) {
+        delayMicroseconds(1000000 / frequency_hz); // Maintain frequency timing
+    }
+    
+    uint32_t end_time = micros();
+    
+    // Update metrics
+    metrics_.operations_per_second = frequency_hz;
+    metrics_.average_latency_us = (end_time - start_time) / operations;
+}
+
+// Missing test suite method implementations
+const dma_test_suite::test_result_t& dma_test_suite::get_test_result(test_scenario_t scenario) const {
+    uint8_t index = static_cast<uint8_t>(scenario);
+    if (index < completed_tests_) {
+        return results_[index];
+    }
+    
+    // Return empty result if not found
+    static test_result_t empty_result;
+    return empty_result;
 }
 
 } // namespace dma_validation

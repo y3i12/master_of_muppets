@@ -46,13 +46,13 @@ public:
         uint32_t system_uptime_ms;
         
         performance_metrics_t() :
-            min_latency_us(UINT32_MAX), max_latency_us(0), average_latency_us(0),
-            thread_slice_violations(0), real_time_violations(0),
-            operations_per_second(0), bytes_per_second(0), concurrent_operations(0),
-            dma_operations_completed(0), sync_operations_completed(0), dma_time_saved_us(0),
-            dma_efficiency_percentage(0.0f), mutex_contention_time_us(0), thread_yield_count(0),
-            scheduling_jitter_us(0), error_rate_ppm(0), recovery_success_rate_percentage(100),
-            system_uptime_ms(0) {}
+            min_latency_us( UINT32_MAX ), max_latency_us( 0 ), average_latency_us( 0 ),
+            thread_slice_violations( 0 ), real_time_violations( 0 ),
+            operations_per_second( 0 ), bytes_per_second( 0 ), concurrent_operations( 0 ),
+            dma_operations_completed( 0 ), sync_operations_completed( 0 ), dma_time_saved_us( 0 ),
+            dma_efficiency_percentage( 0.0f ), mutex_contention_time_us( 0 ), thread_yield_count( 0 ),
+            scheduling_jitter_us( 0 ), error_rate_ppm( 0 ), recovery_success_rate_percentage( 100 ),
+            system_uptime_ms( 0 ) {}
     };
     
     // Test configuration
@@ -67,10 +67,10 @@ public:
         uint32_t thread_slice_limit_us;
         
         test_config_t() :
-            test_duration_ms(30000), measurement_interval_ms(1000),
-            enable_stress_testing(false), enable_concurrent_testing(true),
-            enable_error_injection(false), target_operations_per_second(1000),
-            max_acceptable_latency_us(1000), thread_slice_limit_us(10) {}
+            test_duration_ms( 30000 ), measurement_interval_ms( 1000 ),
+            enable_stress_testing( false ), enable_concurrent_testing( true ),
+            enable_error_injection( false ), target_operations_per_second( 1000 ),
+            max_acceptable_latency_us( 1000 ), thread_slice_limit_us( 10 ) {}
     };
     
     // Real-time constraint validation
@@ -82,9 +82,9 @@ public:
         bool overall_pass;
         
         constraint_status_t() :
-            latency_constraint_met(true), thread_slice_constraint_met(true),
-            throughput_constraint_met(true), error_rate_constraint_met(true),
-            overall_pass(true) {}
+            latency_constraint_met( true ), thread_slice_constraint_met( true ),
+            throughput_constraint_met( true ), error_rate_constraint_met( true ),
+            overall_pass( true ) {}
     };
 
 private:
@@ -99,9 +99,9 @@ private:
         bool measurement_active;
         
         measurement_state_t() :
-            operation_count(0), error_count(0), last_measurement_time(0),
-            test_start_time(0), total_latency_accumulator(0), concurrent_operation_counter(0),
-            measurement_active(false) {}
+            operation_count( 0 ), error_count( 0 ), last_measurement_time( 0 ),
+            test_start_time( 0 ), total_latency_accumulator( 0 ), concurrent_operation_counter( 0 ),
+            measurement_active( false ) {}
     };
     
     // Per-operation timing data
@@ -133,8 +133,8 @@ private:
         uint32_t error_injection_count;
         
         stress_test_state_t() :
-            active(false), high_frequency_operations(0),
-            concurrent_bus_operations(0), error_injection_count(0) {}
+            active( false ), high_frequency_operations( 0 ),
+            concurrent_bus_operations( 0 ), error_injection_count( 0 ) {}
     } stress_state_;
     
     // Internal methods
@@ -145,7 +145,7 @@ private:
     void analyze_timing_patterns();
     
 public:
-    dma_performance_validator(const test_config_t& config = test_config_t());
+    dma_performance_validator( const test_config_t& config = test_config_t() );
     ~dma_performance_validator();
     
     // Test control
@@ -154,23 +154,23 @@ public:
     bool is_test_active() const { return state_.measurement_active; }
     
     // Operation measurement interface
-    void start_operation_measurement(uint8_t dac_index, bool is_dma_operation = true);
-    void end_operation_measurement(uint8_t dac_index, drivers::dma_i2c_hal::error_code_t result);
+    void start_operation_measurement( uint8_t dac_index, bool is_dma_operation = true );
+    void end_operation_measurement( uint8_t dac_index, drivers::dma_i2c_hal::error_code_t result );
     
     // Thread monitoring
-    void record_thread_slice_usage(uint32_t slice_time_us);
-    void record_mutex_contention(uint32_t contention_time_us);
+    void record_thread_slice_usage( uint32_t slice_time_us );
+    void record_mutex_contention( uint32_t contention_time_us );
     void record_thread_yield();
     
     // Real-time validation
     const constraint_status_t& validate_constraints();
     bool is_real_time_constraint_met() const;
-    bool is_latency_acceptable(uint32_t latency_us) const;
+    bool is_latency_acceptable( uint32_t latency_us ) const;
     
     // Stress testing
     void enable_stress_testing();
     void disable_stress_testing();
-    void inject_error_scenario(uint8_t dac_index);
+    void inject_error_scenario( uint8_t dac_index );
     
     // Metrics access
     const performance_metrics_t& get_current_metrics() const { return metrics_; }
@@ -183,13 +183,13 @@ public:
     void print_timing_analysis() const;
     
     // Configuration
-    void set_test_config(const test_config_t& config) { config_ = config; }
+    void set_test_config( const test_config_t& config ) { config_ = config; }
     const test_config_t& get_test_config() const { return config_; }
     
     // Benchmarking utilities
-    void benchmark_dma_vs_sync(uint32_t iterations = 100);
-    void benchmark_concurrent_operations(uint32_t concurrent_count = 2);
-    void benchmark_high_frequency_updates(uint32_t frequency_hz = 1000);
+    void benchmark_dma_vs_sync( uint32_t iterations = 100 );
+    void benchmark_concurrent_operations( uint32_t concurrent_count = 2 );
+    void benchmark_high_frequency_updates( uint32_t frequency_hz = 1000 );
 };
 
 /**
@@ -219,9 +219,9 @@ public:
         const char* failure_reason;
         
         test_result_t() :
-            scenario(test_scenario_t::BASIC_FUNCTIONALITY), passed(false),
-            duration_ms(0), operations_completed(0), errors_encountered(0),
-            failure_reason(nullptr) {}
+            scenario( test_scenario_t::BASIC_FUNCTIONALITY ), passed( false ),
+            duration_ms( 0 ), operations_completed( 0 ), errors_encountered( 0 ),
+            failure_reason( nullptr ) {}
     };
 
 private:
@@ -241,16 +241,16 @@ private:
     test_result_t test_real_time_constraints();
 
 public:
-    dma_test_suite(dma_performance_validator* validator, 
-                   dma_diagnostics::dma_error_handler* error_handler);
+    dma_test_suite( dma_performance_validator* validator, 
+                   dma_diagnostics::dma_error_handler* error_handler );
     ~dma_test_suite();
     
     // Test execution
     bool run_all_tests();
-    test_result_t run_single_test(test_scenario_t scenario);
+    test_result_t run_single_test( test_scenario_t scenario );
     
     // Results access
-    const test_result_t& get_test_result(test_scenario_t scenario) const;
+    const test_result_t& get_test_result( test_scenario_t scenario ) const;
     uint8_t get_completed_test_count() const { return completed_tests_; }
     bool all_tests_passed() const;
     
@@ -259,8 +259,8 @@ public:
     void print_summary() const;
     
     // Utility methods
-    static const char* scenario_to_string(test_scenario_t scenario);
-    static test_scenario_t string_to_scenario(const char* scenario_name);
+    static const char* scenario_to_string( test_scenario_t scenario );
+    static test_scenario_t string_to_scenario( const char* scenario_name );
 };
 
 /**
@@ -279,9 +279,9 @@ public:
         float alert_threshold_error_rate;
         
         monitor_config_t() :
-            monitoring_interval_ms(5000), enable_automatic_alerts(true),
-            enable_performance_logging(false), enable_constraint_checking(true),
-            alert_threshold_latency_us(2000), alert_threshold_error_rate(1.0f) {}
+            monitoring_interval_ms( 5000 ), enable_automatic_alerts( true ),
+            enable_performance_logging( false ), enable_constraint_checking( true ),
+            alert_threshold_latency_us( 2000 ), alert_threshold_error_rate( 1.0f ) {}
     };
     
     enum class alert_level_t : uint8_t {
@@ -312,14 +312,14 @@ private:
     uint8_t alert_count_;
     
     // Monitoring thread
-    static void monitoring_thread(void* user_data);
+    static void monitoring_thread( void* user_data );
     void check_performance_constraints();
-    void generate_alert(alert_level_t level, const char* message, 
-                       uint32_t metric_value = 0, uint32_t threshold_value = 0);
+    void generate_alert( alert_level_t level, const char* message, 
+                       uint32_t metric_value = 0, uint32_t threshold_value = 0 );
 
 public:
-    dma_realtime_monitor(dma_performance_validator* validator,
-                        const monitor_config_t& config = monitor_config_t());
+    dma_realtime_monitor( dma_performance_validator* validator,
+                        const monitor_config_t& config = monitor_config_t() );
     ~dma_realtime_monitor();
     
     // Monitor control
@@ -328,12 +328,12 @@ public:
     bool is_monitoring_active() const { return monitor_active_; }
     
     // Alert access
-    const performance_alert_t* get_recent_alerts(uint8_t& count) const;
+    const performance_alert_t* get_recent_alerts( uint8_t& count ) const;
     alert_level_t get_highest_alert_level() const;
     void clear_alerts();
     
     // Configuration
-    void set_config(const monitor_config_t& config) { config_ = config; }
+    void set_config( const monitor_config_t& config ) { config_ = config; }
     const monitor_config_t& get_config() const { return config_; }
     
     // Status

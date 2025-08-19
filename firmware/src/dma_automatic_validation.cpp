@@ -8,25 +8,27 @@ dma_automatic_validation::dma_automatic_validation(
     dma_test_suite* test_suite,
     dma_realtime_monitor* monitor,
     dma_diagnostics::dma_error_handler* error_handler,
-    const validation_config_t& config) :
-    validator_(validator),
-    test_suite_(test_suite),
-    monitor_(monitor),
-    error_handler_(error_handler),
-    config_(config),
-    validation_active_(false),
-    current_phase_(config.current_phase),
-    phase_start_time_(0),
-    last_test_time_(0),
-    current_test_index_(0),
-    result_index_(0),
-    result_count_(0),
-    log_entry_count_(0),
-    trigger_pin_(config.trigger_config.trigger_pin),
-    trigger_armed_(false),
-    current_temperature_(25.0f),
-    current_voltage_(5.0f),
-    current_humidity_(50) {
+    const validation_config_t& config ) :
+    validator_( validator ),
+    test_suite_( test_suite ),
+    monitor_( monitor ),
+    error_handler_( error_handler ),
+    config_( config ),
+    validation_active_( false ),
+    current_phase_( config.current_phase ),
+    phase_start_time_( 0 ),
+    last_test_time_( 0 ),
+    current_test_index_( 0 ),
+    result_index_( 0 ),
+    result_count_( 0 ),
+    should_exit_thread_( false ),
+    log_entry_count_( 0 ),
+    trigger_pin_( config.trigger_config.trigger_pin ),
+    trigger_armed_( false ),
+    current_temperature_( 25.0f ),
+    current_voltage_( 5.0f ),
+    current_humidity_( 50 )
+{
     
     // Initialize trigger pin if enabled
     if (config_.enable_external_triggers) {
@@ -64,8 +66,9 @@ bool dma_automatic_validation::start_validation() {
         monitor_->start_monitoring();
     }
     
-    // Create validation thread
-    Threads::addThread(validation_thread_entry, this);
+    // Create validation thread  
+    should_exit_thread_ = false;
+    threads.addThread(validation_thread_entry, this);
     
     if (config_.enable_serial_reporting) {
         Serial.println("=================================================");
@@ -90,7 +93,7 @@ void dma_automatic_validation::stop_validation() {
     }
     
     validation_active_ = false;
-    validation_thread_wait_.signal();
+    should_exit_thread_ = true;
     
     // Stop monitoring
     if (monitor_ && monitor_->is_monitoring_active()) {
@@ -116,7 +119,7 @@ void dma_automatic_validation::validation_thread_entry(void* user_data) {
 }
 
 void dma_automatic_validation::validation_thread_function() {
-    while (validation_active_) {
+    while (validation_active_ && !should_exit_thread_) {
         uint32_t current_time = millis();
         
         // Check if it's time to run next test
@@ -129,7 +132,7 @@ void dma_automatic_validation::validation_thread_function() {
             }
             
             // Run appropriate test based on current phase
-            validation_result_t result;
+            dma_automatic_validation::validation_result_t result;
             
             switch (current_phase_) {
                 case validation_phase_t::PHASE_1_IMMEDIATE:
@@ -211,14 +214,14 @@ void dma_automatic_validation::validation_thread_function() {
         }
         
         // Yield to other threads
-        validation_thread_wait_.wait(100);
+        threads.delay(100);
     }
 }
 
-validation_result_t dma_automatic_validation::run_single_test(
+dma_automatic_validation::dma_automatic_validation::validation_result_t dma_automatic_validation::run_single_test(
     validation_phase_t phase, uint8_t test_id) {
     
-    validation_result_t result;
+    dma_automatic_validation::validation_result_t result;
     result.phase = phase;
     result.test_id = test_id;
     result.timestamp_ms = millis();
@@ -298,8 +301,8 @@ validation_result_t dma_automatic_validation::run_single_test(
 }
 
 // Phase 1 Test Implementations
-validation_result_t dma_automatic_validation::run_phase1_basic_functionality() {
-    validation_result_t result;
+dma_automatic_validation::dma_automatic_validation::validation_result_t dma_automatic_validation::run_phase1_basic_functionality() {
+    dma_automatic_validation::validation_result_t result;
     result.test_name = "Phase1_BasicFunctionality";
     
     // Run all 7 automated test scenarios
@@ -345,8 +348,8 @@ validation_result_t dma_automatic_validation::run_phase1_basic_functionality() {
     return result;
 }
 
-validation_result_t dma_automatic_validation::run_phase1_stress_testing() {
-    validation_result_t result;
+dma_automatic_validation::dma_automatic_validation::validation_result_t dma_automatic_validation::run_phase1_stress_testing() {
+    dma_automatic_validation::validation_result_t result;
     result.test_name = "Phase1_StressTest";
     
     if (validator_ && test_suite_) {
@@ -384,8 +387,8 @@ validation_result_t dma_automatic_validation::run_phase1_stress_testing() {
     return result;
 }
 
-validation_result_t dma_automatic_validation::run_phase1_concurrent_operations() {
-    validation_result_t result;
+dma_automatic_validation::validation_result_t dma_automatic_validation::run_phase1_concurrent_operations() {
+    dma_automatic_validation::validation_result_t result;
     result.test_name = "Phase1_ConcurrentOps";
     
     if (validator_ && test_suite_) {
@@ -416,8 +419,8 @@ validation_result_t dma_automatic_validation::run_phase1_concurrent_operations()
     return result;
 }
 
-validation_result_t dma_automatic_validation::run_phase1_performance_baseline() {
-    validation_result_t result;
+dma_automatic_validation::validation_result_t dma_automatic_validation::run_phase1_performance_baseline() {
+    dma_automatic_validation::validation_result_t result;
     result.test_name = "Phase1_PerfBaseline";
     
     if (validator_) {
@@ -452,8 +455,8 @@ validation_result_t dma_automatic_validation::run_phase1_performance_baseline() 
     return result;
 }
 
-validation_result_t dma_automatic_validation::run_phase1_error_injection() {
-    validation_result_t result;
+dma_automatic_validation::validation_result_t dma_automatic_validation::run_phase1_error_injection() {
+    dma_automatic_validation::validation_result_t result;
     result.test_name = "Phase1_ErrorInject";
     
     if (test_suite_) {
@@ -481,8 +484,8 @@ validation_result_t dma_automatic_validation::run_phase1_error_injection() {
     return result;
 }
 
-validation_result_t dma_automatic_validation::run_phase1_long_term_stability() {
-    validation_result_t result;
+dma_automatic_validation::validation_result_t dma_automatic_validation::run_phase1_long_term_stability() {
+    dma_automatic_validation::validation_result_t result;
     result.test_name = "Phase1_LongTerm";
     
     if (test_suite_) {
@@ -514,8 +517,8 @@ validation_result_t dma_automatic_validation::run_phase1_long_term_stability() {
 }
 
 // Phase 2 Test Implementations (require external equipment)
-validation_result_t dma_automatic_validation::run_phase2_timing_analysis() {
-    validation_result_t result;
+dma_automatic_validation::validation_result_t dma_automatic_validation::run_phase2_timing_analysis() {
+    dma_automatic_validation::validation_result_t result;
     result.test_name = "Phase2_TimingAnalysis";
     
     // This test requires external logic analyzer
@@ -543,8 +546,8 @@ validation_result_t dma_automatic_validation::run_phase2_timing_analysis() {
     return result;
 }
 
-validation_result_t dma_automatic_validation::run_phase2_performance_measurement() {
-    validation_result_t result;
+dma_automatic_validation::validation_result_t dma_automatic_validation::run_phase2_performance_measurement() {
+    dma_automatic_validation::validation_result_t result;
     result.test_name = "Phase2_PerfMeasure";
     
     // Requires oscilloscope for precise measurement
@@ -567,8 +570,8 @@ validation_result_t dma_automatic_validation::run_phase2_performance_measurement
     return result;
 }
 
-validation_result_t dma_automatic_validation::run_phase2_signal_integrity() {
-    validation_result_t result;
+dma_automatic_validation::validation_result_t dma_automatic_validation::run_phase2_signal_integrity() {
+    dma_automatic_validation::validation_result_t result;
     result.test_name = "Phase2_SignalIntegrity";
     
     // Requires oscilloscope for signal quality analysis
@@ -594,8 +597,8 @@ validation_result_t dma_automatic_validation::run_phase2_signal_integrity() {
     return result;
 }
 
-validation_result_t dma_automatic_validation::run_phase2_environmental_stress() {
-    validation_result_t result;
+dma_automatic_validation::validation_result_t dma_automatic_validation::run_phase2_environmental_stress() {
+    dma_automatic_validation::validation_result_t result;
     result.test_name = "Phase2_EnvStress";
     
     // Requires environmental chamber
@@ -634,8 +637,8 @@ validation_result_t dma_automatic_validation::run_phase2_environmental_stress() 
     return result;
 }
 
-validation_result_t dma_automatic_validation::run_phase2_emc_compliance() {
-    validation_result_t result;
+dma_automatic_validation::validation_result_t dma_automatic_validation::run_phase2_emc_compliance() {
+    dma_automatic_validation::validation_result_t result;
     result.test_name = "Phase2_EMC";
     
     // Requires EMC test equipment
@@ -660,8 +663,8 @@ validation_result_t dma_automatic_validation::run_phase2_emc_compliance() {
     return result;
 }
 
-validation_result_t dma_automatic_validation::run_phase2_power_efficiency() {
-    validation_result_t result;
+dma_automatic_validation::validation_result_t dma_automatic_validation::run_phase2_power_efficiency() {
+    dma_automatic_validation::validation_result_t result;
     result.test_name = "Phase2_PowerEff";
     
     // Requires power analyzer
@@ -686,8 +689,8 @@ validation_result_t dma_automatic_validation::run_phase2_power_efficiency() {
 }
 
 // Phase 3 Test Implementations
-validation_result_t dma_automatic_validation::run_phase3_production_testing() {
-    validation_result_t result;
+dma_automatic_validation::validation_result_t dma_automatic_validation::run_phase3_production_testing() {
+    dma_automatic_validation::validation_result_t result;
     result.test_name = "Phase3_Production";
     
     // Automated production test sequence
@@ -727,8 +730,8 @@ validation_result_t dma_automatic_validation::run_phase3_production_testing() {
     return result;
 }
 
-validation_result_t dma_automatic_validation::run_phase3_field_diagnostics() {
-    validation_result_t result;
+dma_automatic_validation::validation_result_t dma_automatic_validation::run_phase3_field_diagnostics() {
+    dma_automatic_validation::validation_result_t result;
     result.test_name = "Phase3_FieldDiag";
     
     // Test field diagnostic capabilities
@@ -738,7 +741,7 @@ validation_result_t dma_automatic_validation::run_phase3_field_diagnostics() {
         
         // Check alert system
         uint8_t alert_count = 0;
-        auto alerts = monitor_->get_recent_alerts(alert_count);
+        monitor_->get_recent_alerts(alert_count);
         
         // Check performance tracking
         result.metrics = validator_->get_current_metrics();
@@ -759,8 +762,8 @@ validation_result_t dma_automatic_validation::run_phase3_field_diagnostics() {
     return result;
 }
 
-validation_result_t dma_automatic_validation::run_phase3_calibration_procedures() {
-    validation_result_t result;
+dma_automatic_validation::validation_result_t dma_automatic_validation::run_phase3_calibration_procedures() {
+    dma_automatic_validation::validation_result_t result;
     result.test_name = "Phase3_Calibration";
     
     // Test calibration procedures
@@ -773,8 +776,8 @@ validation_result_t dma_automatic_validation::run_phase3_calibration_procedures(
     return result;
 }
 
-validation_result_t dma_automatic_validation::run_phase3_quality_control() {
-    validation_result_t result;
+dma_automatic_validation::validation_result_t dma_automatic_validation::run_phase3_quality_control() {
+    dma_automatic_validation::validation_result_t result;
     result.test_name = "Phase3_QC";
     
     // Statistical process control checks
@@ -971,7 +974,7 @@ bool dma_automatic_validation::initialize_sd_logging() {
     
     // Create unique filename with timestamp
     snprintf(log_filename_, sizeof(log_filename_), 
-             "DMA_VAL_%08X.csv", (uint32_t)millis());
+             "DMA_VAL_%08lX.csv", (unsigned long)millis());
     
     log_file_ = SD.open(log_filename_, FILE_WRITE);
     if (!log_file_) {
@@ -1069,6 +1072,44 @@ const char* dma_automatic_validation::phase_to_string(validation_phase_t phase) 
             return "PHASE_3_PRODUCTION";
         default:
             return "UNKNOWN";
+    }
+}
+
+bool dma_automatic_validation::check_phase_acceptance(validation_phase_t phase) const {
+    // Check if the current phase has passed acceptance criteria based on recent results
+    uint16_t phase_tests_run = 0;
+    uint16_t phase_tests_passed = 0;
+    
+    // Count tests for this phase
+    for (uint16_t i = 0; i < result_count_; ++i) {
+        uint16_t index = (result_index_ + MAX_RESULTS - 1 - i) % MAX_RESULTS;
+        if (results_[index].phase == phase) {
+            phase_tests_run++;
+            if (results_[index].passed) {
+                phase_tests_passed++;
+            }
+        }
+    }
+    
+    if (phase_tests_run == 0) {
+        return false; // No tests run for this phase
+    }
+    
+    float pass_rate = (float)phase_tests_passed / (float)phase_tests_run * 100.0f;
+    
+    // Phase-specific acceptance criteria
+    switch (phase) {
+        case validation_phase_t::PHASE_1_IMMEDIATE:
+            return pass_rate >= 90.0f; // 90% pass rate for Phase 1
+            
+        case validation_phase_t::PHASE_2_ADVANCED:
+            return pass_rate >= 95.0f; // 95% pass rate for Phase 2
+            
+        case validation_phase_t::PHASE_3_PRODUCTION:
+            return pass_rate >= criteria_.phase3.min_production_pass_rate;
+            
+        default:
+            return false;
     }
 }
 

@@ -44,7 +44,7 @@ public:
     };
     
     // Completion callback function type
-    typedef void (*dma_completion_callback_t)(transfer_state_t state, error_code_t error, void* user_data);
+    typedef void (*dma_completion_callback_t)( transfer_state_t state, error_code_t error, void* user_data );
     
     // Configuration structure for DMA I2C setup
     struct dma_i2c_config_t {
@@ -55,11 +55,11 @@ public:
         uint32_t timeout_ms;                   // Transfer timeout in milliseconds
         
         dma_i2c_config_t() :
-            wire_instance(nullptr),
-            dma_channel(0),
-            clock_frequency(400000),
-            slave_address(0x10),
-            timeout_ms(100)
+            wire_instance( nullptr ),
+            dma_channel( 0 ),
+            clock_frequency( 400000 ),
+            slave_address( 0x10 ),
+            timeout_ms( 100 )
         {}
     };
     
@@ -73,12 +73,12 @@ public:
         void* completion_context;              // User data passed to callback
         
         dma_i2c_transfer_t() :
-            data_buffer(nullptr),
-            data_length(0),
-            register_address(0),
-            is_write_operation(true),
-            slave_address_override(0),
-            completion_context(nullptr)
+            data_buffer( nullptr ),
+            data_length( 0 ),
+            register_address( 0 ),
+            is_write_operation( true ),
+            slave_address_override( 0 ),
+            completion_context( nullptr )
         {}
     };
 
@@ -98,13 +98,13 @@ private:
         dma_i2c_transfer_t pending_transfer;
         
         dma_i2c_handle_t() :
-            callback(nullptr),
-            state(transfer_state_t::IDLE),
-            last_error(error_code_t::SUCCESS),
-            user_data(nullptr),
-            transfer_start_time(0),
-            async_operation_pending(false),
-            async_operation_complete(false)
+            callback( nullptr ),
+            state( transfer_state_t::IDLE ),
+            last_error( error_code_t::SUCCESS ),
+            user_data( nullptr ),
+            transfer_start_time( 0 ),
+            async_operation_pending( false ),
+            async_operation_complete( false )
         {}
     };
     
@@ -112,10 +112,10 @@ private:
     bool initialized_;
     
     // Async operation simulation thread
-    static void async_worker_thread(void* user_data);
+    static void async_worker_thread( void* user_data );
     
     // Perform actual I2C transfer
-    error_code_t perform_i2c_transfer(const dma_i2c_transfer_t& transfer);
+    error_code_t perform_i2c_transfer( const dma_i2c_transfer_t& transfer );
     
     // Timeout checking
     bool is_transfer_timeout();
@@ -125,25 +125,25 @@ public:
     ~dma_i2c_hal();
     
     // Initialization and configuration
-    error_code_t init(const dma_i2c_config_t& config);
+    error_code_t init( const dma_i2c_config_t& config );
     error_code_t deinit();
     bool is_initialized() const { return initialized_; }
     
     // Asynchronous transfer operations
-    error_code_t transfer_async(const dma_i2c_transfer_t& transfer, 
+    error_code_t transfer_async( const dma_i2c_transfer_t& transfer, 
                                dma_completion_callback_t callback, 
-                               void* user_data);
+                               void* user_data );
     
     // Status and control operations
     transfer_state_t get_transfer_state() const { return handle_.state; }
     error_code_t get_last_error() const { return handle_.last_error; }
     bool is_transfer_complete() const;
-    error_code_t wait_for_completion(uint32_t timeout_ms = 0); // 0 = use configured timeout
+    error_code_t wait_for_completion( uint32_t timeout_ms = 0 ); // 0 = use configured timeout
     error_code_t abort_transfer();
     
     // Utility functions
-    static const char* state_to_string(transfer_state_t state);
-    static const char* error_to_string(error_code_t error);
+    static const char* state_to_string( transfer_state_t state );
+    static const char* error_to_string( error_code_t error );
     
     // Resource management
     void reset_state();
