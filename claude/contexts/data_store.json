@@ -44,7 +44,7 @@
     "firmware": {
       "location": "claude/data_store/knowledge/firmware/",
       "description": "Firmware-related knowledge and patterns",
-      "keywords": ["firmware", "embedded", "teensy", "microcontroller", "code", "programming", "platform"]
+      "keywords": ["firmware", "embedded", "teensy", "microcontroller", "code", "programming", "platform", "midi", "cv", "dac", "threading", "real-time"]
     },
     "hardware": {
       "location": "claude/data_store/knowledge/hardware/",
@@ -107,6 +107,11 @@
       "path": "claude/data_store/knowledge/coding/kicad/kiutils.json",
       "keywords": ["kiutils", "kicad", "parser", "python", "board", "schematic", "footprint", "symbol", "pcb", "sexpr", "s-expression", "api", "library", "from_file", "to_file", "create_new", "dataclass", "kicad_pcb", "kicad_sch", "kicad_mod", "kicad_sym"],
       "description": "Python library for parsing and manipulating KiCad files (boards, schematics, symbols, footprints)"
+    },
+    "master_of_muppets_firmware": {
+      "path": "claude/data_store/knowledge/firmware/master_of_muppets_firmware.json",
+      "keywords": ["master of muppets", "firmware", "teensy", "teensy 4.1", "midi", "cv", "converter", "dac", "ad5593r", "mcp4728", "usb midi", "threading", "teensythreads", "real-time", "dr_teeth", "electric_mayhem", "muppet", "platformio", "arduino", "embedded", "multi-threaded", "i2c", "pitch bend", "16 channel", "0-10v"],
+      "description": "Complete firmware architecture and implementation details for Master of Muppets USB MIDI to CV converter"
     }
   },
   "access_patterns": {
