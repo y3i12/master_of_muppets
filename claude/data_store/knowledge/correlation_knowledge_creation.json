@@ -84,8 +84,51 @@
 ]
 },
 "correlation_file_creation_process": {
-"step_1_knowledge_loading": {
-"description": "Load all relevant foundational knowledge files",
+"step_1_existing_correlation_analysis": {
+"description": "CRITICAL FIRST STEP: Load and analyze existing correlation files before creating new ones",
+"priority": "MANDATORY - Execute before all other steps",
+"existing_correlation_identification": {
+    "method": "Search data_store.json knowledge_files for existing correlation files",
+    "keywords_to_find": ["correlation", "cross-domain", "multi-domain", "integration", "unified", "complete_correlation"],
+    "files_to_load": "All files containing correlation keywords in description or keywords arrays"
+},
+"redundancy_analysis": {
+    "description": "Analyze existing correlation files for overlaps and redundancies",
+    "analysis_requirements": [
+        "Identify duplicate concepts across correlation files",
+        "Map overlapping domain coverage",
+        "Find redundant methodologies or approaches",
+        "Detect inconsistent information between files"
+    ],
+    "consolidation_strategy": {
+        "merge_candidates": "Files with >70% content overlap or complementary coverage",
+        "update_candidates": "Files needing additional domains or updated methodologies",
+        "deprecation_candidates": "Files superseded by more comprehensive correlations",
+        "integration_opportunities": "Separate files that should reference each other"
+    }
+},
+"existing_correlation_integration": {
+    "description": "Incorporate existing correlation knowledge into new correlation development",
+    "integration_methods": [
+        "Extend existing correlations with new domains",
+        "Update methodologies with new insights",
+        "Create cross-references between related correlation files",
+        "Consolidate redundant information into single authoritative files"
+    ]
+},
+"redundancy_elimination": {
+    "description": "Remove identified redundancies before proceeding",
+    "elimination_actions": [
+        "Merge overlapping correlation files",
+        "Remove duplicate methodologies",
+        "Consolidate scattered information",
+        "Update cross-references to point to consolidated files"
+    ],
+    "update_requirements": "MANDATORY: Update data_store.json to reflect all file changes"
+}
+},
+"step_2_foundational_knowledge_loading": {
+"description": "Load foundational knowledge files after correlation analysis",
 "required_files": {
 "always_load": [
     "graph_theory.json",
@@ -100,13 +143,13 @@
 ],
 "comprehensive_correlation": {
     "description": "For 'correlate all your knowledge' command",
-    "action": "Load ALL knowledge files from data_store.json",
+    "action": "Load ALL knowledge files from data_store.json AFTER existing correlation analysis",
     "analysis_required": "Analyze all files for reorganization opportunities"
 }
 },
 "loading_method": "Use Read tool with paths from data_store.json knowledge_files section"
 },
-"step_2_domain_analysis": {
+"step_3_domain_analysis": {
 "description": "Identify connection points between loaded knowledge domains",
 "analysis_framework": {
 "common_structures": "Identify shared graph structures across domains",
@@ -273,26 +316,30 @@
 "implementation_guidelines": {
 "file_creation_steps": [
 "1. Identify correlation trigger keywords from user request",
-"2. Load all relevant foundational knowledge files using Read tool",
-"3. Analyze loaded knowledge for connection points and correlations",
-"4. Synthesize unified methodologies and approaches",
-"5. Create practical examples using Master of Muppets or similar context",
-"6. Structure content according to correlation_file_structure",
-"7. Write correlation knowledge file with comprehensive content",
-"8. MANDATORY: Update claude/contexts/data_store.json with new correlation file entry including all relevant keywords to enable auto-loading"
+"2. MANDATORY FIRST: Execute step_1_existing_correlation_analysis - load and analyze existing correlation files",
+"3. Eliminate redundancies and consolidate overlapping correlation files",
+"4. Load relevant foundational knowledge files using Read tool",
+"5. Analyze loaded knowledge for NEW connection points and correlations not covered by existing files",
+"6. Synthesize unified methodologies and approaches, building on existing correlations",
+"7. Create practical examples using Master of Muppets or similar context",
+"8. Structure content according to correlation_file_structure",
+"9. Write correlation knowledge file with comprehensive content, avoiding duplication",
+"10. MANDATORY: Update claude/contexts/data_store.json with new/updated correlation file entries including all relevant keywords"
 ],
 "comprehensive_correlation_steps": {
 "description": "Special process for 'correlate all your knowledge' command",
 "steps": [
-"1. Load ALL knowledge files from data_store.json",
-"2. Analyze all content for overlaps, gaps, and reorganization opportunities",
-"3. Identify files that should be split (too large or covering multiple topics)",
-"4. Identify files that should be merged (overlapping or complementary content)",
-"5. Identify missing correlation files needed",
-"6. Create reorganization plan with specific file operations",
-"7. Execute file operations (move, split, merge, create) within claude/data_store/knowledge/",
-"8. MANDATORY: Update claude/contexts/data_store.json with all changes including new correlation files and keywords",
-"9. Create master correlation overview file"
+"1. MANDATORY FIRST: Load and analyze ALL existing correlation files for redundancies",
+"2. Consolidate and eliminate redundancies in existing correlation files",
+"3. Load ALL remaining knowledge files from data_store.json",
+"4. Analyze all content for overlaps, gaps, and reorganization opportunities",
+"5. Identify files that should be split (too large or covering multiple topics)",
+"6. Identify files that should be merged (overlapping or complementary content)",
+"7. Identify missing correlation files needed (not covered by existing correlations)",
+"8. Create reorganization plan with specific file operations",
+"9. Execute file operations (move, split, merge, create) within claude/data_store/knowledge/",
+"10. MANDATORY: Update claude/contexts/data_store.json with all changes including new/updated correlation files and keywords",
+"11. Create or update master correlation overview file"
 ],
 "file_operations_allowed": {
 "create_new_files": {
