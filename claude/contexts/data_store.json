@@ -97,6 +97,11 @@
       "path": "claude/data_store/knowledge/managing.json",
       "keywords": ["knowledge", "managing", "create knowledge", "update knowledge", "knowledge file", "bootstrap", "instructions", "data_store", "categorization", "research", "documentation"],
       "description": "CRITICAL: Bootstrap instructions for creating and managing knowledge files"
+    },
+    "s_expressions": {
+      "path": "claude/data_store/knowledge/coding/kicad/s_expressions.json",
+      "keywords": ["s-expression", "sexpr", "kicad", "parsing", "lisp", "syntax", "grammar", "kicad_sch", "kicad_pcb", "kicad_mod", "kicad_sym", "file format", "tokenizer", "lexer", "parser", "atom", "list", "parenthesis"],
+      "description": "KiCad S-expressions format reference for parsing and generating KiCad files"
     }
   },
   "access_patterns": {
