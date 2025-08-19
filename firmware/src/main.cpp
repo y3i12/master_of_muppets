@@ -18,7 +18,7 @@
 #define MASTER_OF_MUPPETS_AD5593R
 // #define DENTAL_CHECK
 #define ENABLE_DMA_OPERATIONS  // Enable DMA-based asynchronous I2C operations
-#define ENABLE_DMA_VALIDATION  // Enable comprehensive DMA validation system
+// #define ENABLE_DMA_VALIDATION  // Enable comprehensive DMA validation system
 
 
 
@@ -43,6 +43,7 @@ function_generator                          the_function_generator;
 
 
 #ifdef MASTER_OF_MUPPETS_AD5593R
+
 #ifdef ENABLE_DMA_OPERATIONS
 #include "drivers/rob_tillaart_ad_5993r_async.h"
 using dac_driver_t = drivers::rob_tillaart_ad_5993r_async;
@@ -50,14 +51,20 @@ using dac_driver_t = drivers::rob_tillaart_ad_5993r_async;
 #include "drivers/rob_tillaart_ad_5993r.h"
 using dac_driver_t = drivers::rob_tillaart_ad_5993r;
 #endif
-#endif
 
-#ifdef MASTER_OF_MUPPETS_MCP4728
+// end of MASTER_OF_MUPPETS_AD5593R
+#elif defined MASTER_OF_MUPPETS_MCP4728
+
 #ifdef ENABLE_DMA_OPERATIONS
 #error "unsuported"
 #endif
+
 #include "drivers/adafruit_mcp_4728.h"
 using dac_driver_t = drivers::adafruit_mcp_4728;
+
+// end of MASTER_OF_MUPPETS_MCP4728
+#else
+#error "define a dac driver"
 #endif
 
 
