@@ -1,0 +1,605 @@
+{
+  "module_name": "power_distribution_unified",
+  "description": "Unified comprehensive power distribution and thermal management graph combining basic power analysis with enhanced efficiency optimization and manufacturing considerations",
+  "graph_type": "unified_power_system_analysis",
+  "created": "2025-08-19",
+  "version": "unified_2.0",
+  "enhancement_level": "production_ready_comprehensive_merged",
+  "power_system_classification": "multi_rail_linear_switching_hybrid",
+
+  "system_power_overview": {
+    "power_requirements": {
+      "voltage_rails": 5,
+      "total_power": "2.5w_typical_5w_maximum",
+      "typical_power": "2_5w_normal_operation",
+      "maximum_power": "5w_worst_case_all_peripherals_active",
+      "standby_power": "0_5w_usb_connected_idle",
+      "efficiency_target": "greater_than_80_percent_overall"
+    },
+    
+    "load_analysis_comprehensive": {
+      "digital_loads": {
+        "teensy_4_1_processor": {
+          "active_current": "100_200ma_depending_on_cpu_utilization",
+          "voltage": "3_3v_primary_1_8v_core_internal_regulation",
+          "power_consumption": "0_33_0_66w_variable_with_workload",
+          "characteristics": "dynamic_power_scaling_with_clock_frequency"
+        },
+        "ad5593r_dac_devices": {
+          "current_per_device": "1_6ma_all_channels_active",
+          "total_devices": 2,
+          "total_current": "3_2ma_both_dacs",
+          "voltage": "3_3v_digital_5v_analog_supply_options",
+          "power_consumption": "0_016w_total_both_devices"
+        },
+        "i2c_pullup_resistors": {
+          "current_per_bus": "0_7ma_at_3_3v_with_4_7k_pullups",
+          "total_buses": 3,
+          "total_current": "2_1ma_all_buses",
+          "power_consumption": "0_007w_resistive_dissipation"
+        }
+      },
+      
+      "analog_loads": {
+        "operational_amplifiers": {
+          "tl074_current": "1_4ma_per_device_typical",
+          "lt1014d_current": "2_8ma_per_device_typical",
+          "total_opamps": "8_channels_2_quad_packages",
+          "supply_voltage": "±12v_dual_rail_requirement",
+          "total_current": "33_6ma_positive_rail_33_6ma_negative_rail",
+          "power_consumption": "0_4w_positive_rail_0_4w_negative_rail"
+        },
+        "reference_circuits": {
+          "voltage_references": "internal_ad5593r_references",
+          "current_consumption": "negligible_included_in_dac_budget",
+          "precision_enhancement": "external_references_if_needed"
+        }
+      },
+      
+      "support_circuits": {
+        "decoupling_capacitors": "zero_dc_current_ac_filtering_only",
+        "protection_circuits": "minimal_current_esd_diodes_tvs",
+        "led_indicators": "5ma_per_led_if_implemented",
+        "mechanical_relays": "none_in_current_design"
+      }
+    }
+  },
+
+  "power_tree": {
+    "input_power": {
+      "source": "USB_5V_or_external_wall_adapter",
+      "voltage": 5.0,
+      "current_capability": "1a_usb3_3a_external",
+      "protection": "usb_current_limiting_polyfuse",
+      "connector": "usb_micro_or_barrel_jack",
+      
+      "input_power_management": {
+        "usb_power_input": {
+          "usb_2_0_specification": "5v_500ma_maximum_current",
+          "usb_3_0_specification": "5v_900ma_maximum_current",
+          "usb_c_pd_potential": "5v_3a_with_power_delivery_negotiation",
+          "protection": "polyfuse_current_limiting_tvs_diode_esd",
+          "connector_rating": "10000_mating_cycles_minimum"
+        },
+        
+        "external_power_input": {
+          "voltage_range": "5_5v_to_6v_recommended_input_range",
+          "current_capability": "up_to_3a_for_future_expansion",
+          "connector_options": ["barrel_jack_2_1mm", "screw_terminals", "wire_to_board"],
+          "protection": "reverse_polarity_protection_overvoltage_clamp",
+          "filtering": "bulk_capacitors_emi_filtering"
+        },
+        
+        "power_source_selection": {
+          "automatic_selection": "highest_voltage_source_priority",
+          "selection_logic": "schottky_diode_or_mosfet_switches",
+          "hysteresis": "prevent_oscillation_between_sources",
+          "status_indication": "led_or_gpio_status_output"
+        }
+      }
+    },
+    
+    "primary_rail_5v": {
+      "voltage": 5.0,
+      "current_budget": "500ma_typical_1a_maximum",
+      "regulation": "usb_direct_or_linear_regulator",
+      "loads": [
+        {
+          "name": "teensy_4_1",
+          "current": "100ma_active_50ma_idle",
+          "function": "microcontroller_system"
+        },
+        {
+          "name": "ad5593r_dacs",
+          "current": "3_2ma_per_device_times_3",
+          "function": "digital_analog_converters"
+        },
+        {
+          "name": "i2c_pullups",
+          "current": "2ma_total_all_buses",
+          "function": "i2c_bus_pullup_resistors"
+        }
+      ]
+    },
+    
+    "logic_rail_3v3": {
+      "voltage": 3.3,
+      "current_budget": "100ma_maximum",
+      "regulation": "teensy_onboard_regulator",
+      "loads": [
+        {
+          "name": "logic_level_translation",
+          "current": "minimal_static",
+          "function": "5v_to_3v3_interface_if_needed"
+        }
+      ],
+      
+      "primary_regulation_analysis": {
+        "ld1117_3v3_regulator": {
+          "input_voltage_range": "4_5v_to_10v_maximum",
+          "output_voltage": "3_3v_±3_percent_load_line_regulation",
+          "current_capability": "800ma_continuous_1_2a_peak",
+          "dropout_voltage": "1_1v_at_800ma_1_5v_maximum",
+          "thermal_characteristics": {
+            "thermal_resistance": "50c_per_w_junction_to_ambient_no_heatsink",
+            "maximum_junction_temperature": "125c_thermal_shutdown",
+            "power_dissipation": "(vin_vout)_x_iout_plus_quiescent",
+            "heatsinking": "copper_pour_thermal_vias_for_heat_spreading"
+          },
+          "load_regulation": "0_2_percent_typical_no_load_to_full_load",
+          "line_regulation": "0_2_percent_typical_input_voltage_variation",
+          "ripple_rejection": "75db_at_120hz_power_line_frequency"
+        }
+      }
+    },
+    
+    "analog_positive_rail_12v": {
+      "voltage": 12.0,
+      "current_budget": "100ma_maximum",
+      "regulation": "ld1117_linear_boost_converter",
+      "ripple": "<10mv_rms_low_noise",
+      "loads": [
+        {
+          "name": "tl074_opamps",
+          "current": "8ma_per_opamp_times_8_opamps",
+          "function": "cv_amplifier_positive_rail"
+        }
+      ],
+      
+      "boost_converter_12v_positive": {
+        "topology": "non_isolated_boost_converter_or_charge_pump",
+        "input_voltage": "3_3v_from_primary_regulator",
+        "output_voltage": "12v_±5_percent_regulation",
+        "current_capability": "100ma_continuous_for_opamp_supplies",
+        "switching_frequency": "100khz_to_1mhz_above_audio_band",
+        "efficiency": "85_percent_typical_at_full_load",
+        "output_filtering": "lc_filter_low_ripple_audio_applications",
+        "feedback_compensation": "stable_over_load_and_line_variations"
+      }
+    },
+    
+    "analog_negative_rail_minus_12v": {
+      "voltage": -12.0,
+      "current_budget": "100ma_maximum",
+      "regulation": "charge_pump_or_switching_converter",
+      "ripple": "<10mv_rms_low_noise",
+      "loads": [
+        {
+          "name": "tl074_opamps",
+          "current": "8ma_per_opamp_times_8_opamps",
+          "function": "cv_amplifier_negative_rail"
+        }
+      ],
+      
+      "inverting_converter_12v_negative": {
+        "topology": "charge_pump_or_inverting_boost_converter",
+        "input_voltage": "12v_positive_rail_or_3_3v_primary",
+        "output_voltage": "-12v_±5_percent_regulation",
+        "current_capability": "100ma_continuous_matched_to_positive_rail",
+        "efficiency": "75_percent_typical_charge_pump_85_percent_switching",
+        "noise_considerations": "switching_noise_isolation_from_analog_circuits",
+        "startup_sequencing": "after_positive_rail_stable_prevents_latchup"
+      }
+    },
+    
+    "ground_reference": {
+      "voltage": 0.0,
+      "function": "system_ground_reference",
+      "topology": "star_grounding_low_impedance",
+      "connections": "all_modules_common_reference"
+    }
+  },
+
+  "power_distribution_topology": {
+    "power_distribution_network": {
+      "distribution_topology": "star_grounding_single_point_reference",
+      "ground_plane_design": {
+        "ground_plane_type": "solid_copper_pour_low_impedance",
+        "plane_thickness": "1_oz_copper_minimum_2_oz_preferred",
+        "via_stitching": "connect_all_ground_layers_minimize_inductance",
+        "ground_loops": "avoided_by_careful_layout_single_point_connections"
+      },
+      
+      "power_plane_design": {
+        "3v3_plane": "dedicated_power_plane_digital_circuits",
+        "5v_plane": "dedicated_plane_analog_supplies_if_used",
+        "12v_planes": "separate_positive_negative_planes_analog_circuits",
+        "plane_separation": "adequate_clearance_prevent_coupling",
+        "decoupling_strategy": "distributed_decoupling_minimize_loop_areas"
+      }
+    }
+  },
+
+  "power_sequencing": {
+    "startup_sequence": [
+      {"step": 1, "rail": "5v_primary", "delay": "0ms", "notes": "immediate_usb_power"},
+      {"step": 2, "rail": "3v3_logic", "delay": "10ms", "notes": "teensy_regulator_startup"},
+      {"step": 3, "rail": "12v_positive", "delay": "50ms", "notes": "boost_converter_soft_start"},
+      {"step": 4, "rail": "minus_12v_negative", "delay": "100ms", "notes": "charge_pump_stabilization"},
+      {"step": 5, "system": "dac_initialization", "delay": "200ms", "notes": "i2c_communication_ready"}
+    ],
+    
+    "shutdown_sequence": [
+      {"step": 1, "action": "disable_dac_outputs", "notes": "prevent_output_glitches"},
+      {"step": 2, "action": "disable_analog_rails", "notes": "opamp_power_removal"},
+      {"step": 3, "action": "teensy_shutdown", "notes": "controlled_processor_halt"},
+      {"step": 4, "action": "remove_primary_5v", "notes": "complete_power_removal"}
+    ]
+  },
+
+  "decoupling_network": {
+    "bulk_capacitors": [
+      {
+        "location": "5v_input",
+        "value": "1000uf_low_esr_electrolytic",
+        "function": "bulk_energy_storage_transient_response"
+      },
+      {
+        "location": "12v_rails",
+        "value": "100uf_per_rail_tantalum_or_ceramic",
+        "function": "analog_supply_decoupling"
+      }
+    ],
+    
+    "local_decoupling": [
+      {
+        "location": "each_ic",
+        "values": ["100nf_ceramic", "10uf_tantalum"],
+        "placement": "close_to_power_pins",
+        "function": "high_frequency_bypass_bulk_local"
+      }
+    ],
+    
+    "ferrite_beads": [
+      {
+        "location": "analog_digital_isolation",
+        "impedance": "100_ohm_at_100mhz",
+        "function": "prevent_digital_noise_coupling"
+      }
+    ],
+    
+    "decoupling_network_comprehensive": {
+      "bulk_capacitors": {
+        "1000uf_electrolytic": {
+          "location": "input_power_rails",
+          "function": "energy_storage_transient_response",
+          "esr": "less_than_100mohm_low_impedance",
+          "frequency_response": "effective_below_1khz"
+        },
+        "100uf_tantalum": {
+          "location": "switching_regulator_outputs",
+          "function": "medium_frequency_decoupling_1khz_to_100khz",
+          "esr": "less_than_1_ohm_low_esr_type",
+          "reliability": "tantalum_or_ceramic_for_reliability"
+        }
+      },
+      
+      "high_frequency_decoupling": {
+        "100nf_ceramic": {
+          "location": "every_ic_power_pin",
+          "function": "high_frequency_bypass_above_100khz",
+          "placement": "within_5mm_of_power_pins",
+          "dielectric": "x7r_or_x5r_stable_over_temperature"
+        },
+        "10nf_ceramic": {
+          "location": "high_speed_digital_ics",
+          "function": "very_high_frequency_bypass_above_1mhz",
+          "placement": "directly_adjacent_to_power_pins",
+          "parasitics": "minimize_loop_inductance_esl"
+        }
+      },
+      
+      "specialized_filtering": {
+        "ferrite_beads": {
+          "location": "analog_digital_power_isolation",
+          "impedance": "100_ohm_at_100mhz_typical",
+          "function": "prevent_digital_noise_coupling_analog_circuits",
+          "frequency_response": "peak_impedance_100mhz_region"
+        },
+        "pi_filters": {
+          "topology": "inductor_between_two_capacitors",
+          "application": "critical_analog_supplies_maximum_filtering",
+          "cutoff_frequency": "10khz_below_audio_band",
+          "component_values": "10uh_inductor_10uf_capacitors"
+        }
+      }
+    }
+  },
+
+  "thermal_management": {
+    "heat_sources": [
+      {
+        "component": "teensy_4_1",
+        "power": "0_5w_typical",
+        "mitigation": "natural_convection_thermal_pad_if_needed"
+      },
+      {
+        "component": "linear_regulators",
+        "power": "1w_maximum_dropout_dependent",
+        "mitigation": "proper_heatsinking_thermal_design"
+      },
+      {
+        "component": "opamps",
+        "power": "0_3w_total_all_devices",
+        "mitigation": "pcb_copper_pour_heat_spreading"
+      }
+    ],
+    
+    "thermal_design": {
+      "ambient_temperature": "25c_typical_40c_maximum",
+      "component_temperatures": "<85c_junction_max",
+      "airflow": "natural_convection_adequate",
+      "thermal_interface": "thermal_pads_copper_pours"
+    },
+    
+    "thermal_management_system": {
+      "heat_generation_analysis": {
+        "primary_heat_sources": {
+          "teensy_4_1_processor": {
+            "power_dissipation": "0_66w_maximum_at_full_utilization",
+            "thermal_resistance": "thermal_pad_recommended_high_power",
+            "cooling_strategy": "passive_cooling_adequate_low_utilization",
+            "temperature_monitoring": "internal_temperature_sensor_available"
+          },
+          
+          "linear_regulators": {
+            "ld1117_3v3": {
+              "power_dissipation": "(5v_3_3v)_x_load_current_plus_quiescent",
+              "worst_case_power": "1_7v_x_0_5a_equals_0_85w",
+              "thermal_resistance": "50c_per_w_junction_to_ambient",
+              "temperature_rise": "42_5c_above_ambient_worst_case",
+              "cooling_requirements": "heatsink_or_copper_pour_thermal_relief"
+            }
+          },
+          
+          "switching_regulators": {
+            "boost_converter": {
+              "switching_losses": "proportional_to_frequency_and_current",
+              "conduction_losses": "i_squared_r_losses_in_switches_inductors",
+              "total_losses": "15_percent_of_output_power_approximately",
+              "thermal_management": "switching_ic_thermal_pad_layout"
+            }
+          }
+        },
+        
+        "thermal_design_strategy": {
+          "passive_cooling": {
+            "natural_convection": "adequate_for_normal_operation",
+            "thermal_vias": "connect_component_thermal_pads_to_ground_plane",
+            "copper_pour": "use_copper_as_heat_spreader",
+            "component_spacing": "adequate_spacing_prevent_thermal_coupling"
+          },
+          
+          "active_cooling": {
+            "forced_air": "fan_cooling_if_needed_high_power_operation",
+            "heat_sinks": "clip_on_or_adhesive_heat_sinks_regulators",
+            "thermal_interface": "thermal_pads_or_paste_good_thermal_contact"
+          },
+          
+          "thermal_monitoring": {
+            "temperature_sensors": "monitor_critical_component_temperatures",
+            "thermal_shutdown": "automatic_shutdown_over_temperature",
+            "temperature_derating": "reduce_power_elevated_temperatures",
+            "thermal_modeling": "finite_element_analysis_if_needed"
+          }
+        }
+      }
+    }
+  },
+
+  "power_integrity": {
+    "voltage_regulation": {
+      "5v_rail": "±2_percent_under_load",
+      "3v3_rail": "±3_percent_teensy_regulator",
+      "12v_rails": "±5_percent_analog_acceptable",
+      "ripple": "<10mv_pp_all_rails"
+    },
+    
+    "current_sharing": {
+      "parallel_regulators": "not_used_single_point_regulation",
+      "load_balancing": "natural_impedance_based",
+      "fault_isolation": "per_rail_protection"
+    },
+    
+    "noise_coupling": {
+      "digital_analog_isolation": "separate_supply_paths_ferrite_isolation",
+      "ground_loops": "prevented_by_star_grounding",
+      "switching_noise": "minimized_by_linear_post_regulation"
+    },
+    
+    "power_integrity_analysis": {
+      "voltage_regulation_performance": {
+        "static_regulation": {
+          "line_regulation": "output_change_with_input_variation",
+          "load_regulation": "output_change_with_load_variation",
+          "temperature_coefficient": "output_drift_with_temperature",
+          "long_term_stability": "aging_effects_component_drift"
+        },
+        
+        "dynamic_regulation": {
+          "transient_response": "response_to_load_current_steps",
+          "settling_time": "time_to_reach_steady_state_within_tolerance",
+          "overshoot_undershoot": "maximum_deviation_during_transients",
+          "loop_stability": "phase_gain_margins_prevent_oscillation"
+        },
+        
+        "noise_and_ripple": {
+          "switching_ripple": "periodic_noise_from_switching_regulators",
+          "random_noise": "thermal_noise_and_other_noise_sources",
+          "power_supply_rejection": "rejection_of_input_noise",
+          "measurement_techniques": "oscilloscope_spectrum_analyzer_methods"
+        }
+      },
+      
+      "power_distribution_impedance": {
+        "dc_resistance": "steady_state_voltage_drops",
+        "ac_impedance": "frequency_dependent_impedance_power_distribution",
+        "resonances": "parallel_series_resonances_decoupling_network",
+        "target_impedance": "less_than_1_ohm_dc_less_than_10mohm_at_10mhz"
+      }
+    }
+  },
+
+  "fault_protection": {
+    "overcurrent_protection": [
+      {
+        "location": "usb_input",
+        "method": "usb_current_limiting_polyfuse_or_host",
+        "threshold": "500ma_usb2_1a_usb3"
+      },
+      {
+        "location": "each_rail",
+        "method": "regulator_current_limiting",
+        "threshold": "per_regulator_specification"
+      }
+    ],
+    
+    "overvoltage_protection": [
+      {
+        "location": "analog_rails",
+        "method": "regulator_shutdown_crowbar_if_needed",
+        "threshold": "15v_maximum_opamp_rating"
+      }
+    ],
+    
+    "thermal_protection": [
+      {
+        "location": "linear_regulators",
+        "method": "thermal_shutdown_built_in",
+        "threshold": "150c_junction_temperature"
+      }
+    ],
+    
+    "reverse_polarity_protection": [
+      {
+        "location": "external_power_input",
+        "method": "schottky_diode_or_mosfet",
+        "voltage_drop": "<0_5v_efficiency_consideration"
+      }
+    ],
+    
+    "reliability_and_protection": {
+      "protection_mechanisms": {
+        "overcurrent_protection": {
+          "input_protection": "polyfuse_or_current_limiting_circuit",
+          "regulator_protection": "built_in_current_limiting_thermal_shutdown",
+          "output_protection": "fuses_or_ptc_resistors_if_needed",
+          "coordination": "protection_devices_coordinate_properly"
+        },
+        
+        "overvoltage_protection": {
+          "input_overvoltage": "tvs_diodes_or_crowbar_circuits",
+          "regulator_overvoltage": "feedback_loop_failure_protection",
+          "output_overvoltage": "protect_sensitive_loads",
+          "response_time": "fast_enough_prevent_damage"
+        },
+        
+        "reverse_polarity_protection": {
+          "schottky_diode": "low_forward_drop_power_efficiency",
+          "mosfet_protection": "zero_forward_drop_ideal_protection",
+          "bridge_rectifier": "automatic_polarity_correction",
+          "indication": "led_or_status_output_incorrect_polarity"
+        },
+        
+        "esd_protection": {
+          "input_connectors": "tvs_diodes_esd_protection",
+          "signal_lines": "esd_suppressors_on_exposed_lines",
+          "enclosure_design": "proper_grounding_esd_discharge_paths",
+          "handling_procedures": "esd_safe_handling_assembly_procedures"
+        }
+      },
+      
+      "reliability_enhancement": {
+        "component_derating": {
+          "voltage_derating": "operate_below_maximum_voltage_ratings",
+          "current_derating": "operate_below_maximum_current_ratings",
+          "temperature_derating": "operate_below_maximum_temperature_ratings",
+          "power_derating": "operate_below_maximum_power_ratings"
+        },
+        
+        "redundancy_options": {
+          "dual_input_supplies": "usb_plus_external_automatic_switchover",
+          "backup_power": "battery_backup_or_supercapacitor",
+          "redundant_regulators": "parallel_operation_or_hot_standby",
+          "graceful_degradation": "maintain_operation_reduced_performance"
+        }
+      }
+    }
+  },
+
+  "efficiency_analysis": {
+    "power_conversion_efficiency": {
+      "5v_direct": "95_percent_usb_input_minimal_loss",
+      "3v3_regulation": "80_percent_linear_dropout_loss",
+      "12v_boost": "85_percent_switching_converter",
+      "minus_12v_charge_pump": "75_percent_typical_charge_pump"
+    },
+    
+    "total_system_efficiency": {
+      "typical_load": "75_percent_overall",
+      "light_load": "60_percent_quiescent_current_dominates",
+      "full_load": "80_percent_better_efficiency_at_full_power"
+    },
+    
+    "efficiency_optimization": {
+      "power_conversion_efficiency": {
+        "linear_regulator_efficiency": "output_voltage_divided_by_input_voltage",
+        "switching_regulator_efficiency": "85_to_95_percent_depending_on_design",
+        "overall_system_efficiency": "product_of_all_conversion_stages",
+        "efficiency_vs_load": "efficiency_varies_with_output_current"
+      },
+      
+      "optimization_strategies": {
+        "regulator_selection": {
+          "low_dropout_regulators": "minimize_power_dissipation",
+          "high_efficiency_switching": "use_switching_regulators_high_power",
+          "adaptive_regulation": "dynamic_voltage_scaling_reduce_power",
+          "power_sequencing": "turn_off_unused_circuits_save_power"
+        },
+        
+        "layout_optimization": {
+          "minimize_trace_resistance": "wide_traces_low_resistance",
+          "minimize_loop_areas": "reduce_parasitic_inductance",
+          "thermal_considerations": "heat_spreading_thermal_vias",
+          "electromagnetic_compatibility": "proper_grounding_shielding"
+        }
+      }
+    }
+  },
+
+  "manufacturing_test_considerations": {
+    "production_testing": {
+      "power_supply_test": "verify_all_output_voltages_within_tolerance",
+      "current_consumption_test": "verify_current_draw_within_specifications",
+      "efficiency_test": "measure_overall_system_efficiency",
+      "thermal_test": "verify_temperature_rise_within_limits"
+    },
+    
+    "quality_control": {
+      "incoming_component_inspection": "verify_component_specifications",
+      "in_process_testing": "test_power_supplies_during_assembly",
+      "final_system_test": "comprehensive_power_system_validation",
+      "reliability_testing": "accelerated_aging_burn_in_procedures"
+    }
+  }
+}

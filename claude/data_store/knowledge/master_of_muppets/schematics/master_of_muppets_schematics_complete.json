@@ -337,7 +337,7 @@
     "cross_referencing": "Use UUID fields to maintain component relationships"
   },
   "related_knowledge": [
-    "master_of_muppets_firmware.json - Firmware implementation details",
+    "../firmware/master_of_muppets_firmware.json - Firmware implementation details",
     "ad5593r.json - DAC component specifications",
     "teensy_4_1.json - Microcontroller platform details",
     "embedded_realtime_best_practices.json - Programming guidelines"

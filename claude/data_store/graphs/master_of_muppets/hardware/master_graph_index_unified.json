@@ -1,0 +1,282 @@
+{
+  "index_name": "master_of_muppets_graph_index_unified",
+  "description": "Unified master index of all merged circuit analysis graphs combining original and enhanced analysis",
+  "created": "2025-08-19",
+  "version": "unified_2.0",
+  "enhancement_level": "production_ready_comprehensive_merged",
+  "merge_scope": "original_plus_enhanced_complete_integration",
+  "total_unified_graphs": 6,
+  "total_components_analyzed": 77,
+  "total_nets_analyzed": 46,
+  "total_connections": 124,
+  
+  "unified_graph_registry": {
+    "amp_module_unified_graph": {
+      "file_path": "claude/data_store/graphs/master_of_muppets/hardware/amp_module_unified_graph.json",
+      "description": "Unified amplifier module combining basic circuit analysis with comprehensive TL074/LT1014D specifications",
+      "version": "unified_2.0",
+      "merge_sources": ["amp_module_graph.json", "amp_module_enhanced_graph.json"],
+      "components": 35,
+      "nets": 20,
+      "complexity_rank": 1,
+      "criticality": "signal_conditioning_accuracy_determinant",
+      "analysis_domains": ["analog_circuit_analysis", "signal_integrity", "frequency_response", "thermal_analysis", "manufacturing"],
+      "unified_capabilities": ["comprehensive_opamp_analysis", "noise_modeling", "fault_tolerance", "optimization_strategies", "production_testing"]
+    },
+    
+    "dac_module_unified_graph": {
+      "file_path": "claude/data_store/graphs/master_of_muppets/hardware/dac_module_unified_graph.json", 
+      "description": "Unified DAC module combining mixed-signal analysis with comprehensive AD5593R correlation",
+      "version": "unified_2.0",
+      "merge_sources": ["dac_module_graph.json", "dac_module_enhanced_graph.json"],
+      "components": 6,
+      "nets": 6,
+      "complexity_rank": 3,
+      "criticality": "signal_generation_accuracy_determinant",
+      "analysis_domains": ["mixed_signal_analysis", "i2c_protocol", "precision_analysis", "firmware_correlation", "manufacturing"],
+      "unified_capabilities": ["comprehensive_dac_specifications", "firmware_driver_integration", "i2c_timing_analysis", "diagnostic_testing", "scalability_analysis"]
+    },
+    
+    "teensy_module_unified_graph": {
+      "file_path": "claude/data_store/graphs/master_of_muppets/hardware/teensy_module_unified_graph.json",
+      "description": "Unified Teensy 4.1 system controller combining basic microcontroller analysis with firmware architecture correlation", 
+      "version": "unified_2.0",
+      "merge_sources": ["teensy_module_graph.json", "teensy_module_enhanced_graph.json"],
+      "components": 5,
+      "nets": 3,
+      "complexity_rank": 4,
+      "criticality": "highest_single_point_of_failure",
+      "analysis_domains": ["microcontroller_analysis", "real_time_systems", "threading_architecture", "performance_optimization", "manufacturing"],
+      "unified_capabilities": ["arm_cortex_m7_analysis", "threading_model_correlation", "peripheral_optimization", "fault_tolerance_design", "diagnostic_monitoring"]
+    },
+    
+    "system_connectivity_unified_graph": {
+      "file_path": "claude/data_store/graphs/master_of_muppets/hardware/system_connectivity_unified_graph.json",
+      "description": "Unified system-level connectivity combining inter-module communication with comprehensive integration analysis",
+      "version": "unified_2.0", 
+      "merge_sources": ["system_connectivity_graph.json", "system_connectivity_enhanced_graph.json"],
+      "total_modules": 6,
+      "total_components": 77,
+      "total_nets": 46,
+      "complexity_rank": "system_level",
+      "criticality": "professional_audio_production_grade",
+      "analysis_domains": ["system_integration", "real_time_analysis", "latency_budget", "fault_tolerance", "manufacturing"],
+      "unified_capabilities": ["end_to_end_signal_path", "latency_budget_allocation", "cross_domain_integration", "manufacturing_deployment", "scalability_framework"]
+    },
+    
+    "power_distribution_unified_graph": {
+      "file_path": "claude/data_store/graphs/master_of_muppets/hardware/power_distribution_unified_graph.json",
+      "description": "Unified power distribution combining basic power tree analysis with comprehensive thermal management",
+      "version": "unified_2.0",
+      "merge_sources": ["power_distribution_graph.json", "power_distribution_enhanced_graph.json"],
+      "power_rails": ["3.3V", "+12V", "-12V", "5V_input"],
+      "total_power": "2.5W_typical_5W_maximum",
+      "efficiency_target": "greater_than_80_percent",
+      "complexity_rank": 2,
+      "criticality": "system_wide_power_integrity",
+      "analysis_domains": ["power_system_analysis", "thermal_management", "efficiency_optimization", "protection_circuits", "manufacturing"],
+      "unified_capabilities": ["comprehensive_power_budget", "thermal_analysis", "protection_mechanisms", "efficiency_optimization", "quality_assurance"]
+    },
+    
+    "network_analysis_unified_graph": {
+      "file_path": "claude/data_store/graphs/master_of_muppets/hardware/network_analysis_unified_graph.json",
+      "description": "Unified network topology combining basic connectivity patterns with advanced graph theory algorithms",
+      "version": "unified_2.0",
+      "merge_sources": ["network_analysis_graph.json", "network_analysis_enhanced_graph.json"],
+      "total_nodes": 312,
+      "total_edges": 487,
+      "clustering_coefficient": 0.42,
+      "modularity": 0.76,
+      "communities": 7,
+      "complexity_rank": "advanced_analysis", 
+      "criticality": "system_optimization_and_reliability",
+      "analysis_domains": ["graph_theory", "network_topology", "centrality_analysis", "optimization_algorithms", "manufacturing"],
+      "unified_capabilities": ["advanced_centrality_analysis", "community_detection", "optimization_algorithms", "machine_learning_integration", "predictive_modeling"]
+    }
+  },
+  
+  "unified_analysis_framework": {
+    "integration_methodology": {
+      "merge_approach": "preserve_original_circuit_understanding_enhance_with_comprehensive_analysis",
+      "compatibility": "maintain_backward_compatibility_with_original_analysis_tools",
+      "enhancement_layers": [
+        "comprehensive_component_specifications",
+        "firmware_hardware_correlation",
+        "manufacturing_production_considerations", 
+        "optimization_opportunities",
+        "fault_tolerance_analysis",
+        "scalability_expansion_analysis"
+      ]
+    },
+    
+    "cross_domain_correlations_enhanced": {
+      "hardware_firmware_integration": {
+        "description": "Complete correlation between hardware specifications and firmware implementation",
+        "key_mappings": [
+          "teensy_4.1_arm_cortex_m7_specs_to_threading_architecture_performance",
+          "ad5593r_12_bit_dac_timing_to_i2c_driver_implementation_latency",
+          "operational_amplifier_characteristics_to_signal_processing_algorithms",
+          "power_system_specifications_to_thermal_management_strategies",
+          "network_topology_to_fault_tolerance_and_reliability_mechanisms"
+        ],
+        "integration_benefits": "optimized_system_design_based_on_hardware_software_synergy"
+      },
+      
+      "system_performance_modeling": {
+        "description": "End-to-end performance analysis from MIDI input to CV output",
+        "performance_metrics": {
+          "total_system_latency": "less_than_1ms_usb_input_to_analog_output",
+          "primary_bottleneck": "i2c_communication_20us_per_8_channel_update",
+          "secondary_bottleneck": "usb_host_os_scheduling_variability",
+          "optimization_potential": "parallel_i2c_buses_50_percent_improvement"
+        },
+        "scalability_analysis": "linear_scaling_16_to_32_channels_with_architectural_considerations"
+      },
+      
+      "fault_tolerance_framework": {
+        "description": "System-wide fault propagation analysis and mitigation strategies",
+        "failure_modes": {
+          "single_point_failures": ["teensy_controller", "power_regulation", "usb_connection"],
+          "cascade_failures": ["power_failure_propagation", "communication_bus_lockup", "thermal_shutdown"],
+          "degraded_operation": ["partial_dac_failure", "reduced_channel_count", "performance_degradation"]
+        },
+        "protection_strategies": {
+          "redundancy": "dual_power_sources_multiple_i2c_buses_independent_channels",
+          "graceful_degradation": "continue_operation_with_reduced_capability",
+          "automatic_recovery": "watchdog_reset_bus_recovery_error_handling"
+        }
+      }
+    }
+  },
+  
+  "production_readiness_unified": {
+    "manufacturing_framework": {
+      "component_sourcing": "production_available_components_with_lifecycle_management_supplier_diversity",
+      "assembly_automation": "pick_place_reflow_selective_solder_final_assembly_optimized",
+      "testing_automation": "in_circuit_functional_calibration_burn_in_comprehensive_coverage",
+      "quality_systems": "statistical_process_control_supplier_qualification_continuous_improvement"
+    },
+    
+    "deployment_framework": {
+      "field_deployment": "comprehensive_user_documentation_installation_procedures_support_infrastructure",
+      "maintenance_support": "diagnostic_tools_spare_parts_management_field_service_procedures",
+      "lifecycle_management": "version_control_obsolescence_management_upgrade_pathways",
+      "regulatory_compliance": "ce_marking_fcc_compliance_rohs_compliance_documentation"
+    },
+    
+    "cost_optimization_unified": {
+      "design_for_cost": "value_engineering_component_optimization_manufacturing_efficiency",
+      "supply_chain": "strategic_sourcing_inventory_optimization_supplier_partnerships",
+      "production_scaling": "volume_pricing_manufacturing_automation_quality_improvement",
+      "lifecycle_costs": "reliability_improvement_maintenance_reduction_support_optimization"
+    }
+  },
+  
+  "advanced_capabilities_unified": {
+    "graph_theory_integration": {
+      "mathematical_framework": "network_science_applied_to_electronic_circuit_analysis_optimization",
+      "optimization_algorithms": [
+        "minimum_spanning_tree_for_power_distribution_optimization",
+        "shortest_path_algorithms_for_latency_minimization",
+        "maximum_flow_analysis_for_bandwidth_capacity_planning",
+        "community_detection_for_modular_system_design"
+      ],
+      "predictive_modeling": "performance_scaling_reliability_prediction_based_on_topology"
+    },
+    
+    "machine_learning_applications": {
+      "anomaly_detection": "identify_abnormal_network_behavior_component_degradation_patterns",
+      "optimization_learning": "reinforcement_learning_for_system_configuration_optimization",
+      "predictive_maintenance": "predict_component_failures_based_on_network_metrics_performance_trends",
+      "design_optimization": "genetic_algorithms_for_component_selection_placement_optimization"
+    },
+    
+    "simulation_integration": {
+      "spice_simulation": "export_circuit_netlist_from_graph_structure_for_analog_simulation",
+      "thermal_simulation": "finite_element_analysis_integration_for_thermal_modeling",
+      "signal_integrity": "transmission_line_analysis_impedance_matching_simulation",
+      "electromagnetic_compatibility": "emc_analysis_based_on_layout_and_component_placement"
+    },
+    
+    "digital_twin_capabilities": {
+      "real_time_monitoring": "live_system_performance_monitoring_using_graph_metrics",
+      "predictive_analytics": "forecast_system_behavior_maintenance_requirements",
+      "optimization_feedback": "continuous_improvement_based_on_field_performance_data",
+      "remote_diagnostics": "comprehensive_system_health_assessment_troubleshooting_support"
+    }
+  },
+  
+  "usage_guidelines_unified": {
+    "design_phase_workflow": {
+      "system_level_design": [
+        "start_with_system_connectivity_unified_for_overall_architecture",
+        "use_power_distribution_unified_for_power_budget_thermal_analysis",
+        "apply_network_analysis_unified_for_topology_optimization",
+        "validate_with_component_level_unified_graphs"
+      ],
+      "component_level_design": [
+        "use_teensy_module_unified_for_controller_selection_configuration",
+        "apply_dac_module_unified_for_precision_accuracy_requirements",
+        "use_amp_module_unified_for_analog_performance_optimization",
+        "cross_validate_with_system_level_analysis"
+      ]
+    },
+    
+    "optimization_phase_workflow": {
+      "performance_optimization": [
+        "identify_bottlenecks_using_network_analysis_unified_centrality_measures",
+        "correlate_with_component_specifications_from_module_unified_graphs",
+        "implement_targeted_improvements_using_optimization_recommendations",
+        "validate_improvements_through_comprehensive_system_analysis"
+      ],
+      "cost_optimization": [
+        "analyze_component_costs_using_manufacturing_considerations",
+        "identify_value_engineering_opportunities_from_optimization_sections",
+        "evaluate_alternative_components_using_scalability_analysis",
+        "validate_cost_performance_trade_offs_system_wide"
+      ]
+    },
+    
+    "production_phase_workflow": {
+      "manufacturing_optimization": [
+        "use_manufacturing_analysis_for_assembly_procedure_optimization",
+        "implement_testing_procedures_based_on_unified_diagnostic_capabilities",
+        "apply_quality_assurance_procedures_from_comprehensive_analysis",
+        "establish_continuous_improvement_based_on_field_feedback"
+      ],
+      "deployment_support": [
+        "use_fault_tolerance_analysis_for_field_support_procedures",
+        "implement_diagnostic_tools_based_on_unified_monitoring_capabilities",
+        "establish_maintenance_procedures_using_predictive_analytics",
+        "create_user_documentation_from_comprehensive_system_understanding"
+      ]
+    }
+  },
+  
+  "knowledge_base_integration_unified": {
+    "unified_correlation_files": [
+      "master_of_muppets_unified_correlation_v6.json_to_be_created",
+      "master_of_muppets_enhanced_schematics.json_correlated_with_unified_graphs",
+      "master_of_muppets_circuit_analysis_graphs.json_comprehensive_unified_collection"
+    ],
+    "cross_reference_validation": "all_component_specifications_cross_referenced_between_schematics_and_unified_graphs",
+    "consistency_verification": "verified_consistency_between_hardware_description_and_unified_graph_analysis",
+    "version_control": "unified_2.0_maintains_compatibility_with_enhanced_2.0_while_adding_original_circuit_understanding"
+  },
+  
+  "future_enhancements_unified": {
+    "real_time_monitoring_integration": "implement_live_system_monitoring_using_unified_graph_metrics",
+    "adaptive_optimization": "dynamic_system_reconfiguration_based_on_performance_feedback_unified_analysis",
+    "ai_assisted_design": "machine_learning_assisted_component_selection_optimization_using_unified_knowledge",
+    "digital_twin_complete": "complete_digital_twin_implementation_for_predictive_maintenance_unified_framework",
+    "automated_design_tools": "automated_pcb_layout_component_placement_based_on_unified_graph_analysis",
+    "intelligent_diagnostics": "ai_powered_fault_diagnosis_repair_recommendations_using_unified_system_understanding"
+  },
+  
+  "validation_and_verification": {
+    "graph_consistency_checks": "verify_consistency_between_original_and_enhanced_analysis_in_unified_files",
+    "cross_domain_validation": "validate_hardware_firmware_correlations_across_all_unified_modules",
+    "performance_model_validation": "verify_system_performance_predictions_against_measured_data",
+    "manufacturing_feasibility": "validate_manufacturing_procedures_and_test_coverage_comprehensive"
+  }
+}

@@ -136,7 +136,7 @@
     "code_analysis_graphs.json"
 ],
 "context_dependent": [
-    "master_of_muppets_firmware.json (for embedded examples)",
+    "firmware/master_of_muppets_firmware.json (for embedded examples)",
     "teensy_4_1.json (for hardware context)",
     "embedded_realtime_best_practices.json (for real-time constraints)",
     "specific component datasheets as needed"
