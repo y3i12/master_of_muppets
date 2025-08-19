@@ -50,6 +50,11 @@
       "location": "claude/data_store/knowledge/hardware/",
       "description": "Hardware design knowledge and patterns",
       "keywords": ["hardware", "design", "circuit", "analog", "digital", "power", "signal"]
+    },
+    "algorithms": {
+      "location": "claude/data_store/knowledge/algorithms/",
+      "description": "Computer science algorithms and mathematical concepts",
+      "keywords": ["algorithm", "data structure", "complexity", "optimization", "graph", "tree", "sorting", "searching"]
     }
   },
   "knowledge_files": {
@@ -97,6 +102,11 @@
       "path": "claude/data_store/knowledge/managing.json",
       "keywords": ["knowledge", "managing", "create knowledge", "update knowledge", "knowledge file", "bootstrap", "instructions", "data_store", "categorization", "research", "documentation"],
       "description": "CRITICAL: Bootstrap instructions for creating and managing knowledge files"
+    },
+    "correlation_knowledge_creation": {
+      "path": "claude/data_store/knowledge/correlation_knowledge_creation.json",
+      "keywords": ["correlation", "cross-domain", "multi-domain", "integration", "combination", "co-design", "unified", "hardware software", "circuit code", "pcb firmware", "system-level", "bootstrap", "synthesis", "embedded system", "real-time", "fault analysis", "optimization", "verification"],
+      "description": "CRITICAL: Bootstrap instructions for creating cross-domain correlation knowledge files that combine multiple knowledge domains"
     },
     "s_expressions": {
       "path": "claude/data_store/knowledge/coding/kicad/s_expressions.json",
@@ -152,6 +162,21 @@
       "path": "claude/data_store/knowledge/firmware/function_generator.json",
       "keywords": ["function generator", "waveform", "sine", "triangle", "square", "sawtooth", "lfo", "signal generation", "rob tillaart", "oscillator", "frequency", "amplitude", "phase", "test signal"],
       "description": "Library for generating various waveforms and mathematical functions for signal processing"
+    },
+    "graph_theory": {
+      "path": "claude/data_store/knowledge/algorithms/graph_theory.json",
+      "keywords": ["graph", "theory", "vertex", "edge", "algorithm", "traversal", "shortest path", "spanning tree", "network", "topology", "dijkstra", "bfs", "dfs", "connectivity", "cycle", "tree", "dag", "complexity", "data structure"],
+      "description": "Comprehensive guide to graph theory concepts, algorithms, and applications in computer science"
+    },
+    "circuit_analysis_graphs": {
+      "path": "claude/data_store/knowledge/algorithms/circuit_analysis_graphs.json",
+      "keywords": ["circuit", "analysis", "electrical", "graph", "network", "node", "branch", "kcl", "kvl", "nodal", "mesh", "spice", "topology", "tree", "cotree", "impedance", "admittance", "pcb", "simulation"],
+      "description": "Application of graph theory to electrical circuit analysis, modeling, and design"
+    },
+    "code_analysis_graphs": {
+      "path": "claude/data_store/knowledge/algorithms/code_analysis_graphs.json", 
+      "keywords": ["code", "analysis", "program", "software", "control flow", "data flow", "call graph", "dependency", "static analysis", "dynamic analysis", "compiler", "optimization", "cfg", "ast", "refactoring", "testing"],
+      "description": "Application of graph theory to software analysis, optimization, and understanding"
     }
   },
   "access_patterns": {
