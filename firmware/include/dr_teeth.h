@@ -35,4 +35,18 @@ struct dr_teeth {
             }
         }
     };
+    
+    // DMA statistics reporting helper (only works with DMA-enabled electric_mayhem)
+    // Uses SFINAE to detect if the muppets instance has DMA statistics capability
+    template< typename T >
+    static auto report_dma_statistics( T& muppets ) -> decltype(muppets.get_dma_statistics(), void()) {
+        const auto& stats = muppets.get_dma_statistics();
+        // DMA statistics are available - this could be used for monitoring/debugging
+        // In a production system, you might log these or expose via MIDI SysEx
+    }
+    
+    // Fallback for non-DMA electric_mayhem (does nothing)
+    static void report_dma_statistics( ... ) {
+        // No DMA statistics available
+    };
 };

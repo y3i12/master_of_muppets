@@ -3,6 +3,7 @@
 
 #include "master_of_muppets.hpp"
 #include "electric_mayhem.h"
+#include "electric_mayhem_dma.h"
 
 
 #include "function_generator.h"
@@ -11,6 +12,7 @@
 
 #define MASTER_OF_MUPPETS_AD5993R
 // #define DENTAL_CHECK
+#define ENABLE_DMA_OPERATIONS  // Enable DMA-based asynchronous I2C operations
 
 
 
@@ -35,11 +37,19 @@ function_generator                          the_function_generator;
 
 
 #ifdef MASTER_OF_MUPPETS_AD5993R
+#ifdef ENABLE_DMA_OPERATIONS
+#include "drivers/rob_tillaart_ad_5993r_async.h"
+using dac_driver_t = drivers::rob_tillaart_ad_5993r_async;
+#else
 #include "drivers/rob_tillaart_ad_5993r.h"
 using dac_driver_t = drivers::rob_tillaart_ad_5993r;
 #endif
+#endif
 
 #ifdef MASTER_OF_MUPPETS_MCP4728
+#ifdef ENABLE_DMA_OPERATIONS
+#error "unsuported"
+#endif
 #include "drivers/adafruit_mcp_4728.h"
 using dac_driver_t = drivers::adafruit_mcp_4728;
 #endif
@@ -47,7 +57,11 @@ using dac_driver_t = drivers::adafruit_mcp_4728;
 
 
 
+#ifdef ENABLE_DMA_OPERATIONS
+electric_mayhem_dma< dac_driver_t > the_muppets;
+#else
 electric_mayhem< dac_driver_t > the_muppets;
+#endif
 static Threads::Mutex           inspiration;
 
 // Direct channel indexing without remapping
@@ -200,7 +214,16 @@ void setup( void ) {
         dac_driver_t::initialization_struct_t( &Wire1, 37 ),
     };
 
+#ifdef ENABLE_DMA_OPERATIONS
+    // DMA channels for each DAC (0-31 available on Teensy 4.1)
+    uint8_t dma_channels[ dr_teeth::k_dac_count ] = { 0, 1 };
+    the_muppets.initialize( initialization_structs, dma_channels );
+    
+    // Set DMA mode (ENABLED allows fallback, REQUIRED fails if DMA unavailable)
+    the_muppets.set_dma_mode( electric_mayhem_dma< dac_driver_t >::dma_mode_t::ENABLED );
+#else
     the_muppets.initialize( initialization_structs );
+#endif
 
     #ifdef LFO_FREQUENCY
         the_function_generator.setFrequency( LFO_FREQUENCY );
