@@ -1,0 +1,239 @@
+{
+"title": "KiCad Schematic Testing Insights and Implementation Knowledge",
+"version": "1.0.0",
+"description": "Critical findings from testing KiCad schematic conversion tools on real-world circuits, providing actionable insights for robust implementation",
+"keywords": [
+"kicad schematic testing",
+"kiutils implementation",
+"property object handling",
+"hierarchical schematics",
+"json serialization",
+"real-world validation",
+"error handling",
+"production guidelines"
+],
+"test_validation": {
+"circuits_tested": [
+{
+"name": "amplifier_board",
+"complexity": "simple",
+"components": 28,
+"nets": 13,
+"component_types": [
+"R",
+"C",
+"Q",
+"#GND",
+"#P+",
+"POW",
+"IN",
+"OUT",
+"S"
+],
+"validation_status": "100% success"
+},
+{
+"name": "master_of_muppets",
+"complexity": "complex_hierarchical",
+"total_components": 77,
+"total_nets": 46,
+"hierarchical_sheets": 5,
+"modules": [
+{
+"name": "main_schematic",
+"components": 12,
+"nets": 15
+},
+{
+"name": "dac_module",
+"components": 6,
+"nets": 6
+},
+{
+"name": "amp_module",
+"components": 35,
+"nets": 20
+},
+{
+"name": "teensy_module",
+"components": 5,
+"nets": 3
+},
+{
+"name": "jack_sheet",
+"components": 16,
+"nets": 0
+},
+{
+"name": "unripple_module",
+"components": 3,
+"nets": 2
+}
+],
+"validation_status": "100% success with hierarchical sheet limitation"
+}
+],
+"performance_metrics": {
+"simple_circuit": "< 2 seconds for 28 components",
+"complex_hierarchical": "< 3 seconds for 77 components across 5 sheets",
+"round_trip_integrity": "100% component and net count preservation",
+"data_fidelity": "All component references and connectivity preserved"
+}
+},
+"critical_implementation_insights": {
+"property_object_handling": {
+"problem": "Property objects contain complex nested structures (Position, Effects, Font, etc.) that are not JSON serializable",
+"solution": "Always extract the .value attribute: str(prop.value) if prop.value else default",
+"safe_extraction_pattern": "if hasattr(value, 'value'): return str(value.value) if value.value else str(default)",
+"affected_attributes": [
+"HierarchicalSheet.fileName",
+"HierarchicalSheet.sheetName",
+"component properties in symbol.properties list"
+],
+"test_evidence": "Master of Muppets conversion failed with 'Object of type Property is not JSON serializable' until Property.value extraction implemented",
+"implementation_example": {
+"wrong": "sheet_data['file'] = sheet.fileName",
+"correct": "sheet_data['file'] = str(sheet.fileName.value) if hasattr(sheet.fileName, 'value') and sheet.fileName.value else ''"
+}
+},
+"kiutils_import_corrections": {
+"wrong_imports": [
+"from kiutils.items.schitem import SchematicSymbol",
+"from kiutils.items.brditems import LocalLabel, GlobalLabel, HierarchicalLabel"
+],
+"correct_imports": [
+"from kiutils.items.schitems import SchematicSymbol",
+"from kiutils.items.schitems import LocalLabel, GlobalLabel, HierarchicalLabel"
+],
+"module_structure": "schitems.py not schitem.py - common typo in documentation examples",
+"label_location": "All label classes are in schitems module, not brditems",
+"test_evidence": "ImportError: cannot import name 'LocalLabel' from 'kiutils.items.brditems' occurred during initial testing"
+},
+"hierarchical_sheet_processing": {
+"sheet_name_attribute": "Use 'sheetName' not 'name' for hierarchical sheet names",
+"file_name_property": "fileName is Property object with .value containing actual filename string",
+"multiple_instances": "Same sheet file can be instantiated multiple times with different names (DAC_MODULE, DAC_MODULE1)",
+"sheet_reconstruction_limitation": "JSON to KiCad conversion doesn't fully preserve hierarchical sheet metadata - focus on component and connectivity preservation",
+"workaround": "Process hierarchical sheets individually for complete analysis",
+"test_evidence": "Master of Muppets shows 5 sheets in original, 0 in reconstructed, but all components preserved"
+},
+"json_serialization_debugging": {
+"sectioned_testing": "Test each JSON section individually to isolate serialization failures",
+"debug_pattern": "for key, value in json_data.items(): try: json.dumps({key: value}) except: print(f'Section {key} fails')",
+"common_failure_points": [
+"sheets section with Property objects",
+"nested Position/Effects objects in properties",
+"Complex library symbol definitions with circular references"
+],
+"prevention": "Always test JSON serializability before file output to prevent data loss",
+"test_evidence": "Sectioned debugging identified 'sheets' section as failure point in Master of Muppets conversion"
+}
+},
+"production_implementation_guidelines": {
+"mandatory_imports": [
+"from kiutils.schematic import Schematic",
+"from kiutils.items.schitems import SchematicSymbol, Junction, Connection, LocalLabel, GlobalLabel, HierarchicalLabel",
+"from kiutils.items.common import Position, Property"
+],
+"essential_functions": {
+"safe_get_property": "def safe_get_property(obj, prop, default=None): value = getattr(obj, prop, default); if hasattr(value, 'value'): return str(value.value) if value.value else str(default); return value",
+"property_extraction": "def extract_properties(symbol): return {str(prop.key): str(prop.value) for prop in symbol.properties if hasattr(prop, 'key') and hasattr(prop, 'value')}",
+"json_validation": "def validate_json_serializable(data): json.dumps(data); return True"
+},
+"testing_requirements": [
+"Test on both simple and complex hierarchical schematics",
+"Verify round-trip conversion preserves component counts and references",
+"Validate JSON serialization of all extracted data structures",
+"Test error handling with malformed or incomplete schematic files"
+],
+"scalability_considerations": [
+"Process hierarchical sheets individually for memory efficiency",
+"Cache frequently accessed component maps",
+"Use tolerance-based matching for wire connectivity (5.0mm default)",
+"Implement sectioned JSON validation for large datasets"
+]
+},
+"error_handling_patterns": {
+"safe_property_access": "Use safe_get_property() function with Property.value extraction",
+"attribute_existence_checks": "Always use hasattr() before accessing nested attributes",
+"json_serialization_validation": "Test serialization before writing to prevent data loss",
+"graceful_degradation": "Provide meaningful defaults when optional data is missing",
+"exception_context": "Wrap property access in try-catch with context-aware error messages",
+"common_exceptions": [
+"AttributeError: Property object has no attribute X",
+"TypeError: Object of type Property is not JSON serializable",
+"ImportError: cannot import name from wrong module path"
+]
+},
+"real_world_validation": {
+"simple_circuit_validation": {
+"circuit": "amplifier board with 28 components",
+"validates": "basic functionality, component extraction, net connectivity",
+"component_diversity": "resistors, capacitors, transistors, connectors, power symbols",
+"net_complexity": "13 electrical networks with proper junction handling"
+},
+"complex_hierarchical_validation": {
+"circuit": "Master of Muppets with 77 components across 5 hierarchical sheets",
+"validates": "scalability, hierarchical processing, multi-sheet coordination",
+"complexity_factors": [
+"5 hierarchical sheet modules",
+"Multiple instances of same sheet (DAC_MODULE, DAC_MODULE1)",
+"Mixed analog/digital components",
+"Power distribution networks",
+"Inter-sheet connectivity"
+],
+"performance_verification": "Processes in under 3 seconds with full data preservation"
+}
+},
+"code_generation_guidelines": {
+"property_safe_extraction": {
+"pattern": "if hasattr(obj, 'prop') and hasattr(obj.prop, 'value'): return str(obj.prop.value)",
+"default_handling": "Provide meaningful defaults for missing or empty properties",
+"type_conversion": "Always convert to string for JSON serialization"
+},
+"hierarchical_sheet_handling": {
+"sheet_iteration": "for sheet in schematic.sheets if hasattr(schematic, 'sheets') and schematic.sheets",
+"name_extraction": "sheet_name = safe_get_property(sheet, 'sheetName', 'Unknown')",
+"file_extraction": "file_name = safe_get_property(sheet, 'fileName', '')",
+"position_handling": "Extract position if available, provide defaults otherwise"
+},
+"component_processing": {
+"property_loop": "for prop in symbol.properties if hasattr(symbol, 'properties') and symbol.properties",
+"key_value_extraction": "key = str(prop.key) if prop.key else 'Unknown'; value = str(prop.value) if prop.value else ''",
+"reference_handling": "Extract Reference, Value, Footprint as standard properties"
+}
+},
+"testing_methodology": {
+"test_progression": [
+"Start with simple circuits to validate basic functionality",
+"Progress to complex hierarchical designs for scalability testing",
+"Test round-trip conversion to verify data integrity",
+"Validate edge cases and error conditions"
+],
+"validation_criteria": {
+"component_preservation": "100% component count and reference preservation",
+"net_preservation": "100% electrical net count preservation",
+"data_integrity": "All component properties and connectivity maintained",
+"performance_acceptability": "Processing time under 5 seconds for typical circuits"
+},
+"debug_workflow": [
+"Test JSON serialization section by section",
+"Identify Property objects causing serialization failures",
+"Implement Property.value extraction for affected attributes",
+"Verify round-trip conversion maintains data integrity"
+]
+},
+"future_improvement_areas": {
+"hierarchical_sheet_reconstruction": "Full preservation of hierarchical sheet metadata in reverse conversion",
+"library_symbol_handling": "Complete library symbol definition preservation",
+"advanced_connectivity": "Support for buses and differential pairs",
+"error_recovery": "Graceful handling of corrupted or incomplete schematic files",
+"performance_optimization": "Streaming processing for very large hierarchical designs"
+},
+"related_knowledge_files": [
+"claude/data_store/knowledge/coding/kicad/schematic.json",
+"claude/data_store/knowledge/coding/kicad/kiutils.json",
+"claude/data_store/knowledge/coding/kicad/s_expressions.json",
+"claude/data_store/knowledge/external_tools/kicad_sch_bidirectional_converter.json"
+]
+}

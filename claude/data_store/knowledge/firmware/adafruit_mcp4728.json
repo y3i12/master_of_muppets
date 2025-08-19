@@ -1,1 +1,353 @@
-{"name":"Adafruit MCP4728","description":"Arduino library for MCP4728 4-Channel 12-Bit I2C DAC","repository":"https://github.com/adafruit/Adafruit_MCP4728","documentation":"http://adafruit.github.io/Adafruit_MCP4728/html/index.html","license":"BSD","author":"Bryan Siepert for Adafruit Industries","hardware_details":{"chip":"MCP4728","manufacturer":"Microchip Technology","type":"4-Channel 12-Bit Digital-to-Analog Converter","interface":"I2C","breakout_board":"https://www.adafruit.com/products/4470","key_features":["4 independent DAC channels","12-bit resolution (4096 levels)","I2C interface (2 pins required)","On-chip EEPROM for settings storage","Internal voltage reference","Individual channel configuration"]},"technical_specifications":{"resolution":"12-bit (4096 levels per channel)","channels":4,"output_voltage_range":{"with_vdd_reference":"0V to VDD","with_internal_reference":"0V to 2.048V (1x gain) or 0V to 4.096V (2x gain)"},"supply_voltage":"2.7V to 5.5V","reference_voltage":{"external":"VDD","internal":"2.048V"},"gain_options":["1x","2x"],"i2c_address":{"default":"0x60","range":"0x60 to 0x67 (configurable)"},"settling_time":"6µs typical","power_consumption":"210µA typical"},"library_api":{"main_class":"Adafruit_MCP4728","dependencies":["Adafruit_BusIO"],"core_methods":{"initialization":{"constructor":"Adafruit_MCP4728()","begin":{"signature":"bool begin(uint8_t i2c_address = MCP4728_I2CADDR_DEFAULT, TwoWire *wire = &Wire)","description":"Initialize I2C communication with the MCP4728","parameters":{"i2c_address":"I2C address (default 0x60)","wire":"I2C bus to use (default &Wire)"},"returns":"true if successful, false otherwise"}},"channel_control":{"setChannelValue":{"signature":"bool setChannelValue(MCP4728_channel_t channel, uint16_t new_value, MCP4728_vref_t new_vref, MCP4728_gain_t new_gain, MCP4728_pd_mode_t new_pd_mode, bool udac)","description":"Set value and configuration for a specific channel","parameters":{"channel":"Channel to configure (A, B, C, or D)","new_value":"12-bit DAC value (0-4095)","new_vref":"Voltage reference (VDD or INTERNAL)","new_gain":"Gain setting (1X or 2X)","new_pd_mode":"Power-down mode","udac":"Update all channels simultaneously"}},"fastWrite":{"signature":"bool fastWrite(uint16_t channel_a_value, uint16_t channel_b_value, uint16_t channel_c_value, uint16_t channel_d_value)","description":"Quickly write to all 4 channels simultaneously","purpose":"Optimized for applications requiring synchronized updates","limitation":"Uses current channel settings (no configuration change)"}}},"enumerations":{"MCP4728_channel_t":{"values":["MCP4728_CHANNEL_A","MCP4728_CHANNEL_B","MCP4728_CHANNEL_C","MCP4728_CHANNEL_D"],"description":"Channel selection enumeration"},"MCP4728_vref_t":{"values":["MCP4728_VREF_VDD","MCP4728_VREF_INTERNAL"],"description":"Voltage reference selection"},"MCP4728_gain_t":{"values":["MCP4728_GAIN_1X","MCP4728_GAIN_2X"],"description":"Output gain selection"},"MCP4728_pd_mode_t":{"values":["MCP4728_PD_MODE_NORMAL","MCP4728_PD_MODE_GND_1K","MCP4728_PD_MODE_GND_100K","MCP4728_PD_MODE_GND_500K"],"description":"Power-down mode with different load resistors"}},"commands":{"MCP4728_MULTI_IR_CMD":"0x40 - Write to input register only","MCP4728_MULTI_EEPROM_CMD":"0x50 - Write to input register and EEPROM","MCP4728_FAST_WRITE_CMD":"0xC0 - Write all channels simultaneously"}},"operational_modes":{"normal_operation":{"description":"Standard DAC output operation","output":"Analog voltage proportional to digital input","power_consumption":"Normal"},"power_down_modes":{"pd_mode_gnd_1k":{"description":"Output loaded with 1kΩ to ground","power_saving":"High","use_case":"Standby with defined output impedance"},"pd_mode_gnd_100k":{"description":"Output loaded with 100kΩ to ground","power_saving":"Medium","use_case":"Standby with high impedance"},"pd_mode_gnd_500k":{"description":"Output loaded with 500kΩ to ground","power_saving":"Medium-high","use_case":"Balanced power saving and impedance"}}},"configuration_options":{"voltage_reference":{"vdd_reference":{"description":"Use supply voltage as reference","output_range":"0V to VDD","advantage":"Full-scale output matches supply","disadvantage":"Depends on supply stability"},"internal_reference":{"description":"Use internal 2.048V reference","output_range":"0V to 2.048V (1x gain) or 0V to 4.096V (2x gain)","advantage":"Stable, independent of supply variations","accuracy":"±0.05% typical"}},"gain_settings":{"1x_gain":{"output_range":"0V to Vref","resolution":"Vref / 4096"},"2x_gain":{"output_range":"0V to 2 × Vref","resolution":"2 × Vref / 4096","limitation":"Only available with internal reference"}}},"eeprom_functionality":{"description":"On-chip EEPROM stores channel configurations","stored_settings":["DAC output values","Voltage reference selection","Gain settings","Power-down modes"],"persistence":"Settings retained through power cycles","write_cycles":"1,000,000 minimum erase/write cycles","retention":"100 years data retention"},"usage_patterns":{"single_channel_update":{"description":"Update one channel at a time","method":"setChannelValue()","use_case":"Independent channel control","example":"mcp.setChannelValue(MCP4728_CHANNEL_A, 2048);"},"synchronized_update":{"description":"Update all channels simultaneously","method":"fastWrite()","use_case":"Coordinated multi-channel output","example":"mcp.fastWrite(1000, 2000, 3000, 4000);"},"configuration_management":{"description":"Set channel-specific parameters","features":["Independent voltage reference","Individual gain settings","Per-channel power modes"],"flexibility":"Each channel can have different configuration"}},"performance_characteristics":{"update_speed":{"single_channel":"~6µs settling time","fast_write":"Optimized for simultaneous updates","i2c_speed":"Limited by I2C bus speed (typically 400kHz)"},"accuracy":{"integral_nonlinearity":"±1 LSB typical","differential_nonlinearity":"±1 LSB typical","offset_error":"±5 LSB typical","gain_error":"±0.2% typical"},"noise":{"signal_to_noise_ratio":"90 dB typical","total_harmonic_distortion":"-80 dB typical"}},"integration_considerations":{"i2c_requirements":{"pins":"2 pins (SDA, SCL)","pullup_resistors":"Required (typically 4.7kΩ)","bus_sharing":"Can share bus with other I2C devices","address_conflicts":"Multiple MCP4728s need different addresses"},"power_supply":{"decoupling":"100nF ceramic capacitor recommended","supply_noise":"Low-noise supply improves accuracy","ground_plane":"Solid ground plane recommended"},"output_considerations":{"drive_capability":"25mA source/sink current","load_capacitance":"1000pF maximum","output_impedance":"~1Ω typical"}},"troubleshooting":{"common_issues":{"no_response":{"causes":["Wrong I2C address","Missing pullup resistors","Bus wiring error"],"solutions":["Verify address","Check pullups","Verify SDA/SCL connections"]},"noisy_output":{"causes":["Poor power supply","Inadequate decoupling","Ground loops"],"solutions":["Use linear regulator","Add decoupling caps","Improve grounding"]},"incorrect_voltage":{"causes":["Wrong reference setting","Incorrect gain","Supply voltage issues"],"solutions":["Check Vref setting","Verify gain configuration","Measure supply voltage"]}}},"comparison_with_alternatives":{"vs_ad5593r":{"mcp4728_advantages":["Dedicated DAC","EEPROM storage","Individual channel config"],"ad5593r_advantages":["More channels (8)","Configurable I/O","ADC capability"],"use_case":"MCP4728 better for dedicated 4-channel DAC applications"},"vs_single_channel_dacs":{"advantages":["Multi-channel in single package","Synchronized updates","Cost effective"],"considerations":["Shared I2C bus","Package complexity"]}},"firmware_integration":{"in_master_of_muppets":{"usage":"Alternative DAC option (currently using AD5593R)","configuration":"4 channels instead of 8","benefits":["Dedicated DAC function","EEPROM for settings","Proven library support"],"limitations":["Fewer channels than AD5593R","No ADC capability"]},"driver_wrapper":{"location":"firmware/src/drivers/adafruit_mcp_4728.cpp","abstraction":"Implements common DAC interface","features":["LDAC pin control","Value rescaling","I2C initialization"]}},"best_practices":{"initialization":{"check_begin":"Always verify begin() returns true","i2c_scanner":"Use I2C scanner to verify device presence","configuration":"Set reference and gain appropriately for application"},"operation":{"synchronized_updates":"Use fastWrite() when all channels need simultaneous update","eeprom_writes":"Minimize EEPROM writes to extend lifetime","power_management":"Use power-down modes when channels not needed"},"debugging":{"serial_output":"Print DAC values for verification","oscilloscope":"Measure actual output voltages","i2c_analysis":"Use logic analyzer for bus troubleshooting"}}}
+{
+"name": "Adafruit MCP4728",
+"description": "Arduino library for MCP4728 4-Channel 12-Bit I2C DAC",
+"repository": "https://github.com/adafruit/Adafruit_MCP4728",
+"documentation": "http://adafruit.github.io/Adafruit_MCP4728/html/index.html",
+"license": "BSD",
+"author": "Bryan Siepert for Adafruit Industries",
+"hardware_details": {
+"chip": "MCP4728",
+"manufacturer": "Microchip Technology",
+"type": "4-Channel 12-Bit Digital-to-Analog Converter",
+"interface": "I2C",
+"breakout_board": "https://www.adafruit.com/products/4470",
+"key_features": [
+"4 independent DAC channels",
+"12-bit resolution (4096 levels)",
+"I2C interface (2 pins required)",
+"On-chip EEPROM for settings storage",
+"Internal voltage reference",
+"Individual channel configuration"
+]
+},
+"technical_specifications": {
+"resolution": "12-bit (4096 levels per channel)",
+"channels": 4,
+"output_voltage_range": {
+"with_vdd_reference": "0V to VDD",
+"with_internal_reference": "0V to 2.048V (1x gain) or 0V to 4.096V (2x gain)"
+},
+"supply_voltage": "2.7V to 5.5V",
+"reference_voltage": {
+"external": "VDD",
+"internal": "2.048V"
+},
+"gain_options": [
+"1x",
+"2x"
+],
+"i2c_address": {
+"default": "0x60",
+"range": "0x60 to 0x67 (configurable)"
+},
+"settling_time": "6µs typical",
+"power_consumption": "210µA typical"
+},
+"library_api": {
+"main_class": "Adafruit_MCP4728",
+"dependencies": [
+"Adafruit_BusIO"
+],
+"core_methods": {
+"initialization": {
+"constructor": "Adafruit_MCP4728()",
+"begin": {
+    "signature": "bool begin(uint8_t i2c_address = MCP4728_I2CADDR_DEFAULT, TwoWire *wire = &Wire)",
+    "description": "Initialize I2C communication with the MCP4728",
+    "parameters": {
+        "i2c_address": "I2C address (default 0x60)",
+        "wire": "I2C bus to use (default &Wire)"
+    },
+    "returns": "true if successful, false otherwise"
+}
+},
+"channel_control": {
+"setChannelValue": {
+    "signature": "bool setChannelValue(MCP4728_channel_t channel, uint16_t new_value, MCP4728_vref_t new_vref, MCP4728_gain_t new_gain, MCP4728_pd_mode_t new_pd_mode, bool udac)",
+    "description": "Set value and configuration for a specific channel",
+    "parameters": {
+        "channel": "Channel to configure (A, B, C, or D)",
+        "new_value": "12-bit DAC value (0-4095)",
+        "new_vref": "Voltage reference (VDD or INTERNAL)",
+        "new_gain": "Gain setting (1X or 2X)",
+        "new_pd_mode": "Power-down mode",
+        "udac": "Update all channels simultaneously"
+    }
+},
+"fastWrite": {
+    "signature": "bool fastWrite(uint16_t channel_a_value, uint16_t channel_b_value, uint16_t channel_c_value, uint16_t channel_d_value)",
+    "description": "Quickly write to all 4 channels simultaneously",
+    "purpose": "Optimized for applications requiring synchronized updates",
+    "limitation": "Uses current channel settings (no configuration change)"
+}
+}
+},
+"enumerations": {
+"MCP4728_channel_t": {
+"values": [
+    "MCP4728_CHANNEL_A",
+    "MCP4728_CHANNEL_B",
+    "MCP4728_CHANNEL_C",
+    "MCP4728_CHANNEL_D"
+],
+"description": "Channel selection enumeration"
+},
+"MCP4728_vref_t": {
+"values": [
+    "MCP4728_VREF_VDD",
+    "MCP4728_VREF_INTERNAL"
+],
+"description": "Voltage reference selection"
+},
+"MCP4728_gain_t": {
+"values": [
+    "MCP4728_GAIN_1X",
+    "MCP4728_GAIN_2X"
+],
+"description": "Output gain selection"
+},
+"MCP4728_pd_mode_t": {
+"values": [
+    "MCP4728_PD_MODE_NORMAL",
+    "MCP4728_PD_MODE_GND_1K",
+    "MCP4728_PD_MODE_GND_100K",
+    "MCP4728_PD_MODE_GND_500K"
+],
+"description": "Power-down mode with different load resistors"
+}
+},
+"commands": {
+"MCP4728_MULTI_IR_CMD": "0x40 - Write to input register only",
+"MCP4728_MULTI_EEPROM_CMD": "0x50 - Write to input register and EEPROM",
+"MCP4728_FAST_WRITE_CMD": "0xC0 - Write all channels simultaneously"
+}
+},
+"operational_modes": {
+"normal_operation": {
+"description": "Standard DAC output operation",
+"output": "Analog voltage proportional to digital input",
+"power_consumption": "Normal"
+},
+"power_down_modes": {
+"pd_mode_gnd_1k": {
+"description": "Output loaded with 1kΩ to ground",
+"power_saving": "High",
+"use_case": "Standby with defined output impedance"
+},
+"pd_mode_gnd_100k": {
+"description": "Output loaded with 100kΩ to ground",
+"power_saving": "Medium",
+"use_case": "Standby with high impedance"
+},
+"pd_mode_gnd_500k": {
+"description": "Output loaded with 500kΩ to ground",
+"power_saving": "Medium-high",
+"use_case": "Balanced power saving and impedance"
+}
+}
+},
+"configuration_options": {
+"voltage_reference": {
+"vdd_reference": {
+"description": "Use supply voltage as reference",
+"output_range": "0V to VDD",
+"advantage": "Full-scale output matches supply",
+"disadvantage": "Depends on supply stability"
+},
+"internal_reference": {
+"description": "Use internal 2.048V reference",
+"output_range": "0V to 2.048V (1x gain) or 0V to 4.096V (2x gain)",
+"advantage": "Stable, independent of supply variations",
+"accuracy": "±0.05% typical"
+}
+},
+"gain_settings": {
+"1x_gain": {
+"output_range": "0V to Vref",
+"resolution": "Vref / 4096"
+},
+"2x_gain": {
+"output_range": "0V to 2 × Vref",
+"resolution": "2 × Vref / 4096",
+"limitation": "Only available with internal reference"
+}
+}
+},
+"eeprom_functionality": {
+"description": "On-chip EEPROM stores channel configurations",
+"stored_settings": [
+"DAC output values",
+"Voltage reference selection",
+"Gain settings",
+"Power-down modes"
+],
+"persistence": "Settings retained through power cycles",
+"write_cycles": "1,000,000 minimum erase/write cycles",
+"retention": "100 years data retention"
+},
+"usage_patterns": {
+"single_channel_update": {
+"description": "Update one channel at a time",
+"method": "setChannelValue()",
+"use_case": "Independent channel control",
+"example": "mcp.setChannelValue(MCP4728_CHANNEL_A, 2048);"
+},
+"synchronized_update": {
+"description": "Update all channels simultaneously",
+"method": "fastWrite()",
+"use_case": "Coordinated multi-channel output",
+"example": "mcp.fastWrite(1000, 2000, 3000, 4000);"
+},
+"configuration_management": {
+"description": "Set channel-specific parameters",
+"features": [
+"Independent voltage reference",
+"Individual gain settings",
+"Per-channel power modes"
+],
+"flexibility": "Each channel can have different configuration"
+}
+},
+"performance_characteristics": {
+"update_speed": {
+"single_channel": "~6µs settling time",
+"fast_write": "Optimized for simultaneous updates",
+"i2c_speed": "Limited by I2C bus speed (typically 400kHz)"
+},
+"accuracy": {
+"integral_nonlinearity": "±1 LSB typical",
+"differential_nonlinearity": "±1 LSB typical",
+"offset_error": "±5 LSB typical",
+"gain_error": "±0.2% typical"
+},
+"noise": {
+"signal_to_noise_ratio": "90 dB typical",
+"total_harmonic_distortion": "-80 dB typical"
+}
+},
+"integration_considerations": {
+"i2c_requirements": {
+"pins": "2 pins (SDA, SCL)",
+"pullup_resistors": "Required (typically 4.7kΩ)",
+"bus_sharing": "Can share bus with other I2C devices",
+"address_conflicts": "Multiple MCP4728s need different addresses"
+},
+"power_supply": {
+"decoupling": "100nF ceramic capacitor recommended",
+"supply_noise": "Low-noise supply improves accuracy",
+"ground_plane": "Solid ground plane recommended"
+},
+"output_considerations": {
+"drive_capability": "25mA source/sink current",
+"load_capacitance": "1000pF maximum",
+"output_impedance": "~1Ω typical"
+}
+},
+"troubleshooting": {
+"common_issues": {
+"no_response": {
+"causes": [
+    "Wrong I2C address",
+    "Missing pullup resistors",
+    "Bus wiring error"
+],
+"solutions": [
+    "Verify address",
+    "Check pullups",
+    "Verify SDA/SCL connections"
+]
+},
+"noisy_output": {
+"causes": [
+    "Poor power supply",
+    "Inadequate decoupling",
+    "Ground loops"
+],
+"solutions": [
+    "Use linear regulator",
+    "Add decoupling caps",
+    "Improve grounding"
+]
+},
+"incorrect_voltage": {
+"causes": [
+    "Wrong reference setting",
+    "Incorrect gain",
+    "Supply voltage issues"
+],
+"solutions": [
+    "Check Vref setting",
+    "Verify gain configuration",
+    "Measure supply voltage"
+]
+}
+}
+},
+"comparison_with_alternatives": {
+"vs_ad5593r": {
+"mcp4728_advantages": [
+"Dedicated DAC",
+"EEPROM storage",
+"Individual channel config"
+],
+"ad5593r_advantages": [
+"More channels (8)",
+"Configurable I/O",
+"ADC capability"
+],
+"use_case": "MCP4728 better for dedicated 4-channel DAC applications"
+},
+"vs_single_channel_dacs": {
+"advantages": [
+"Multi-channel in single package",
+"Synchronized updates",
+"Cost effective"
+],
+"considerations": [
+"Shared I2C bus",
+"Package complexity"
+]
+}
+},
+"firmware_integration": {
+"in_master_of_muppets": {
+"usage": "Alternative DAC option (currently using AD5593R)",
+"configuration": "4 channels instead of 8",
+"benefits": [
+"Dedicated DAC function",
+"EEPROM for settings",
+"Proven library support"
+],
+"limitations": [
+"Fewer channels than AD5593R",
+"No ADC capability"
+]
+},
+"driver_wrapper": {
+"location": "firmware/src/drivers/adafruit_mcp_4728.cpp",
+"abstraction": "Implements common DAC interface",
+"features": [
+"LDAC pin control",
+"Value rescaling",
+"I2C initialization"
+]
+}
+},
+"best_practices": {
+"initialization": {
+"check_begin": "Always verify begin() returns true",
+"i2c_scanner": "Use I2C scanner to verify device presence",
+"configuration": "Set reference and gain appropriately for application"
+},
+"operation": {
+"synchronized_updates": "Use fastWrite() when all channels need simultaneous update",
+"eeprom_writes": "Minimize EEPROM writes to extend lifetime",
+"power_management": "Use power-down modes when channels not needed"
+},
+"debugging": {
+"serial_output": "Print DAC values for verification",
+"oscilloscope": "Measure actual output voltages",
+"i2c_analysis": "Use logic analyzer for bus troubleshooting"
+}
+}
+}

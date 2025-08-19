@@ -1,1 +1,647 @@
-{"name":"Code Analysis Using Graphs","description":"Application of graph theory to software analysis, optimization, and understanding","field":"Computer Science, Software Engineering, Program Analysis","related_concepts":["Static analysis","Dynamic analysis","Compiler design","Software metrics"],"fundamental_concepts":{"program_as_graph":{"description":"Software programs naturally map to various graph structures","abstraction_levels":["Statement level (fine-grained)","Basic block level (medium-grained)","Function/method level (coarse-grained)","Module/class level (architectural)"],"vertex_representations":{"statements":"Individual instructions or source lines","basic_blocks":"Sequences of statements with single entry/exit","functions":"Procedures, methods, or subroutines","modules":"Files, classes, or compilation units"},"edge_representations":{"control_flow":"Execution order and conditional branches","data_flow":"Variable definitions and uses","call_relationships":"Function invocations","dependencies":"Import/include relationships"}},"graph_types_in_code":{"directed_graphs":"Most code graphs (control flow follows direction)","weighted_graphs":"Execution frequency, complexity metrics","multigraphs":"Multiple relationships between same entities","dynamic_graphs":"Runtime behavior, changing call patterns"}},"control_flow_analysis":{"control_flow_graph":{"definition":"Directed graph representing all execution paths","vertices":"Basic blocks (maximal sequences of statements)","edges":"Possible control transfers (jumps, branches, calls)","properties":{"entry_node":"Unique starting point","exit_node":"Unique ending point (may be virtual)","dominance":"Node A dominates B if all paths to B pass through A"}},"basic_block_construction":{"leaders":["First statement of program","Target of any jump/branch","Statement following any jump/branch"],"algorithm":["1. Identify all leader statements","2. Each basic block starts with leader","3. Block extends until next leader or end","4. Connect blocks based on control flow"],"optimizations":"Within basic blocks, no control flow changes"},"dominance_analysis":{"dominator_tree":"Tree showing dominance relationships","immediate_dominator":"Closest dominator (parent in dominator tree)","dominance_frontier":"Nodes where dominance of given node ends","applications":["Loop detection","SSA form construction","Optimization placement","Code restructuring"]},"loop_analysis":{"natural_loops":"Loops with single entry point (header)","back_edges":"Edges from loop body back to header","loop_nesting":"Hierarchical structure of nested loops","irreducible_loops":"Loops with multiple entry points","applications":["Loop optimization","Performance analysis","Parallelization","Complexity metrics"]}},"data_flow_analysis":{"data_flow_graph":{"definition":"Graph showing how data moves through program","vertices":"Variable definitions and uses","edges":"Def-use relationships","types":{"def_use_chains":"Definition reaches use","use_def_chains":"Use reached by definition","web":"Connected component of related def-use chains"}},"reaching_definitions":{"problem":"Which definitions reach each program point","dataflow_equation":"OUT[B] = (IN[B] - KILL[B]) ∪ GEN[B]","kill_set":"Definitions overwritten in basic block","gen_set":"New definitions generated in basic block","applications":["Constant propagation","Dead code elimination"]},"live_variable_analysis":{"problem":"Which variables are live (will be used later)","backward_analysis":"Computed in reverse execution order","dataflow_equation":"IN[B] = (OUT[B] - DEF[B]) ∪ USE[B]","applications":["Register allocation","Dead code elimination"]},"available_expressions":{"problem":"Which expressions are computed on all paths","forward_analysis":"Computed in execution order","applications":["Common subexpression elimination","Code motion"]},"ssa_form":{"static_single_assignment":"Each variable assigned exactly once","phi_functions":"Merge values at control flow joins","construction":"Use dominance frontiers to place phi functions","benefits":["Simplified data flow analysis","Enables advanced optimizations","Sparse representations"]}},"call_graph_analysis":{"call_graph":{"definition":"Directed graph of function call relationships","vertices":"Functions, methods, or procedures","edges":"Call relationships (caller → callee)","types":{"static_call_graph":"Based on static analysis of code","dynamic_call_graph":"Based on actual execution traces"}},"construction_challenges":{"function_pointers":"Indirect calls through pointers","virtual_methods":"Dynamic dispatch in OOP","reflection":"Runtime method invocation","callbacks":"Functions passed as parameters","solutions":["Points-to analysis","Class hierarchy analysis","Type-based analysis","Profile-guided analysis"]},"applications":{"interprocedural_analysis":"Analysis across function boundaries","inlining_decisions":"Which functions to inline","dead_function_elimination":"Remove unreachable functions","call_site_optimization":"Specialize based on call context"},"metrics":{"fan_in":"Number of functions calling this function","fan_out":"Number of functions this function calls","call_depth":"Maximum depth of call stack","cyclomatic_complexity":"Complexity based on call structure"}},"dependency_analysis":{"module_dependency_graph":{"definition":"Dependencies between compilation units","vertices":"Modules, files, packages, libraries","edges":"Import, include, or usage relationships","applications":["Build system optimization","Incremental compilation","Architectural analysis","Refactoring planning"]},"class_dependency_graph":{"relationships":["Inheritance (is-a)","Composition (has-a)","Association (uses)","Dependency (depends-on)"],"analysis":["Circular dependencies","Coupling metrics","Cohesion analysis","Design pattern detection"]},"package_structure":{"hierarchical_organization":"Tree-like package structure","cross_cutting_concerns":"Dependencies that span hierarchy","layered_architecture":"Directed acyclic graph of layers","modularity_metrics":"Measure of architectural quality"}},"program_analysis_algorithms":{"graph_traversal":{"depth_first_search":{"applications":["Topological sorting for build order","Strongly connected components","Cycle detection in dependencies","Reachability analysis"],"variations":["Pre-order traversal","Post-order traversal","Reverse post-order"]},"breadth_first_search":{"applications":["Shortest path in unweighted graphs","Level-by-level analysis","Finding minimum distance metrics"]}},"strongly_connected_components":{"definition":"Maximal sets of mutually reachable nodes","algorithms":["Tarjan's algorithm","Kosaraju's algorithm"],"applications":["Finding recursive function groups","Identifying circular dependencies","Call graph condensation","Optimization scope determination"]},"topological_sorting":{"requirement":"Directed acyclic graph (DAG)","applications":["Build order determination","Initialization order","Scheduling with dependencies","Linearization of partial orders"],"detection":"Circular dependencies prevent topological ordering"},"shortest_path_algorithms":{"unweighted_graphs":"BFS for minimum steps","weighted_graphs":"Dijkstra for minimum cost paths","applications":["Minimal refactoring paths","Dependency resolution","Impact analysis"]}},"static_analysis_applications":{"compiler_optimizations":{"dead_code_elimination":{"unreachable_code":"Code with no incoming control flow edges","unused_variables":"Variables with no outgoing data flow edges","algorithm":"Mark and sweep based on reachability"},"constant_propagation":{"dataflow_analysis":"Track constant values through program","sparse_methods":"Use SSA form for efficiency","conditional_constants":"Different constants on different paths"},"common_subexpression_elimination":{"available_expressions":"Find redundant computations","value_numbering":"Assign same number to equivalent expressions","global_elimination":"Move computations to optimal locations"},"loop_optimizations":{"loop_invariant_motion":"Move invariant code outside loops","strength_reduction":"Replace expensive operations with cheaper ones","loop_unrolling":"Replicate loop body to reduce overhead"}},"code_quality_metrics":{"cyclomatic_complexity":{"formula":"M = E - N + 2P (edges - nodes + 2*components)","interpretation":"Number of linearly independent paths","thresholds":"1-10 (simple), 11-20 (moderate), >20 (complex)"},"coupling_metrics":{"afferent_coupling":"Number of incoming dependencies","efferent_coupling":"Number of outgoing dependencies","instability":"Ce / (Ca + Ce)"},"cohesion_metrics":{"functional_cohesion":"Elements work toward single task","sequential_cohesion":"Output of one is input to next","measurement":"Based on internal connectivity"}},"bug_detection":{"null_pointer_analysis":{"dataflow_analysis":"Track null/non-null states","path_sensitivity":"Different states on different paths","symbolic_execution":"Explore all possible execution paths"},"buffer_overflow_detection":{"array_bounds_checking":"Static bounds analysis","taint_analysis":"Track untrusted input flow","string_analysis":"Length tracking for string operations"},"resource_leak_detection":{"allocation_deallocation_matching":"Pair acquire/release operations","exception_path_analysis":"Ensure cleanup on all paths","ownership_tracking":"Who is responsible for cleanup"}}},"dynamic_analysis_applications":{"execution_profiling":{"call_graph_profiling":{"instrumentation":"Insert counters at function entry/exit","sampling":"Periodic stack sampling for low overhead","metrics":["Call frequency","Execution time","Call stack depth"]},"basic_block_profiling":{"edge_profiling":"Count transitions between basic blocks","path_profiling":"Track complete execution paths","applications":["Hot spot identification","Branch prediction"]}},"memory_analysis":{"heap_analysis":{"allocation_patterns":"Size and frequency of allocations","object_lifetime":"Time between allocation and deallocation","reference_graphs":"Objects and their references"},"garbage_collection":{"reachability_analysis":"Mark and sweep from root set","generational_gc":"Different strategies for object ages","reference_counting":"Track incoming reference count"}},"concurrency_analysis":{"thread_interaction_graphs":{"synchronization_points":"Locks, barriers, atomic operations","happens_before_relations":"Ordering constraints between events","race_detection":"Conflicting accesses to shared data"},"deadlock_detection":{"wait_for_graphs":"Who is waiting for whom","cycle_detection":"Circular wait conditions","prevention":"Lock ordering, timeout mechanisms"}}},"software_maintenance":{"impact_analysis":{"change_propagation":{"forward_slicing":"What might be affected by a change","backward_slicing":"What might affect a given point","graph_reachability":"Transitive closure of dependencies"},"regression_testing":{"test_selection":"Which tests might be affected","dependency_based":"Based on code dependency graphs","coverage_based":"Based on code coverage information"}},"refactoring_support":{"extract_method":{"dataflow_analysis":"Determine parameters and return values","control_dependencies":"Ensure extracted code is well-formed","name_resolution":"Handle variable scoping issues"},"move_method":{"coupling_analysis":"Where does method belong","dependency_updates":"Update all references","interface_consistency":"Maintain public interfaces"},"rename_refactoring":{"def_use_chains":"Find all uses of renamed entity","scope_analysis":"Handle name conflicts and shadowing","cross_reference_update":"Update documentation and comments"}},"code_clone_detection":{"textual_clones":"Identical or similar text","structural_clones":"Same abstract syntax tree structure","semantic_clones":"Same behavior, different implementation","graph_based_methods":["Subgraph isomorphism","Tree/graph similarity metrics","Frequent subgraph mining"]}},"architectural_analysis":{"design_pattern_detection":{"structural_patterns":{"singleton":"Single instance constraint analysis","factory":"Object creation delegation patterns","observer":"Event notification graph structures"},"behavioral_patterns":{"visitor":"Double dispatch call patterns","state":"State transition graphs","strategy":"Algorithm selection patterns"},"graph_matching":"Template matching against code structure"},"architectural_violations":{"layer_violations":"Dependencies that bypass architectural layers","circular_dependencies":"Cycles in module dependency graph","interface_violations":"Direct access to implementation details","detection_algorithms":["Cycle detection in dependency graphs","Reachability analysis for layer violations","Pattern matching for interface violations"]},"modularity_analysis":{"cohesion_measurement":"Internal connectivity within modules","coupling_measurement":"External connectivity between modules","modularity_metrics":"Newman modularity, silhouette coefficient","community_detection":"Identify natural module boundaries"}},"testing_and_verification":{"test_coverage_analysis":{"statement_coverage":"Which statements are executed","branch_coverage":"Which control flow edges are taken","path_coverage":"Which complete paths are executed","graph_algorithms":["DFS to find uncovered statements","Path enumeration for path coverage","Dominance analysis for branch coverage"]},"test_case_generation":{"path_based_testing":{"basis_paths":"Linearly independent paths through CFG","path_enumeration":"Generate test cases for specific paths","symbolic_execution":"Use constraints to generate inputs"},"data_flow_testing":{"def_use_pairs":"Test definition-use combinations","all_defs_criterion":"Test all definition-use paths","all_uses_criterion":"Test all uses of each definition"}},"model_checking":{"state_space_exploration":"Systematic exploration of all states","temporal_logic":"Specify properties over execution sequences","graph_algorithms":["BFS/DFS for reachability","SCC decomposition for liveness","Cycle detection for fairness"]}},"performance_analysis":{"complexity_analysis":{"worst_case_execution_time":{"path_analysis":"Find longest execution path","loop_bounds":"Determine maximum iteration counts","cache_analysis":"Model memory hierarchy effects"},"scalability_analysis":{"algorithm_complexity":"Big-O analysis of code structure","data_structure_analysis":"Complexity of operations","performance_modeling":"Predict performance on larger inputs"}},"bottleneck_identification":{"critical_path_analysis":"Find performance limiting paths","hot_spot_detection":"Most frequently executed code","resource_utilization":"CPU, memory, I/O usage patterns"}},"specialized_domains":{"embedded_systems":{"real_time_analysis":{"task_dependency_graphs":"Precedence constraints between tasks","scheduling_analysis":"Feasibility of real-time schedules","wcet_analysis":"Worst-case execution time bounds"},"resource_constraints":{"memory_usage":"Static analysis of memory requirements","power_analysis":"Energy consumption modeling","timing_analysis":"Meeting real-time deadlines"}},"web_applications":{"page_dependency_graphs":"Links between web pages","javascript_analysis":"Dynamic language challenges","security_analysis":"Data flow for security vulnerabilities"},"distributed_systems":{"service_dependency_graphs":"Microservice interactions","message_flow_analysis":"Communication patterns","failure_propagation":"How failures spread through system"}},"tools_and_frameworks":{"static_analysis_tools":{"commercial":["SonarQube","Coverity","Checkmarx","Veracode"],"open_source":["Clang Static Analyzer","SpotBugs","PMD","ESLint"],"academic":["WALA","Soot","LLVM","Frama-C"]},"dynamic_analysis_tools":{"profilers":["gprof","Valgrind","Intel VTune","JProfiler"],"debuggers":["GDB","Visual Studio Debugger","IntelliJ Debugger"],"runtime_checkers":["AddressSanitizer","ThreadSanitizer","MemorySanitizer"]},"graph_libraries_for_analysis":{"general_purpose":["NetworkX","igraph","SNAP","Boost Graph Library"],"specialized":["WALA SHRIKE","Soot Jimple","LLVM IR"],"visualization":["Graphviz","Gephi","Cytoscape"]},"program_analysis_frameworks":{"java":["WALA","Soot","DOOP","Chord"],"c_cpp":["LLVM","Clang","CIL","Frama-C"],"javascript":["TAJS","SAFE","Jalangi"],"multi_language":["SonarQube","CodeQL","Semgrep"]}},"integration_with_master_of_muppets":{"firmware_analysis":{"control_flow":"Analyze threading and interrupt handlers","data_flow":"Track MIDI data through processing pipeline","call_graph":"Function relationships in embedded code","dependency_analysis":"Library and module dependencies"},"real_time_constraints":{"timing_analysis":"Ensure real-time performance requirements","interrupt_analysis":"Model interrupt handling graphs","task_scheduling":"Thread interaction and synchronization"},"code_quality":{"complexity_metrics":"Measure code complexity","coupling_analysis":"Module interdependencies","test_coverage":"Ensure adequate testing"}},"best_practices":{"analysis_design":["Choose appropriate abstraction level","Consider scalability of analysis","Balance precision vs. performance","Handle language-specific features"],"implementation_tips":["Use sparse representations for large graphs","Cache analysis results when possible","Implement incremental analysis for dynamic code","Consider parallel algorithms for large codebases"],"accuracy_considerations":["Handle dynamic features carefully","Consider all execution paths","Account for external dependencies","Validate results with testing"]},"future_directions":{"emerging_trends":["Machine learning for program analysis","Analysis of quantum programs","Security-focused analysis","Analysis of AI/ML code"],"research_challenges":["Scalability to very large codebases","Analysis of dynamically generated code","Cross-language analysis","Real-time analysis for IDEs"]}}
+{
+"name": "Code Analysis Using Graphs",
+"description": "Application of graph theory to software analysis, optimization, and understanding",
+"field": "Computer Science, Software Engineering, Program Analysis",
+"related_concepts": [
+"Static analysis",
+"Dynamic analysis",
+"Compiler design",
+"Software metrics"
+],
+"fundamental_concepts": {
+"program_as_graph": {
+"description": "Software programs naturally map to various graph structures",
+"abstraction_levels": [
+    "Statement level (fine-grained)",
+    "Basic block level (medium-grained)",
+    "Function/method level (coarse-grained)",
+    "Module/class level (architectural)"
+],
+"vertex_representations": {
+    "statements": "Individual instructions or source lines",
+    "basic_blocks": "Sequences of statements with single entry/exit",
+    "functions": "Procedures, methods, or subroutines",
+    "modules": "Files, classes, or compilation units"
+},
+"edge_representations": {
+    "control_flow": "Execution order and conditional branches",
+    "data_flow": "Variable definitions and uses",
+    "call_relationships": "Function invocations",
+    "dependencies": "Import/include relationships"
+}
+},
+"graph_types_in_code": {
+"directed_graphs": "Most code graphs (control flow follows direction)",
+"weighted_graphs": "Execution frequency, complexity metrics",
+"multigraphs": "Multiple relationships between same entities",
+"dynamic_graphs": "Runtime behavior, changing call patterns"
+}
+},
+"control_flow_analysis": {
+"control_flow_graph": {
+"definition": "Directed graph representing all execution paths",
+"vertices": "Basic blocks (maximal sequences of statements)",
+"edges": "Possible control transfers (jumps, branches, calls)",
+"properties": {
+    "entry_node": "Unique starting point",
+    "exit_node": "Unique ending point (may be virtual)",
+    "dominance": "Node A dominates B if all paths to B pass through A"
+}
+},
+"basic_block_construction": {
+"leaders": [
+    "First statement of program",
+    "Target of any jump/branch",
+    "Statement following any jump/branch"
+],
+"algorithm": [
+    "1. Identify all leader statements",
+    "2. Each basic block starts with leader",
+    "3. Block extends until next leader or end",
+    "4. Connect blocks based on control flow"
+],
+"optimizations": "Within basic blocks, no control flow changes"
+},
+"dominance_analysis": {
+"dominator_tree": "Tree showing dominance relationships",
+"immediate_dominator": "Closest dominator (parent in dominator tree)",
+"dominance_frontier": "Nodes where dominance of given node ends",
+"applications": [
+    "Loop detection",
+    "SSA form construction",
+    "Optimization placement",
+    "Code restructuring"
+]
+},
+"loop_analysis": {
+"natural_loops": "Loops with single entry point (header)",
+"back_edges": "Edges from loop body back to header",
+"loop_nesting": "Hierarchical structure of nested loops",
+"irreducible_loops": "Loops with multiple entry points",
+"applications": [
+    "Loop optimization",
+    "Performance analysis",
+    "Parallelization",
+    "Complexity metrics"
+]
+}
+},
+"data_flow_analysis": {
+"data_flow_graph": {
+"definition": "Graph showing how data moves through program",
+"vertices": "Variable definitions and uses",
+"edges": "Def-use relationships",
+"types": {
+    "def_use_chains": "Definition reaches use",
+    "use_def_chains": "Use reached by definition",
+    "web": "Connected component of related def-use chains"
+}
+},
+"reaching_definitions": {
+"problem": "Which definitions reach each program point",
+"dataflow_equation": "OUT[B] = (IN[B] - KILL[B]) ∪ GEN[B]",
+"kill_set": "Definitions overwritten in basic block",
+"gen_set": "New definitions generated in basic block",
+"applications": [
+    "Constant propagation",
+    "Dead code elimination"
+]
+},
+"live_variable_analysis": {
+"problem": "Which variables are live (will be used later)",
+"backward_analysis": "Computed in reverse execution order",
+"dataflow_equation": "IN[B] = (OUT[B] - DEF[B]) ∪ USE[B]",
+"applications": [
+    "Register allocation",
+    "Dead code elimination"
+]
+},
+"available_expressions": {
+"problem": "Which expressions are computed on all paths",
+"forward_analysis": "Computed in execution order",
+"applications": [
+    "Common subexpression elimination",
+    "Code motion"
+]
+},
+"ssa_form": {
+"static_single_assignment": "Each variable assigned exactly once",
+"phi_functions": "Merge values at control flow joins",
+"construction": "Use dominance frontiers to place phi functions",
+"benefits": [
+    "Simplified data flow analysis",
+    "Enables advanced optimizations",
+    "Sparse representations"
+]
+}
+},
+"call_graph_analysis": {
+"call_graph": {
+"definition": "Directed graph of function call relationships",
+"vertices": "Functions, methods, or procedures",
+"edges": "Call relationships (caller → callee)",
+"types": {
+    "static_call_graph": "Based on static analysis of code",
+    "dynamic_call_graph": "Based on actual execution traces"
+}
+},
+"construction_challenges": {
+"function_pointers": "Indirect calls through pointers",
+"virtual_methods": "Dynamic dispatch in OOP",
+"reflection": "Runtime method invocation",
+"callbacks": "Functions passed as parameters",
+"solutions": [
+    "Points-to analysis",
+    "Class hierarchy analysis",
+    "Type-based analysis",
+    "Profile-guided analysis"
+]
+},
+"applications": {
+"interprocedural_analysis": "Analysis across function boundaries",
+"inlining_decisions": "Which functions to inline",
+"dead_function_elimination": "Remove unreachable functions",
+"call_site_optimization": "Specialize based on call context"
+},
+"metrics": {
+"fan_in": "Number of functions calling this function",
+"fan_out": "Number of functions this function calls",
+"call_depth": "Maximum depth of call stack",
+"cyclomatic_complexity": "Complexity based on call structure"
+}
+},
+"dependency_analysis": {
+"module_dependency_graph": {
+"definition": "Dependencies between compilation units",
+"vertices": "Modules, files, packages, libraries",
+"edges": "Import, include, or usage relationships",
+"applications": [
+    "Build system optimization",
+    "Incremental compilation",
+    "Architectural analysis",
+    "Refactoring planning"
+]
+},
+"class_dependency_graph": {
+"relationships": [
+    "Inheritance (is-a)",
+    "Composition (has-a)",
+    "Association (uses)",
+    "Dependency (depends-on)"
+],
+"analysis": [
+    "Circular dependencies",
+    "Coupling metrics",
+    "Cohesion analysis",
+    "Design pattern detection"
+]
+},
+"package_structure": {
+"hierarchical_organization": "Tree-like package structure",
+"cross_cutting_concerns": "Dependencies that span hierarchy",
+"layered_architecture": "Directed acyclic graph of layers",
+"modularity_metrics": "Measure of architectural quality"
+}
+},
+"program_analysis_algorithms": {
+"graph_traversal": {
+"depth_first_search": {
+    "applications": [
+        "Topological sorting for build order",
+        "Strongly connected components",
+        "Cycle detection in dependencies",
+        "Reachability analysis"
+    ],
+    "variations": [
+        "Pre-order traversal",
+        "Post-order traversal",
+        "Reverse post-order"
+    ]
+},
+"breadth_first_search": {
+    "applications": [
+        "Shortest path in unweighted graphs",
+        "Level-by-level analysis",
+        "Finding minimum distance metrics"
+    ]
+}
+},
+"strongly_connected_components": {
+"definition": "Maximal sets of mutually reachable nodes",
+"algorithms": [
+    "Tarjan's algorithm",
+    "Kosaraju's algorithm"
+],
+"applications": [
+    "Finding recursive function groups",
+    "Identifying circular dependencies",
+    "Call graph condensation",
+    "Optimization scope determination"
+]
+},
+"topological_sorting": {
+"requirement": "Directed acyclic graph (DAG)",
+"applications": [
+    "Build order determination",
+    "Initialization order",
+    "Scheduling with dependencies",
+    "Linearization of partial orders"
+],
+"detection": "Circular dependencies prevent topological ordering"
+},
+"shortest_path_algorithms": {
+"unweighted_graphs": "BFS for minimum steps",
+"weighted_graphs": "Dijkstra for minimum cost paths",
+"applications": [
+    "Minimal refactoring paths",
+    "Dependency resolution",
+    "Impact analysis"
+]
+}
+},
+"static_analysis_applications": {
+"compiler_optimizations": {
+"dead_code_elimination": {
+    "unreachable_code": "Code with no incoming control flow edges",
+    "unused_variables": "Variables with no outgoing data flow edges",
+    "algorithm": "Mark and sweep based on reachability"
+},
+"constant_propagation": {
+    "dataflow_analysis": "Track constant values through program",
+    "sparse_methods": "Use SSA form for efficiency",
+    "conditional_constants": "Different constants on different paths"
+},
+"common_subexpression_elimination": {
+    "available_expressions": "Find redundant computations",
+    "value_numbering": "Assign same number to equivalent expressions",
+    "global_elimination": "Move computations to optimal locations"
+},
+"loop_optimizations": {
+    "loop_invariant_motion": "Move invariant code outside loops",
+    "strength_reduction": "Replace expensive operations with cheaper ones",
+    "loop_unrolling": "Replicate loop body to reduce overhead"
+}
+},
+"code_quality_metrics": {
+"cyclomatic_complexity": {
+    "formula": "M = E - N + 2P (edges - nodes + 2*components)",
+    "interpretation": "Number of linearly independent paths",
+    "thresholds": "1-10 (simple), 11-20 (moderate), >20 (complex)"
+},
+"coupling_metrics": {
+    "afferent_coupling": "Number of incoming dependencies",
+    "efferent_coupling": "Number of outgoing dependencies",
+    "instability": "Ce / (Ca + Ce)"
+},
+"cohesion_metrics": {
+    "functional_cohesion": "Elements work toward single task",
+    "sequential_cohesion": "Output of one is input to next",
+    "measurement": "Based on internal connectivity"
+}
+},
+"bug_detection": {
+"null_pointer_analysis": {
+    "dataflow_analysis": "Track null/non-null states",
+    "path_sensitivity": "Different states on different paths",
+    "symbolic_execution": "Explore all possible execution paths"
+},
+"buffer_overflow_detection": {
+    "array_bounds_checking": "Static bounds analysis",
+    "taint_analysis": "Track untrusted input flow",
+    "string_analysis": "Length tracking for string operations"
+},
+"resource_leak_detection": {
+    "allocation_deallocation_matching": "Pair acquire/release operations",
+    "exception_path_analysis": "Ensure cleanup on all paths",
+    "ownership_tracking": "Who is responsible for cleanup"
+}
+}
+},
+"dynamic_analysis_applications": {
+"execution_profiling": {
+"call_graph_profiling": {
+    "instrumentation": "Insert counters at function entry/exit",
+    "sampling": "Periodic stack sampling for low overhead",
+    "metrics": [
+        "Call frequency",
+        "Execution time",
+        "Call stack depth"
+    ]
+},
+"basic_block_profiling": {
+    "edge_profiling": "Count transitions between basic blocks",
+    "path_profiling": "Track complete execution paths",
+    "applications": [
+        "Hot spot identification",
+        "Branch prediction"
+    ]
+}
+},
+"memory_analysis": {
+"heap_analysis": {
+    "allocation_patterns": "Size and frequency of allocations",
+    "object_lifetime": "Time between allocation and deallocation",
+    "reference_graphs": "Objects and their references"
+},
+"garbage_collection": {
+    "reachability_analysis": "Mark and sweep from root set",
+    "generational_gc": "Different strategies for object ages",
+    "reference_counting": "Track incoming reference count"
+}
+},
+"concurrency_analysis": {
+"thread_interaction_graphs": {
+    "synchronization_points": "Locks, barriers, atomic operations",
+    "happens_before_relations": "Ordering constraints between events",
+    "race_detection": "Conflicting accesses to shared data"
+},
+"deadlock_detection": {
+    "wait_for_graphs": "Who is waiting for whom",
+    "cycle_detection": "Circular wait conditions",
+    "prevention": "Lock ordering, timeout mechanisms"
+}
+}
+},
+"software_maintenance": {
+"impact_analysis": {
+"change_propagation": {
+    "forward_slicing": "What might be affected by a change",
+    "backward_slicing": "What might affect a given point",
+    "graph_reachability": "Transitive closure of dependencies"
+},
+"regression_testing": {
+    "test_selection": "Which tests might be affected",
+    "dependency_based": "Based on code dependency graphs",
+    "coverage_based": "Based on code coverage information"
+}
+},
+"refactoring_support": {
+"extract_method": {
+    "dataflow_analysis": "Determine parameters and return values",
+    "control_dependencies": "Ensure extracted code is well-formed",
+    "name_resolution": "Handle variable scoping issues"
+},
+"move_method": {
+    "coupling_analysis": "Where does method belong",
+    "dependency_updates": "Update all references",
+    "interface_consistency": "Maintain public interfaces"
+},
+"rename_refactoring": {
+    "def_use_chains": "Find all uses of renamed entity",
+    "scope_analysis": "Handle name conflicts and shadowing",
+    "cross_reference_update": "Update documentation and comments"
+}
+},
+"code_clone_detection": {
+"textual_clones": "Identical or similar text",
+"structural_clones": "Same abstract syntax tree structure",
+"semantic_clones": "Same behavior, different implementation",
+"graph_based_methods": [
+    "Subgraph isomorphism",
+    "Tree/graph similarity metrics",
+    "Frequent subgraph mining"
+]
+}
+},
+"architectural_analysis": {
+"design_pattern_detection": {
+"structural_patterns": {
+    "singleton": "Single instance constraint analysis",
+    "factory": "Object creation delegation patterns",
+    "observer": "Event notification graph structures"
+},
+"behavioral_patterns": {
+    "visitor": "Double dispatch call patterns",
+    "state": "State transition graphs",
+    "strategy": "Algorithm selection patterns"
+},
+"graph_matching": "Template matching against code structure"
+},
+"architectural_violations": {
+"layer_violations": "Dependencies that bypass architectural layers",
+"circular_dependencies": "Cycles in module dependency graph",
+"interface_violations": "Direct access to implementation details",
+"detection_algorithms": [
+    "Cycle detection in dependency graphs",
+    "Reachability analysis for layer violations",
+    "Pattern matching for interface violations"
+]
+},
+"modularity_analysis": {
+"cohesion_measurement": "Internal connectivity within modules",
+"coupling_measurement": "External connectivity between modules",
+"modularity_metrics": "Newman modularity, silhouette coefficient",
+"community_detection": "Identify natural module boundaries"
+}
+},
+"testing_and_verification": {
+"test_coverage_analysis": {
+"statement_coverage": "Which statements are executed",
+"branch_coverage": "Which control flow edges are taken",
+"path_coverage": "Which complete paths are executed",
+"graph_algorithms": [
+    "DFS to find uncovered statements",
+    "Path enumeration for path coverage",
+    "Dominance analysis for branch coverage"
+]
+},
+"test_case_generation": {
+"path_based_testing": {
+    "basis_paths": "Linearly independent paths through CFG",
+    "path_enumeration": "Generate test cases for specific paths",
+    "symbolic_execution": "Use constraints to generate inputs"
+},
+"data_flow_testing": {
+    "def_use_pairs": "Test definition-use combinations",
+    "all_defs_criterion": "Test all definition-use paths",
+    "all_uses_criterion": "Test all uses of each definition"
+}
+},
+"model_checking": {
+"state_space_exploration": "Systematic exploration of all states",
+"temporal_logic": "Specify properties over execution sequences",
+"graph_algorithms": [
+    "BFS/DFS for reachability",
+    "SCC decomposition for liveness",
+    "Cycle detection for fairness"
+]
+}
+},
+"performance_analysis": {
+"complexity_analysis": {
+"worst_case_execution_time": {
+    "path_analysis": "Find longest execution path",
+    "loop_bounds": "Determine maximum iteration counts",
+    "cache_analysis": "Model memory hierarchy effects"
+},
+"scalability_analysis": {
+    "algorithm_complexity": "Big-O analysis of code structure",
+    "data_structure_analysis": "Complexity of operations",
+    "performance_modeling": "Predict performance on larger inputs"
+}
+},
+"bottleneck_identification": {
+"critical_path_analysis": "Find performance limiting paths",
+"hot_spot_detection": "Most frequently executed code",
+"resource_utilization": "CPU, memory, I/O usage patterns"
+}
+},
+"specialized_domains": {
+"embedded_systems": {
+"real_time_analysis": {
+    "task_dependency_graphs": "Precedence constraints between tasks",
+    "scheduling_analysis": "Feasibility of real-time schedules",
+    "wcet_analysis": "Worst-case execution time bounds"
+},
+"resource_constraints": {
+    "memory_usage": "Static analysis of memory requirements",
+    "power_analysis": "Energy consumption modeling",
+    "timing_analysis": "Meeting real-time deadlines"
+}
+},
+"web_applications": {
+"page_dependency_graphs": "Links between web pages",
+"javascript_analysis": "Dynamic language challenges",
+"security_analysis": "Data flow for security vulnerabilities"
+},
+"distributed_systems": {
+"service_dependency_graphs": "Microservice interactions",
+"message_flow_analysis": "Communication patterns",
+"failure_propagation": "How failures spread through system"
+}
+},
+"tools_and_frameworks": {
+"static_analysis_tools": {
+"commercial": [
+    "SonarQube",
+    "Coverity",
+    "Checkmarx",
+    "Veracode"
+],
+"open_source": [
+    "Clang Static Analyzer",
+    "SpotBugs",
+    "PMD",
+    "ESLint"
+],
+"academic": [
+    "WALA",
+    "Soot",
+    "LLVM",
+    "Frama-C"
+]
+},
+"dynamic_analysis_tools": {
+"profilers": [
+    "gprof",
+    "Valgrind",
+    "Intel VTune",
+    "JProfiler"
+],
+"debuggers": [
+    "GDB",
+    "Visual Studio Debugger",
+    "IntelliJ Debugger"
+],
+"runtime_checkers": [
+    "AddressSanitizer",
+    "ThreadSanitizer",
+    "MemorySanitizer"
+]
+},
+"graph_libraries_for_analysis": {
+"general_purpose": [
+    "NetworkX",
+    "igraph",
+    "SNAP",
+    "Boost Graph Library"
+],
+"specialized": [
+    "WALA SHRIKE",
+    "Soot Jimple",
+    "LLVM IR"
+],
+"visualization": [
+    "Graphviz",
+    "Gephi",
+    "Cytoscape"
+]
+},
+"program_analysis_frameworks": {
+"java": [
+    "WALA",
+    "Soot",
+    "DOOP",
+    "Chord"
+],
+"c_cpp": [
+    "LLVM",
+    "Clang",
+    "CIL",
+    "Frama-C"
+],
+"javascript": [
+    "TAJS",
+    "SAFE",
+    "Jalangi"
+],
+"multi_language": [
+    "SonarQube",
+    "CodeQL",
+    "Semgrep"
+]
+}
+},
+"integration_with_master_of_muppets": {
+"firmware_analysis": {
+"control_flow": "Analyze threading and interrupt handlers",
+"data_flow": "Track MIDI data through processing pipeline",
+"call_graph": "Function relationships in embedded code",
+"dependency_analysis": "Library and module dependencies"
+},
+"real_time_constraints": {
+"timing_analysis": "Ensure real-time performance requirements",
+"interrupt_analysis": "Model interrupt handling graphs",
+"task_scheduling": "Thread interaction and synchronization"
+},
+"code_quality": {
+"complexity_metrics": "Measure code complexity",
+"coupling_analysis": "Module interdependencies",
+"test_coverage": "Ensure adequate testing"
+}
+},
+"best_practices": {
+"analysis_design": [
+"Choose appropriate abstraction level",
+"Consider scalability of analysis",
+"Balance precision vs. performance",
+"Handle language-specific features"
+],
+"implementation_tips": [
+"Use sparse representations for large graphs",
+"Cache analysis results when possible",
+"Implement incremental analysis for dynamic code",
+"Consider parallel algorithms for large codebases"
+],
+"accuracy_considerations": [
+"Handle dynamic features carefully",
+"Consider all execution paths",
+"Account for external dependencies",
+"Validate results with testing"
+]
+},
+"future_directions": {
+"emerging_trends": [
+"Machine learning for program analysis",
+"Analysis of quantum programs",
+"Security-focused analysis",
+"Analysis of AI/ML code"
+],
+"research_challenges": [
+"Scalability to very large codebases",
+"Analysis of dynamically generated code",
+"Cross-language analysis",
+"Real-time analysis for IDEs"
+]
+}
+}

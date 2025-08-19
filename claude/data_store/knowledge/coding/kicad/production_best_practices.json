@@ -1,0 +1,189 @@
+{
+"title": "KiCad Schematic Processing Best Practices",
+"version": "1.0.0", 
+"description": "Production-ready best practices for robust KiCad schematic processing based on real-world testing and validation",
+"keywords": [
+"kicad best practices",
+"schematic processing",
+"production guidelines",
+"error handling",
+"kiutils patterns",
+"property object handling",
+"json serialization",
+"hierarchical schematics"
+],
+"mandatory_patterns": {
+"property_object_safe_handling": {
+"pattern": "Always check for Property objects and extract .value",
+"implementation": "if hasattr(value, 'value'): return str(value.value) if value.value else str(default)",
+"rationale": "Property objects contain complex nested structures not JSON serializable",
+"test_validation": "Prevents 'Object of type Property is not JSON serializable' errors"
+},
+"correct_kiutils_imports": {
+"schematic_imports": [
+"from kiutils.schematic import Schematic",
+"from kiutils.items.schitems import SchematicSymbol, Junction, Connection",
+"from kiutils.items.schitems import LocalLabel, GlobalLabel, HierarchicalLabel",
+"from kiutils.items.common import Position, Property"
+],
+"common_mistakes": [
+"Using 'schitem' instead of 'schitems'",
+"Importing labels from 'brditems' instead of 'schitems'"
+],
+"validation": "Test imports in isolation before implementing"
+},
+"json_serialization_validation": {
+"pattern": "Always test JSON serialization before file output",
+"implementation": "json.dumps(data) # Test before writing",
+"sectioned_debugging": "Test each JSON section individually to isolate failures",
+"prevention": "Prevents data loss from serialization failures"
+}
+},
+"essential_functions": {
+"safe_get_property": {
+"purpose": "Safely extract values from KiCad objects, handling Property objects",
+"implementation": "def safe_get_property(obj, prop, default=None):\n    try:\n        value = getattr(obj, prop, default)\n        if hasattr(value, 'value'):\n            return str(value.value) if value.value else str(default)\n        return value\n    except:\n        return default",
+"usage": "Always use instead of direct getattr() for KiCad objects"
+},
+"extract_component_properties": {
+"purpose": "Extract component properties safely for JSON serialization",
+"implementation": "def extract_properties(symbol):\n    props = {}\n    if hasattr(symbol, 'properties') and symbol.properties:\n        for prop in symbol.properties:\n            if hasattr(prop, 'key') and hasattr(prop, 'value'):\n                key = str(prop.key) if prop.key else 'Unknown'\n                value = str(prop.value) if prop.value else ''\n                props[key] = value\n    return props",
+"validation": "Tested on 77-component hierarchical design"
+},
+"validate_json_serializable": {
+"purpose": "Test JSON serialization before file output",
+"implementation": "def validate_json_serializable(data):\n    try:\n        json.dumps(data)\n        return True\n    except Exception as e:\n        print(f'JSON serialization error: {e}')\n        return False",
+"usage": "Call before writing any JSON output"
+}
+},
+"hierarchical_sheet_handling": {
+"attribute_corrections": {
+"sheet_name": "Use 'sheetName' not 'name'",
+"file_name": "fileName is Property object - use .value",
+"position": "Check hasattr(sheet, 'position') before access"
+},
+"processing_pattern": {
+"main_schematic": "Process main schematic first to identify hierarchical sheets",
+"individual_sheets": "Process each hierarchical sheet file independently", 
+"instance_handling": "Same sheet file can have multiple instances",
+"reconstruction_limitation": "JSON->KiCad doesn't fully preserve hierarchical metadata"
+},
+"extraction_template": "sheet_data = {\n    'name': safe_get_property(sheet, 'sheetName', 'Unknown'),\n    'file': safe_get_property(sheet, 'fileName', ''),\n    'uuid': safe_get_property(sheet, 'uuid', '')\n}"
+},
+"error_handling_strategies": {
+"defensive_programming": [
+"Always use hasattr() before accessing nested attributes",
+"Provide meaningful defaults for missing data",
+"Wrap property access in try-catch blocks",
+"Test with both simple and complex schematics"
+],
+"common_error_scenarios": {
+"property_object_serialization": {
+"error": "TypeError: Object of type Property is not JSON serializable",
+"solution": "Extract .value from Property objects",
+"prevention": "Use safe_get_property() function"
+},
+"import_errors": {
+"error": "ImportError: cannot import name 'SchematicSymbol' from 'kiutils.items.schitem'",
+"solution": "Correct import path to 'kiutils.items.schitems'",
+"prevention": "Validate imports in test environment"
+},
+"attribute_errors": {
+"error": "AttributeError: 'HierarchicalSheet' object has no attribute 'name'",
+"solution": "Use 'sheetName' attribute instead",
+"prevention": "Use safe_get_property() with attribute checks"
+}
+}
+},
+"performance_optimizations": {
+"caching_strategies": [
+"Cache component maps for repeated analysis",
+"Pre-build junction position sets",
+"Reuse Property extraction functions"
+],
+"memory_management": [
+"Process large hierarchies sheet-by-sheet",
+"Clear intermediate data structures",
+"Use generators for large component lists"
+],
+"processing_priorities": [
+"Extract metadata first for early validation",
+"Process components before connectivity analysis",
+"Build nets last as they depend on components and wires"
+]
+},
+"testing_requirements": {
+"validation_circuits": [
+{
+"type": "simple",
+"example": "28-component amplifier board",
+"validates": "basic functionality, component extraction"
+},
+{
+"type": "complex_hierarchical", 
+"example": "77-component multi-sheet design",
+"validates": "scalability, hierarchical processing"
+}
+],
+"test_criteria": {
+"data_integrity": "100% component and net count preservation",
+"round_trip_validation": "Original->JSON->KiCad maintains data",
+"performance_acceptance": "Processing under 5 seconds for typical circuits",
+"error_handling": "Graceful degradation for malformed files"
+},
+"automated_testing": [
+"Unit tests for safe_get_property()",
+"Integration tests for full conversion pipeline", 
+"Regression tests with known good circuits",
+"Edge case tests with minimal/maximal designs"
+]
+},
+"code_review_checklist": [
+"✓ All Property objects use .value extraction",
+"✓ Correct kiutils import paths (schitems not schitem)",
+"✓ JSON serialization tested before output",
+"✓ hasattr() checks before attribute access",
+"✓ Meaningful defaults for missing data",
+"✓ Exception handling for file operations",
+"✓ Round-trip conversion validation",
+"✓ Performance testing on representative circuits"
+],
+"production_deployment_guidelines": {
+"environment_setup": [
+"Python 3.7+ required",
+"kiutils>=1.4.8 installed",
+"JSON validation library available",
+"Test circuits in deployment environment"
+],
+"monitoring_recommendations": [
+"Track processing times for performance degradation",
+"Monitor JSON serialization failure rates",
+"Log Property object extraction errors",
+"Validate data integrity metrics"
+],
+"maintenance_schedule": [
+"Regression testing with new KiCad versions",
+"Update kiutils library regularly",
+"Refresh test circuits with new designs",
+"Review error logs monthly"
+]
+},
+"related_knowledge_files": [
+"claude/data_store/knowledge/coding/kicad/schematic_testing_insights.json",
+"claude/data_store/knowledge/coding/kicad/schematic.json",
+"claude/data_store/knowledge/coding/kicad/kiutils.json",
+"claude/data_store/knowledge/external_tools/kicad_sch_bidirectional_converter.json"
+],
+"version_history": [
+{
+"version": "1.0.0",
+"date": "2025-01-19", 
+"changes": [
+"Initial creation based on amplifier board and Master of Muppets testing",
+"Documented Property object handling patterns",
+"Established kiutils import corrections",
+"Validated hierarchical sheet processing approaches"
+]
+}
+]
+}

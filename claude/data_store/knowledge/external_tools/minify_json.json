@@ -1,1 +1,106 @@
-{"title":"JSON Minification Tool","description":"Python script for batch minification of JSON files in the knowledge base","version":"1.0.0","keywords":["minify","json","batch","processing","knowledge","compression","storage","python","script","automation","file processing","claude tools"],"source":"Created for Master of Muppets project knowledge base optimization","last_updated":"2025-08-19","tool_type":"python_script","location":"claude/tools/minify_json.py","purpose":"Removes all unnecessary whitespace from JSON files while preserving validity","content":{"overview":"Batch processing script that minifies JSON files by removing spaces and newlines using Python's json module with compact separators","functionality":{"primary_action":"Minify JSON files by removing whitespace","batch_processing":"Process multiple files recursively in directory tree","validation":"Verify JSON validity before and after minification","error_handling":"Report success/failure status for each file","summary_reporting":"Provide total success/error counts"},"technical_specifications":{"language":"Python 3","dependencies":["json (built-in)","os (built-in)","glob (built-in)"],"encoding":"UTF-8","separators":"(',',':') for maximum compression","recursive_search":"Uses glob **/*.json pattern","error_recovery":"Continues processing on individual file failures"},"usage":{"command_line":"python claude/tools/minify_json.py","working_directory":"Must run from project root directory","target_files":"All *.json files under claude/data_store/knowledge/","output":"In-place modification of existing files","execution_example":"cd 'project_root' && python claude/tools/minify_json.py"},"features":{"safe_processing":"Validates JSON before writing changes","preserves_data":"Only removes formatting, preserves all data","progress_reporting":"Shows each file being processed","batch_operation":"Handles entire knowledge base in single run","error_isolation":"Single file errors don't stop entire batch"},"implementation_details":{"minification_method":"json.dump() with separators=(',',':') and ensure_ascii=False","file_discovery":"glob.glob() with recursive=True","validation_approach":"json.load() before processing to ensure validity","encoding_handling":"Explicit UTF-8 encoding for cross-platform compatibility","error_reporting":"Try/catch blocks with detailed error messages"},"performance":{"efficiency":"Fast processing using built-in JSON module","memory_usage":"Low memory footprint, processes one file at a time","scalability":"Handles arbitrary number of files","file_size_impact":"Significant reduction in file size by removing whitespace"},"integration":{"knowledge_management":"Part of knowledge file maintenance workflow","policy_enforcement":"Enforces minification policy in managing.json and correlation_knowledge_creation.json","automation_ready":"Suitable for inclusion in automated workflows","reusability":"Can be used for any JSON file collection"},"maintenance":{"version_history":[{"version":"1.0","date":"2025-08-19","changes":"Initial implementation with batch processing and validation"}],"future_enhancements":["Command line arguments for custom directories","Backup creation before minification","Progress bars for large file sets","Selective file filtering options"],"testing":"Validated against 24 knowledge files in Master of Muppets project"}},"related_files":["claude/data_store/knowledge/managing.json","claude/data_store/knowledge/correlation_knowledge_creation.json"],"usage_context":"Essential tool for maintaining knowledge base storage efficiency and enforcing minification policy across all knowledge files"}
+{
+"title": "JSON Formatting Tool",
+"description": "Python script for batch formatting of JSON files in the knowledge base with readable indentation",
+"version": "1.1.0",
+"keywords": [
+"format",
+"json",
+"batch",
+"processing",
+"knowledge",
+"formatting",
+"readability",
+"python",
+"script",
+"automation",
+"file processing",
+"claude tools",
+"indentation"
+],
+"source": "Created for Master of Muppets project knowledge base optimization",
+"last_updated": "2025-08-19",
+"tool_type": "python_script",
+"location": "claude/tools/format_json_file.py",
+"purpose": "Formats JSON files with consistent 2-space indentation for readability",
+"content": {
+"overview": "Batch processing script that formats JSON files with consistent 2-space indentation for enhanced readability and maintainability",
+"functionality": {
+"primary_action": "Format JSON files with consistent 2-space indentation for readability",
+"batch_processing": "Process multiple files recursively in directory tree",
+"validation": "Verify JSON validity before and after formatting",
+"error_handling": "Report success/failure status for each file",
+"summary_reporting": "Provide total success/error counts"
+},
+"technical_specifications": {
+"language": "Python 3",
+"dependencies": [
+"json (built-in)",
+"os (built-in)",
+"glob (built-in)"
+],
+"encoding": "UTF-8",
+"indentation": "2 spaces for consistent formatting",
+"recursive_search": "Uses glob **/*.json pattern",
+"error_recovery": "Continues processing on individual file failures"
+},
+"usage": {
+"command_line": "python claude/tools/format_json_file.py",
+"working_directory": "Must run from project root directory",
+"target_files": "All *.json files under claude/data_store/knowledge/",
+"output": "In-place modification of existing files",
+"execution_example": "cd 'project_root' && python claude/tools/format_json_file.py"
+},
+"features": {
+"safe_processing": "Validates JSON before writing changes",
+"preserves_data": "Maintains all data while applying consistent formatting",
+"progress_reporting": "Shows each file being processed",
+"batch_operation": "Handles entire knowledge base in single run",
+"error_isolation": "Single file errors don't stop entire batch"
+},
+"implementation_details": {
+"formatting_method": "json.dump() with indent=2 and ensure_ascii=False for readable output",
+"file_discovery": "glob.glob() with recursive=True",
+"validation_approach": "json.load() before processing to ensure validity",
+"encoding_handling": "Explicit UTF-8 encoding for cross-platform compatibility",
+"error_reporting": "Try/catch blocks with detailed error messages"
+},
+"performance": {
+"efficiency": "Fast processing using built-in JSON module",
+"memory_usage": "Low memory footprint, processes one file at a time",
+"scalability": "Handles arbitrary number of files",
+"file_format_impact": "Applies consistent 2-space indentation for enhanced readability and maintainability"
+},
+"integration": {
+"knowledge_management": "Part of knowledge file maintenance workflow",
+"policy_enforcement": "Enforces consistent formatting policy for knowledge files",
+"automation_ready": "Suitable for inclusion in automated workflows",
+"reusability": "Can be used for any JSON file collection"
+},
+"maintenance": {
+"version_history": [
+{
+"version": "1.0",
+"date": "2025-08-19",
+"changes": "Initial version for JSON minification"
+},
+{
+"version": "1.1",
+"date": "2025-08-19",
+"changes": "Updated to format with readable 2-space indentation instead of minification. Function renamed from minify_json_file to format_json_file. File renamed from minify_json.py to format_json_file.py"
+}
+],
+"future_enhancements": [
+"Command line arguments for custom directories",
+"Backup creation before formatting",
+"Progress bars for large file sets",
+"Selective file filtering options"
+],
+"testing": "Validated against knowledge files in Master of Muppets project"
+}
+},
+"related_files": [
+"claude/data_store/knowledge/managing.json",
+"claude/data_store/knowledge/correlation_knowledge_creation.json"
+],
+"usage_context": "Essential tool for maintaining knowledge base readability and enforcing consistent formatting policy across all knowledge files"
+}

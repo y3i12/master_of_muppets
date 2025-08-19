@@ -9,6 +9,22 @@
             "preference": "edit_existing_over_new",
             "create_when": "absolutely_necessary_or_explicit"
         },
+        "tool_knowledge_creation": {
+            "requirement": "MANDATORY",
+            "condition": "ALWAYS",
+            "when": "any_tool_or_script_created",
+            "location": "claude/data_store/knowledge/external_tools/",
+            "format": "structured_json",
+            "content_required": [
+                "purpose_and_functionality",
+                "usage_instructions", 
+                "parameters_and_options",
+                "dependencies_and_requirements",
+                "integration_patterns",
+                "examples_and_workflows"
+            ],
+            "update_data_store_context": "MANDATORY"
+        },
         "git_operations": {
             "commit": "never_without_explicit_request",
             "push": "never_without_explicit_request",

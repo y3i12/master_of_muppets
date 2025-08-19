@@ -1,1 +1,571 @@
-{"chip_info":{"part_number":"AD5593R","manufacturer":"Analog Devices","description":"8-Channel, 12-Bit, Configurable ADC/DAC with On-Chip Reference, I2C Interface","package_types":[{"type":"16-lead TSSOP","part_suffix":"RU-16"},{"type":"16-lead LFCSP","dimensions":"3mm x 3mm x 0.75mm","part_suffix":"CP-16-32"},{"type":"16-ball WLCSP","dimensions":"1.96mm x 1.96mm","part_suffix":"CB-16-3"}],"operating_temperature":"-40°C to +105°C"},"key_features":{"channels":8,"resolution":"12-bit","configurable_functions":["DAC outputs","ADC inputs","GPIO pins"],"interface":"I2C","internal_reference":"2.5V, 20 ppm/°C","temperature_sensor":true},"pin_configuration":{"pin_count":16,"pins":{"RESET":{"pin_tssop":1,"pin_lfcsp":15,"pin_wlcsp":"A3","description":"Asynchronous Reset Pin. Tie high for normal operation"},"A0":{"pin_tssop":2,"pin_lfcsp":16,"pin_wlcsp":"A4","description":"Address Input. Sets LSB of 7-bit slave address"},"VDD":{"pin_tssop":3,"pin_lfcsp":1,"pin_wlcsp":"B4","description":"Power Supply Input. 2.7V to 5.5V"},"IO0_IO7":{"pin_tssop":"4-7, 10-13","pin_lfcsp":"2-5, 8-11","pin_wlcsp":"B3, C4, C3, C2, D1, D4, C1, B2","description":"Configurable I/O pins 0-7"},"VREF":{"pin_tssop":8,"pin_lfcsp":6,"pin_wlcsp":"D3","description":"Reference Input/Output. Internal 2.5V or external 1V to VDD"},"VLOGIC":{"pin_tssop":9,"pin_lfcsp":7,"pin_wlcsp":"D2","description":"Interface Power Supply. 1.8V to 5.5V"},"GND":{"pin_tssop":14,"pin_lfcsp":12,"pin_wlcsp":"B1","description":"Ground Reference"},"SDA":{"pin_tssop":15,"pin_lfcsp":13,"pin_wlcsp":"A1","description":"Serial Data. Bidirectional, open-drain"},"SCL":{"pin_tssop":16,"pin_lfcsp":14,"pin_wlcsp":"A2","description":"Serial Clock Line"}}},"electrical_specifications":{"power_supply":{"VDD":{"min":2.7,"max":5.5,"unit":"V"},"VLOGIC":{"min":1.8,"max":"VDD","unit":"V"},"current_consumption":{"power_down":{"max":3.5,"unit":"µA"},"normal_5V_dacs":{"typ":1.6,"unit":"mA","conditions":"All DACs, internal reference, gain=2"},"normal_3V_dacs":{"typ":1.1,"unit":"mA","conditions":"All DACs, internal reference, gain=1"}}},"adc_performance":{"resolution":12,"input_ranges":[{"range":"0V to VREF","gain_bit":0},{"range":"0V to 2*VREF","gain_bit":1}],"linearity":{"INL":{"min":-2,"max":2,"unit":"LSB"},"DNL":{"min":-1,"max":1,"unit":"LSB"}},"timing":{"track_time":{"min":500,"unit":"ns"},"conversion_time":{"max":2,"unit":"µs"}},"dynamic_performance":{"SNR_2V7":{"typ":69,"unit":"dB","conditions":"VDD=2.7V, 0V to VREF"},"SNR_5V5":{"typ":67,"unit":"dB","conditions":"VDD=5.5V, 0V to VREF"},"THD_2V7":{"typ":-91,"unit":"dB","conditions":"VDD=2.7V, 0V to VREF"}}},"dac_performance":{"resolution":12,"output_ranges":[{"range":"0V to VREF","gain_bit":0},{"range":"0V to 2*VREF","gain_bit":1}],"linearity":{"INL":{"min":-1,"max":1,"unit":"LSB"},"DNL":{"min":-1,"max":1,"unit":"LSB"}},"dc_performance":{"offset_error":{"min":-3,"max":3,"unit":"mV"},"gain_error_1x":{"max":0.2,"unit":"% FSR","conditions":"0V to VREF"},"gain_error_2x":{"max":0.1,"unit":"% FSR","conditions":"0V to 2×VREF"}},"ac_performance":{"slew_rate":{"typ":1.25,"unit":"V/µs"},"settling_time":{"typ":6,"unit":"µs"}},"load_capabilities":{"resistive_load":{"min":1,"unit":"kΩ"},"capacitive_load_no_resistor":{"max":2,"unit":"nF"},"capacitive_load_1k_resistor":{"max":10,"unit":"nF"}}},"reference":{"internal":{"voltage":{"min":2.495,"typ":2.5,"max":2.505,"unit":"V"},"temperature_coefficient":{"typ":20,"unit":"ppm/°C"},"load_capability":{"typ":5,"unit":"mA","conditions":"VDD ≥ 3V"}},"external":{"voltage_range":{"min":1,"max":"VDD","unit":"V"}}},"gpio":{"output_current":{"typ":1.6,"unit":"mA"},"logic_levels":{"VIH":{"min":"0.7 × VLOGIC","unit":"V"},"VIL":{"max":"0.3 × VLOGIC","unit":"V"},"VOH":{"min":"VDD - 0.2","unit":"V","conditions":"ISOURCE = 1mA"},"VOL":{"max":0.4,"unit":"V","conditions":"ISINK = 1mA"}}},"temperature_sensor":{"resolution":12,"range":{"min":-40,"max":105,"unit":"°C"},"accuracy":{"typ":3,"unit":"°C"},"adc_codes":{"range":"645 to 1035","conditions":"ADC gain = 1"}}},"i2c_interface":{"slave_address":{"base":"0010000","configurable_bit":"A0 pin state","full_address":"001000[A0]"},"supported_modes":["Standard mode (100 kHz)","Fast mode (400 kHz)"],"timing_specs":{"scl_cycle_time":{"min":2.5,"unit":"µs"},"scl_high_time":{"min":0.6,"unit":"µs"},"scl_low_time":{"min":1.3,"unit":"µs"},"data_setup_time":{"min":100,"unit":"ns"},"data_hold_time":{"max":0.9,"unit":"µs"}},"protocol":{"write_sequence":"START + ADDR + ACK + POINTER + ACK + MSB + ACK + LSB + ACK + STOP","read_sequence":"START + ADDR + ACK + POINTER + ACK + RESTART + ADDR_R + ACK + MSB + ACK + LSB + NACK + STOP"}},"register_map":{"pointer_byte_modes":{"0x0":"Configuration mode","0x1":"DAC write mode","0x4":"ADC readback mode","0x5":"DAC readback mode","0x6":"GPIO readback mode","0x7":"Register readback mode"},"control_registers":{"0x00":{"name":"NOP","description":"No operation","reset":"0x0000"},"0x02":{"name":"ADC_SEQ","description":"ADC Sequence Register","reset":"0x0000","bits":{"9":"REP - Sequence repetition enable","8":"TEMP - Include temperature in sequence","7-0":"ADC7-ADC0 - Channel selection"}},"0x03":{"name":"GEN_CTRL_REG","description":"General-Purpose Control Register","reset":"0x0000","bits":{"9":"ADC_BUF_PRECH - ADC buffer precharge","8":"ADC_BUF_EN - ADC buffer enable","7":"IO_LOCK - Lock configuration","6":"ALL_DAC - Write all DACs","5":"ADC_RANGE - ADC input range select","4":"DAC_RANGE - DAC output range select"}},"0x04":{"name":"ADC_CONFIG","description":"ADC Pin Configuration","reset":"0x0000","bits":{"7-0":"ADC7-ADC0 - Pin ADC enable"}},"0x05":{"name":"DAC_CONFIG","description":"DAC Pin Configuration","reset":"0x0000","bits":{"7-0":"DAC7-DAC0 - Pin DAC enable"}},"0x06":{"name":"PULLDWN_CONFIG","description":"Pull-Down Configuration","reset":"0x00FF","bits":{"7-0":"PULL_DWN_7-PULL_DWN_0 - 85kΩ pull-down enable"}},"0x07":{"name":"LDAC_MODE","description":"LDAC Mode Register","reset":"0x0000","bits":{"1-0":"LDAC_MODE - Load DAC operation mode"}},"0x08":{"name":"GPIO_CONFIG","description":"GPIO Write Configuration","reset":"0x0000","bits":{"7-0":"GPIO7-GPIO0 - Pin GPIO output enable"}},"0x09":{"name":"GPIO_OUTPUT","description":"GPIO Write Data","reset":"0x0000","bits":{"7-0":"GPIO7-GPIO0 - GPIO output state"}},"0x0A":{"name":"GPIO_INPUT","description":"GPIO Read Configuration","reset":"0x0000","bits":{"7-0":"GPIO7-GPIO0 - Pin GPIO input enable"}},"0x0B":{"name":"PD_REF_CTRL","description":"Power-Down/Reference Control","reset":"0x0000","bits":{"10":"PD_ALL - Power down all","9":"EN_REF - Enable internal reference","7-0":"PD7-PD0 - Individual DAC power down"}},"0x0C":{"name":"GPIO_OPENDRAIN_CONFIG","description":"GPIO Open-Drain Configuration","reset":"0x0000","bits":{"7-0":"GPIO7-GPIO0 - Open-drain vs push-pull"}},"0x0D":{"name":"IO_TS_CONFIG","description":"Three-State Configuration","reset":"0x0000","bits":{"7-0":"TS7-TS0 - Pin three-state enable"}},"0x0F":{"name":"SW_RESET","description":"Software Reset","reset":"0x0000","bits":{"10-0":"SW_RESET - Write 0x0DAC to reset"}},"0x10":{"name":"DAC_WR","description":"DAC Write Register","reset":"0x0000","bits":{"11-0":"DAC_DATA_WR - 12-bit DAC data"}}}},"operating_modes":{"pin_configuration":{"default_state":"85kΩ pull-down to GND","configurable_as":["DAC output","ADC input","GPIO input","GPIO output","Three-state","85kΩ pull-down"],"dual_function":{"dac_adc":"Pin can be both DAC output and ADC input (DAC primary)","gpio_in_out":"Pin can be both GPIO input and output (output primary)"}},"ldac_modes":{"0":"Immediate update - data written to input register immediately updates DAC","1":"Input register only - data stays in input register","2":"Simultaneous update - transfer all input registers to DAC registers"},"power_down":{"individual_dac":"Each DAC can be powered down individually","reference":"Internal reference can be powered down","all":"PD_ALL powers down all DACs, reference, and ADC"}},"formulas":{"dac_output":{"formula":"VOUT = G × VREF × (D / 2^N)","where":{"G":"1 for 0V to VREF, 2 for 0V to 2×VREF","VREF":"Reference voltage","D":"Decimal code (0-4095)","N":"12 (resolution)"}},"temperature_calculation":{"gain_1":"Temperature(°C) = 25 + (ADC_Code - 0.5/VREF × 4095) / (2.654 × 2.5/VREF)","gain_2":"Temperature(°C) = 25 + (ADC_Code - 0.5/(2×VREF) × 4095) / (1.327 × 2.5/VREF)"},"adc_input_current":{"buffered":"fS × C × VDIFF + 1nA","unbuffered":"fS × C × VDIFF","where":{"fS":"ADC sample rate (Hz)","C":"Sampling capacitance (5.8pF buffered, 28.9pF unbuffered)","VDIFF":"Voltage change between successive channels"}}},"design_considerations":{"layout_guidelines":{"power_supply":"10µF tantalum + 0.1µF ceramic bypass capacitors close to device","reference_decoupling":"0.1µF ceramic capacitor from VREF to GND","analog_plane":"Device should be on analog ground plane"},"external_components":{"vref_capacitor":"0.1µF ceramic for internal reference","i2c_pullups":"External pull-up resistors required for SDA/SCL","reset_pullup":"Tie RESET high for normal operation"},"limitations":{"shared_ranges":"All DACs share same output range, all ADCs share same input range","dead_bands":"Upper dead band of 10mV when VREF=VDD, lower dead band ~4.88mV","rail_limitations":"25Ω typical output resistance limits rail performance under load"}},"applications":{"typical_uses":["Control and monitoring systems","General-purpose analog and digital I/O","Mixed-signal processing","Sensor interface","Test and measurement equipment"],"related_products":{"AD5592R":"SPI interface equivalent","AD5592R-1":"SPI interface with VLOGIC pin"}},"evaluation":{"eval_board":"EVAL-AD5593RSDZ","controller_board":"EVAL-SDP-CB1Z"}}
+{
+"chip_info": {
+"part_number": "AD5593R",
+"manufacturer": "Analog Devices",
+"description": "8-Channel, 12-Bit, Configurable ADC/DAC with On-Chip Reference, I2C Interface",
+"package_types": [
+{
+"type": "16-lead TSSOP",
+"part_suffix": "RU-16"
+},
+{
+"type": "16-lead LFCSP",
+"dimensions": "3mm x 3mm x 0.75mm",
+"part_suffix": "CP-16-32"
+},
+{
+"type": "16-ball WLCSP",
+"dimensions": "1.96mm x 1.96mm",
+"part_suffix": "CB-16-3"
+}
+],
+"operating_temperature": "-40°C to +105°C"
+},
+"key_features": {
+"channels": 8,
+"resolution": "12-bit",
+"configurable_functions": [
+"DAC outputs",
+"ADC inputs",
+"GPIO pins"
+],
+"interface": "I2C",
+"internal_reference": "2.5V, 20 ppm/°C",
+"temperature_sensor": true
+},
+"pin_configuration": {
+"pin_count": 16,
+"pins": {
+"RESET": {
+"pin_tssop": 1,
+"pin_lfcsp": 15,
+"pin_wlcsp": "A3",
+"description": "Asynchronous Reset Pin. Tie high for normal operation"
+},
+"A0": {
+"pin_tssop": 2,
+"pin_lfcsp": 16,
+"pin_wlcsp": "A4",
+"description": "Address Input. Sets LSB of 7-bit slave address"
+},
+"VDD": {
+"pin_tssop": 3,
+"pin_lfcsp": 1,
+"pin_wlcsp": "B4",
+"description": "Power Supply Input. 2.7V to 5.5V"
+},
+"IO0_IO7": {
+"pin_tssop": "4-7, 10-13",
+"pin_lfcsp": "2-5, 8-11",
+"pin_wlcsp": "B3, C4, C3, C2, D1, D4, C1, B2",
+"description": "Configurable I/O pins 0-7"
+},
+"VREF": {
+"pin_tssop": 8,
+"pin_lfcsp": 6,
+"pin_wlcsp": "D3",
+"description": "Reference Input/Output. Internal 2.5V or external 1V to VDD"
+},
+"VLOGIC": {
+"pin_tssop": 9,
+"pin_lfcsp": 7,
+"pin_wlcsp": "D2",
+"description": "Interface Power Supply. 1.8V to 5.5V"
+},
+"GND": {
+"pin_tssop": 14,
+"pin_lfcsp": 12,
+"pin_wlcsp": "B1",
+"description": "Ground Reference"
+},
+"SDA": {
+"pin_tssop": 15,
+"pin_lfcsp": 13,
+"pin_wlcsp": "A1",
+"description": "Serial Data. Bidirectional, open-drain"
+},
+"SCL": {
+"pin_tssop": 16,
+"pin_lfcsp": 14,
+"pin_wlcsp": "A2",
+"description": "Serial Clock Line"
+}
+}
+},
+"electrical_specifications": {
+"power_supply": {
+"VDD": {
+"min": 2.7,
+"max": 5.5,
+"unit": "V"
+},
+"VLOGIC": {
+"min": 1.8,
+"max": "VDD",
+"unit": "V"
+},
+"current_consumption": {
+"power_down": {
+"max": 3.5,
+"unit": "µA"
+},
+"normal_5V_dacs": {
+"typ": 1.6,
+"unit": "mA",
+"conditions": "All DACs, internal reference, gain=2"
+},
+"normal_3V_dacs": {
+"typ": 1.1,
+"unit": "mA",
+"conditions": "All DACs, internal reference, gain=1"
+}
+}
+},
+"adc_performance": {
+"resolution": 12,
+"input_ranges": [
+{
+"range": "0V to VREF",
+"gain_bit": 0
+},
+{
+"range": "0V to 2*VREF",
+"gain_bit": 1
+}
+],
+"linearity": {
+"INL": {
+"min": -2,
+"max": 2,
+"unit": "LSB"
+},
+"DNL": {
+"min": -1,
+"max": 1,
+"unit": "LSB"
+}
+},
+"timing": {
+"track_time": {
+"min": 500,
+"unit": "ns"
+},
+"conversion_time": {
+"max": 2,
+"unit": "µs"
+}
+},
+"dynamic_performance": {
+"SNR_2V7": {
+"typ": 69,
+"unit": "dB",
+"conditions": "VDD=2.7V, 0V to VREF"
+},
+"SNR_5V5": {
+"typ": 67,
+"unit": "dB",
+"conditions": "VDD=5.5V, 0V to VREF"
+},
+"THD_2V7": {
+"typ": -91,
+"unit": "dB",
+"conditions": "VDD=2.7V, 0V to VREF"
+}
+}
+},
+"dac_performance": {
+"resolution": 12,
+"output_ranges": [
+{
+"range": "0V to VREF",
+"gain_bit": 0
+},
+{
+"range": "0V to 2*VREF",
+"gain_bit": 1
+}
+],
+"linearity": {
+"INL": {
+"min": -1,
+"max": 1,
+"unit": "LSB"
+},
+"DNL": {
+"min": -1,
+"max": 1,
+"unit": "LSB"
+}
+},
+"dc_performance": {
+"offset_error": {
+"min": -3,
+"max": 3,
+"unit": "mV"
+},
+"gain_error_1x": {
+"max": 0.2,
+"unit": "% FSR",
+"conditions": "0V to VREF"
+},
+"gain_error_2x": {
+"max": 0.1,
+"unit": "% FSR",
+"conditions": "0V to 2×VREF"
+}
+},
+"ac_performance": {
+"slew_rate": {
+"typ": 1.25,
+"unit": "V/µs"
+},
+"settling_time": {
+"typ": 6,
+"unit": "µs"
+}
+},
+"load_capabilities": {
+"resistive_load": {
+"min": 1,
+"unit": "kΩ"
+},
+"capacitive_load_no_resistor": {
+"max": 2,
+"unit": "nF"
+},
+"capacitive_load_1k_resistor": {
+"max": 10,
+"unit": "nF"
+}
+}
+},
+"reference": {
+"internal": {
+"voltage": {
+"min": 2.495,
+"typ": 2.5,
+"max": 2.505,
+"unit": "V"
+},
+"temperature_coefficient": {
+"typ": 20,
+"unit": "ppm/°C"
+},
+"load_capability": {
+"typ": 5,
+"unit": "mA",
+"conditions": "VDD ≥ 3V"
+}
+},
+"external": {
+"voltage_range": {
+"min": 1,
+"max": "VDD",
+"unit": "V"
+}
+}
+},
+"gpio": {
+"output_current": {
+"typ": 1.6,
+"unit": "mA"
+},
+"logic_levels": {
+"VIH": {
+"min": "0.7 × VLOGIC",
+"unit": "V"
+},
+"VIL": {
+"max": "0.3 × VLOGIC",
+"unit": "V"
+},
+"VOH": {
+"min": "VDD - 0.2",
+"unit": "V",
+"conditions": "ISOURCE = 1mA"
+},
+"VOL": {
+"max": 0.4,
+"unit": "V",
+"conditions": "ISINK = 1mA"
+}
+}
+},
+"temperature_sensor": {
+"resolution": 12,
+"range": {
+"min": -40,
+"max": 105,
+"unit": "°C"
+},
+"accuracy": {
+"typ": 3,
+"unit": "°C"
+},
+"adc_codes": {
+"range": "645 to 1035",
+"conditions": "ADC gain = 1"
+}
+}
+},
+"i2c_interface": {
+"slave_address": {
+"base": "0010000",
+"configurable_bit": "A0 pin state",
+"full_address": "001000[A0]"
+},
+"supported_modes": [
+"Standard mode (100 kHz)",
+"Fast mode (400 kHz)"
+],
+"timing_specs": {
+"scl_cycle_time": {
+"min": 2.5,
+"unit": "µs"
+},
+"scl_high_time": {
+"min": 0.6,
+"unit": "µs"
+},
+"scl_low_time": {
+"min": 1.3,
+"unit": "µs"
+},
+"data_setup_time": {
+"min": 100,
+"unit": "ns"
+},
+"data_hold_time": {
+"max": 0.9,
+"unit": "µs"
+}
+},
+"protocol": {
+"write_sequence": "START + ADDR + ACK + POINTER + ACK + MSB + ACK + LSB + ACK + STOP",
+"read_sequence": "START + ADDR + ACK + POINTER + ACK + RESTART + ADDR_R + ACK + MSB + ACK + LSB + NACK + STOP"
+}
+},
+"register_map": {
+"pointer_byte_modes": {
+"0x0": "Configuration mode",
+"0x1": "DAC write mode",
+"0x4": "ADC readback mode",
+"0x5": "DAC readback mode",
+"0x6": "GPIO readback mode",
+"0x7": "Register readback mode"
+},
+"control_registers": {
+"0x00": {
+"name": "NOP",
+"description": "No operation",
+"reset": "0x0000"
+},
+"0x02": {
+"name": "ADC_SEQ",
+"description": "ADC Sequence Register",
+"reset": "0x0000",
+"bits": {
+"9": "REP - Sequence repetition enable",
+"8": "TEMP - Include temperature in sequence",
+"7-0": "ADC7-ADC0 - Channel selection"
+}
+},
+"0x03": {
+"name": "GEN_CTRL_REG",
+"description": "General-Purpose Control Register",
+"reset": "0x0000",
+"bits": {
+"9": "ADC_BUF_PRECH - ADC buffer precharge",
+"8": "ADC_BUF_EN - ADC buffer enable",
+"7": "IO_LOCK - Lock configuration",
+"6": "ALL_DAC - Write all DACs",
+"5": "ADC_RANGE - ADC input range select",
+"4": "DAC_RANGE - DAC output range select"
+}
+},
+"0x04": {
+"name": "ADC_CONFIG",
+"description": "ADC Pin Configuration",
+"reset": "0x0000",
+"bits": {
+"7-0": "ADC7-ADC0 - Pin ADC enable"
+}
+},
+"0x05": {
+"name": "DAC_CONFIG",
+"description": "DAC Pin Configuration",
+"reset": "0x0000",
+"bits": {
+"7-0": "DAC7-DAC0 - Pin DAC enable"
+}
+},
+"0x06": {
+"name": "PULLDWN_CONFIG",
+"description": "Pull-Down Configuration",
+"reset": "0x00FF",
+"bits": {
+"7-0": "PULL_DWN_7-PULL_DWN_0 - 85kΩ pull-down enable"
+}
+},
+"0x07": {
+"name": "LDAC_MODE",
+"description": "LDAC Mode Register",
+"reset": "0x0000",
+"bits": {
+"1-0": "LDAC_MODE - Load DAC operation mode"
+}
+},
+"0x08": {
+"name": "GPIO_CONFIG",
+"description": "GPIO Write Configuration",
+"reset": "0x0000",
+"bits": {
+"7-0": "GPIO7-GPIO0 - Pin GPIO output enable"
+}
+},
+"0x09": {
+"name": "GPIO_OUTPUT",
+"description": "GPIO Write Data",
+"reset": "0x0000",
+"bits": {
+"7-0": "GPIO7-GPIO0 - GPIO output state"
+}
+},
+"0x0A": {
+"name": "GPIO_INPUT",
+"description": "GPIO Read Configuration",
+"reset": "0x0000",
+"bits": {
+"7-0": "GPIO7-GPIO0 - Pin GPIO input enable"
+}
+},
+"0x0B": {
+"name": "PD_REF_CTRL",
+"description": "Power-Down/Reference Control",
+"reset": "0x0000",
+"bits": {
+"10": "PD_ALL - Power down all",
+"9": "EN_REF - Enable internal reference",
+"7-0": "PD7-PD0 - Individual DAC power down"
+}
+},
+"0x0C": {
+"name": "GPIO_OPENDRAIN_CONFIG",
+"description": "GPIO Open-Drain Configuration",
+"reset": "0x0000",
+"bits": {
+"7-0": "GPIO7-GPIO0 - Open-drain vs push-pull"
+}
+},
+"0x0D": {
+"name": "IO_TS_CONFIG",
+"description": "Three-State Configuration",
+"reset": "0x0000",
+"bits": {
+"7-0": "TS7-TS0 - Pin three-state enable"
+}
+},
+"0x0F": {
+"name": "SW_RESET",
+"description": "Software Reset",
+"reset": "0x0000",
+"bits": {
+"10-0": "SW_RESET - Write 0x0DAC to reset"
+}
+},
+"0x10": {
+"name": "DAC_WR",
+"description": "DAC Write Register",
+"reset": "0x0000",
+"bits": {
+"11-0": "DAC_DATA_WR - 12-bit DAC data"
+}
+}
+}
+},
+"operating_modes": {
+"pin_configuration": {
+"default_state": "85kΩ pull-down to GND",
+"configurable_as": [
+"DAC output",
+"ADC input",
+"GPIO input",
+"GPIO output",
+"Three-state",
+"85kΩ pull-down"
+],
+"dual_function": {
+"dac_adc": "Pin can be both DAC output and ADC input (DAC primary)",
+"gpio_in_out": "Pin can be both GPIO input and output (output primary)"
+}
+},
+"ldac_modes": {
+"0": "Immediate update - data written to input register immediately updates DAC",
+"1": "Input register only - data stays in input register",
+"2": "Simultaneous update - transfer all input registers to DAC registers"
+},
+"power_down": {
+"individual_dac": "Each DAC can be powered down individually",
+"reference": "Internal reference can be powered down",
+"all": "PD_ALL powers down all DACs, reference, and ADC"
+}
+},
+"formulas": {
+"dac_output": {
+"formula": "VOUT = G × VREF × (D / 2^N)",
+"where": {
+"G": "1 for 0V to VREF, 2 for 0V to 2×VREF",
+"VREF": "Reference voltage",
+"D": "Decimal code (0-4095)",
+"N": "12 (resolution)"
+}
+},
+"temperature_calculation": {
+"gain_1": "Temperature(°C) = 25 + (ADC_Code - 0.5/VREF × 4095) / (2.654 × 2.5/VREF)",
+"gain_2": "Temperature(°C) = 25 + (ADC_Code - 0.5/(2×VREF) × 4095) / (1.327 × 2.5/VREF)"
+},
+"adc_input_current": {
+"buffered": "fS × C × VDIFF + 1nA",
+"unbuffered": "fS × C × VDIFF",
+"where": {
+"fS": "ADC sample rate (Hz)",
+"C": "Sampling capacitance (5.8pF buffered, 28.9pF unbuffered)",
+"VDIFF": "Voltage change between successive channels"
+}
+}
+},
+"design_considerations": {
+"layout_guidelines": {
+"power_supply": "10µF tantalum + 0.1µF ceramic bypass capacitors close to device",
+"reference_decoupling": "0.1µF ceramic capacitor from VREF to GND",
+"analog_plane": "Device should be on analog ground plane"
+},
+"external_components": {
+"vref_capacitor": "0.1µF ceramic for internal reference",
+"i2c_pullups": "External pull-up resistors required for SDA/SCL",
+"reset_pullup": "Tie RESET high for normal operation"
+},
+"limitations": {
+"shared_ranges": "All DACs share same output range, all ADCs share same input range",
+"dead_bands": "Upper dead band of 10mV when VREF=VDD, lower dead band ~4.88mV",
+"rail_limitations": "25Ω typical output resistance limits rail performance under load"
+}
+},
+"applications": {
+"typical_uses": [
+"Control and monitoring systems",
+"General-purpose analog and digital I/O",
+"Mixed-signal processing",
+"Sensor interface",
+"Test and measurement equipment"
+],
+"related_products": {
+"AD5592R": "SPI interface equivalent",
+"AD5592R-1": "SPI interface with VLOGIC pin"
+}
+},
+"evaluation": {
+"eval_board": "EVAL-AD5593RSDZ",
+"controller_board": "EVAL-SDP-CB1Z"
+}
+}

@@ -1,1 +1,280 @@
-{"name":"Adafruit BusIO","version":"1.17.2","description":"Helper library to abstract away I2C, SPI, and generic transport (UART) transactions and registers","repository":"https://github.com/adafruit/Adafruit_BusIO","license":"MIT","category":"Signal Input/Output","compatibility":"Any architecture","purpose":{"abstraction":"Provides unified interface for different communication protocols","simplification":"Hides low-level protocol implementation details","portability":"Same API works across different platforms and transports","register_management":"Simplifies device register operations"},"core_classes":{"transport_devices":{"adafruit_i2cdevice":{"class":"Adafruit_I2CDevice","file":"Adafruit_I2CDevice.h/.cpp","purpose":"I2C communication abstraction","features":["Device address management","Bus selection (Wire, Wire1, etc.)","Transaction management","Error handling"],"constructor":"Adafruit_I2CDevice(uint8_t addr, TwoWire *theWire = &Wire)","key_methods":{"begin":"Initialize I2C communication","detected":"Check if device responds on bus","read":"Read data from device","write":"Write data to device","write_then_read":"Write command then read response"}},"adafruit_spidevice":{"class":"Adafruit_SPIDevice","file":"Adafruit_SPIDevice.h/.cpp","purpose":"SPI communication abstraction","features":["Hardware and software SPI support","Configurable SPI parameters","Transaction management","CS pin control"],"constructor_options":["Hardware SPI: Adafruit_SPIDevice(int8_t cspin, uint32_t freq, uint8_t dataOrder, uint8_t dataMode, SPIClass *theSPI)","Software SPI: Adafruit_SPIDevice(int8_t cspin, int8_t sckpin, int8_t misopin, int8_t mosipin, uint32_t freq, uint8_t dataOrder, uint8_t dataMode)"],"default_parameters":{"frequency":"1MHz","data_order":"MSB first","spi_mode":"MODE0"},"key_methods":{"begin":"Initialize SPI communication","read":"Read data from device","write":"Write data to device","transfer":"Full-duplex data transfer","beginTransaction":"Start SPI transaction","endTransaction":"End SPI transaction"}},"adafruit_genericdevice":{"class":"Adafruit_GenericDevice","file":"Adafruit_GenericDevice.h/.cpp","purpose":"Abstract base for other transport methods (UART, etc.)","usage":"Base class for implementing custom transport protocols"}},"register_management":{"adafruit_busio_register":{"class":"Adafruit_BusIO_Register","file":"Adafruit_BusIO_Register.h/.cpp","purpose":"Represents a device register for read/write operations","features":["Multi-byte register support","Endianness handling","Cached reads","Write verification"],"constructor":"Adafruit_BusIO_Register(Adafruit_I2CDevice *i2c_device, uint16_t reg_addr, uint8_t width = 1, uint8_t byteorder = LSBFIRST, uint8_t address_width = 1)","key_methods":{"read":"Read register value","write":"Write register value","print":"Debug print register contents"},"data_types":["uint8_t (1 byte)","uint16_t (2 bytes)","uint32_t (4 bytes)","Buffer operations"]},"adafruit_busio_registerbits":{"class":"Adafruit_BusIO_RegisterBits","file":"Adafruit_BusIO_Register.h/.cpp","purpose":"Represents a slice of bits within a register","features":["Bit field manipulation","Automatic masking","Read-modify-write operations"],"constructor":"Adafruit_BusIO_RegisterBits(Adafruit_BusIO_Register *reg, uint8_t bits, uint8_t shift)","key_methods":{"read":"Read bit field value","write":"Write bit field value"},"use_cases":["Configuration flags","Multi-bit settings","Status bits"]}}},"design_patterns":{"device_abstraction":{"description":"Hide protocol-specific details behind common interface","benefit":"Same sensor library can work with I2C or SPI variants","pattern":"Factory or strategy pattern for transport selection"},"register_mapping":{"description":"Map device registers to typed objects","benefit":"Type-safe register access with automatic conversion","pattern":"Register objects encapsulate address, width, and endianness"},"transaction_management":{"description":"Automatic transaction begin/end for SPI","benefit":"Prevents bus conflicts in multi-device systems","implementation":"RAII-style transaction guards"}},"usage_examples":{"i2c_device_setup":{"code":["#include \"Adafruit_I2CDevice.h\"","Adafruit_I2CDevice i2c_dev = Adafruit_I2CDevice(0x77);","if (!i2c_dev.begin()) {","  // Handle initialization error","}","if (!i2c_dev.detected()) {","  // Device not found on bus","}"]},"register_operations":{"code":["// Create register object for device ID at address 0x00","Adafruit_BusIO_Register chip_id = Adafruit_BusIO_Register(&i2c_dev, 0x00);","uint8_t id = chip_id.read();","","// Multi-byte register with big-endian byte order","Adafruit_BusIO_Register temp_reg = Adafruit_BusIO_Register(&i2c_dev, 0xFA, 2, MSBFIRST);","uint16_t temperature = temp_reg.read();"]},"bit_field_access":{"code":["// Configuration register at 0x01","Adafruit_BusIO_Register config_reg = Adafruit_BusIO_Register(&i2c_dev, 0x01);","// Enable bit is bit 7 (1 bit wide, shifted 7 positions)","Adafruit_BusIO_RegisterBits enable_bit = Adafruit_BusIO_RegisterBits(&config_reg, 1, 7);","enable_bit.write(1); // Enable device"]},"spi_device_setup":{"code":["#include \"Adafruit_SPIDevice.h\"","Adafruit_SPIDevice spi_dev = Adafruit_SPIDevice(CS_PIN, 1000000, SPI_BITORDER_MSBFIRST, SPI_MODE0);","if (!spi_dev.begin()) {","  // Handle initialization error","}"]}},"configuration_options":{"i2c_settings":{"bus_selection":"Specify which I2C bus (Wire, Wire1, Wire2, etc.)","address":"7-bit I2C device address","clock_stretching":"Support for devices that stretch clock","timeout":"Configurable transaction timeout"},"spi_settings":{"frequency":"SPI clock frequency (up to platform maximum)","data_order":"MSB first or LSB first","clock_polarity":"Clock polarity (CPOL)","clock_phase":"Clock phase (CPHA)","cs_control":"Manual or automatic chip select control"},"register_settings":{"width":"Register width in bytes (1, 2, 4)","byte_order":"Endianness (LSBFIRST or MSBFIRST)","address_width":"Register address width (1 or 2 bytes)","caching":"Enable register value caching"}},"advanced_features":{"error_handling":{"return_codes":"Methods return boolean success/failure","timeout_detection":"Detect communication timeouts","device_detection":"Verify device presence on bus"},"performance_optimization":{"bulk_transfers":"Support for multi-byte read/write operations","register_caching":"Cache frequently read register values","transaction_batching":"Combine multiple operations"},"debugging_support":{"register_printing":"Print register contents for debugging","transaction_logging":"Optional logging of bus transactions","error_reporting":"Detailed error information"}},"integration_with_sensors":{"sensor_library_pattern":{"description":"Standard pattern for Adafruit sensor libraries","steps":["Create device object (I2C or SPI)","Define register objects for device registers","Implement sensor-specific methods using register operations","Handle sensor configuration and calibration"]},"multi_interface_support":{"description":"Same sensor class supports both I2C and SPI","implementation":"Constructor overloads for different transports","benefit":"Single library works with different hardware configurations"}},"platform_compatibility":{"supported_platforms":["Arduino (AVR, ARM, ESP32, etc.)","Teensy","CircuitPython","Raspberry Pi Pico"],"abstraction_benefits":["Platform-independent sensor libraries","Automatic handling of platform differences","Consistent API across platforms"]},"best_practices":{"device_initialization":{"check_begin":"Always check return value of begin()","detect_device":"Use detected() to verify device presence","handle_errors":"Implement proper error handling"},"register_operations":{"use_typed_reads":"Use appropriate data type for register width","handle_endianness":"Specify correct byte order for multi-byte registers","cache_considerations":"Be aware of register caching behavior"},"performance":{"batch_operations":"Combine related register operations","minimize_transactions":"Reduce I2C/SPI transaction overhead","appropriate_frequency":"Choose optimal bus frequency"}},"common_use_cases":{"sensor_drivers":"Foundation for Adafruit sensor libraries","device_configuration":"Reading/writing device configuration registers","status_monitoring":"Checking device status and flags","data_acquisition":"Reading sensor data from registers","calibration":"Writing calibration values to device"},"limitations":{"protocol_support":"Only supports I2C, SPI, and basic UART patterns","advanced_features":"Limited support for advanced protocol features","memory_overhead":"Slight overhead compared to direct protocol use","learning_curve":"Requires understanding of register-based devices"},"relationship_to_firmware":{"in_master_of_muppets":"Used by Adafruit MCP4728 library for I2C abstraction","benefit":"Provides reliable I2C communication with DAC devices","abstraction_level":"Handles I2C transaction details, error checking","integration":"Seamless integration with other Adafruit libraries"}}
+{
+"name": "Adafruit BusIO",
+"version": "1.17.2",
+"description": "Helper library to abstract away I2C, SPI, and generic transport (UART) transactions and registers",
+"repository": "https://github.com/adafruit/Adafruit_BusIO",
+"license": "MIT",
+"category": "Signal Input/Output",
+"compatibility": "Any architecture",
+"purpose": {
+"abstraction": "Provides unified interface for different communication protocols",
+"simplification": "Hides low-level protocol implementation details",
+"portability": "Same API works across different platforms and transports",
+"register_management": "Simplifies device register operations"
+},
+"core_classes": {
+"transport_devices": {
+"adafruit_i2cdevice": {
+"class": "Adafruit_I2CDevice",
+"file": "Adafruit_I2CDevice.h/.cpp",
+"purpose": "I2C communication abstraction",
+"features": [
+    "Device address management",
+    "Bus selection (Wire, Wire1, etc.)",
+    "Transaction management",
+    "Error handling"
+],
+"constructor": "Adafruit_I2CDevice(uint8_t addr, TwoWire *theWire = &Wire)",
+"key_methods": {
+    "begin": "Initialize I2C communication",
+    "detected": "Check if device responds on bus",
+    "read": "Read data from device",
+    "write": "Write data to device",
+    "write_then_read": "Write command then read response"
+}
+},
+"adafruit_spidevice": {
+"class": "Adafruit_SPIDevice",
+"file": "Adafruit_SPIDevice.h/.cpp",
+"purpose": "SPI communication abstraction",
+"features": [
+    "Hardware and software SPI support",
+    "Configurable SPI parameters",
+    "Transaction management",
+    "CS pin control"
+],
+"constructor_options": [
+    "Hardware SPI: Adafruit_SPIDevice(int8_t cspin, uint32_t freq, uint8_t dataOrder, uint8_t dataMode, SPIClass *theSPI)",
+    "Software SPI: Adafruit_SPIDevice(int8_t cspin, int8_t sckpin, int8_t misopin, int8_t mosipin, uint32_t freq, uint8_t dataOrder, uint8_t dataMode)"
+],
+"default_parameters": {
+    "frequency": "1MHz",
+    "data_order": "MSB first",
+    "spi_mode": "MODE0"
+},
+"key_methods": {
+    "begin": "Initialize SPI communication",
+    "read": "Read data from device",
+    "write": "Write data to device",
+    "transfer": "Full-duplex data transfer",
+    "beginTransaction": "Start SPI transaction",
+    "endTransaction": "End SPI transaction"
+}
+},
+"adafruit_genericdevice": {
+"class": "Adafruit_GenericDevice",
+"file": "Adafruit_GenericDevice.h/.cpp",
+"purpose": "Abstract base for other transport methods (UART, etc.)",
+"usage": "Base class for implementing custom transport protocols"
+}
+},
+"register_management": {
+"adafruit_busio_register": {
+"class": "Adafruit_BusIO_Register",
+"file": "Adafruit_BusIO_Register.h/.cpp",
+"purpose": "Represents a device register for read/write operations",
+"features": [
+    "Multi-byte register support",
+    "Endianness handling",
+    "Cached reads",
+    "Write verification"
+],
+"constructor": "Adafruit_BusIO_Register(Adafruit_I2CDevice *i2c_device, uint16_t reg_addr, uint8_t width = 1, uint8_t byteorder = LSBFIRST, uint8_t address_width = 1)",
+"key_methods": {
+    "read": "Read register value",
+    "write": "Write register value",
+    "print": "Debug print register contents"
+},
+"data_types": [
+    "uint8_t (1 byte)",
+    "uint16_t (2 bytes)",
+    "uint32_t (4 bytes)",
+    "Buffer operations"
+]
+},
+"adafruit_busio_registerbits": {
+"class": "Adafruit_BusIO_RegisterBits",
+"file": "Adafruit_BusIO_Register.h/.cpp",
+"purpose": "Represents a slice of bits within a register",
+"features": [
+    "Bit field manipulation",
+    "Automatic masking",
+    "Read-modify-write operations"
+],
+"constructor": "Adafruit_BusIO_RegisterBits(Adafruit_BusIO_Register *reg, uint8_t bits, uint8_t shift)",
+"key_methods": {
+    "read": "Read bit field value",
+    "write": "Write bit field value"
+},
+"use_cases": [
+    "Configuration flags",
+    "Multi-bit settings",
+    "Status bits"
+]
+}
+}
+},
+"design_patterns": {
+"device_abstraction": {
+"description": "Hide protocol-specific details behind common interface",
+"benefit": "Same sensor library can work with I2C or SPI variants",
+"pattern": "Factory or strategy pattern for transport selection"
+},
+"register_mapping": {
+"description": "Map device registers to typed objects",
+"benefit": "Type-safe register access with automatic conversion",
+"pattern": "Register objects encapsulate address, width, and endianness"
+},
+"transaction_management": {
+"description": "Automatic transaction begin/end for SPI",
+"benefit": "Prevents bus conflicts in multi-device systems",
+"implementation": "RAII-style transaction guards"
+}
+},
+"usage_examples": {
+"i2c_device_setup": {
+"code": [
+"#include \"Adafruit_I2CDevice.h\"",
+"Adafruit_I2CDevice i2c_dev = Adafruit_I2CDevice(0x77);",
+"if (!i2c_dev.begin()) {",
+"  // Handle initialization error",
+"}",
+"if (!i2c_dev.detected()) {",
+"  // Device not found on bus",
+"}"
+]
+},
+"register_operations": {
+"code": [
+"// Create register object for device ID at address 0x00",
+"Adafruit_BusIO_Register chip_id = Adafruit_BusIO_Register(&i2c_dev, 0x00);",
+"uint8_t id = chip_id.read();",
+"",
+"// Multi-byte register with big-endian byte order",
+"Adafruit_BusIO_Register temp_reg = Adafruit_BusIO_Register(&i2c_dev, 0xFA, 2, MSBFIRST);",
+"uint16_t temperature = temp_reg.read();"
+]
+},
+"bit_field_access": {
+"code": [
+"// Configuration register at 0x01",
+"Adafruit_BusIO_Register config_reg = Adafruit_BusIO_Register(&i2c_dev, 0x01);",
+"// Enable bit is bit 7 (1 bit wide, shifted 7 positions)",
+"Adafruit_BusIO_RegisterBits enable_bit = Adafruit_BusIO_RegisterBits(&config_reg, 1, 7);",
+"enable_bit.write(1); // Enable device"
+]
+},
+"spi_device_setup": {
+"code": [
+"#include \"Adafruit_SPIDevice.h\"",
+"Adafruit_SPIDevice spi_dev = Adafruit_SPIDevice(CS_PIN, 1000000, SPI_BITORDER_MSBFIRST, SPI_MODE0);",
+"if (!spi_dev.begin()) {",
+"  // Handle initialization error",
+"}"
+]
+}
+},
+"configuration_options": {
+"i2c_settings": {
+"bus_selection": "Specify which I2C bus (Wire, Wire1, Wire2, etc.)",
+"address": "7-bit I2C device address",
+"clock_stretching": "Support for devices that stretch clock",
+"timeout": "Configurable transaction timeout"
+},
+"spi_settings": {
+"frequency": "SPI clock frequency (up to platform maximum)",
+"data_order": "MSB first or LSB first",
+"clock_polarity": "Clock polarity (CPOL)",
+"clock_phase": "Clock phase (CPHA)",
+"cs_control": "Manual or automatic chip select control"
+},
+"register_settings": {
+"width": "Register width in bytes (1, 2, 4)",
+"byte_order": "Endianness (LSBFIRST or MSBFIRST)",
+"address_width": "Register address width (1 or 2 bytes)",
+"caching": "Enable register value caching"
+}
+},
+"advanced_features": {
+"error_handling": {
+"return_codes": "Methods return boolean success/failure",
+"timeout_detection": "Detect communication timeouts",
+"device_detection": "Verify device presence on bus"
+},
+"performance_optimization": {
+"bulk_transfers": "Support for multi-byte read/write operations",
+"register_caching": "Cache frequently read register values",
+"transaction_batching": "Combine multiple operations"
+},
+"debugging_support": {
+"register_printing": "Print register contents for debugging",
+"transaction_logging": "Optional logging of bus transactions",
+"error_reporting": "Detailed error information"
+}
+},
+"integration_with_sensors": {
+"sensor_library_pattern": {
+"description": "Standard pattern for Adafruit sensor libraries",
+"steps": [
+"Create device object (I2C or SPI)",
+"Define register objects for device registers",
+"Implement sensor-specific methods using register operations",
+"Handle sensor configuration and calibration"
+]
+},
+"multi_interface_support": {
+"description": "Same sensor class supports both I2C and SPI",
+"implementation": "Constructor overloads for different transports",
+"benefit": "Single library works with different hardware configurations"
+}
+},
+"platform_compatibility": {
+"supported_platforms": [
+"Arduino (AVR, ARM, ESP32, etc.)",
+"Teensy",
+"CircuitPython",
+"Raspberry Pi Pico"
+],
+"abstraction_benefits": [
+"Platform-independent sensor libraries",
+"Automatic handling of platform differences",
+"Consistent API across platforms"
+]
+},
+"best_practices": {
+"device_initialization": {
+"check_begin": "Always check return value of begin()",
+"detect_device": "Use detected() to verify device presence",
+"handle_errors": "Implement proper error handling"
+},
+"register_operations": {
+"use_typed_reads": "Use appropriate data type for register width",
+"handle_endianness": "Specify correct byte order for multi-byte registers",
+"cache_considerations": "Be aware of register caching behavior"
+},
+"performance": {
+"batch_operations": "Combine related register operations",
+"minimize_transactions": "Reduce I2C/SPI transaction overhead",
+"appropriate_frequency": "Choose optimal bus frequency"
+}
+},
+"common_use_cases": {
+"sensor_drivers": "Foundation for Adafruit sensor libraries",
+"device_configuration": "Reading/writing device configuration registers",
+"status_monitoring": "Checking device status and flags",
+"data_acquisition": "Reading sensor data from registers",
+"calibration": "Writing calibration values to device"
+},
+"limitations": {
+"protocol_support": "Only supports I2C, SPI, and basic UART patterns",
+"advanced_features": "Limited support for advanced protocol features",
+"memory_overhead": "Slight overhead compared to direct protocol use",
+"learning_curve": "Requires understanding of register-based devices"
+},
+"relationship_to_firmware": {
+"in_master_of_muppets": "Used by Adafruit MCP4728 library for I2C abstraction",
+"benefit": "Provides reliable I2C communication with DAC devices",
+"abstraction_level": "Handles I2C transaction details, error checking",
+"integration": "Seamless integration with other Adafruit libraries"
+}
+}

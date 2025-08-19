@@ -2,17 +2,17 @@
     "contexts": {
         "core":{
             "CRITICAL": true,
-            "auto_load": "ALWAYS",
+            "auto_load": "MANDATORY",
             "files": [ "claude/contexts/core.json" ]
         },
         "project":{
             "CRITICAL": true,
-            "auto_load": "ALWAYS",
+            "auto_load": "MANDATORY",
             "files": [ "claude/contexts/project.json" ]
         },
         "data_store":{
             "CRITICAL": true,
-            "auto_load": "ALWAYS",
+            "auto_load": "MANDATORY",
             "files": [ "claude/contexts/data_store.json" ]
         },
         "coding_style" : {

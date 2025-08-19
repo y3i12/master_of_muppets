@@ -1,1 +1,351 @@
-{"name":"TeensyThreads","description":"Multithreading library for Teensy microcontrollers","author":"Fernando Trias","copyright":"2017","license":"MIT","version":"Based on included source","overview":{"purpose":"Provides cooperative multithreading capabilities for Teensy boards","threading_model":"Cooperative (non-preemptive) multithreading","global_instance":"Global 'threads' object provides all threading functions","standards_compliance":"Partial C++11 std::thread compatibility"},"core_concepts":{"cooperative_multitasking":{"description":"Threads voluntarily yield control to other threads","requirement":"Each thread must regularly call yield() or delay()","benefit":"Deterministic scheduling, no race conditions between context switches","limitation":"Blocking threads can starve other threads"},"stack_management":{"description":"Each thread has its own stack space","default_stack_size":"Configurable per thread","stack_frames":{"interrupt_stack":"Registers saved by hardware interrupt (r0-r3, r12, lr, pc, xpsr)","software_stack":"Registers saved by context switch (r4-r11, lr, floating point)"},"floating_point_support":"Automatic FPU register saving when __ARM_PCS_VFP defined"},"thread_states":{"EMPTY":"Thread slot is unused","RUNNING":"Thread is actively executing","SUSPENDED":"Thread is temporarily suspended","ENDED":"Thread has completed execution"}},"main_api":{"thread_management":{"addThread":{"signatures":["int addThread(ThreadFunction func, void* arg, int stack_size = -1)","int addThread(ThreadFunctionInt func, int arg, int stack_size = -1)","int addThread(ThreadFunctionNone func, int stack_size = -1)"],"description":"Create and start a new thread","returns":"Thread ID (>= 0) on success, -1 on failure","parameters":{"func":"Thread function to execute","arg":"Argument passed to thread function","stack_size":"Stack size in bytes (-1 for default)"}},"kill":{"signature":"void kill(int id)","description":"Terminate a thread by ID","note":"Thread resources are immediately freed"},"suspend":{"signature":"void suspend(int id)","description":"Temporarily suspend thread execution"},"restart":{"signature":"void restart(int id)","description":"Resume suspended thread execution"}},"scheduling_control":{"yield":{"signature":"void yield()","description":"Voluntarily give up CPU to next thread","requirement":"Must be called regularly in thread loops","frequency":"Should be called at least every few milliseconds"},"delay":{"signature":"void delay(int ms)","description":"Suspend current thread for specified milliseconds","behavior":"Other threads continue to run during delay"},"setTimeSlice":{"signature":"void setTimeSlice(int id, int ms)","description":"Set maximum time slice for thread","note":"Cooperative system - relies on voluntary yielding"},"setSliceMicros":{"signature":"void setSliceMicros(int microseconds)","description":"Set time slice in microseconds for all threads"}},"thread_information":{"id":{"signature":"int id()","description":"Get current thread ID","returns":"0 for main thread, >0 for created threads"},"getState":{"signature":"int getState(int id)","description":"Get thread state (EMPTY, RUNNING, SUSPENDED, ENDED)"},"stack":{"signature":"void* stack(int id)","description":"Get pointer to thread's stack"}}},"synchronization_primitives":{"mutex":{"class":"Threads::Mutex","description":"Mutual exclusion lock for protecting shared resources","methods":{"lock":{"signature":"int lock(int timeout_ms = 0)","description":"Acquire lock, optionally with timeout","returns":"1 on success, 0 on timeout/failure"},"unlock":{"signature":"void unlock()","description":"Release lock"}},"behavior":"Cooperative - relies on threads yielding while waiting"},"scope":{"class":"Threads::Scope","description":"RAII-style automatic mutex management","usage":"Automatically unlocks mutex when scope exits","constructor":"Scope(Mutex& mutex) - locks mutex","destructor":"Automatically unlocks mutex"},"suspend_class":{"class":"Threads::Suspend","description":"Temporarily disable threading","usage":"Suspends all thread switching during object lifetime","use_case":"Critical sections that must not be interrupted"}},"c11_compatibility":{"std_thread":{"class":"std::thread","description":"Partial C++11 std::thread compatibility","constructor":"template <class F, class ...Args> thread(F&& f, Args&&... args)","methods":{"detach":"Detach thread (don't kill on destructor)","join":"Wait for thread completion (blocks until done)"},"limitations":"Simplified implementation, not fully C++11 compliant"},"std_mutex":{"class":"std::mutex","description":"C++11 compatible mutex wrapper","methods":["lock","unlock"],"compatibility":"Works with std::lock_guard"},"std_lock_guard":{"class":"std::lock_guard","description":"RAII lock management compatible with std::mutex","usage":"Automatic lock/unlock on construction/destruction"}},"advanced_features":{"interrupt_integration":{"description":"Integrates with Teensy interrupt system","functions":{"context_switch":"Core context switching function","context_switch_direct":"Direct context switch without timing","threads_systick_isr":"SysTick interrupt handler","stack_overflow_isr":"Stack overflow detection"}},"debugging_support":{"compile_flag":"#define DEBUG","features":{"getCyclesUsed":"Get CPU cycles used by thread","stack_monitoring":"Monitor stack usage","performance_analysis":"Analyze thread performance"}},"stack_overflow_protection":{"description":"Detects and handles stack overflow conditions","mechanism":"Hardware-based stack monitoring","response":"Calls stack_overflow_isr() on overflow"}},"thread_function_types":{"ThreadFunction":"void (*)(void*) - Function with void pointer argument","ThreadFunctionInt":"void (*)(int) - Function with integer argument","ThreadFunctionNone":"void (*)() - Function with no arguments","ThreadFunctionSleep":"int (*)(int) - Function returning sleep time","IsrFunction":"void (*)() - Interrupt service routine function"},"memory_management":{"stack_allocation":{"method":"Dynamic allocation for each thread stack","default_size":"Platform dependent","customization":"Configurable per thread via stack_size parameter","alignment":"ARM stack alignment requirements (8-byte aligned)"},"thread_slots":{"maximum_threads":"Hard-coded limit to simplify implementation","slot_management":"Automatic allocation/deallocation of thread slots","reuse":"Thread slots can be reused after thread termination"}},"performance_characteristics":{"context_switch_overhead":{"description":"Time required to switch between threads","factors":["Register saving/restoring","Stack pointer manipulation","Floating point state (if used)"],"optimization":"Assembly language implementation for speed"},"scheduling_overhead":{"description":"Minimal - cooperative scheduling has low overhead","benefit":"Predictable timing for real-time applications","requirement":"Threads must yield regularly"}},"usage_patterns":{"basic_threading":{"example":["void thread_func(void* arg) {","  while(1) {","    // Do work","    threads.yield(); // Must yield regularly","  }","}","void setup() {","  threads.addThread(thread_func, nullptr);","}"]},"mutex_protection":{"example":["Threads::Mutex data_mutex;","void thread1(void* arg) {","  while(1) {","    data_mutex.lock();","    // Access shared data","    data_mutex.unlock();","    threads.yield();","  }","}"]},"raii_locking":{"example":["Threads::Mutex data_mutex;","void thread1(void* arg) {","  while(1) {","    Threads::Scope lock(data_mutex);","    // Shared data access - automatically unlocked on scope exit","    threads.yield();","  }","}"]}},"best_practices":{"thread_design":{"yield_regularly":"Call yield() at least every few milliseconds","avoid_blocking":"Don't use blocking operations without yielding","finite_loops":"Ensure loops have yield points","stack_sizing":"Allocate adequate stack space for local variables"},"synchronization":{"use_mutexes":"Protect shared resources with mutexes","raii_locking":"Use Scope class for automatic unlock","avoid_deadlock":"Always unlock mutexes, use consistent lock ordering","timeout_locks":"Use timeout on lock operations when possible"},"debugging":{"enable_debug":"Use DEBUG flag for development","monitor_stacks":"Check stack usage to prevent overflow","thread_naming":"Use descriptive names for thread functions"}},"limitations":{"cooperative_only":"Not preemptive - threads must yield voluntarily","no_priorities":"No thread priority system","limited_c11":"Partial C++11 std::thread compatibility only","stack_overhead":"Each thread requires separate stack memory","teensy_specific":"Designed specifically for Teensy ARM processors"},"integration_with_firmware":{"in_master_of_muppets":{"usage":"Provides multithreading for concurrent DAC control and MIDI processing","threads_created":["the_muppet_show - Main DAC update thread","the_voice_from_beyond - MIDI input processing","muppet_worker threads - Individual DAC workers (2 instances)","party_pooper - Periodic maintenance thread"],"configuration":"threads.setSliceMicros(10) - 10 microsecond time slices","synchronization":"Uses Threads::Mutex for buffer protection"},"benefits":{"concurrent_processing":"MIDI input and DAC output run simultaneously","responsive_system":"Non-blocking operation for real-time performance","isolation":"Each DAC has dedicated worker thread"}},"troubleshooting":{"common_issues":{"hanging_system":{"cause":"Thread not yielding in loop","solution":"Add threads.yield() calls in all loops"},"stack_overflow":{"cause":"Insufficient stack space or infinite recursion","solution":"Increase stack size or reduce local variable usage"},"race_conditions":{"cause":"Unprotected shared resources","solution":"Use mutexes to protect shared data"},"poor_performance":{"cause":"Too frequent yielding or inadequate time slices","solution":"Adjust yield frequency and time slice duration"}}},"comparison_with_alternatives":{"vs_interrupts":{"advantages":["Simpler programming model","No race conditions during context switch","Easier debugging"],"disadvantages":["Not truly preemptive","Requires disciplined yielding"]},"vs_rtos":{"advantages":["Lightweight","Simple API","No complex scheduling"],"disadvantages":["No priorities","Limited synchronization primitives","Cooperative only"]}}}
+{
+"name": "TeensyThreads",
+"description": "Multithreading library for Teensy microcontrollers",
+"author": "Fernando Trias",
+"copyright": "2017",
+"license": "MIT",
+"version": "Based on included source",
+"overview": {
+"purpose": "Provides cooperative multithreading capabilities for Teensy boards",
+"threading_model": "Cooperative (non-preemptive) multithreading",
+"global_instance": "Global 'threads' object provides all threading functions",
+"standards_compliance": "Partial C++11 std::thread compatibility"
+},
+"core_concepts": {
+"cooperative_multitasking": {
+"description": "Threads voluntarily yield control to other threads",
+"requirement": "Each thread must regularly call yield() or delay()",
+"benefit": "Deterministic scheduling, no race conditions between context switches",
+"limitation": "Blocking threads can starve other threads"
+},
+"stack_management": {
+"description": "Each thread has its own stack space",
+"default_stack_size": "Configurable per thread",
+"stack_frames": {
+"interrupt_stack": "Registers saved by hardware interrupt (r0-r3, r12, lr, pc, xpsr)",
+"software_stack": "Registers saved by context switch (r4-r11, lr, floating point)"
+},
+"floating_point_support": "Automatic FPU register saving when __ARM_PCS_VFP defined"
+},
+"thread_states": {
+"EMPTY": "Thread slot is unused",
+"RUNNING": "Thread is actively executing",
+"SUSPENDED": "Thread is temporarily suspended",
+"ENDED": "Thread has completed execution"
+}
+},
+"main_api": {
+"thread_management": {
+"addThread": {
+"signatures": [
+"int addThread(ThreadFunction func, void* arg, int stack_size = -1)",
+"int addThread(ThreadFunctionInt func, int arg, int stack_size = -1)",
+"int addThread(ThreadFunctionNone func, int stack_size = -1)"
+],
+"description": "Create and start a new thread",
+"returns": "Thread ID (>= 0) on success, -1 on failure",
+"parameters": {
+"func": "Thread function to execute",
+"arg": "Argument passed to thread function",
+"stack_size": "Stack size in bytes (-1 for default)"
+}
+},
+"kill": {
+"signature": "void kill(int id)",
+"description": "Terminate a thread by ID",
+"note": "Thread resources are immediately freed"
+},
+"suspend": {
+"signature": "void suspend(int id)",
+"description": "Temporarily suspend thread execution"
+},
+"restart": {
+"signature": "void restart(int id)",
+"description": "Resume suspended thread execution"
+}
+},
+"scheduling_control": {
+"yield": {
+"signature": "void yield()",
+"description": "Voluntarily give up CPU to next thread",
+"requirement": "Must be called regularly in thread loops",
+"frequency": "Should be called at least every few milliseconds"
+},
+"delay": {
+"signature": "void delay(int ms)",
+"description": "Suspend current thread for specified milliseconds",
+"behavior": "Other threads continue to run during delay"
+},
+"setTimeSlice": {
+"signature": "void setTimeSlice(int id, int ms)",
+"description": "Set maximum time slice for thread",
+"note": "Cooperative system - relies on voluntary yielding"
+},
+"setSliceMicros": {
+"signature": "void setSliceMicros(int microseconds)",
+"description": "Set time slice in microseconds for all threads"
+}
+},
+"thread_information": {
+"id": {
+"signature": "int id()",
+"description": "Get current thread ID",
+"returns": "0 for main thread, >0 for created threads"
+},
+"getState": {
+"signature": "int getState(int id)",
+"description": "Get thread state (EMPTY, RUNNING, SUSPENDED, ENDED)"
+},
+"stack": {
+"signature": "void* stack(int id)",
+"description": "Get pointer to thread's stack"
+}
+}
+},
+"synchronization_primitives": {
+"mutex": {
+"class": "Threads::Mutex",
+"description": "Mutual exclusion lock for protecting shared resources",
+"methods": {
+"lock": {
+"signature": "int lock(int timeout_ms = 0)",
+"description": "Acquire lock, optionally with timeout",
+"returns": "1 on success, 0 on timeout/failure"
+},
+"unlock": {
+"signature": "void unlock()",
+"description": "Release lock"
+}
+},
+"behavior": "Cooperative - relies on threads yielding while waiting"
+},
+"scope": {
+"class": "Threads::Scope",
+"description": "RAII-style automatic mutex management",
+"usage": "Automatically unlocks mutex when scope exits",
+"constructor": "Scope(Mutex& mutex) - locks mutex",
+"destructor": "Automatically unlocks mutex"
+},
+"suspend_class": {
+"class": "Threads::Suspend",
+"description": "Temporarily disable threading",
+"usage": "Suspends all thread switching during object lifetime",
+"use_case": "Critical sections that must not be interrupted"
+}
+},
+"c11_compatibility": {
+"std_thread": {
+"class": "std::thread",
+"description": "Partial C++11 std::thread compatibility",
+"constructor": "template <class F, class ...Args> thread(F&& f, Args&&... args)",
+"methods": {
+"detach": "Detach thread (don't kill on destructor)",
+"join": "Wait for thread completion (blocks until done)"
+},
+"limitations": "Simplified implementation, not fully C++11 compliant"
+},
+"std_mutex": {
+"class": "std::mutex",
+"description": "C++11 compatible mutex wrapper",
+"methods": [
+"lock",
+"unlock"
+],
+"compatibility": "Works with std::lock_guard"
+},
+"std_lock_guard": {
+"class": "std::lock_guard",
+"description": "RAII lock management compatible with std::mutex",
+"usage": "Automatic lock/unlock on construction/destruction"
+}
+},
+"advanced_features": {
+"interrupt_integration": {
+"description": "Integrates with Teensy interrupt system",
+"functions": {
+"context_switch": "Core context switching function",
+"context_switch_direct": "Direct context switch without timing",
+"threads_systick_isr": "SysTick interrupt handler",
+"stack_overflow_isr": "Stack overflow detection"
+}
+},
+"debugging_support": {
+"compile_flag": "#define DEBUG",
+"features": {
+"getCyclesUsed": "Get CPU cycles used by thread",
+"stack_monitoring": "Monitor stack usage",
+"performance_analysis": "Analyze thread performance"
+}
+},
+"stack_overflow_protection": {
+"description": "Detects and handles stack overflow conditions",
+"mechanism": "Hardware-based stack monitoring",
+"response": "Calls stack_overflow_isr() on overflow"
+}
+},
+"thread_function_types": {
+"ThreadFunction": "void (*)(void*) - Function with void pointer argument",
+"ThreadFunctionInt": "void (*)(int) - Function with integer argument",
+"ThreadFunctionNone": "void (*)() - Function with no arguments",
+"ThreadFunctionSleep": "int (*)(int) - Function returning sleep time",
+"IsrFunction": "void (*)() - Interrupt service routine function"
+},
+"memory_management": {
+"stack_allocation": {
+"method": "Dynamic allocation for each thread stack",
+"default_size": "Platform dependent",
+"customization": "Configurable per thread via stack_size parameter",
+"alignment": "ARM stack alignment requirements (8-byte aligned)"
+},
+"thread_slots": {
+"maximum_threads": "Hard-coded limit to simplify implementation",
+"slot_management": "Automatic allocation/deallocation of thread slots",
+"reuse": "Thread slots can be reused after thread termination"
+}
+},
+"performance_characteristics": {
+"context_switch_overhead": {
+"description": "Time required to switch between threads",
+"factors": [
+"Register saving/restoring",
+"Stack pointer manipulation",
+"Floating point state (if used)"
+],
+"optimization": "Assembly language implementation for speed"
+},
+"scheduling_overhead": {
+"description": "Minimal - cooperative scheduling has low overhead",
+"benefit": "Predictable timing for real-time applications",
+"requirement": "Threads must yield regularly"
+}
+},
+"usage_patterns": {
+"basic_threading": {
+"example": [
+"void thread_func(void* arg) {",
+"  while(1) {",
+"    // Do work",
+"    threads.yield(); // Must yield regularly",
+"  }",
+"}",
+"void setup() {",
+"  threads.addThread(thread_func, nullptr);",
+"}"
+]
+},
+"mutex_protection": {
+"example": [
+"Threads::Mutex data_mutex;",
+"void thread1(void* arg) {",
+"  while(1) {",
+"    data_mutex.lock();",
+"    // Access shared data",
+"    data_mutex.unlock();",
+"    threads.yield();",
+"  }",
+"}"
+]
+},
+"raii_locking": {
+"example": [
+"Threads::Mutex data_mutex;",
+"void thread1(void* arg) {",
+"  while(1) {",
+"    Threads::Scope lock(data_mutex);",
+"    // Shared data access - automatically unlocked on scope exit",
+"    threads.yield();",
+"  }",
+"}"
+]
+}
+},
+"best_practices": {
+"thread_design": {
+"yield_regularly": "Call yield() at least every few milliseconds",
+"avoid_blocking": "Don't use blocking operations without yielding",
+"finite_loops": "Ensure loops have yield points",
+"stack_sizing": "Allocate adequate stack space for local variables"
+},
+"synchronization": {
+"use_mutexes": "Protect shared resources with mutexes",
+"raii_locking": "Use Scope class for automatic unlock",
+"avoid_deadlock": "Always unlock mutexes, use consistent lock ordering",
+"timeout_locks": "Use timeout on lock operations when possible"
+},
+"debugging": {
+"enable_debug": "Use DEBUG flag for development",
+"monitor_stacks": "Check stack usage to prevent overflow",
+"thread_naming": "Use descriptive names for thread functions"
+}
+},
+"limitations": {
+"cooperative_only": "Not preemptive - threads must yield voluntarily",
+"no_priorities": "No thread priority system",
+"limited_c11": "Partial C++11 std::thread compatibility only",
+"stack_overhead": "Each thread requires separate stack memory",
+"teensy_specific": "Designed specifically for Teensy ARM processors"
+},
+"integration_with_firmware": {
+"in_master_of_muppets": {
+"usage": "Provides multithreading for concurrent DAC control and MIDI processing",
+"threads_created": [
+"the_muppet_show - Main DAC update thread",
+"the_voice_from_beyond - MIDI input processing",
+"muppet_worker threads - Individual DAC workers (2 instances)",
+"party_pooper - Periodic maintenance thread"
+],
+"configuration": "threads.setSliceMicros(10) - 10 microsecond time slices",
+"synchronization": "Uses Threads::Mutex for buffer protection"
+},
+"benefits": {
+"concurrent_processing": "MIDI input and DAC output run simultaneously",
+"responsive_system": "Non-blocking operation for real-time performance",
+"isolation": "Each DAC has dedicated worker thread"
+}
+},
+"troubleshooting": {
+"common_issues": {
+"hanging_system": {
+"cause": "Thread not yielding in loop",
+"solution": "Add threads.yield() calls in all loops"
+},
+"stack_overflow": {
+"cause": "Insufficient stack space or infinite recursion",
+"solution": "Increase stack size or reduce local variable usage"
+},
+"race_conditions": {
+"cause": "Unprotected shared resources",
+"solution": "Use mutexes to protect shared data"
+},
+"poor_performance": {
+"cause": "Too frequent yielding or inadequate time slices",
+"solution": "Adjust yield frequency and time slice duration"
+}
+}
+},
+"comparison_with_alternatives": {
+"vs_interrupts": {
+"advantages": [
+"Simpler programming model",
+"No race conditions during context switch",
+"Easier debugging"
+],
+"disadvantages": [
+"Not truly preemptive",
+"Requires disciplined yielding"
+]
+},
+"vs_rtos": {
+"advantages": [
+"Lightweight",
+"Simple API",
+"No complex scheduling"
+],
+"disadvantages": [
+"No priorities",
+"Limited synchronization primitives",
+"Cooperative only"
+]
+}
+}
+}
