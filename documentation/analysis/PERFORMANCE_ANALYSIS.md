@@ -236,7 +236,7 @@ graph TB
         subgraph "Digital System"
             TEENSY[Teensy 4.1<br/>3.3V @ 300mA<br/>Power: 1.0W]
             DACS[2x AD5593R<br/>3.3V @ 100mA<br/>Power: 0.33W]
-            DIGITAL_TOTAL[Digital Total<br/>1.33W (11%)]
+            DIGITAL_TOTAL["Digital Total<br/>1.33W - 11%"]
         end
         
         subgraph "Analog System"

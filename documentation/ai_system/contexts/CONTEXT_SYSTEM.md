@@ -112,26 +112,26 @@ The core context defines fundamental behavioral patterns and constraints:
 graph TB
     subgraph "Core Behavioral Rules"
         subgraph "Documentation Policy"
-            AUTO_CREATE[auto_create: "never"<br/>No proactive documentation]
-            README_POLICY[readme_files: "never_unless_explicit"<br/>Only when requested]
-            EXPLICIT_ONLY[only_when: "explicitly_requested"<br/>Clear user intent required]
+            AUTO_CREATE["auto_create: never<br/>No proactive documentation"]
+            README_POLICY["readme_files: never_unless_explicit<br/>Only when requested"]
+            EXPLICIT_ONLY["only_when: explicitly_requested<br/>Clear user intent required"]
         end
         
         subgraph "File Creation Policy"
-            PREFERENCE[preference: "edit_existing_over_new"<br/>Avoid new file creation]
-            CREATE_WHEN[create_when: "absolutely_necessary_or_explicit"<br/>Strict creation rules]
+            PREFERENCE["preference: edit_existing_over_new<br/>Avoid new file creation"]
+            CREATE_WHEN["create_when: absolutely_necessary_or_explicit<br/>Strict creation rules"]
         end
         
         subgraph "Tool Knowledge Policy"
-            REQUIREMENT[requirement: "MANDATORY"<br/>All tools must have knowledge]
-            CONDITION[condition: "ALWAYS"<br/>No exceptions allowed]
-            LOCATION[location: "claude/data_store/knowledge/external_tools/"<br/>Standardized location]
+            REQUIREMENT["requirement: MANDATORY<br/>All tools must have knowledge"]
+            CONDITION["condition: ALWAYS<br/>No exceptions allowed"]
+            LOCATION["location: claude/data_store/knowledge/external_tools/<br/>Standardized location"]
         end
         
         subgraph "Response Style"
-            VERBOSITY[verbosity: "concise"<br/>Minimize output tokens]
-            EXPLANATIONS[explanations: "minimal_unless_requested"<br/>Focus on specific tasks]
-            FOCUS[focus: "specific_task_only"<br/>Avoid tangential information]
+            VERBOSITY["verbosity: concise<br/>Minimize output tokens"]
+            EXPLANATIONS["explanations: minimal_unless_requested<br/>Focus on specific tasks"]
+            FOCUS["focus: specific_task_only<br/>Avoid tangential information"]
         end
     end
 ```
@@ -160,21 +160,21 @@ graph TB
 graph TB
     subgraph "Project Context Information"
         subgraph "Basic Information"
-            NAME[Name: "Master of Muppets"<br/>USB MIDI to 16ch CV]
-            PLATFORM[Platform: "Teensy 4.1"<br/>ARM Cortex-M7]
-            TYPE[Type: "embedded_audio"<br/>Real-time system]
+            NAME["Name: Master of Muppets<br/>USB MIDI to 16ch CV"]
+            PLATFORM["Platform: Teensy 4.1<br/>ARM Cortex-M7"]
+            TYPE["Type: embedded_audio<br/>Real-time system"]
         end
         
         subgraph "Dependencies"
-            THREADING[Threading: "TeensyThreads"<br/>Cooperative multitasking]
-            I2C[I2C: "Wire"<br/>Hardware abstraction]
-            HARDWARE[Hardware: "Arduino/Teensy"<br/>Framework integration]
+            THREADING["Threading: TeensyThreads<br/>Cooperative multitasking"]
+            I2C["I2C: Wire<br/>Hardware abstraction"]
+            HARDWARE["Hardware: Arduino/Teensy<br/>Framework integration"]
         end
         
         subgraph "Project Folders"
-            HARDWARE_LOC[Hardware: "hardware/master_of_muppets/"<br/>KiCad design files]
-            FIRMWARE_LOC[Firmware: "firmware/"<br/>C++ embedded code]
-            STRUCTURE[Folder Structure<br/>Headers, Source, Libraries, Tests]
+            HARDWARE_LOC["Hardware: hardware/master_of_muppets/<br/>KiCad design files"]
+            FIRMWARE_LOC["Firmware: firmware/<br/>C++ embedded code"]
+            STRUCTURE["Folder Structure<br/>Headers, Source, Libraries, Tests"]
         end
         
         NAME --> THREADING
@@ -338,7 +338,7 @@ graph LR
         
         subgraph "Optimization"
             CACHE[Context Caching<br/>Memory resident<br/>Fast retrieval]
-            INDEX[Indexed Access<br/>O(1) lookup<br/>Hash-based search]
+            INDEX["Indexed Access<br/>O(1) lookup<br/>Hash-based search"]
             LAZY[Lazy Loading<br/>On-demand only<br/>Minimal overhead]
         end
         

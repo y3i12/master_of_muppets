@@ -401,7 +401,7 @@ graph TD
     subgraph "AI System Evolution Roadmap"
         CURRENT[Current State<br/>Season 04<br/>Production-Ready AI]
         
-        NEAR[Near-term (Season 05)<br/>Advanced ML Integration<br/>Predictive Analysis]
+        NEAR["Near-term - Season 05<br/>Advanced ML Integration<br/>Predictive Analysis"]
         
         MID[Mid-term (Season 06-07)<br/>Autonomous Design<br/>Self-Improving Systems]
         

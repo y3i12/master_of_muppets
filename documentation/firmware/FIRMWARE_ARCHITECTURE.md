@@ -9,7 +9,7 @@ The Master of Muppets firmware is a sophisticated real-time embedded system buil
 ```mermaid
 graph TB
     subgraph "Application Layer"
-        MAIN[Main Application<br/>setup() and loop()]
+        MAIN["Main Application<br/>setup() and loop()"]
         CONFIG[dr_teeth<br/>Global Configuration]
         CLOCK[muppet_clock<br/>Global Timing]
     end
