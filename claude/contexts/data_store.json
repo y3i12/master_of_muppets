@@ -102,6 +102,11 @@
       "path": "claude/data_store/knowledge/coding/kicad/s_expressions.json",
       "keywords": ["s-expression", "sexpr", "kicad", "parsing", "lisp", "syntax", "grammar", "kicad_sch", "kicad_pcb", "kicad_mod", "kicad_sym", "file format", "tokenizer", "lexer", "parser", "atom", "list", "parenthesis"],
       "description": "KiCad S-expressions format reference for parsing and generating KiCad files"
+    },
+    "kiutils": {
+      "path": "claude/data_store/knowledge/coding/kicad/kiutils.json",
+      "keywords": ["kiutils", "kicad", "parser", "python", "board", "schematic", "footprint", "symbol", "pcb", "sexpr", "s-expression", "api", "library", "from_file", "to_file", "create_new", "dataclass", "kicad_pcb", "kicad_sch", "kicad_mod", "kicad_sym"],
+      "description": "Python library for parsing and manipulating KiCad files (boards, schematics, symbols, footprints)"
     }
   },
   "access_patterns": {
