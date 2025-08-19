@@ -1,7 +1,2 @@
 ## Critical Reminders
-- **Project**: Master of Muppets - USB MIDI to 16ch CV (0-10V) on Teensy 4.1
-- **Style**: snake_case always (see CODING_STYLE.md)
-- **Security**: Defensive only, no malicious code
-- **Memory**: Static allocation only, no dynamic
-- **Git**: Never commit without explicit request
-- **Documentation**: NEVER create README.md or documentation files unless explicitly requested by the user
+READ claude/contexts/base.json

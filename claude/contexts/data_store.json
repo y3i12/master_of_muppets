@@ -1,0 +1,157 @@
+{
+  "description": "Context for accessing and managing JSON knowledge files in claude/data_store",
+  "purpose": "Provides keywords and instructions for loading condensed knowledge about components, circuits, and project data",
+  "auto_update_instructions": {
+    "when_to_update": [
+      "New JSON files added to data_store",
+      "Existing files restructured",
+      "New categories or types of knowledge created",
+      "Keywords become outdated or insufficient"
+    ],
+    "how_to_update": [
+      "Add new file paths to knowledge_files section",
+      "Update keywords arrays with relevant search terms",
+      "Add new categories to file_categories",
+      "Update access_patterns for new data structures"
+    ]
+  },
+  "file_categories": {
+    "data_sheets": {
+      "location": "claude/data_store/knowledge/data_sheets/",
+      "description": "Component datasheets in structured JSON format",
+      "keywords": ["datasheet", "component", "specs", "electrical", "pinout", "pin", "register", "voltage", "current", "power", "timing", "i2c", "spi", "interface", "reference", "resolution", "adc", "dac", "temperature"]
+    },
+    "kicad_knowledge": {
+      "location": "claude/data_store/knowledge/kicad/",
+      "description": "KiCad file structure and parsing knowledge",
+      "keywords": ["kicad", "pcb", "schematic", "footprint", "symbol", "layer", "net", "track", "via", "component", "routing", "kiutils", "parser", "board", "circuit"]
+    },
+    "pcb_data": {
+      "location": "claude/data_store/pcb/",
+      "description": "Parsed PCB project data with component placement and routing",
+      "keywords": ["pcb", "placement", "routing", "footprint", "coordinate", "position", "layer", "track", "via", "drill", "board", "outline", "manufacturing"]
+    },
+    "schematic_data": {
+      "location": "claude/data_store/schematics/",
+      "description": "Parsed schematic project data with connectivity and components",
+      "keywords": ["schematic", "connectivity", "net", "wire", "junction", "component", "symbol", "reference", "value", "electrical", "connection", "hierarchy", "sheet"]
+    },
+    "external_tools": {
+      "location": "claude/data_store/knowledge/external_tools/",
+      "description": "Knowledge about external tools and integrations",
+      "keywords": ["tool", "integration", "external", "api", "interface", "workflow", "automation"]
+    },
+    "firmware": {
+      "location": "claude/data_store/knowledge/firmware/",
+      "description": "Firmware-related knowledge and patterns",
+      "keywords": ["firmware", "embedded", "teensy", "microcontroller", "code", "programming", "platform"]
+    },
+    "hardware": {
+      "location": "claude/data_store/knowledge/hardware/",
+      "description": "Hardware design knowledge and patterns",
+      "keywords": ["hardware", "design", "circuit", "analog", "digital", "power", "signal"]
+    }
+  },
+  "knowledge_files": {
+    "ad5593r": {
+      "path": "claude/data_store/knowledge/data_sheets/ad5593r.json",
+      "keywords": ["ad5593r", "analog devices", "adc", "dac", "12-bit", "i2c", "configurable", "gpio", "reference", "temperature sensor", "mixed signal"],
+      "description": "8-Channel, 12-Bit, Configurable ADC/DAC with On-Chip Reference, I2C Interface"
+    },
+    "ld1117": {
+      "path": "claude/data_store/knowledge/data_sheets/ld1117.json",
+      "keywords": ["ld1117", "voltage regulator", "linear", "ldo", "power supply", "3.3v", "adjustable", "current limit"],
+      "description": "Low dropout voltage regulator datasheet"
+    },
+    "lt1014d": {
+      "path": "claude/data_store/knowledge/data_sheets/lt1014d.json",
+      "keywords": ["lt1014d", "operational amplifier", "opamp", "quad", "precision", "low noise", "audio", "analog"],
+      "description": "Quad precision operational amplifier datasheet"
+    },
+    "mcp4728": {
+      "path": "claude/data_store/knowledge/data_sheets/mcp4728.json",
+      "keywords": ["mcp4728", "dac", "12-bit", "quad", "i2c", "microchip", "voltage output", "eeprom", "non-volatile"],
+      "description": "Quad 12-bit DAC with I2C interface and EEPROM"
+    },
+    "tl074": {
+      "path": "claude/data_store/knowledge/data_sheets/tl074.json",
+      "keywords": ["tl074", "operational amplifier", "opamp", "quad", "jfet", "low noise", "audio", "general purpose"],
+      "description": "Quad JFET-input operational amplifier datasheet"
+    },
+    "pcb_structure": {
+      "path": "claude/data_store/knowledge/kicad/pcb.json",
+      "keywords": ["pcb", "kicad", "board", "footprint", "track", "via", "layer", "net", "routing", "kiutils", "parser", "coordinate", "position"],
+      "description": "KiCad PCB file structure and parsing reference"
+    },
+    "schematic_structure": {
+      "path": "claude/data_store/knowledge/kicad/schematic.json",
+      "keywords": ["schematic", "kicad", "symbol", "component", "wire", "junction", "net", "connectivity", "kiutils", "parser", "hierarchy"],
+      "description": "KiCad schematic file structure and parsing reference"
+    },
+    "datalab_to_marker": {
+      "path": "claude/data_store/knowledge/external_tools/datalab-to.marker.json",
+      "keywords": ["datalab", "marker", "external tool", "integration", "api", "workflow"],
+      "description": "External tool integration knowledge"
+    }
+  },
+  "access_patterns": {
+    "component_lookup": {
+      "trigger_keywords": ["component", "datasheet", "spec", "pin", "electrical", "voltage", "current"],
+      "action": "Search knowledge_files for component name or part number, load corresponding datasheet JSON",
+      "example": "For AD5593R questions, load claude/data_store/knowledge/data_sheets/ad5593r.json"
+    },
+    "kicad_parsing": {
+      "trigger_keywords": ["kicad", "parse", "pcb", "schematic", "symbol", "footprint", "net", "connectivity"],
+      "action": "Load appropriate KiCad structure reference from claude/data_store/knowledge/kicad/",
+      "example": "For PCB analysis, load claude/data_store/knowledge/kicad/pcb.json"
+    },
+    "project_data": {
+      "trigger_keywords": ["project", "master of muppets", "amplifier board", "placement", "routing", "component list"],
+      "action": "Load project-specific data from claude/data_store/pcb/ or claude/data_store/schematics/",
+      "example": "For Master of Muppets PCB data, load claude/data_store/pcb/master_of_muppets/complete_project/MasterOfMuppets.json"
+    }
+  },
+  "usage_instructions": {
+    "file_loading": {
+      "method": "Use Read tool with absolute path",
+      "encoding": "UTF-8",
+      "error_handling": "Check file existence before loading"
+    },
+    "keyword_matching": {
+      "method": "Case-insensitive substring matching",
+      "priority": "Exact matches first, then partial matches",
+      "fallback": "Search multiple categories if initial match fails"
+    },
+    "data_extraction": {
+      "method": "Parse JSON structure according to document type",
+      "validation": "Verify expected structure exists before accessing",
+      "safe_access": "Use get() methods for optional fields"
+    }
+  },
+  "common_queries": {
+    "component_specs": {
+      "pattern": "What are the specifications of [component]?",
+      "action": "Load component datasheet JSON and extract electrical_specifications section"
+    },
+    "pin_configuration": {
+      "pattern": "What is the pinout of [component]?",
+      "action": "Load component datasheet JSON and extract pin_configuration section"
+    },
+    "circuit_analysis": {
+      "pattern": "Analyze the [project] circuit",
+      "action": "Load project schematic and PCB data, cross-reference with component datasheets"
+    },
+    "kicad_structure": {
+      "pattern": "How to parse KiCad [file_type]?",
+      "action": "Load appropriate KiCad structure reference (pcb.json or schematic.json)"
+    }
+  },
+  "update_triggers": [
+    "new component added to project",
+    "new datasheet processed",
+    "new KiCad version support",
+    "new project analysis created",
+    "new external tool integration",
+    "keywords become insufficient for matching"
+  ]
+}

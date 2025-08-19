@@ -1,0 +1,420 @@
+{
+  "metadata": {
+    "part_number": "LD1117",
+    "manufacturer": "STMicroelectronics",
+    "document_type": "voltage_regulator_datasheet",
+    "ingestion_date": "2025-08-18",
+    "revision_date": "December 2016",
+    "datasheet_id": "LD1117",
+    "pages": 46
+  },
+  "overview": {
+    "description": "Low dropout positive adjustable and fixed voltage regulators",
+    "type": "linear_voltage_regulator",
+    "dropout_type": "low_dropout",
+    "polarity": "positive",
+    "topology": "adjustable_and_fixed",
+    "output_current": {
+      "max": 800,
+      "unit": "mA"
+    }
+  },
+  "variants": {
+    "LD1117": {
+      "description": "Adjustable output voltage regulator",
+      "output_voltage_range": {
+        "min": 1.25,
+        "max": 13.8,
+        "unit": "V"
+      },
+      "adjustment_method": "external_resistor_divider"
+    },
+    "LD1117V33": {
+      "description": "Fixed 3.3V output voltage regulator",
+      "output_voltage": {
+        "nominal": 3.3,
+        "unit": "V"
+      }
+    },
+    "LD1117V50": {
+      "description": "Fixed 5.0V output voltage regulator", 
+      "output_voltage": {
+        "nominal": 5.0,
+        "unit": "V"
+      }
+    },
+    "LD1117V12": {
+      "description": "Fixed 1.2V output voltage regulator",
+      "output_voltage": {
+        "nominal": 1.2,
+        "unit": "V"
+      }
+    },
+    "LD1117V18": {
+      "description": "Fixed 1.8V output voltage regulator",
+      "output_voltage": {
+        "nominal": 1.8,
+        "unit": "V"
+      }
+    },
+    "LD1117V25": {
+      "description": "Fixed 2.5V output voltage regulator",
+      "output_voltage": {
+        "nominal": 2.5,
+        "unit": "V"
+      }
+    },
+    "LD1117V285": {
+      "description": "Fixed 2.85V output voltage regulator",
+      "output_voltage": {
+        "nominal": 2.85,
+        "unit": "V"
+      }
+    }
+  },
+  "key_features": {
+    "dropout_voltage": {
+      "typical": 1.1,
+      "max": 1.3,
+      "unit": "V",
+      "test_conditions": "Iout = 800mA"
+    },
+    "output_current": {
+      "max": 800,
+      "unit": "mA"
+    },
+    "line_regulation": {
+      "typical": 0.2,
+      "max": 0.4,
+      "unit": "%/V"
+    },
+    "load_regulation": {
+      "typical": 0.2,
+      "max": 0.4,
+      "unit": "%"
+    },
+    "quiescent_current": {
+      "typical": 5,
+      "max": 10,
+      "unit": "mA"
+    },
+    "temperature_coefficient": {
+      "typical": 1,
+      "unit": "mV/°C"
+    },
+    "ripple_rejection": {
+      "value": 75,
+      "unit": "dB",
+      "frequency": "120 Hz"
+    },
+    "short_circuit_protection": true,
+    "thermal_protection": true,
+    "current_limiting": true
+  },
+  "absolute_maximum_ratings": {
+    "input_voltage": {
+      "max": 15,
+      "unit": "V"
+    },
+    "power_dissipation": {
+      "so8": {
+        "max": 1,
+        "unit": "W"
+      },
+      "to220": {
+        "max": 15,
+        "unit": "W"
+      },
+      "to252": {
+        "max": 2,
+        "unit": "W"
+      },
+      "to263": {
+        "max": 20,
+        "unit": "W"
+      }
+    },
+    "operating_temperature": {
+      "min": 0,
+      "max": 125,
+      "unit": "°C"
+    },
+    "storage_temperature": {
+      "min": -55,
+      "max": 150,
+      "unit": "°C"
+    },
+    "junction_temperature": {
+      "max": 150,
+      "unit": "°C"
+    },
+    "lead_temperature": {
+      "max": 300,
+      "duration": 10,
+      "unit": "°C",
+      "duration_unit": "seconds"
+    }
+  },
+  "electrical_characteristics": {
+    "test_conditions": {
+      "input_voltage": "5V (for 3.3V version), 7V (for 5V version)",
+      "output_current": "5mA to 800mA",
+      "junction_temperature": "0°C to 125°C",
+      "capacitive_load": "10μF tantalum"
+    },
+    "reference_voltage": {
+      "adjustable_version": {
+        "min": 1.20,
+        "typical": 1.25,
+        "max": 1.30,
+        "unit": "V"
+      }
+    },
+    "line_regulation": {
+      "adjustable": {
+        "typical": 0.035,
+        "max": 0.1,
+        "unit": "%/V",
+        "conditions": "Vin = 3V to 14V, Iout = 10mA"
+      },
+      "fixed": {
+        "typical": 0.2,
+        "max": 0.4,
+        "unit": "%/V"
+      }
+    },
+    "load_regulation": {
+      "adjustable": {
+        "typical": 0.1,
+        "max": 0.2,
+        "unit": "%",
+        "conditions": "Iout = 0mA to 800mA"
+      },
+      "fixed": {
+        "typical": 0.2,
+        "max": 0.4,
+        "unit": "%"
+      }
+    },
+    "quiescent_current": {
+      "no_load": {
+        "typical": 5,
+        "max": 10,
+        "unit": "mA"
+      },
+      "full_load": {
+        "typical": 5,
+        "max": 10,
+        "unit": "mA"
+      }
+    },
+    "dropout_voltage": {
+      "100mA": {
+        "typical": 0.65,
+        "max": 1.0,
+        "unit": "V"
+      },
+      "800mA": {
+        "typical": 1.1,
+        "max": 1.3,
+        "unit": "V"
+      }
+    },
+    "current_limit": {
+      "min": 900,
+      "typical": 1100,
+      "unit": "mA"
+    },
+    "thermal_regulation": {
+      "typical": 0.003,
+      "max": 0.02,
+      "unit": "%/W"
+    },
+    "ripple_rejection": {
+      "120hz": {
+        "typical": 75,
+        "unit": "dB",
+        "conditions": "Cout = 10μF, f = 120Hz"
+      },
+      "1khz": {
+        "typical": 70,
+        "unit": "dB"
+      }
+    },
+    "output_noise": {
+      "typical": 40,
+      "unit": "μVrms",
+      "bandwidth": "10Hz to 100kHz"
+    },
+    "long_term_stability": {
+      "typical": 0.3,
+      "max": 0.7,
+      "unit": "%",
+      "duration": "1000 hours"
+    }
+  },
+  "thermal_characteristics": {
+    "thermal_resistance_junction_to_case": {
+      "so8": {
+        "typical": 65,
+        "unit": "°C/W"
+      },
+      "to220": {
+        "typical": 5,
+        "unit": "°C/W"
+      },
+      "to252": {
+        "typical": 12,
+        "unit": "°C/W"
+      },
+      "to263": {
+        "typical": 4,
+        "unit": "°C/W"
+      }
+    },
+    "thermal_resistance_junction_to_ambient": {
+      "so8": {
+        "typical": 125,
+        "unit": "°C/W"
+      },
+      "to220": {
+        "typical": 50,
+        "unit": "°C/W"
+      },
+      "to252": {
+        "typical": 60,
+        "unit": "°C/W"
+      },
+      "to263": {
+        "typical": 30,
+        "unit": "°C/W"
+      }
+    }
+  },
+  "pinout": {
+    "adjustable_version": {
+      "pin_1": {
+        "name": "ADJ",
+        "type": "Control",
+        "description": "Adjust pin - connect to voltage divider for output voltage setting"
+      },
+      "pin_2": {
+        "name": "VOUT", 
+        "type": "Output",
+        "description": "Regulated output voltage"
+      },
+      "pin_3": {
+        "name": "VIN",
+        "type": "Input", 
+        "description": "Unregulated input voltage"
+      }
+    },
+    "fixed_version": {
+      "pin_1": {
+        "name": "GND",
+        "type": "Ground",
+        "description": "Ground connection"
+      },
+      "pin_2": {
+        "name": "VOUT",
+        "type": "Output", 
+        "description": "Regulated output voltage"
+      },
+      "pin_3": {
+        "name": "VIN",
+        "type": "Input",
+        "description": "Unregulated input voltage"
+      }
+    }
+  },
+  "package_options": {
+    "SO8": {
+      "description": "8-pin Small Outline package",
+      "power_rating": "1W",
+      "thermal_pad": false
+    },
+    "TO220": {
+      "description": "TO-220 through-hole package", 
+      "power_rating": "15W",
+      "thermal_pad": true
+    },
+    "TO252": {
+      "description": "TO-252 surface mount package",
+      "power_rating": "2W", 
+      "thermal_pad": true
+    },
+    "TO263": {
+      "description": "TO-263 surface mount package",
+      "power_rating": "20W",
+      "thermal_pad": true
+    }
+  },
+  "application_information": {
+    "input_capacitor": {
+      "required": false,
+      "recommended": true,
+      "value": "0.33μF",
+      "type": "ceramic or tantalum",
+      "purpose": "improve_transient_response"
+    },
+    "output_capacitor": {
+      "required": true,
+      "minimum": "10μF",
+      "recommended": "10-47μF", 
+      "type": "tantalum or aluminum_electrolytic",
+      "esr_requirement": "low ESR for stability"
+    },
+    "heat_sinking": {
+      "calculation": "Thermal design based on power dissipation and thermal resistance",
+      "power_dissipation_formula": "Pd = (Vin - Vout) × Iout + Iq × Vin"
+    },
+    "output_voltage_setting": {
+      "adjustable_version": {
+        "formula": "Vout = 1.25V × (1 + R2/R1)",
+        "r1_typical": "240Ω",
+        "r2_calculation": "R2 = R1 × ((Vout/1.25) - 1)"
+      }
+    },
+    "protection_features": {
+      "current_limiting": "Foldback current limiting with thermal shutdown",
+      "short_circuit_protection": "Output can be shorted to ground indefinitely",
+      "thermal_protection": "Automatic thermal shutdown at 150°C junction temperature"
+    }
+  },
+  "typical_applications": [
+    "On-card regulation",
+    "Post regulation for switching supplies", 
+    "Battery chargers",
+    "Active antenna supply",
+    "Notebook computers",
+    "Portable instrumentation",
+    "3.3V and 5V bus regulation",
+    "Digital cameras",
+    "Cellular phones"
+  ],
+  "design_considerations": {
+    "stability": {
+      "output_capacitor_required": true,
+      "minimum_capacitance": "10μF",
+      "esr_limits": "Low ESR capacitors recommended for best performance"
+    },
+    "thermal_design": {
+      "importance": "Critical for reliable operation",
+      "calculation_required": true,
+      "heat_sink_may_be_required": "For high power applications"
+    },
+    "layout_guidelines": {
+      "ground_plane": "Use solid ground plane",
+      "input_bypass": "Place input capacitor close to VIN pin",
+      "output_capacitor": "Place close to VOUT pin",
+      "thermal_vias": "Use thermal vias for surface mount packages"
+    }
+  },
+  "master_of_muppets_relevance": {
+    "power_supply_regulation": "Suitable for generating clean 3.3V and 5V rails from higher voltage sources",
+    "analog_supply": "Low noise characteristics good for analog circuits",
+    "current_capacity": "800mA output sufficient for digital and analog sections",
+    "dropout_performance": "Low dropout allows efficient regulation from USB 5V to 3.3V",
+    "thermal_management": "Multiple package options for different power requirements"
+  }
+}

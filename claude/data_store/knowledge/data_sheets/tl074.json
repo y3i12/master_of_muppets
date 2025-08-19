@@ -1,0 +1,342 @@
+{
+  "metadata": {
+    "part_number": "TL074",
+    "family": "TL07xx",
+    "manufacturer": "Texas Instruments",
+    "document": "SLOS080V",
+    "revision_date": "April 2023",
+    "original_date": "September 1978",
+    "document_type": "operational_amplifier_datasheet",
+    "ingestion_date": "2025-08-18"
+  },
+  "overview": {
+    "description": "Low-Noise FET-Input Operational Amplifiers",
+    "type": "quad_operational_amplifier",
+    "architecture": "FET_input",
+    "channels": 4,
+    "technology": "JFET_input_bipolar_output"
+  },
+  "variants": {
+    "TL071": {
+      "description": "Single operational amplifier",
+      "channels": 1,
+      "packages": ["P", "DCK", "PS", "D", "DBV"]
+    },
+    "TL072": {
+      "description": "Dual operational amplifier", 
+      "channels": 2,
+      "packages": ["P", "PS", "D", "DDF", "PW", "JG", "W", "FK"]
+    },
+    "TL074": {
+      "description": "Quad operational amplifier",
+      "channels": 4, 
+      "packages": ["N", "NS", "D", "DYY", "DB", "PW", "J", "W", "FK"]
+    },
+    "suffixes": {
+      "H": "High performance version with improved specifications",
+      "A": "Improved offset voltage specifications",
+      "B": "Better offset voltage specifications than A",
+      "C": "Commercial temperature range",
+      "I": "Industrial temperature range", 
+      "M": "Military temperature range"
+    }
+  },
+  "key_features": {
+    "slew_rate": {
+      "value": 20,
+      "unit": "V/μs",
+      "note": "TL07xH typical"
+    },
+    "offset_voltage": {
+      "value": 1,
+      "unit": "mV",
+      "note": "TL07xH typical"
+    },
+    "offset_voltage_drift": {
+      "value": 2,
+      "unit": "μV/°C"
+    },
+    "power_consumption": {
+      "value": 940,
+      "unit": "μA/ch",
+      "note": "TL07xH typical"
+    },
+    "noise_voltage": {
+      "value": 18,
+      "unit": "nV/√Hz",
+      "frequency": "1 kHz",
+      "note": "typical"
+    },
+    "supply_voltage_range": {
+      "dual": "±2.25 V to ±20 V",
+      "single": "4.5 V to 40 V"
+    },
+    "common_mode_range": "includes VCC+",
+    "total_harmonic_distortion": {
+      "value": 0.003,
+      "unit": "%",
+      "note": "typical"
+    }
+  },
+  "absolute_maximum_ratings": {
+    "supply_voltage": {
+      "standard_devices": {
+        "min": 0,
+        "max": 42,
+        "unit": "V"
+      },
+      "NS_PS_packages_TL07xM": {
+        "min": -0.3,
+        "max": 36,
+        "unit": "V"
+      }
+    },
+    "input_voltage": {
+      "common_mode": {
+        "standard": "(V–) – 0.5 to (V+) + 0.5 V",
+        "NS_PS_TL07xM": "(V–) – 0.3 to (V–) + 36 V"
+      },
+      "differential": {
+        "standard": "VS + 0.2 V max",
+        "NS_PS_TL07xM": "(V–) – 0.3 to (V–) + 36 V"
+      }
+    },
+    "operating_temperature": {
+      "min": -55,
+      "max": 150,
+      "unit": "°C"
+    },
+    "junction_temperature": {
+      "max": 150,
+      "unit": "°C"
+    },
+    "storage_temperature": {
+      "min": -65,
+      "max": 150,
+      "unit": "°C"
+    }
+  },
+  "recommended_operating_conditions": {
+    "supply_voltage": {
+      "standard_devices": {
+        "min": 4.5,
+        "max": 40,
+        "unit": "V"
+      },
+      "NS_PS_TL07xM": {
+        "min": 10,
+        "max": 30,
+        "unit": "V"
+      }
+    },
+    "input_voltage_range": {
+      "standard": "(V–) + 2 to (V+) + 0.1 V",
+      "NS_PS_TL07xM": "(V–) + 2 to (V+) + 0.1 V"
+    }
+  },
+  "electrical_characteristics_TL07xH": {
+    "test_conditions": {
+      "supply_voltage": "4.5 V to 40 V (±2.25 V to ±20 V)",
+      "temperature": "25°C",
+      "load_resistance": "10 kΩ connected to VS/2",
+      "common_mode_voltage": "VS/2",
+      "output_voltage": "VS/2"
+    },
+    "offset_voltage": {
+      "typical": 1,
+      "max": 5,
+      "unit": "mV"
+    },
+    "offset_voltage_drift": {
+      "typical": 2,
+      "unit": "μV/°C",
+      "temperature_range": "–40°C to 125°C"
+    },
+    "input_bias_current": {
+      "typical": 1,
+      "max": 120,
+      "unit": "pA",
+      "max_over_temperature": 5,
+      "max_over_temperature_unit": "nA"
+    },
+    "input_offset_current": {
+      "typical": 0.5,
+      "max": 120,
+      "unit": "pA", 
+      "max_over_temperature": 5,
+      "max_over_temperature_unit": "nA"
+    },
+    "noise": {
+      "voltage_noise_density": {
+        "value": 21,
+        "unit": "nV/√Hz",
+        "frequency": "10 kHz"
+      },
+      "current_noise_density": {
+        "value": 80,
+        "unit": "fA/√Hz",
+        "frequency": "1 kHz"
+      },
+      "voltage_noise_0p1_to_10Hz": {
+        "typical": 9.2,
+        "unit": "μVPP"
+      }
+    },
+    "common_mode_voltage_range": {
+      "min": "(VCC–) + 1.5",
+      "max": "(VCC+)",
+      "unit": "V"
+    },
+    "common_mode_rejection_ratio": {
+      "typical": 105,
+      "min": 95,
+      "unit": "dB",
+      "test_conditions": "VS = 40 V, (VCC–) + 2.5 V < VCM < (VCC+) – 1.5 V"
+    },
+    "open_loop_gain": {
+      "typical": 125,
+      "min": 118,
+      "unit": "dB",
+      "test_conditions": "VS = 40 V, VCM = VS/2"
+    },
+    "gain_bandwidth_product": {
+      "typical": 5.25,
+      "unit": "MHz"
+    },
+    "slew_rate": {
+      "typical": 20,
+      "unit": "V/μs",
+      "test_conditions": "VS = 40 V, G = +1, CL = 20 pF"
+    },
+    "settling_time": {
+      "to_0p1_percent": {
+        "10V_step": 0.63,
+        "2V_step": 0.56,
+        "unit": "μs"
+      },
+      "to_0p01_percent": {
+        "10V_step": 0.91,
+        "2V_step": 0.48,
+        "unit": "μs"
+      }
+    },
+    "total_harmonic_distortion_plus_noise": {
+      "typical": 0.00012,
+      "unit": "%",
+      "test_conditions": "VS = 40 V, VO = 6 VRMS, G = +1, f = 1 kHz"
+    },
+    "quiescent_current": {
+      "TL071H": {
+        "typical": 960,
+        "max": 1156,
+        "unit": "μA"
+      },
+      "TL072H": {
+        "typical": 937.5,
+        "max": 1143,
+        "unit": "μA"
+      },
+      "TL074H": {
+        "max": 1130,
+        "unit": "μA"
+      }
+    },
+    "output_voltage_swing": {
+      "positive_rail_headroom": {
+        "10k_load": {
+          "typical": 115,
+          "max": 210,
+          "unit": "mV"
+        },
+        "2k_load": {
+          "typical": 520,
+          "max": 965,
+          "unit": "mV"
+        }
+      },
+      "negative_rail_headroom": {
+        "10k_load": {
+          "min": 105,
+          "typical": 215,
+          "unit": "mV"
+        },
+        "2k_load": {
+          "typical": 500,
+          "max": 1030,
+          "unit": "mV"
+        }
+      }
+    },
+    "short_circuit_current": {
+      "typical": 26,
+      "unit": "mA"
+    },
+    "capacitive_load_drive": {
+      "typical": 300,
+      "unit": "pF"
+    }
+  },
+  "pinout": {
+    "TL074": {
+      "pin_1": "1OUT (Output of amplifier 1)",
+      "pin_2": "1IN– (Inverting input of amplifier 1)",
+      "pin_3": "1IN+ (Noninverting input of amplifier 1)", 
+      "pin_4": "VCC+ (Positive power supply)",
+      "pin_5": "2IN+ (Noninverting input of amplifier 2)",
+      "pin_6": "2IN– (Inverting input of amplifier 2)",
+      "pin_7": "2OUT (Output of amplifier 2)",
+      "pin_8": "3OUT (Output of amplifier 3)",
+      "pin_9": "3IN– (Inverting input of amplifier 3)",
+      "pin_10": "3IN+ (Noninverting input of amplifier 3)",
+      "pin_11": "VCC– (Negative power supply)",
+      "pin_12": "4IN+ (Noninverting input of amplifier 4)",
+      "pin_13": "4IN– (Inverting input of amplifier 4)",
+      "pin_14": "4OUT (Output of amplifier 4)"
+    }
+  },
+  "applications": [
+    "Solar energy: string and central inverter",
+    "Motor drives: AC and servo drive control and power stage modules",
+    "Single phase online UPS",
+    "Three phase UPS", 
+    "Pro audio mixers",
+    "Battery test equipment",
+    "Audio amplification",
+    "Signal conditioning",
+    "Active filters",
+    "Instrumentation amplifiers",
+    "Voltage followers/buffers"
+  ],
+  "package_information": {
+    "TL074": {
+      "PDIP_14": "19.30 mm × 6.35 mm",
+      "SO_14": "10.30 mm × 5.30 mm",
+      "SOIC_14": "8.65 mm × 3.91 mm",
+      "SOT23_14": "4.20 mm × 2.00 mm",
+      "SSOP_14": "6.20 mm × 5.30 mm",
+      "TSSOP_14": "5.00 mm × 4.40 mm",
+      "CDIP_14": "19.56 mm × 6.92 mm",
+      "CFP_14": "9.21 mm × 6.29 mm",
+      "LCCC_20": "8.89 mm × 8.89 mm"
+    }
+  },
+  "design_considerations": {
+    "power_supply_decoupling": "Required for stable operation",
+    "input_protection": "Input pins are diode-clamped to power supply rails",
+    "thermal_management": "Consider junction temperature limits",
+    "layout_guidelines": "Minimize parasitic capacitance and resistance",
+    "stability": "Unity gain stable with proper compensation"
+  },
+  "usage_notes": {
+    "esd_sensitivity": "HBM: varies by package, CDM: ±1000V",
+    "latch_up_immunity": "No latch-up at 125°C with 500mA applied",
+    "output_short_circuit_protection": "Continuous short circuit to ground permitted",
+    "common_mode_input_includes_positive_supply": true,
+    "fet_input_advantages": [
+      "Very low input bias current",
+      "High input impedance", 
+      "Low noise",
+      "Wide common-mode input voltage range"
+    ]
+  }
+}

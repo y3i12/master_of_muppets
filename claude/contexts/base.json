@@ -1,0 +1,35 @@
+{
+    "project": {
+        "name": "Master of Muppets",
+        "description": "USB MIDI to 16ch CV (0-10V) on Teensy 4.1",
+        "platform": "Teensy 4.1",
+        "type": "embedded_audio"
+    },
+    "contexts": {
+        "core":{
+            "CRITICAL": true,
+            "auto_load": "ALWAYS",
+            "files": [ "claude/contexts/core.json" ]
+        },
+        "project":{
+            "CRITICAL": true,
+            "auto_load": "ALWAYS",
+            "files": [ "claude/contexts/project.json" ]
+        },
+        "data_store":{
+            "CRITICAL": true,
+            "auto_load": "ALWAYS",
+            "files": [ "claude/contexts/data_store.json" ]
+        },
+        "coding_style" : {
+            "auto_load": false,
+            "files": [ "claude/contexts/coding_style.json" ],
+            "keywords": ["create", "write", "new file", "add file", "implement", "edit", "modify", "update", "refactor", "change", "fix", "add function", "create class", "implement method", "add variable", "declare", "define"]
+        },
+        "git" : {
+            "auto_load": false,
+            "files": [ "claude/contexts/git.json" ],
+            "keywords": ["git"]
+        }
+    }
+}
