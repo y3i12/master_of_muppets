@@ -242,7 +242,7 @@ graph TB
         subgraph "Analog System"
             OPAMPS[Op-Amps<br/>±12V @ 100mA<br/>Power: 2.4W]
             REGULATOR[LD1117 Loss<br/>8.7V @ 400mA<br/>Power: 3.5W]
-            ANALOG_TOTAL[Analog Total<br/>5.9W (49%)]
+            ANALOG_TOTAL["Analog Total<br/>5.9W - 49%"]
         end
         
         subgraph "Total System"

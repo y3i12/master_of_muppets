@@ -403,7 +403,7 @@ graph TD
         
         NEAR["Near-term - Season 05<br/>Advanced ML Integration<br/>Predictive Analysis"]
         
-        MID[Mid-term (Season 06-07)<br/>Autonomous Design<br/>Self-Improving Systems]
+        MID["Mid-term - Season 06-07<br/>Autonomous Design<br/>Self-Improving Systems"]
         
         LONG[Long-term Vision<br/>Universal Knowledge<br/>Cross-Project Intelligence]
         

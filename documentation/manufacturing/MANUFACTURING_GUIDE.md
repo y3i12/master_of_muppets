@@ -76,8 +76,8 @@ graph TB
 graph TB
     subgraph "Cost Breakdown (Single Unit)"
         ACTIVE["Active Components<br/>$41.45 - 42%"]
-        PASSIVE[Passive Components<br/>$8.50 (9%)]
-        MECHANICAL[Mechanical Parts<br/>$49.35 (49%)]
+        PASSIVE["Passive Components<br/>$8.50 - 9%"]
+        MECHANICAL["Mechanical Parts<br/>$49.35 - 49%"]
         
         subgraph "Total Costs"
             PARTS[Parts Total: $99.30]
