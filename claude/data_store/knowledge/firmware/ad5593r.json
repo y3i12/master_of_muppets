@@ -1,0 +1,341 @@
+{
+  "name": "AD5593R",
+  "description": "Arduino library for AD5593R I2C 8-channel ADC/DAC/GPIO device",
+  "author": "Rob Tillaart",
+  "version": "0.1.1",
+  "repository": "https://github.com/RobTillaart/AD5593R",
+  "license": "MIT",
+  "status": "Experimental",
+  
+  "hardware_details": {
+    "chip": "AD5593R",
+    "manufacturer": "Analog Devices",
+    "type": "8-Channel 12-Bit Configurable ADC/DAC with I2C Interface",
+    "interface": "I2C",
+    "datasheet": "https://www.analog.com/en/products/ad5593r.html",
+    "key_features": [
+      "8 configurable I/O channels",
+      "12-bit resolution ADC and DAC",
+      "Flexible pin configuration (ADC/DAC/GPIO)",
+      "Internal temperature sensor",
+      "On-chip voltage reference (2.5V)",
+      "Power management features"
+    ],
+    "price_range": "$40-$50 (relatively expensive IO expander)"
+  },
+
+  "technical_specifications": {
+    "channels": 8,
+    "resolution": "12-bit (4096 steps, 0-4095)",
+    "adc_conversion_time": "2µs (not confirmed in testing)",
+    "supply_voltage": "2.7V to 5.5V",
+    "interface": "I2C (Standard 100kHz and Fast 400kHz modes)",
+    "i2c_addresses": {
+      "available": ["0x10", "0x11"],
+      "selection": "Via A0 address line"
+    },
+    "voltage_reference": {
+      "internal": "2.5V (default)",
+      "external": "Various options (AD780, AD1582, ADR431, REF193, ADR391)",
+      "range_multiplier": "1x or 2x Vref"
+    },
+    "power_on_default": "All pins configured as 85kΩ pull-down resistors to GND"
+  },
+
+  "pin_configuration_modes": {
+    "adc_input": {
+      "description": "12-bit analog-to-digital converter input",
+      "resolution": "12-bit (4096 levels)",
+      "conversion_time": "~2µs"
+    },
+    "dac_output": {
+      "description": "12-bit digital-to-analog converter output",
+      "resolution": "12-bit (4096 levels)",
+      "voltage_range": "0V to Vref (1x) or 0V to 2×Vref (2x)"
+    },
+    "digital_input": {
+      "description": "Digital input with configurable pull-down",
+      "features": ["85kΩ pull-down option", "Standard digital logic levels"]
+    },
+    "digital_output": {
+      "description": "Digital output with multiple drive options",
+      "modes": ["Push-pull", "Open-drain (requires external pull-up)"]
+    },
+    "three_state": {
+      "description": "High impedance state",
+      "use_case": "When pin should be disconnected from circuit"
+    },
+    "dual_function": {
+      "description": "Some pins can have dual functions",
+      "examples": [
+        "DAC + ADC (primary: DAC, secondary: ADC for monitoring)",
+        "Digital input + output (primary: output, secondary: input)"
+      ]
+    }
+  },
+
+  "library_api": {
+    "initialization": {
+      "constructor": "AD5593R(const uint8_t deviceAddress, TwoWire * wire = &Wire)",
+      "begin": {
+        "signature": "bool begin()",
+        "description": "Initialize device, returns true if device responds on I2C bus"
+      },
+      "isConnected": "bool isConnected() - Check device presence",
+      "getAddress": "uint8_t getAddress() - Return configured I2C address"
+    },
+    "pin_mode_configuration": {
+      "setMode": {
+        "signature": "int setMode(const char config[9])",
+        "description": "Configure all 8 pins using character string",
+        "format": "A=ADC, D=DAC, I=INPUT, O=OUTPUT, T=THREESTATE",
+        "example": "setMode(\"AADDIIOT\") - configures 8 pins with unique functions",
+        "note": "String must be exactly 8 characters, case insensitive"
+      },
+      "individual_modes": {
+        "setADCmode": "int setADCmode(uint8_t bitMask) - Set pins to ADC mode",
+        "setDACmode": "int setDACmode(uint8_t bitMask) - Set pins to DAC mode",
+        "setINPUTmode": "int setINPUTmode(uint8_t bitMask) - Set pins to input mode",
+        "setOUTPUTmode": "int setOUTPUTmode(uint8_t bitMask) - Set pins to output mode",
+        "setTHREESTATEmode": "int setTHREESTATEmode(uint8_t bitMask) - Set pins to tri-state"
+      },
+      "advanced_configuration": {
+        "setPULLDOWNmode": "int setPULLDOWNmode(uint8_t bitMask) - 85kΩ pull-down to GND",
+        "setOpenDrainMode": "int setOpenDrainMode(uint8_t bitMask) - Open-drain output (needs pull-up)",
+        "setLDACmode": "int setLDACmode(uint8_t mode) - DAC latch control"
+      }
+    },
+    "analog_io": {
+      "dac_operations": {
+        "writeDAC": {
+          "signature": "uint16_t writeDAC(uint8_t pin, uint16_t value)",
+          "description": "Write 12-bit value to DAC pin",
+          "range": "0-4095 (values above 4095 clipped)",
+          "pin_range": "0-7"
+        },
+        "readDAC": "uint16_t readDAC(uint8_t pin) - Read back last written DAC value"
+      },
+      "adc_operations": {
+        "readADC": {
+          "signature": "uint16_t readADC(uint8_t pin)",
+          "description": "Read 12-bit ADC value from pin",
+          "range": "0-4095",
+          "conversion_time": "~2µs"
+        },
+        "readTemperature": {
+          "signature": "uint16_t readTemperature()",
+          "description": "Read internal temperature sensor",
+          "accuracy": "±3°C over 5 samples averaged",
+          "range": "-40°C to +125°C",
+          "note": "readADC(8) returns raw temperature value"
+        }
+      }
+    },
+    "digital_io": {
+      "write1": "uint16_t write1(uint8_t pin, uint8_t value) - Write HIGH/LOW to single pin",
+      "read1": "uint16_t read1(uint8_t pin) - Read single pin state",
+      "write8": "uint16_t write8(uint8_t bitMask) - Write to all pins simultaneously",
+      "read8": "uint16_t read8() - Read all input pins as bitmask"
+    },
+    "voltage_reference": {
+      "setExternalReference": {
+        "signature": "int setExternalReference(bool flag, float Vref)",
+        "description": "Select internal (2.5V) or external voltage reference",
+        "parameters": {
+          "flag": "true = external, false = internal",
+          "Vref": "External reference voltage (ignored for internal)"
+        }
+      },
+      "getVref": "float getVref() - Get current reference voltage",
+      "setADCRange2x": "int setADCRange2x(bool flag) - 1x or 2x Vref range for ADC",
+      "setDACRange2x": "int setDACRange2x(bool flag) - 1x or 2x Vref range for DAC"
+    },
+    "power_management": {
+      "powerDown": "int powerDown() - Switch off all functionality (low power)",
+      "wakeUp": "int wakeUp() - Switch on all functionality",
+      "powerDownDac": "int powerDownDac(uint8_t pin) - Disable single DAC",
+      "wakeUpDac": "int wakeUpDac(uint8_t pin) - Enable single DAC"
+    },
+    "control_functions": {
+      "reset": {
+        "signature": "int reset()",
+        "description": "Trigger power-on reset",
+        "effects": ["Vref reset to internal 2.5V", "Gain set to 1x", "All pins to default state"]
+      },
+      "ldac_modes": {
+        "AD5593R_LDAC_DIRECT": "Copy input register direct to DAC (default)",
+        "AD5593R_LDAC_HOLD": "Hold in input registers",
+        "AD5593R_LDAC_RELEASE": "Release all input registers to DAC simultaneously"
+      }
+    }
+  },
+
+  "advanced_features": {
+    "general_control": {
+      "enableADCBufferPreCharge": "bool enableADCBufferPreCharge(bool flag)",
+      "enableADCBuffer": "bool enableADCBuffer(bool flag)",
+      "enableIOLock": "bool enableIOLock(bool flag)",
+      "writeAllDacs": "bool writeAllDacs(bool flag)"
+    },
+    "low_level_access": {
+      "writeRegister": "int writeRegister(uint8_t reg, uint16_t data)",
+      "readIORegister": "uint16_t readIORegister(uint8_t reg)",
+      "readConfigRegister": "uint16_t readConfigRegister(uint8_t reg)",
+      "note": "Full register control, see datasheet for details"
+    },
+    "temperature_sensor": {
+      "internal_sensor": "Built-in temperature sensor",
+      "raw_reading": "readADC(8) returns raw 2-byte temperature value",
+      "calibrated_reading": "readTemperature() returns calibrated Celsius value",
+      "conversion_formula": "int Celsius = map(raw, 645, 1084, -40, 125)"
+    }
+  },
+
+  "error_codes": {
+    "AD5593R_OK": "0x0000 - Operation successful",
+    "AD5593R_PIN_ERROR": "0xFF81 - Invalid pin number",
+    "AD5593R_I2C_ERROR": "0xFF82 - I2C communication error",
+    "AD5593R_LDAC_ERROR": "0xFF83 - Invalid LDAC mode"
+  },
+
+  "usage_patterns": {
+    "basic_dac": {
+      "steps": [
+        "Set pin to DAC mode: setDACmode(0x01)",
+        "Write value: writeDAC(0, 2048) // Mid-scale",
+        "Optional: Read back: readDAC(0)"
+      ]
+    },
+    "basic_adc": {
+      "steps": [
+        "Set pin to ADC mode: setADCmode(0x01)",
+        "Read value: uint16_t val = readADC(0)"
+      ]
+    },
+    "mixed_configuration": {
+      "description": "Configure different pins for different functions",
+      "example": "setMode(\"DDAAIIOT\") // 2 DACs, 2 ADCs, 2 inputs, 1 output, 1 tri-state"
+    },
+    "synchronized_dac_update": {
+      "steps": [
+        "Set LDAC to hold: setLDACmode(AD5593R_LDAC_HOLD)",
+        "Write all DAC values (held in registers)",
+        "Release simultaneously: setLDACmode(AD5593R_LDAC_RELEASE)"
+      ]
+    }
+  },
+
+  "i2c_considerations": {
+    "addressing": {
+      "base_addresses": ["0x10", "0x11"],
+      "selection_method": "A0 pin (LOW = 0x10, HIGH = 0x11)",
+      "chip_select_usage": "A0 can be used as CS line for multiple devices at 0x11",
+      "multiplexing": "Use TCA9548 I2C multiplexer for more devices"
+    },
+    "performance": {
+      "standard_mode": "100kHz supported",
+      "fast_mode": "400kHz supported",
+      "bus_sharing": "Can share bus with other I2C devices"
+    }
+  },
+
+  "related_devices": {
+    "ad5592": {
+      "description": "SPI version of AD5593R",
+      "differences": ["SPI interface instead of I2C", "No RESET pin"],
+      "library_support": "Not supported by this library"
+    },
+    "alternatives": {
+      "ads1x15": "12 & 16 bit ADC, I2C, slower conversion",
+      "mcp_adc": "10-12 bit, 1,2,4,8 channel ADC",
+      "mcp_dac": "10-12 bit, 1,2,4,8 channel DAC",
+      "pcf8591": "8 bit ADC + 1 bit DAC"
+    }
+  },
+
+  "firmware_integration": {
+    "in_master_of_muppets": {
+      "current_usage": "Primary DAC driver for 8-channel CV output",
+      "configuration": "8 channels configured as DAC mode",
+      "benefits": [
+        "More channels (8 vs 4 from MCP4728)",
+        "Configurable I/O flexibility",
+        "Single device for all channels"
+      ],
+      "driver_wrapper": {
+        "location": "firmware/src/drivers/rob_tillaart_ad_5993r.cpp",
+        "abstraction": "Implements common DAC interface",
+        "features": ["I2C initialization", "Value rescaling", "Channel configuration"]
+      }
+    },
+    "initialization_sequence": {
+      "steps": [
+        "I2C bus initialization at 400kHz",
+        "Device begin() with retry logic",
+        "Set all 8 pins to DAC mode: setDACmode(0xFF)",
+        "Configure internal Vref: setExternalReference(false, 5.0)",
+        "Enable 2x range: setDACRange2x(true)",
+        "Set direct LDAC mode: setLDACmode(AD5593R_LDAC_DIRECT)",
+        "Initialize all channels to 0: writeDAC(channel, 0)"
+      ]
+    }
+  },
+
+  "advantages_disadvantages": {
+    "advantages": [
+      "Highly flexible (ADC/DAC/GPIO in one device)",
+      "Good resolution (12-bit)",
+      "Fast ADC conversion (~2µs)",
+      "Internal temperature sensor",
+      "Individual channel configuration",
+      "Synchronized DAC updates possible",
+      "Power management features"
+    ],
+    "disadvantages": [
+      "Expensive compared to dedicated DACs",
+      "Complex configuration for simple use cases",
+      "Experimental library status",
+      "Limited to 2 I2C addresses without multiplexing",
+      "Requires understanding of register configuration"
+    ]
+  },
+
+  "best_practices": {
+    "initialization": {
+      "check_connection": "Always verify begin() and isConnected() return true",
+      "configure_reference": "Set voltage reference before LDAC mode",
+      "pin_administration": "Keep track of pin modes (library doesn't validate conflicts)"
+    },
+    "operation": {
+      "mode_conflicts": "Avoid setting same pin in multiple conflicting modes",
+      "synchronized_updates": "Use LDAC hold/release for synchronized multi-channel updates",
+      "temperature_monitoring": "Use built-in temperature sensor for thermal management"
+    },
+    "debugging": {
+      "i2c_scanner": "Use I2C scanner to verify device presence",
+      "register_access": "Use low-level register functions for advanced debugging",
+      "error_handling": "Check return values for error codes"
+    }
+  },
+
+  "future_development": {
+    "planned_improvements": [
+      "Better documentation and examples",
+      "Voltage-based interfaces (getADCVoltage, setDACVoltage)",
+      "Multi-channel ADC reading in single call",
+      "Error handling improvements",
+      "Performance measurement examples"
+    ],
+    "library_maturity": "Experimental status - needs more testing and validation"
+  },
+
+  "testing_status": {
+    "tested_with": "Arduino UNO and IOMOD module (V1.0) from SuperHouse Automation",
+    "test_coverage": "Most functionality tested",
+    "validation_needed": [
+      "I2C performance at different speeds",
+      "All advanced control functions",
+      "Temperature sensor accuracy"
+    ]
+  }
+}

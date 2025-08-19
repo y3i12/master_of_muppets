@@ -112,6 +112,46 @@
       "path": "claude/data_store/knowledge/firmware/master_of_muppets_firmware.json",
       "keywords": ["master of muppets", "firmware", "teensy", "teensy 4.1", "midi", "cv", "converter", "dac", "ad5593r", "mcp4728", "usb midi", "threading", "teensythreads", "real-time", "dr_teeth", "electric_mayhem", "muppet", "platformio", "arduino", "embedded", "multi-threaded", "i2c", "pitch bend", "16 channel", "0-10v"],
       "description": "Complete firmware architecture and implementation details for Master of Muppets USB MIDI to CV converter"
+    },
+    "embedded_realtime_best_practices": {
+      "path": "claude/data_store/knowledge/firmware/embedded_realtime_best_practices.json",
+      "keywords": ["embedded", "real-time", "realtime", "best practices", "optimization", "threading", "mutex", "atomic", "memory management", "static allocation", "determinism", "watchdog", "error handling", "teensy", "arduino", "microcontroller", "interrupt", "dma", "i2c", "timing", "scheduling", "cooperative", "multitasking", "thread safety", "critical section", "stack", "heap", "volatile", "inline", "template"],
+      "description": "Comprehensive guide for embedded real-time programming with specific improvements for the firmware"
+    },
+    "teensy_4_1": {
+      "path": "claude/data_store/knowledge/hardware/teensy_4_1.json",
+      "keywords": ["teensy", "teensy 4.1", "arm", "cortex-m7", "imxrt1062", "600mhz", "microcontroller", "development board", "usb", "ethernet", "i2c", "spi", "uart", "adc", "dac", "pwm", "gpio", "floating point", "fpu", "tightly coupled memory", "branch prediction", "pjrc"],
+      "description": "Complete specifications and features of Teensy 4.1 development board"
+    },
+    "arduino_framework": {
+      "path": "claude/data_store/knowledge/firmware/arduino_framework.json",
+      "keywords": ["arduino", "framework", "embedded", "c++", "digitalWrite", "analogRead", "serial", "wire", "i2c", "spi", "setup", "loop", "interrupts", "pwm", "timing", "delay", "millis", "micros", "pinMode"],
+      "description": "Arduino C++ framework for embedded microcontroller development"
+    },
+    "adafruit_busio": {
+      "path": "claude/data_store/knowledge/firmware/adafruit_busio.json",
+      "keywords": ["adafruit", "busio", "i2c", "spi", "uart", "abstraction", "transport", "register", "device", "communication", "protocol", "bus", "sensor", "library"],
+      "description": "Adafruit BusIO library for I2C/SPI/UART abstraction and register management"
+    },
+    "adafruit_mcp4728": {
+      "path": "claude/data_store/knowledge/firmware/adafruit_mcp4728.json",
+      "keywords": ["adafruit", "mcp4728", "dac", "4-channel", "12-bit", "i2c", "microchip", "analog", "voltage", "output", "eeprom", "reference", "gain", "power down"],
+      "description": "Arduino library for MCP4728 4-channel 12-bit I2C DAC"
+    },
+    "ad5593r": {
+      "path": "claude/data_store/knowledge/firmware/ad5593r.json",
+      "keywords": ["ad5593r", "analog devices", "adc", "dac", "gpio", "i2c", "8-channel", "12-bit", "configurable", "mixed signal", "rob tillaart", "temperature sensor", "voltage reference"],
+      "description": "Arduino library for AD5593R 8-channel configurable ADC/DAC/GPIO device"
+    },
+    "teensy_threads": {
+      "path": "claude/data_store/knowledge/firmware/teensy_threads.json",
+      "keywords": ["teensy", "threads", "multithreading", "cooperative", "mutex", "synchronization", "threading", "parallel", "concurrent", "yield", "context switch", "fernando trias", "c++11"],
+      "description": "TeensyThreads library for cooperative multithreading on Teensy microcontrollers"
+    },
+    "function_generator": {
+      "path": "claude/data_store/knowledge/firmware/function_generator.json",
+      "keywords": ["function generator", "waveform", "sine", "triangle", "square", "sawtooth", "lfo", "signal generation", "rob tillaart", "oscillator", "frequency", "amplitude", "phase", "test signal"],
+      "description": "Library for generating various waveforms and mathematical functions for signal processing"
     }
   },
   "access_patterns": {
