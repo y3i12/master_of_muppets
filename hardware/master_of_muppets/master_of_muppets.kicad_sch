@@ -2586,7 +2586,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "dac_module.kicad_sch"
+		(property "Sheetfile" "dac_module/dac_module.kicad_sch"
 			(at 60.325 109.1696 0)
 			(effects
 				(font
@@ -2758,7 +2758,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "dac_module.kicad_sch"
+		(property "Sheetfile" "dac_module/dac_module.kicad_sch"
 			(at 20.32 108.5346 0)
 			(effects
 				(font
@@ -2931,7 +2931,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "teensy_module.kicad_sch"
+		(property "Sheetfile" "teensy_module/teensy_module.kicad_sch"
 			(at 62.1796 40.64 90)
 			(effects
 				(font
@@ -3054,7 +3054,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "jack_sheet.kicad_sch"
+		(property "Sheetfile" "jack_sheet/jack_sheet.kicad_sch"
 			(at 73.025 109.1696 0)
 			(effects
 				(font
@@ -3177,7 +3177,7 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "jack_sheet.kicad_sch"
+		(property "Sheetfile" "jack_sheet/jack_sheet.kicad_sch"
 			(at 33.02 108.5346 0)
 			(effects
 				(font

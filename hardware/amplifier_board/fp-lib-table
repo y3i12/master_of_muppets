@@ -1,4 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "AmpBoard")(type "KiCad")(uri "$(KIPRJMOD)/AmpBoard.pretty")(options "")(descr ""))
-)

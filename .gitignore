@@ -5,4 +5,5 @@ fp-info-cache
 .vscode
 .claude
 *-bak
+*-backups
 litter_box.md

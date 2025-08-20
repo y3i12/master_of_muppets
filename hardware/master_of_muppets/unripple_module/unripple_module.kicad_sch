@@ -599,7 +599,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6f491d23-495e-4089-bcb8-3d4d5fd86416")
-		(property "Reference" "C22"
+		(property "Reference" "C2"
 			(at 106.68 66.0462 0)
 			(effects
 				(font
@@ -766,6 +766,22 @@
 					(unit 1)
 				)
 			)
+			(project "amp_module"
+				(path "/187e3c00-5c30-42c2-89ec-585912782641/45d11efb-a1cc-46e8-9e3b-dcea3e8724d6"
+					(reference "C4")
+					(unit 1)
+				)
+				(path "/187e3c00-5c30-42c2-89ec-585912782641/eef141d8-f350-40f2-990d-9c18dcf6372d"
+					(reference "C2")
+					(unit 1)
+				)
+			)
+			(project "unripple_module"
+				(path "/5d7da71d-c580-4c32-9092-b7aa9321dacb"
+					(reference "C2")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -778,7 +794,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c2b1a2a9-f133-4171-8ebe-d8ee996eba9a")
-		(property "Reference" "#PWR055"
+		(property "Reference" "#PWR0111"
 			(at 78.74 76.2 0)
 			(effects
 				(font
@@ -892,6 +908,22 @@
 					(unit 1)
 				)
 			)
+			(project "amp_module"
+				(path "/187e3c00-5c30-42c2-89ec-585912782641/45d11efb-a1cc-46e8-9e3b-dcea3e8724d6"
+					(reference "#PWR0112")
+					(unit 1)
+				)
+				(path "/187e3c00-5c30-42c2-89ec-585912782641/eef141d8-f350-40f2-990d-9c18dcf6372d"
+					(reference "#PWR0111")
+					(unit 1)
+				)
+			)
+			(project "unripple_module"
+				(path "/5d7da71d-c580-4c32-9092-b7aa9321dacb"
+					(reference "#PWR01")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -904,7 +936,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d3f0dc9c-ce37-4e26-a1f1-bbeaaa178a11")
-		(property "Reference" "C21"
+		(property "Reference" "C1"
 			(at 92.71 66.0462 0)
 			(effects
 				(font
@@ -1071,6 +1103,28 @@
 					(unit 1)
 				)
 			)
+			(project "amp_module"
+				(path "/187e3c00-5c30-42c2-89ec-585912782641/45d11efb-a1cc-46e8-9e3b-dcea3e8724d6"
+					(reference "C3")
+					(unit 1)
+				)
+				(path "/187e3c00-5c30-42c2-89ec-585912782641/eef141d8-f350-40f2-990d-9c18dcf6372d"
+					(reference "C1")
+					(unit 1)
+				)
+			)
+			(project "unripple_module"
+				(path "/5d7da71d-c580-4c32-9092-b7aa9321dacb"
+					(reference "C1")
+					(unit 1)
+				)
+			)
 		)
 	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
 )
