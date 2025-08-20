@@ -1293,6 +1293,12 @@
 					(unit 1)
 				)
 			)
+			(project "dac_module"
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3"
+					(reference "DAC1")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -1304,7 +1310,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "3ca8fc4e-61b3-4f17-b155-a5c3707b21ae")
-		(property "Reference" "#PWR011"
+		(property "Reference" "#PWR01"
 			(at 93.98 41.91 0)
 			(effects
 				(font
@@ -1362,6 +1368,12 @@
 					(unit 1)
 				)
 			)
+			(project "dac_module"
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3"
+					(reference "#PWR01")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -1374,7 +1386,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6cf5d3ec-637d-421c-9421-56b76ea492dd")
-		(property "Reference" "R3"
+		(property "Reference" "RDP_DAC1"
 			(at 83.82 31.7499 0)
 			(effects
 				(font
@@ -1463,6 +1475,12 @@
 					(unit 1)
 				)
 			)
+			(project "dac_module"
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3"
+					(reference "RDP_DAC1")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -1475,7 +1493,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b780d003-b2a2-44ba-8330-41c4906521b0")
-		(property "Reference" "#PWR012"
+		(property "Reference" "#PWR02"
 			(at 96.52 97.79 0)
 			(effects
 				(font
@@ -1533,6 +1551,12 @@
 					(unit 1)
 				)
 			)
+			(project "dac_module"
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3"
+					(reference "#PWR02")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -1545,7 +1569,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c8f03f70-0a54-4982-8479-ef7c38d53a37")
-		(property "Reference" "R1"
+		(property "Reference" "RRP_DAC1"
 			(at 66.04 31.7499 0)
 			(effects
 				(font
@@ -1634,6 +1658,12 @@
 					(unit 1)
 				)
 			)
+			(project "dac_module"
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3"
+					(reference "RRP_DAC1")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -1646,7 +1676,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d8bc3281-a640-46a6-9cec-08ec30b6881f")
-		(property "Reference" "R2"
+		(property "Reference" "RCP_DAC1"
 			(at 74.93 31.7499 0)
 			(effects
 				(font
@@ -1735,6 +1765,12 @@
 					(unit 1)
 				)
 			)
+			(project "dac_module"
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3"
+					(reference "RCP_DAC1")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(sheet
@@ -1752,7 +1788,7 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "02ed2e6d-b4fd-4f27-b067-e65a1933feb0")
-		(property "Sheetname" "AMP_MODULE"
+		(property "Sheetname" "AMP1_DAC1"
 			(at 117.475 64.008 0)
 			(effects
 				(font
@@ -1860,6 +1896,11 @@
 					(page "6")
 				)
 			)
+			(project "dac_module"
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3"
+					(page "6")
+				)
+			)
 		)
 	)
 	(sheet
@@ -1917,6 +1958,11 @@
 					(page "10")
 				)
 			)
+			(project "dac_module"
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3"
+					(page "2")
+				)
+			)
 		)
 	)
 	(sheet
@@ -1934,7 +1980,7 @@
 			(color 0 0 0 0.0000)
 		)
 		(uuid "415bd524-e348-40cf-853f-c7af6379b92b")
-		(property "Sheetname" "AMP_MODULE1"
+		(property "Sheetname" "AMP2_DAC1"
 			(at 117.348 87.122 0)
 			(effects
 				(font
@@ -2042,6 +2088,11 @@
 					(page "7")
 				)
 			)
+			(project "dac_module"
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3"
+					(page "9")
+				)
+			)
 		)
 	)
 	(sheet
@@ -2099,6 +2150,11 @@
 					(page "12")
 				)
 			)
+			(project "dac_module"
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3"
+					(page "3")
+				)
+			)
 		)
 	)
 	(sheet
@@ -2151,6 +2207,11 @@
 			(project "MasterOfMuppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b"
 					(page "9")
+				)
+			)
+			(project "dac_module"
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3"
+					(page "5")
 				)
 			)
 		)
@@ -2210,6 +2271,17 @@
 					(page "14")
 				)
 			)
+			(project "dac_module"
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3"
+					(page "4")
+				)
+			)
 		)
 	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
 )

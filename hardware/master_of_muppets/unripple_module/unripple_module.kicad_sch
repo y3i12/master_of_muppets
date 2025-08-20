@@ -766,6 +766,40 @@
 					(unit 1)
 				)
 			)
+			(project "dac_module"
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/1ebaab9f-3adf-4ab6-b6c9-964263e520cd"
+					(reference "C2")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/677b72c2-bf5a-4c5d-aefa-30b62731dc07"
+					(reference "C4")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/9b55f2e7-8956-440a-8522-8732ca051d63"
+					(reference "C8")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/c23ed8e9-fd80-4ab9-a446-b909f916776c"
+					(reference "C6")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/02ed2e6d-b4fd-4f27-b067-e65a1933feb0/45d11efb-a1cc-46e8-9e3b-dcea3e8724d6"
+					(reference "C10")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/02ed2e6d-b4fd-4f27-b067-e65a1933feb0/eef141d8-f350-40f2-990d-9c18dcf6372d"
+					(reference "C12")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/415bd524-e348-40cf-853f-c7af6379b92b/45d11efb-a1cc-46e8-9e3b-dcea3e8724d6"
+					(reference "C14")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/415bd524-e348-40cf-853f-c7af6379b92b/eef141d8-f350-40f2-990d-9c18dcf6372d"
+					(reference "C16")
+					(unit 1)
+				)
+			)
 			(project "amp_module"
 				(path "/187e3c00-5c30-42c2-89ec-585912782641/45d11efb-a1cc-46e8-9e3b-dcea3e8724d6"
 					(reference "C4")
@@ -794,7 +828,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c2b1a2a9-f133-4171-8ebe-d8ee996eba9a")
-		(property "Reference" "#PWR0111"
+		(property "Reference" "#PWR03"
 			(at 78.74 76.2 0)
 			(effects
 				(font
@@ -905,6 +939,40 @@
 				)
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b/415bd524-e348-40cf-853f-c7af6379b92b/eef141d8-f350-40f2-990d-9c18dcf6372d"
 					(reference "#PWR062")
+					(unit 1)
+				)
+			)
+			(project "dac_module"
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/1ebaab9f-3adf-4ab6-b6c9-964263e520cd"
+					(reference "#PWR03")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/677b72c2-bf5a-4c5d-aefa-30b62731dc07"
+					(reference "#PWR04")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/9b55f2e7-8956-440a-8522-8732ca051d63"
+					(reference "#PWR06")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/c23ed8e9-fd80-4ab9-a446-b909f916776c"
+					(reference "#PWR05")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/02ed2e6d-b4fd-4f27-b067-e65a1933feb0/45d11efb-a1cc-46e8-9e3b-dcea3e8724d6"
+					(reference "#PWR017")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/02ed2e6d-b4fd-4f27-b067-e65a1933feb0/eef141d8-f350-40f2-990d-9c18dcf6372d"
+					(reference "#PWR018")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/415bd524-e348-40cf-853f-c7af6379b92b/45d11efb-a1cc-46e8-9e3b-dcea3e8724d6"
+					(reference "#PWR029")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/415bd524-e348-40cf-853f-c7af6379b92b/eef141d8-f350-40f2-990d-9c18dcf6372d"
+					(reference "#PWR030")
 					(unit 1)
 				)
 			)
@@ -1103,6 +1171,40 @@
 					(unit 1)
 				)
 			)
+			(project "dac_module"
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/1ebaab9f-3adf-4ab6-b6c9-964263e520cd"
+					(reference "C1")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/677b72c2-bf5a-4c5d-aefa-30b62731dc07"
+					(reference "C3")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/9b55f2e7-8956-440a-8522-8732ca051d63"
+					(reference "C7")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/c23ed8e9-fd80-4ab9-a446-b909f916776c"
+					(reference "C5")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/02ed2e6d-b4fd-4f27-b067-e65a1933feb0/45d11efb-a1cc-46e8-9e3b-dcea3e8724d6"
+					(reference "C9")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/02ed2e6d-b4fd-4f27-b067-e65a1933feb0/eef141d8-f350-40f2-990d-9c18dcf6372d"
+					(reference "C11")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/415bd524-e348-40cf-853f-c7af6379b92b/45d11efb-a1cc-46e8-9e3b-dcea3e8724d6"
+					(reference "C13")
+					(unit 1)
+				)
+				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/415bd524-e348-40cf-853f-c7af6379b92b/eef141d8-f350-40f2-990d-9c18dcf6372d"
+					(reference "C15")
+					(unit 1)
+				)
+			)
 			(project "amp_module"
 				(path "/187e3c00-5c30-42c2-89ec-585912782641/45d11efb-a1cc-46e8-9e3b-dcea3e8724d6"
 					(reference "C3")
@@ -1121,10 +1223,4 @@
 			)
 		)
 	)
-	(sheet_instances
-		(path "/"
-			(page "1")
-		)
-	)
-	(embedded_fonts no)
 )
