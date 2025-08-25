@@ -1148,6 +1148,16 @@
 	)
 	(wire
 		(pts
+			(xy 49.53 20.955) (xy 49.53 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "24dc767f-fe78-4c71-a5da-a9dbe4c927d3")
+	)
+	(wire
+		(pts
 			(xy 31.75 90.17) (xy 43.18 90.17)
 		)
 		(stroke
@@ -1618,16 +1628,6 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 20.955) (xy 49.53 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f5fb75d9-d644-44c2-86dc-d6ae55c58638")
-	)
-	(wire
-		(pts
 			(xy 58.42 106.68) (xy 58.42 92.71)
 		)
 		(stroke
@@ -1646,6 +1646,17 @@
 			(justify left)
 		)
 		(uuid "24405f71-4da6-4550-93b2-70f55e7b3ec3")
+	)
+	(hierarchical_label "-12V"
+		(shape input)
+		(at 49.53 21.59 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "25208d17-fe8a-4d69-a641-8c5d96e1b632")
 	)
 	(hierarchical_label "INPUT_1"
 		(shape input)
@@ -1712,6 +1723,28 @@
 			(justify right)
 		)
 		(uuid "a94357e4-5a33-4460-a53d-c20ee7dcc329")
+	)
+	(hierarchical_label "GND"
+		(shape input)
+		(at 39.37 26.67 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d1b550ed-0e72-4079-8e6a-2b916edd19a6")
+	)
+	(hierarchical_label "+12V"
+		(shape input)
+		(at 49.53 60.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e367fd9b-efe7-4624-a867-29da2c691725")
 	)
 	(hierarchical_label "INPUT_3"
 		(shape input)
@@ -1844,6 +1877,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "R53")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "R53")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -1935,6 +1978,16 @@
 			(project "amp_module"
 				(path "/187e3c00-5c30-42c2-89ec-585912782641"
 					(reference "#PWR010")
+					(unit 1)
+				)
+			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "#PWR043")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "#PWR043")
 					(unit 1)
 				)
 			)
@@ -2061,6 +2114,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "R48")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "R48")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -2152,6 +2215,16 @@
 			(project "amp_module"
 				(path "/187e3c00-5c30-42c2-89ec-585912782641"
 					(reference "#PWR01")
+					(unit 1)
+				)
+			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "#PWR037")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "#PWR037")
 					(unit 1)
 				)
 			)
@@ -2278,6 +2351,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "R47")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "R47")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -2400,6 +2483,16 @@
 			(project "amp_module"
 				(path "/187e3c00-5c30-42c2-89ec-585912782641"
 					(reference "RD_U1C1")
+					(unit 1)
+				)
+			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "R41")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "R41")
 					(unit 1)
 				)
 			)
@@ -2550,6 +2643,16 @@
 					(unit 1)
 				)
 			)
+			(project ""
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "C14")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "C14")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -2672,6 +2775,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "R54")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "R54")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -2763,6 +2876,16 @@
 			(project "amp_module"
 				(path "/187e3c00-5c30-42c2-89ec-585912782641"
 					(reference "#PWR07")
+					(unit 1)
+				)
+			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "#PWR042")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "#PWR042")
 					(unit 1)
 				)
 			)
@@ -2858,6 +2981,16 @@
 			(project "amp_module"
 				(path "/187e3c00-5c30-42c2-89ec-585912782641"
 					(reference "#PWR05")
+					(unit 1)
+				)
+			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "#PWR035")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "#PWR035")
 					(unit 1)
 				)
 			)
@@ -2986,6 +3119,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "R42")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "R42")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -3109,6 +3252,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "R40")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "R40")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -3207,6 +3360,24 @@
 			(uuid "3c511fac-7072-4908-9957-c78c461792b5")
 		)
 		(instances
+			(project "master_of_muppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "U?")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "U?")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "U?")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "U?")
+					(unit 1)
+				)
+			)
 			(project "dac_module"
 				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
 					(reference "U1")
@@ -3345,6 +3516,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "R46")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "R46")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -3439,6 +3620,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "#PWR038")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "#PWR038")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -3530,6 +3721,16 @@
 			(project "amp_module"
 				(path "/187e3c00-5c30-42c2-89ec-585912782641"
 					(reference "#PWR03")
+					(unit 1)
+				)
+			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "#PWR039")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "#PWR039")
 					(unit 1)
 				)
 			)
@@ -3631,6 +3832,24 @@
 			(uuid "3c511fac-7072-4908-9957-c78c461792b6")
 		)
 		(instances
+			(project "master_of_muppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "U?")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "U?")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "U?")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "U?")
+					(unit 1)
+				)
+			)
 			(project "dac_module"
 				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
 					(reference "U1")
@@ -3770,6 +3989,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "R52")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "R52")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -3890,6 +4119,16 @@
 			(project "amp_module"
 				(path "/187e3c00-5c30-42c2-89ec-585912782641"
 					(reference "RF_U1B1")
+					(unit 1)
+				)
+			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "R51")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "R51")
 					(unit 1)
 				)
 			)
@@ -4015,6 +4254,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "R45")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "R45")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -4106,6 +4355,16 @@
 			(project "amp_module"
 				(path "/187e3c00-5c30-42c2-89ec-585912782641"
 					(reference "#PWR09")
+					(unit 1)
+				)
+			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "#PWR044")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "#PWR044")
 					(unit 1)
 				)
 			)
@@ -4256,6 +4515,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "C16")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "C16")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -4378,6 +4647,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "R43")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "R43")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -4469,6 +4748,16 @@
 			(project "amp_module"
 				(path "/187e3c00-5c30-42c2-89ec-585912782641"
 					(reference "#PWR08")
+					(unit 1)
+				)
+			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "#PWR041")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "#PWR041")
 					(unit 1)
 				)
 			)
@@ -4619,6 +4908,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "C15")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "C15")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -4739,6 +5038,16 @@
 			(project "amp_module"
 				(path "/187e3c00-5c30-42c2-89ec-585912782641"
 					(reference "RI_U1C1")
+					(unit 1)
+				)
+			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "R39")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "R39")
 					(unit 1)
 				)
 			)
@@ -4864,6 +5173,16 @@
 			(project "amp_module"
 				(path "/187e3c00-5c30-42c2-89ec-585912782641"
 					(reference "RD_U1B1")
+					(unit 1)
+				)
+			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "R50")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "R50")
 					(unit 1)
 				)
 			)
@@ -5014,6 +5333,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "C13")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "C13")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -5109,6 +5438,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "#PWR036")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "#PWR036")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -5200,6 +5539,16 @@
 			(project "amp_module"
 				(path "/187e3c00-5c30-42c2-89ec-585912782641"
 					(reference "#PWR04")
+					(unit 1)
+				)
+			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "#PWR040")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "#PWR040")
 					(unit 1)
 				)
 			)
@@ -5301,6 +5650,24 @@
 			(uuid "3c511fac-7072-4908-9957-c78c461792b7")
 		)
 		(instances
+			(project "master_of_muppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "U?")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "U?")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "U?")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "U?")
+					(unit 1)
+				)
+			)
 			(project "dac_module"
 				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
 					(reference "U1")
@@ -5415,6 +5782,24 @@
 			(uuid "3c511fac-7072-4908-9957-c78c461792b8")
 		)
 		(instances
+			(project "master_of_muppets"
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "U?")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/2605ff3f-ff92-4fa9-a945-25b3be4a890c/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "U?")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "U?")
+					(unit 1)
+				)
+				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "U?")
+					(unit 1)
+				)
+			)
 			(project "dac_module"
 				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
 					(reference "U1")
@@ -5554,6 +5939,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "R44")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "R44")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(symbol
@@ -5679,6 +6074,16 @@
 					(unit 1)
 				)
 			)
+			(project "MasterOfMuppets"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(reference "R49")
+					(unit 1)
+				)
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(reference "R49")
+					(unit 1)
+				)
+			)
 		)
 	)
 	(sheet
@@ -5728,7 +6133,7 @@
 			)
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b/415bd524-e348-40cf-853f-c7af6379b92b"
 					(page "19")
 				)
@@ -5753,6 +6158,26 @@
 				)
 				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/415bd524-e348-40cf-853f-c7af6379b92b"
 					(page "10")
+				)
+			)
+			(project ""
+				(path "/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(page "#")
+				)
+			)
+			(project "dac_shield"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(page "8")
+				)
+			)
+			(project ""
+				(path "/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(page "#")
+				)
+			)
+			(project "dac_shield"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(page "11")
 				)
 			)
 		)
@@ -5804,7 +6229,7 @@
 			)
 		)
 		(instances
-			(project "MasterOfMuppets"
+			(project "master_of_muppets"
 				(path "/01709e3c-d295-4eba-a9f6-77b38e73bd4a/60709206-8158-4f80-9acc-4f76df38190b/415bd524-e348-40cf-853f-c7af6379b92b"
 					(page "15")
 				)
@@ -5829,6 +6254,26 @@
 				)
 				(path "/177cfd6a-1ed3-4511-a0a7-a5da522e26c3/415bd524-e348-40cf-853f-c7af6379b92b"
 					(page "11")
+				)
+			)
+			(project ""
+				(path "/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(page "#")
+				)
+			)
+			(project "dac_shield"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/02ed2e6d-b4fd-4f27-b067-e65a1933feb0"
+					(page "9")
+				)
+			)
+			(project ""
+				(path "/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(page "#")
+				)
+			)
+			(project "dac_shield"
+				(path "/1d1a8259-5038-4281-bdbb-752827f270d2/ec8e2f2a-fbce-42dd-82e6-314ac5ba18d1/415bd524-e348-40cf-853f-c7af6379b92b"
+					(page "12")
 				)
 			)
 		)

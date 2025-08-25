@@ -544,7 +544,7 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "",
+      "netlist": "./",
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
@@ -669,10 +669,6 @@
   },
   "sheets": [
     [
-      "177cfd6a-1ed3-4511-a0a7-a5da522e26c3",
-      "Root"
-    ],
-    [
       "1ebaab9f-3adf-4ab6-b6c9-964263e520cd",
       "UNRIPPLE_MODULE1"
     ],
@@ -711,6 +707,10 @@
     [
       "eef141d8-f350-40f2-990d-9c18dcf6372d",
       "UNRIPPLE_MODULE1"
+    ],
+    [
+      "177cfd6a-1ed3-4511-a0a7-a5da522e26c3",
+      "Root"
     ]
   ],
   "text_variables": {}

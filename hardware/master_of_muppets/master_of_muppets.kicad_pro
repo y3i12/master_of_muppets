@@ -752,11 +752,11 @@
     ],
     [
       "415bd524-e348-40cf-853f-c7af6379b92b",
-      "AMP_MODULE1"
+      "AMP2_DAC1"
     ],
     [
       "02ed2e6d-b4fd-4f27-b067-e65a1933feb0",
-      "AMP_MODULE"
+      "AMP1_DAC1"
     ],
     [
       "2605ff3f-ff92-4fa9-a945-25b3be4a890c",
@@ -764,11 +764,11 @@
     ],
     [
       "02ed2e6d-b4fd-4f27-b067-e65a1933feb0",
-      "AMP_MODULE"
+      "AMP1_DAC1"
     ],
     [
       "415bd524-e348-40cf-853f-c7af6379b92b",
-      "AMP_MODULE1"
+      "AMP2_DAC1"
     ],
     [
       "1ebaab9f-3adf-4ab6-b6c9-964263e520cd",
@@ -837,6 +837,14 @@
     [
       "e6c67076-e350-448f-bd1d-4e535db93c1a",
       "JACK_SHEET"
+    ],
+    [
+      "5ed7dd5c-67a1-4571-a85d-9192a7cc48b9",
+      "POWER_MODULE"
+    ],
+    [
+      "cfd0e893-731a-4014-b9a8-26f02b45caa1",
+      "SCREW_TERMINAL"
     ],
     [
       "9b55f2e7-8956-440a-8522-8732ca051d63",
