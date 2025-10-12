@@ -16,7 +16,7 @@
 
 
 #define MASTER_OF_MUPPETS_AD5593R
-// #define DENTAL_CHECK
+#define DENTAL_CHECK
 // DMA operations are now always available via electric_mayhem
 // Control DMA usage at runtime with set_dma_mode() - see setup() for configuration
 // #define ENABLE_DMA_VALIDATION  // Enable comprehensive DMA validation system
@@ -30,7 +30,7 @@
 function_generator                          the_function_generator;
 
 // LFO Configuration - comment out LFO_ENABLED to use MIDI mode instead
-#define LFO_ENABLED
+// #define LFO_ENABLED
 // #define LFO_CHANNEL_RESTRICT  0  // Uncomment to restrict LFO to one channel
 
 // Debug LED Configuration  
@@ -43,7 +43,7 @@ namespace config {
     constexpr uint16_t lfo_frequency_hz = 1000;  // LFO frequency in Hz
     #endif
     
-    #ifdef DEBUG_LED_ENABLED_ENABLED
+    #ifdef DEBUG_LED_ENABLED
     constexpr uint8_t debug_led_pin = LED_BUILTIN;
     constexpr uint8_t debug_channel = 0;  // Which channel to display on LED
     #endif
@@ -119,7 +119,7 @@ static bool g_validation_mode_enabled = false;
 ////////////////////////////////////////////////////////////////////////////////
 // Led status and blinking functions
 ////////////////////////////////////////////////////////////////////////////////
-#ifdef DEBUG_LED_ENABLED_ENABLED
+#ifdef DEBUG_LED_ENABLED
 
 static float last_led_time = 0.0f;
 static bool  led_status    = false;
