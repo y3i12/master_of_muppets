@@ -61,7 +61,7 @@
     "layer_3_threading_integration": {
       "component": "Enhanced Electric Mayhem Controller",
       "files": [
-        "firmware/include/electric_mayhem_dma.h"
+        "firmware/include/electric_mayhem.h"
       ],
       "key_features": [
         "Template-based DMA support",

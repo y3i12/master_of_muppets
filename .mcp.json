@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "nabu": {
+      "command": "python",
+      "args": [
+        "-m",          "nabu.mcp.server",
+        "--db-path",   "nabu.kuzu",
+        "--repo-path", "/home/y3i12/master_of_muppets/",
+        "--context",   "development",
+        "--dev-mode"
+      ],
+      "env": {
+        "PYTHONPATH": "/home/y3i12/kuzuthulu_git/src",
+        "NABU_LOG_LEVEL": "INFO"
+      }
+    },
+    "serena": {
+      "command": "uv",
+      "args":[
+        "run", 
+        "--directory", "/home/y3i12/kuzuthulu_git/reference/serena/", 
+        "serena",      "start-mcp-server",
+        "--project",   "/home/y3i12/master_of_muppets"
+      ]
+    }
+  }
+}

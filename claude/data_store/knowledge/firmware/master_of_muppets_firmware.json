@@ -93,7 +93,7 @@
 "description": "Header files",
 "files": {
 "dr_teeth.h": "Core configuration and buffer management",
-"electric_mayhem.h": "Template-based multi-threaded DAC controller",
+"electric_mayhem.h": "DMA-enabled template-based multi-threaded DAC controller with synchronous fallback",
 "muppet_clock.h": "Global timing system",
 "drivers/adafruit_mcp_4728.h": "MCP4728 DAC driver interface",
 "drivers/rob_tillaart_ad_5993r.h": "AD5593R DAC driver interface"

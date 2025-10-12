@@ -94,7 +94,7 @@
 "description": "Header files and public interfaces",
 "structure": {
     "dr_teeth.h": "Main application interface (named after Muppets character)",
-    "electric_mayhem.h": "System-wide definitions and constants",
+    "electric_mayhem.h": "DMA-enabled multi-threaded DAC controller with fallback to synchronous operation",
     "muppet_clock.h": "Timing system interface",
     "drivers/": "Driver header files matching src/drivers/"
 }

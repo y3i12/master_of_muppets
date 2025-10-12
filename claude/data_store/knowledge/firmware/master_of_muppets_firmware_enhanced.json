@@ -21,8 +21,8 @@
               "key_features": ["Static buffer allocation", "Template-based DAC operations", "System-wide constants"]
             },
             "electric_mayhem.h": {
-              "purpose": "Template-based multi-threaded DAC controller with advanced synchronization",
-              "key_features": ["Thread-safe state management", "Sequence-based updates", "Worker thread orchestration"]
+              "purpose": "DMA-enabled template-based multi-threaded DAC controller with synchronous fallback and advanced synchronization",
+              "key_features": ["DMA-based asynchronous I2C operations", "Thread-safe state management", "Sequence-based updates", "Worker thread orchestration", "Runtime DMA mode control", "Automatic fallback to synchronous operation"]
             },
             "muppet_clock.h": {
               "purpose": "Global timing system with microsecond precision",

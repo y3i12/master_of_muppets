@@ -17,7 +17,7 @@
       "components": [
         "rob_tillaart_ad_5593r_async with DMA-aligned buffers and complete API",
         "dma_i2c_hal with IMXRT1062 hardware abstraction",
-        "electric_mayhem_dma with template specialization",
+        "electric_mayhem with template specialization",
         "dma_performance_validator with 7 automated test scenarios",
         "dma_error_handler with multi-level recovery strategies",
         "dma_realtime_monitor with continuous health monitoring"

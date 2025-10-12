@@ -18,7 +18,7 @@
 #include "dma_automatic_validation.h"
 #include "dma_performance_validator.h"
 #include "dma_error_handler.h"
-#include "electric_mayhem_dma.h"
+#include "electric_mayhem.h"
 #include "dr_teeth.h"
 
 // Global validation system instance
