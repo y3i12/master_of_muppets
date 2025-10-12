@@ -3,6 +3,7 @@
 
 #include "master_of_muppets.hpp"
 #include "electric_mayhem.h"
+#include "utils/scoped_lock.h"
 
 
 #include "function_generator.h"
@@ -28,13 +29,30 @@
 
 function_generator                          the_function_generator;
 
-#define LFO_FREQUENCY   1000        // in HZ. sinus functions in HZ * 10 - comment this line to disable lfo testing
-#define LFO_SHAPE       sinus       // triangle square stair sawtooth sinus sinusRectified sinusDiode trapezium1 trapezium2 heartBeat
-// #define LFO_CHANNEL     0        // restricts the LFO to one channel - coment this line to send the LFO to all chanells
+// LFO Configuration - comment out LFO_ENABLED to use MIDI mode instead
+#define LFO_ENABLED
+// #define LFO_CHANNEL_RESTRICT  0  // Uncomment to restrict LFO to one channel
 
-#define DEBUG_LED       LED_BUILTIN // port to analogWrite the value of DEBUG_CHANNEL as intensity (lfo or serial) - comment this line to disable blinking
-#define DEBUG_LED_BLINK             // makes the led blink
-#define DEBUG_CHANNEL   0           // which channel should go to the DEBUG_LED - comment this line to disable intensity showing
+// Debug LED Configuration  
+#define DEBUG_LED_ENABLED
+#define DEBUG_LED_BLINK_ENABLED
+
+// Type-safe configuration constants (only active when features enabled)
+namespace config {
+    #ifdef LFO_ENABLED
+    constexpr uint16_t lfo_frequency_hz = 1000;  // LFO frequency in Hz
+    #endif
+    
+    #ifdef DEBUG_LED_ENABLED_ENABLED
+    constexpr uint8_t debug_led_pin = LED_BUILTIN;
+    constexpr uint8_t debug_channel = 0;  // Which channel to display on LED
+    #endif
+}
+
+// For compatibility - LFO shape function selection
+#ifdef LFO_ENABLED
+#define LFO_SHAPE sinus  // triangle square stair sawtooth sinus sinusRectified sinusDiode trapezium1 trapezium2 heartBeat
+#endif
 #endif
 
 
@@ -65,14 +83,34 @@ using dac_driver_t = drivers::adafruit_mcp_4728;
 electric_mayhem< dac_driver_t > the_muppets;
 static Threads::Mutex           inspiration;
 
-// DMA Validation System Components
+// DMA Validation System Components - Using static storage to avoid heap allocation
 #ifdef ENABLE_DMA_VALIDATION
+
+// Static storage for validation objects (aligned properly)
+static alignas(dma_diagnostics::dma_error_handler) 
+    uint8_t g_error_handler_storage[sizeof(dma_diagnostics::dma_error_handler)];
+
+static alignas(dma_validation::dma_performance_validator) 
+    uint8_t g_perf_validator_storage[sizeof(dma_validation::dma_performance_validator)];
+
+static alignas(dma_validation::dma_test_suite) 
+    uint8_t g_test_suite_storage[sizeof(dma_validation::dma_test_suite)];
+
+static alignas(dma_validation::dma_realtime_monitor) 
+    uint8_t g_monitor_storage[sizeof(dma_validation::dma_realtime_monitor)];
+
+static alignas(dma_validation::dma_automatic_validation) 
+    uint8_t g_auto_validator_storage[sizeof(dma_validation::dma_automatic_validation)];
+
+// Pointers to constructed objects
+static dma_diagnostics::dma_error_handler*           g_error_handler           = nullptr;
 static dma_validation::dma_performance_validator*    g_perf_validator          = nullptr;
 static dma_validation::dma_test_suite*               g_test_suite              = nullptr;
 static dma_validation::dma_realtime_monitor*         g_monitor                 = nullptr;
-static dma_diagnostics::dma_error_handler*           g_error_handler           = nullptr;
 static dma_validation::dma_automatic_validation*     g_auto_validator          = nullptr;
-static bool                                          g_validation_mode_enabled = false;
+
+static bool g_validation_mode_enabled = false;
+
 #endif
 
 // Direct channel indexing without remapping
@@ -81,7 +119,7 @@ static bool                                          g_validation_mode_enabled =
 ////////////////////////////////////////////////////////////////////////////////
 // Led status and blinking functions
 ////////////////////////////////////////////////////////////////////////////////
-#if defined( DEBUG_LED ) || defined( DEBUG_CHANNEL )
+#ifdef DEBUG_LED_ENABLED_ENABLED
 
 static float last_led_time = 0.0f;
 static bool  led_status    = false;
@@ -92,25 +130,25 @@ void ublink( bool make_it_on = false ) {
         last_led_time = 0;
     }
 
-    #if defined( DEBUG_LED_BLINK ) && defined( DEBUG_CHANNEL )
+    #if defined(DEBUG_LED_BLINK_ENABLED)
         if ( !led_status && make_it_on && ( muppet_clock::what_time_is_it< float >() - last_led_time > 50.0f  ) ) { 
             last_led_time = muppet_clock::what_time_is_it< float >(); 
             led_status = true;
-            analogWrite( DEBUG_LED, 255 );  
+            analogWrite(config::debug_led_pin, 255);  
         } else if ( led_status && ( muppet_clock::what_time_is_it< float >() - last_led_time > 50.0f  ) ) { 
             last_led_time = muppet_clock::what_time_is_it< float >(); 
             led_status = false; 
-            analogWrite( DEBUG_LED, dr_teeth::output_buffer[ DEBUG_CHANNEL ] >> 8 ); 
+            analogWrite(config::debug_led_pin, dr_teeth::output_buffer[config::debug_channel] >> 8); 
         }
     #elif defined( DEBUG_LED_BLINK ) && defined( DEBUG_LED )
         if ( !led_status && make_it_on && ( muppet_clock::what_time_is_it< float >() - last_led_time > 50.0f  ) ) { 
             last_led_time = muppet_clock::what_time_is_it< float >(); 
             led_status = true;
-            analogWrite( DEBUG_LED, 255 );  
+            analogWrite(config::debug_led_pin, 255);  
         } else if ( led_status && ( muppet_clock::what_time_is_it< float >() - last_led_time > 50.0f  ) ) { 
             last_led_time = muppet_clock::what_time_is_it< float >(); 
             led_status = false; 
-            analogWrite( DEBUG_LED, 0 ); 
+            analogWrite(config::debug_led_pin, 0); 
         }
     #elif defined( DEBUG_LED ) && defined( DEBUG_CHANNEL )
         if ( !led_status && ( muppet_clock::what_time_is_it< float >() - last_led_time > 50.0f  ) ) { 
@@ -119,7 +157,7 @@ void ublink( bool make_it_on = false ) {
         } else if ( led_status && ( muppet_clock::what_time_is_it< float >() - last_led_time > 50.0f  ) ) { 
             last_led_time = muppet_clock::what_time_is_it< float >(); 
             led_status = false; 
-            analogWrite( DEBUG_LED, dr_teeth::output_buffer[ DEBUG_CHANNEL ] >> 8 ); 
+            analogWrite(config::debug_led_pin, dr_teeth::output_buffer[config::debug_channel] >> 8); 
         }
     #endif
       
@@ -131,24 +169,24 @@ void ublink( bool make_it_on = false ) {
 // Instead of receive serial data, outputs the LFO into dr_teeth's read buffer
 ////////////////////////////////////////////////////////////////////////////////
 
-#if defined( LFO_FREQUENCY )
+#ifdef LFO_ENABLED
 void test_lfo( void ) {
-    #ifdef DEBUG_LED
+    #ifdef DEBUG_LED_ENABLED
         ublink(true);
     #endif
 
     float     time  = muppet_clock::what_time_is_it< float >() * dr_teeth::k_time_to_seconds_factor;
     uint16_t  value = the_function_generator.LFO_SHAPE( time ) + dr_teeth::k_audio_half_scale;
 
-    #ifdef LFO_CHANNEL
-    dr_teeth::input_buffer[ LFO_CHANNEL ] = value;
+    #ifdef LFO_CHANNEL_RESTRICT
+    dr_teeth::input_buffer[config::lfo_channel_restrict] = value;
     #else
     for ( uint8_t channel_index = 0; channel_index < dr_teeth::k_total_channels; ++channel_index ) {
         dr_teeth::input_buffer[ channel_index ]   = value;
     }
     #endif
 
-    #ifdef DEBUG_LED
+    #ifdef DEBUG_LED_ENABLED
         ublink();
     #endif
 }
@@ -160,7 +198,7 @@ void test_lfo( void ) {
 
 // callback for pitch change
 void set_channel_value( uint8_t channel_index, int pitch ) {
-    #ifdef DEBUG_LED
+    #ifdef DEBUG_LED_ENABLED
         ublink(true);
     #endif
 
@@ -174,7 +212,7 @@ void set_channel_value( uint8_t channel_index, int pitch ) {
         min( pitch + dr_teeth::k_midi_pitch_zero_offset, dr_teeth::k_midi_pitch_14_bit_max ) * dr_teeth::k_midi_to_framework_scale 
     );
 
-    #ifdef DEBUG_LED
+    #ifdef DEBUG_LED_ENABLED
         ublink();
     #endif
 }
@@ -190,16 +228,16 @@ void midi_read( void ) {
 void the_voice_from_beyond ( void ) {
     while ( 1 ) {
         muppet_clock::tick();
-        inspiration.lock();
-
-        #ifdef LFO_FREQUENCY
-            test_lfo();
-        #else
-            midi_read();
-        #endif
-
-
-        inspiration.unlock();
+        
+        {
+            scoped_lock<Threads::Mutex> lock(inspiration);
+            
+            #ifdef LFO_ENABLED
+                test_lfo();
+            #else
+                midi_read();
+            #endif
+        } // Automatic unlock here
     }
 }
 
@@ -209,9 +247,8 @@ void the_voice_from_beyond ( void ) {
 
 void the_muppet_show ( void ) {
     while ( 1 ) {
-        inspiration.lock();
+        scoped_lock<Threads::Mutex> lock(inspiration);
         dr_teeth::go_muppets( the_muppets );
-        inspiration.unlock();
     }
 }
 
@@ -232,7 +269,9 @@ void initialize_dma_validation_system( void ) {
     error_config.enable_peripheral_reset    = true;
     error_config.enable_sync_fallback       = true;
     
-    g_error_handler = new dma_diagnostics::dma_error_handler( error_config );
+    // Use placement new on static storage (no heap allocation)
+    g_error_handler = new (g_error_handler_storage) 
+        dma_diagnostics::dma_error_handler(error_config);
     
     // Initialize performance validator
     dma_validation::dma_performance_validator::test_config_t perf_config;
@@ -245,10 +284,12 @@ void initialize_dma_validation_system( void ) {
     perf_config.max_acceptable_latency_us     = 1000;
     perf_config.thread_slice_limit_us         = 10;
     
-    g_perf_validator = new dma_validation::dma_performance_validator( perf_config );
+    g_perf_validator = new (g_perf_validator_storage) 
+        dma_validation::dma_performance_validator(perf_config);
     
     // Initialize test suite
-    g_test_suite = new dma_validation::dma_test_suite( g_perf_validator, g_error_handler );
+    g_test_suite = new (g_test_suite_storage) 
+        dma_validation::dma_test_suite(g_perf_validator, g_error_handler);
     
     // Initialize real-time monitor
     dma_validation::dma_realtime_monitor::monitor_config_t monitor_config;
@@ -259,7 +300,8 @@ void initialize_dma_validation_system( void ) {
     monitor_config.alert_threshold_latency_us  = 2000;
     monitor_config.alert_threshold_error_rate  = 1.0f;
     
-    g_monitor = new dma_validation::dma_realtime_monitor( g_perf_validator, monitor_config );
+    g_monitor = new (g_monitor_storage) 
+        dma_validation::dma_realtime_monitor(g_perf_validator, monitor_config);
     
     // Initialize automatic validation system
     dma_validation::dma_automatic_validation::validation_config_t val_config;
@@ -273,13 +315,14 @@ void initialize_dma_validation_system( void ) {
     val_config.phase_duration_ms                = 3600000; // 1 hour
     val_config.test_interval_ms                 = 300000;  // 5 minutes between tests
     
-    g_auto_validator = new dma_validation::dma_automatic_validation(
-        g_perf_validator, 
-        g_test_suite, 
-        g_monitor, 
-        g_error_handler, 
-        val_config
-    );
+    g_auto_validator = new (g_auto_validator_storage) 
+        dma_validation::dma_automatic_validation(
+            g_perf_validator, 
+            g_test_suite, 
+            g_monitor, 
+            g_error_handler, 
+            val_config
+        );
     
     Serial.println( "DMA Validation System initialized successfully!" );
 }
@@ -384,13 +427,14 @@ void handle_validation_commands( void ) {
 
 void cleanup_validation_system( void ) 
 {
+    // Call destructors explicitly (placement new cleanup)
     if ( g_auto_validator ) 
     {
         if ( g_auto_validator->is_validation_active( ) ) 
         {
             g_auto_validator->stop_validation( );
         }
-        delete g_auto_validator;
+        g_auto_validator->~dma_automatic_validation();
         g_auto_validator = nullptr;
     }
     
@@ -400,25 +444,25 @@ void cleanup_validation_system( void )
         {
             g_monitor->stop_monitoring( );
         }
-        delete g_monitor;
+        g_monitor->~dma_realtime_monitor();
         g_monitor = nullptr;
     }
     
     if ( g_test_suite ) 
     {
-        delete g_test_suite;
+        g_test_suite->~dma_test_suite();
         g_test_suite = nullptr;
     }
     
     if ( g_perf_validator ) 
     {
-        delete g_perf_validator;
+        g_perf_validator->~dma_performance_validator();
         g_perf_validator = nullptr;
     }
     
     if ( g_error_handler ) 
     {
-        delete g_error_handler;
+        g_error_handler->~dma_error_handler();
         g_error_handler = nullptr;
     }
 }
@@ -443,7 +487,7 @@ void setup( void ) {
     the_muppets.set_dma_mode( electric_mayhem< dac_driver_t >::dma_mode_t::ENABLED );
 
     #ifdef LFO_FREQUENCY
-        the_function_generator.setFrequency( LFO_FREQUENCY );
+        the_function_generator.setFrequency(config::lfo_frequency_hz);
         the_function_generator.setAmplitude( dr_teeth::k_audio_half_scale - 1 );
     #endif
 

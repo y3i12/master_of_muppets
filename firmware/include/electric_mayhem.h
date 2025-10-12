@@ -1,6 +1,7 @@
 #pragma once
 
 #include "dr_teeth.h"
+#include "utils/scoped_lock.h"
 #include "TeensyThreads.h"
 #include "drivers/rob_tillaart_ad_5993r_async.h"
 #include "drivers/rob_tillaart_ad_5993r.h"
@@ -129,6 +130,15 @@ protected:
 
     // Member variables
     dac_driver_t                                     muppets_[ dr_teeth::k_dac_count ];
+    
+    // Raw storage for async drivers (no heap allocation, no construction)
+    alignas(drivers::rob_tillaart_ad_5993r_async) 
+        uint8_t async_muppets_storage_[ dr_teeth::k_dac_count ][ sizeof(drivers::rob_tillaart_ad_5993r_async) ];
+    
+    alignas(drivers::async_dac_manager) 
+        uint8_t async_managers_storage_[ dr_teeth::k_dac_count ][ sizeof(drivers::async_dac_manager) ];
+    
+    // Pointers to async drivers (null when not using DMA)
     drivers::rob_tillaart_ad_5993r_async*           async_muppets_[ dr_teeth::k_dac_count ];
     drivers::async_dac_manager*                     async_managers_[ dr_teeth::k_dac_count ];
     orientation_guide_dma                           muppet_orientation_guides_[ dr_teeth::k_dac_count ];
@@ -363,9 +373,10 @@ void electric_mayhem< dac_driver_t >::throw_muppet_in_the_mud( uint8_t muppet_in
     if ( muppet_index >= dr_teeth::k_dac_count ) return;
     
     // Thread-safe update request using sequence increment
-    muppet_states_[ muppet_index ].state_mutex.lock();
-    muppet_states_[ muppet_index ].update_sequence++;
-    muppet_states_[ muppet_index ].state_mutex.unlock();
+    {
+        scoped_lock<Threads::Mutex> lock(muppet_states_[ muppet_index ].state_mutex);
+        muppet_states_[ muppet_index ].update_sequence++;
+    }
 }
 
 template < class dac_driver_t >
@@ -402,14 +413,13 @@ bool electric_mayhem< dac_driver_t >::is_dma_available() const {
 
 template < class dac_driver_t >
 void electric_mayhem< dac_driver_t >::reset_dma_statistics() {
-    stats_mutex_.lock();
+    scoped_lock<Threads::Mutex> lock(stats_mutex_);
     dma_stats_ = dma_statistics_t();
-    stats_mutex_.unlock();
 }
 
 template < class dac_driver_t >
 void electric_mayhem< dac_driver_t >::update_dma_statistics(bool success, uint32_t duration_us) {
-    stats_mutex_.lock();
+    scoped_lock<Threads::Mutex> lock(stats_mutex_);
     
     dma_stats_.total_dma_operations++;
     
@@ -437,21 +447,19 @@ void electric_mayhem< dac_driver_t >::update_dma_statistics(bool success, uint32
         dma_stats_.dma_errors++;
     }
     
-    stats_mutex_.unlock();
+    
 }
 
 template < class dac_driver_t >
 void electric_mayhem< dac_driver_t >::increment_dma_operation_count() {
-    stats_mutex_.lock();
+    scoped_lock<Threads::Mutex> lock(stats_mutex_);
     dma_stats_.total_dma_operations++;
-    stats_mutex_.unlock();
 }
 
 template < class dac_driver_t >
 void electric_mayhem< dac_driver_t >::increment_sync_fallback_count() {
-    stats_mutex_.lock();
+    scoped_lock<Threads::Mutex> lock(stats_mutex_);
     dma_stats_.fallback_to_sync_operations++;
-    stats_mutex_.unlock();
 }
 
 // Template specialization for rob_tillaart_ad_5993r driver
@@ -461,12 +469,14 @@ void electric_mayhem<drivers::rob_tillaart_ad_5993r>::initialize_async_driver(
     const drivers::rob_tillaart_ad_5993r::initialization_struct_t& init_struct, 
     uint8_t dma_channel) {
     
-    // Create and initialize async version of rob_tillaart_ad_5993r
-    async_muppets_[muppet_index] = new drivers::rob_tillaart_ad_5993r_async();
+    // Use placement new on pre-allocated raw storage (no heap allocation)
+    async_muppets_[muppet_index] = new (async_muppets_storage_[muppet_index]) 
+        drivers::rob_tillaart_ad_5993r_async();
     async_muppets_[muppet_index]->initialize_async(init_struct, dma_channel);
     
-    // Create async manager
-    async_managers_[muppet_index] = new drivers::async_dac_manager(async_muppets_[muppet_index]);
+    // Create async manager using placement new (requires pointer argument)
+    async_managers_[muppet_index] = new (async_managers_storage_[muppet_index]) 
+        drivers::async_dac_manager(async_muppets_[muppet_index]);
     muppet_states_[muppet_index].async_manager = async_managers_[muppet_index];
 }
 

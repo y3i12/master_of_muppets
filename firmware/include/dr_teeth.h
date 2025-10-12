@@ -23,12 +23,27 @@ struct dr_teeth {
     static uint16_t           output_buffer[ k_total_channels ];
     
     template< typename T >
-    static void     go_muppets( T& muppets ) {
+    static void go_muppets( T& muppets ) {
+        // Compile-time safety check
+        static_assert(T::k_channels_per_dac <= k_total_channels, 
+                     "DAC channels per device exceeds total buffer size");
+        
         for ( uint8_t muppet_index = 0; muppet_index < k_dac_count; ++muppet_index ) {
             if ( muppets.attention_please( muppet_index ) ) {
-                uint8_t starting_channel = muppet_index * T::k_channels_per_dac;
-
-                memcpy( &output_buffer[ starting_channel ], &input_buffer[ starting_channel ], sizeof( uint16_t ) * T::k_channels_per_dac );
+                constexpr uint8_t channels_per_dac = T::k_channels_per_dac;
+                const uint8_t starting_channel = muppet_index * channels_per_dac;
+                
+                // Runtime bounds check (debug builds only, zero cost in release)
+                #ifndef NDEBUG
+                if ( starting_channel + channels_per_dac > k_total_channels ) {
+                    // Buffer overflow would occur - skip this update
+                    return;
+                }
+                #endif
+                
+                memcpy( &output_buffer[ starting_channel ], 
+                       &input_buffer[ starting_channel ], 
+                       sizeof( uint16_t ) * channels_per_dac );
 
                 muppets.throw_muppet_in_the_mud( muppet_index );
                 muppets.thanks( muppet_index );
