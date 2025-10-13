@@ -5,7 +5,7 @@
  * @brief RAII mutex lock guard for exception-safe locking
  * 
  * Provides automatic mutex unlock on scope exit, preventing deadlocks
- * from early returns or exceptions. Zero overhead abstraction.
+ * from early returns or exceptions.
  */
 
 /**
